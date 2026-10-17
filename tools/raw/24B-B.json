@@ -511,7 +511,7 @@
      "prompt": "מהו הנפח $V$? עגלו לשלוש ספרות אחרי הנקודה.",
      "answer": 2.257,
      "tol": 0.001,
-     "explain": "$V=2\\pi\\left(\\frac{e}{2}-1\\right)\\approx 2.253$."
+     "explain": "$V=2\\pi\\left(\\frac{e}{2}-1\\right)\\approx 2.257$."
     },
     {
      "type": "order",
