@@ -1,0 +1,83 @@
+{
+  "slug": "calculus-1",
+  "titleHe": "אינפי 1",
+  "descriptionHe": "תרגול מבחנים - אינפי 1",
+  "accent": "#f87171",
+  "accent2": "#7c3aed",
+  "sourceFolder": "C:/Users/Adir/Desktop/BSC/שנה א/סמסטר ב/אינפי 1",
+  "topics": [
+    [
+      "sequences_limits",
+      "סדרות וגבולות"
+    ],
+    [
+      "function_limits",
+      "גבולות של פונקציות"
+    ],
+    [
+      "continuity",
+      "רציפות"
+    ],
+    [
+      "derivatives_tangents",
+      "נגזרות ומשיקים"
+    ],
+    [
+      "mean_value_theorems",
+      "משפטי ערך הביניים והממוצע"
+    ],
+    [
+      "lhopital_taylor",
+      "לופיטל וטיילור"
+    ],
+    [
+      "function_investigation",
+      "חקירת פונקציה"
+    ],
+    [
+      "extrema_optimization",
+      "מקסימום ומינימום"
+    ],
+    [
+      "indefinite_integrals",
+      "אינטגרל לא מסוים"
+    ],
+    [
+      "definite_integrals",
+      "אינטגרל מסוים"
+    ]
+  ],
+  "briefs": [],
+  "needHelp": [
+    {
+      "id": "investigation",
+      "titleHe": "חקירת פונקציה",
+      "icon": "📈",
+      "topic": "function_investigation",
+      "entryLabelHe": "צריך עזרה בחקירת פונקציה?"
+    },
+    {
+      "id": "recursive_seq",
+      "titleHe": "סדרות רקורסיביות והתכנסות",
+      "icon": "🔁",
+      "topic": "sequences_limits",
+      "entryLabelHe": "צריך עזרה בסדרות רקורסיביות?"
+    },
+    {
+      "id": "integration",
+      "titleHe": "בחירת שיטת אינטגרציה",
+      "icon": "∫",
+      "topic": "indefinite_integrals",
+      "entryLabelHe": "צריך עזרה בבחירת שיטת אינטגרציה?"
+    },
+    {
+      "id": "mvt_ineq",
+      "titleHe": "אי-שוויונות עם משפט לגרנז׳",
+      "icon": "⚖️",
+      "topic": "mean_value_theorems",
+      "entryLabelHe": "צריך עזרה באי-שוויונות עם לגרנז׳?"
+    }
+  ],
+  "storePrefix": "calculus-1",
+  "includeDrafts": false
+}
