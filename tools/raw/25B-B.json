@@ -1,0 +1,109 @@
+{
+ "examCode": "25B-B",
+ "examLabel": "מבחן סוף סמסטר ב' תשפ\"ה, מועד ב'",
+ "year": 2025,
+ "examDate": "11/08/2025",
+ "sourceFile": "calculus-1/25B-B exam (scan).pdf",
+ "solutionFile": "",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $f(x)=x\\cdot e^{\\frac{1}{x-2}}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
+   "hold": "no-key",
+   "points": 25
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "נתונה הסדרה: $a_1=\\sqrt{20}$ ו-$a_{n+1}=\\sqrt{20+a_n}$.\nהוכיחו כי הסדרה מתכנסת וחשבו את גבולה.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 13
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int(4x+6)\\arctan x\\,dx$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 12
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to0^+}\\left(\\frac{1}{x}\\right)^{\\tan 2x}$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 13
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "מצאו את משוואת המשיק של גרף הפונקציה: $y=(\\tan x)^{\\cos x}$ בנקודה $x=\\frac{\\pi}{4}$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 12
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to2}\\frac{\\sqrt{x+2}-\\sqrt{3x-2}}{\\sqrt{4x+1}-\\sqrt{5x-1}}$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 13
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את שטח התחום שחסום ע\"י גרף הפונקציה $f(x)=x^2$, הישר המשיק לגרף הפונקציה $f(x)$ בנקודה $(2,4)$ וציר ה-$X$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 12
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הוכיחו כי מתקיים האי שוויון: $e^{\\sin^2 b}-e^{\\sin^2 a}\\le e(b-a)$, עבור $-\\infty<a<b<\\infty$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 13
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{\\sin(x)\\,dx}{5+2\\cos(x)+\\cos^2(x)}$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 12
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח גוף הסיבוב הנוצר כסיבוב של התחום הכלוא בין חצי המעגל $y=\\sqrt{25-x^2}$ לבין הישר $y=3$ סביב ציר ה-$X$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 13
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "נתונה הפונקציה $f(x)=\\begin{cases}\\sin(ax), & x\\le0\\\\ x^2\\ln(x), & x>0\\end{cases}$ כאשר $a$ הוא פרמטר ממשי. עבור אילו ערכי $a$ הפונקציה תהיה גזירה בנקי $x=0$?",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 12
+  }
+ ]
+}
