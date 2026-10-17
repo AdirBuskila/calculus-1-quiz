@@ -1,0 +1,348 @@
+{
+ "examCode": "24B-A",
+ "refuter": "independent",
+ "derivationFiles": [
+  "tools/verify/24B-A/refute_calc.py",
+  "tools/verify/24B-A/refute_num.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ג",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree",
+     "note": "agree on key (b!=0, any a = official definition: limits finite and different). Wording caveat: under the broad textbook definition of first kind (finite one-sided limits) option a (b=0, a!=7/2, removable) is also first kind; the key relies on the official solution splitting removable vs jump."
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ד",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "officialSolutionSpotChecks": {
+  "2א": "agree",
+  "5ב": "agree",
+  "6ב": "agree"
+ }
+}

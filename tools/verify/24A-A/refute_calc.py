@@ -1,0 +1,11 @@
+from sympy import *
+x,t=symbols('x t',positive=True)
+print(apart(x**2/((x+2)*(x**2+1))))
+print(limit((1-tan(x))**(1/sin(2*x)),x,0))
+y=symbols('y'); print(simplify(diff(-atan(cos(2*y)/sqrt(3))/(2*sqrt(3)),y)-sin(2*y)/(3+cos(2*y)**2)))
+print(simplify(pi*integrate(atan(x),(x,0,1))), N(pi*integrate(atan(x),(x,0,1))))
+print(limit(integrate(sin(t**2),(t,0,sqrt(x)))/x**Rational(3,2),x,0,'+'))
+f=x**Rational(2,3)*exp(-x); print([N(f.subs(x,v)) for v in (-3 if False else 3**0,1,Rational(2,3))], N(3**Rational(2,3)*exp(3)))
+a=symbols('a'); print(limit((exp(a*x)-1)**2/x**2,x,0))
+print(pi*integrate(2*x-5,(x,Rational(5,2),3)))
+print(diff(exp(x)/x**2,x,2).simplify(), solve(diff(exp(x)/x**2,x),x))

@@ -1,0 +1,294 @@
+{
+ "examCode": "24A-A",
+ "refuter": "independent",
+ "derivationFiles": [
+  "tools/verify/24A-A/refute_calc.py",
+  "tools/verify/24B-A/refute_num.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "solution": "agree",
+   "rubric": "n/a (none)",
+   "pitfalls": "n/a (none)",
+   "steps": [],
+   "notes": "out of scope (no rubric/steps). Official solution error: concavity claim for x<0 is wrong, f''>0 on both sides."
+  },
+  {
+   "item": "2א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; pitfall 3 is weak (states the decomposition is valid, not a real error)."
+  },
+  {
+   "item": "2ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree",
+     "note": "agree on key a, but options print the variable as \"xp\" (sin(xp)/(2 sqrt(xp))) instead of x: display bug from sympy symbol name."
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "officialSolutionSpotChecks": {
+  "1": "DISAGREE: official part ג claims y''<0 for x<0; y''=e^x(x^2-4x+6)/x^4>0 for all x!=0 (disc<0), so f is convex-up on both sides (also what the official graph shows). Transcription matches page-01.",
+  "2א": "agree",
+  "5ב": "agree"
+ }
+}

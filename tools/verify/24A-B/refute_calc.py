@@ -1,0 +1,10 @@
+from sympy import *
+x,n,t=symbols('x n t',positive=True)
+print(apart((x**2+2*x+3)/((x-1)*(x+2)**2)))
+print(limit(((n**2+5*n-2)/(n**2+3*n-2))**n,n,oo))
+print(simplify(pi*integrate((4-sqrt(x))**2-(x-2)**2,(x,2,4))))
+f=x*exp(1/x); print([N(f.subs(x,v)) for v in (S(1)/2,1,3)], simplify(diff(f,x)))
+print(solve(1/sqrt(2-2*x)-S(1)/2,x))
+print(limit(x**4/integrate(t*cos(t**2),(t,0,x**2)),x,0,'+'))
+print(limit(4*(x-sqrt(3*x-2))/(x-2),x,2), limit(atan(2*x)/x,x,0))
+g=x**2*exp(x); print(solve(diff(g,x),x), solve(diff(g,x,2),x))

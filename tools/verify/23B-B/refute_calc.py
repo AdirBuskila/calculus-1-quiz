@@ -1,0 +1,10 @@
+from sympy import *
+x,t=symbols('x t',positive=True)
+f=x*exp(1/x); print(simplify(diff(f,x)),simplify(diff(f,x,2)), series(f.subs(x,1/t),t,0,3))
+print(limit(x**4/integrate(log(1+3*t),(t,0,x**2)),x,0))
+print(pi*integrate(x-x**2/4,(x,0,4)))
+print(limit(log(1+1/x)/sin(3/x),x,oo))
+print(simplify(diff(-log(exp(x)+exp(-x)),x)-(exp(-x)-exp(x))/(exp(-x)+exp(x))))
+print(simplify(integrate(1/sin(x),(x,pi/3,pi/2))), N(log(3)/2), simplify(sqrt(1+cot(x)**2)))
+z=symbols('z'); print(simplify(diff(2/sqrt(3)*atan(tan(z/2)/sqrt(3)),z)-1/(2+cos(z))))
+print(solve(Eq(log(z)**2,log(z)),z) if False else solve(Eq(symbols('L')**2,symbols('L'))))

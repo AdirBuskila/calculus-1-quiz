@@ -1,0 +1,299 @@
+{
+ "examCode": "23B-B",
+ "refuter": "independent",
+ "derivationFiles": [
+  "tools/verify/23B-B/refute_calc.py",
+  "tools/verify/24B-A/refute_num.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "solution agrees (limit 5); official text has a typo \"bounded above by 6\" while proving a_n<5."
+  },
+  {
+   "item": "3א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "solution agrees (2/3); official second L'Hopital line drops factors of x (4x/(6x/(1+3x^2)) written as 4/(6/(1+3x^2))), final value correct."
+  },
+  {
+   "item": "3ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; pitfall 2 describes a grading policy, not an error."
+  },
+  {
+   "item": "5ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "solution final answer x-ln(1+e^{2x}) agrees; official middle line writes ln(1+x^2) (typo), final line correct."
+  },
+  {
+   "item": "6א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "officialSolutionSpotChecks": {
+  "1": "agree",
+  "4ב": "agree",
+  "6א": "agree"
+ }
+}

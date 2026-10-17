@@ -1,0 +1,296 @@
+{
+ "examCode": "24A-B",
+ "refuter": "independent",
+ "derivationFiles": [
+  "tools/verify/24A-B/refute_calc.py",
+  "tools/verify/24B-A/refute_num.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree",
+     "note": "agree on key d; wording nit: \"all terms greater than 4\" is false for a_1=4 (should be \"not less than 4\"/\"at least 4\")."
+    },
+    {
+     "i": 2,
+     "type": "order",
+     "verdict": "agree",
+     "note": "agree on order; line 3 has the same \"greater than 4\" nit (a_1=4)."
+    },
+    {
+     "i": 3,
+     "type": "findbug",
+     "verdict": "agree",
+     "note": "agree on bugIndex 2 (L^2+L-20); line 3 carries the same \"greater than 4\" nit."
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "solution": "agree",
+   "rubric": "n/a (none)",
+   "pitfalls": "n/a (none)",
+   "steps": [],
+   "notes": "out of scope (hold, no steps/rubric). Printed numerator x^4 gives limit 2 (sympy/mpmath); official solution computes sin^2 x -> +inf. Page-07 shows the solution with sin^2 x. Known held mismatch."
+  }
+ ],
+ "officialSolutionSpotChecks": {
+  "2א": "agree",
+  "4ב": "agree",
+  "5ב": "agree"
+ }
+}
