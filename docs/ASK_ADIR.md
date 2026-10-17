@@ -62,4 +62,40 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: approve shipping with the corrected bound 4.57e-4, or leave Q6b out.
 - Status: hold
 
+### 20B-C Q1-Q6 - no key
+- Path: sitting 20B-C (printed exam only; joint EE + CS exam, in scope)
+- Page: 1-2
+- Question: no solution exists; all 11 items (Q1, Q2a-b ... Q6a-b) are transcribed and held with reason no-key.
+- Needed: route to the solver (no action from Adir).
+- Status: hold
+
+### 21B-B Q2, Q6a, Q6b - question text missing from the only file
+- Path: sitting 21B-B (full-solutions PDF; both source trees hold the identical file)
+- Page: 1-3 (Q2 absent), 6-7 (Q6)
+- Question: the file has no Q2 at all (p.1 ends at Q1, p.3 starts at Q3), and for Q6a/Q6b it prints only the worked solution, not the stem. Q2 is held (not-in-source). Q6a/Q6b are held (stem-not-printed) with the official solutions kept in raw. Q6a is clearly "tangent line at (1,0) to 2x^4+3x^2y^3-2sin y=2" and Q6b an area between a sideways parabola and two lines, but the exact wording is not printed.
+- Needed: supply the printed stems (or approve reconstructed wording) so Q6a/b can ship; Q2 needs the original exam.
+- Status: hold
+
+### 21B-B Q3a - official conclusion names the wrong interval
+- Path: sitting 21B-B (full-solutions PDF)
+- Page: 3
+- Question: the solution concludes that a root c lies in (-1,0), but f(0)=5>0 and f(-1)=4.04>0 (no sign change there); f(1)=-3.96<0 (printed -3.99), so the root is in (0,1). The existence proof itself is fine.
+- Needed: none if the corrected label is acceptable (shipped with the "הפתרון הרשמי עם תיקון" label, official:false); say if you would rather treat it as a silent intermediate slip.
+- Status: shipped with label
+
+### 21A-B Q4b - handwritten solution reaches a wrong volume
+- Path: sitting 21A-B (image PDF)
+- Page: 7-8
+- Question: the stem and solution of Q4b are on a handwritten page of unknown author. The washer set-up is right, but the arithmetic ends at pi(1184 - 224*sqrt(2)/3) = 3387.9. The correct volume is 128*pi = 402.1 (sympy, washers and shells agree).
+- Needed: none if shipping the corrected solution (labeled, solved, official:false, confidence med) is acceptable; it still needs the refuter pass.
+- Status: shipped with label
+
+### Silent corrections (intermediate slips, no student-facing label; for the record)
+- 20B-A Q1 (p.2): printed f'' numerator has "-2e^(2x)" inside the first bracket; it must be "+2e^(2x)" (the simplified f'' printed next is right).
+- 21B-B Q3b (p.4): "0.5ln|t-3| - 0.5|t-1|" is missing the second ln; restored.
+- 21B-B Q6a (held, p.6): implicit derivative printed as 8x^4, should be 8x^3; the slope 4 is unchanged.
+- 21A-B Q4b (p.8): the antiderivative of 8*sqrt(y)-y is written with "+ y^2/2"; it is "- y^2/2" (inside the already-labeled Q4b).
+- 21A-B Q2b (p.3-4), Q4a (p.6): not slips, but the official text ignores that arcsin(x/5) is defined only on [-5,5] and divides by a2 (assumes a2 != 0); transcribed as printed.
+- Status: logged
+
 ## Resolved

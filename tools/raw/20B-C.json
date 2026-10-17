@@ -1,0 +1,109 @@
+{
+ "examCode": "20B-C",
+ "examLabel": "מבחן סוף סמסטר קיץ תש\"פ, מועד ב'",
+ "year": 2020,
+ "examDate": "27/10/2020",
+ "sourceFile": "calculus-1/20B-C exam.pdf",
+ "solutionFile": "",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $f(x)=\\frac{x^3}{2(x+1)^2}$ לפי הסעיפים הבאים: תחום הגדרה, תחומי עליה/ירידה, נקודות קיצון, קמירות ונקודות פיתול, אסימפטוטות. שרטטו את גרף הפונקציה.",
+   "hold": "no-key",
+   "points": 20
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "sequences_limits",
+   "question": "חשבו את גבול הסדרה $\\lim_{n\\to\\infty}\\frac{3^n}{3^n+b^n}$, כאשר $b>0$ הוא פרמטר ממשי.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{x^3+2x+5}{x^2-1}\\,dx$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "continuity",
+   "question": "האם הפונקציה\n$$f(x)=\\begin{cases}\\frac{e^x-1}{\\sin 2x}, & x<0\\ \\frac{1}{2}, & x=0\\ x\\cdot\\ln x+\\frac{\\arcsin x}{2x}, & x>0\\end{cases}$$\nרציפה ב-$x=0$?",
+   "hold": "no-key",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "extrema_optimization",
+   "question": "מצאו את הערך המקסימלי ואת הערך המינימלי של הפונקציה $f(x)=x\\sqrt{18-x^2}$ בקטע $[0,4]$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\ln^2 x\\,dx$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול $\\lim_{x\\to2}\\frac{\\sqrt{3x-2}-\\sqrt{x+2}}{x^2-4}$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "definite_integrals",
+   "question": "הוכיחו את אי-השוויון הבא: $\\frac{2}{3}\\le\\int_{-1}^{1}\\frac{1}{2x^4+1}\\,dx\\le2$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול $\\lim_{x\\to0}\\frac{1}{x^3}\\int_0^x\\frac{t^2}{1+t^4}\\,dt$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "בעזרת דיפרנציאל של הפונקציה $y=\\tan x$ בנקודה $x=\\frac{\\pi}{4}$ חשבו בקירוב את $\\tan 48^\\circ$.",
+   "hold": "no-key",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את השטח הכלוא בין הקווים $y=2x,\\quad y=\\frac{x}{2},\\quad y=\\frac{1}{x}$.",
+   "hold": "no-key",
+   "part": "ב",
+   "points": 10
+  }
+ ]
+}
