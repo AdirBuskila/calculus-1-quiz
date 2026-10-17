@@ -90,12 +90,35 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none if shipping the corrected solution (labeled, solved, official:false, confidence med) is acceptable; it still needs the refuter pass.
 - Status: shipped with label
 
+### 18B-A Q4b - handwritten solution ends with the wrong coefficient
+- Path: sitting 18B-A (handwritten solution PDF, author not stated)
+- Page: solution p.3
+- Question: the written solution reaches pi^2/12 - pi/3 + (pi/6)ln2, but the step before it gives int(x - x/(1+x^2)) = 1/2 - (1/2)ln2, so the correct volume is pi^2/12 - pi/6 + (pi/6)ln2 (sympy).
+- Needed: none if the corrected, labeled version is acceptable (solved, official:false, confidence med).
+- Status: shipped with label
+
+### 18B-A Q3b - handwritten words barely legible
+- Path: sitting 18B-A (handwritten solution PDF)
+- Page: solution p.3 top
+- Question: the existence part (IVT on [-pi/2, 0]) is clear. The uniqueness line is partly illegible; it reads as "infinitely many solutions for x<0, since sin x takes all values in [-1,1] and 0<e^x<1". Shipped as "not unique" with an IVT argument per interval [-pi/2-2*pi*k, -2*pi*k] (numerically >= 8 roots in [-30, 0.5]).
+- Needed: confirm "not unique" is the intended answer; the whole 18B-A solution is an unnamed handwritten source and needs the refuter (student-solution, official:false).
+- Status: shipped, needs refuter
+
+### 19A-C - skipped, different course
+- Path: sitting 19A-C (summer 2019, moed A)
+- Page: 1
+- Question: the header reads course 20027 (Technology Management), lecturer-specific, not 20151. Out of scope under the same rule as the EE variants. Its Q1 solution sketch also has the axes mislabelled.
+- Needed: confirm skipping it (then 17-and-older is the next batch member instead).
+- Status: skipped
+
 ### Silent corrections (intermediate slips, no student-facing label; for the record)
 - 20B-A Q1 (p.2): printed f'' numerator has "-2e^(2x)" inside the first bracket; it must be "+2e^(2x)" (the simplified f'' printed next is right).
 - 21B-B Q3b (p.4): "0.5ln|t-3| - 0.5|t-1|" is missing the second ln; restored.
 - 21B-B Q6a (held, p.6): implicit derivative printed as 8x^4, should be 8x^3; the slope 4 is unchanged.
 - 21A-B Q4b (p.8): the antiderivative of 8*sqrt(y)-y is written with "+ y^2/2"; it is "- y^2/2" (inside the already-labeled Q4b).
 - 21A-B Q2b (p.3-4), Q4a (p.6): not slips, but the official text ignores that arcsin(x/5) is defined only on [-5,5] and divides by a2 (assumes a2 != 0); transcribed as printed.
+- 18B-A Q1 (solution p.1): the handwritten one-sided limits at x=-sqrt(3) have the signs swapped (+oo from the right, -oo from the left is correct); corrected (y is odd, check agrees).
+- 18B-A Q6b (solution p.4): the L'Hopital quotient drops the factor x (x -> 1, harmless); restored.
 - Status: logged
 
 ## Resolved

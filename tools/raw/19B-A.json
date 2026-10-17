@@ -1,0 +1,141 @@
+{
+ "examCode": "19B-A",
+ "examLabel": "מבחן סוף סמסטר א' תשע\"ט, מועד ב'",
+ "year": 2019,
+ "examDate": "27/03/2019",
+ "sourceFile": "calculus-1/19B-A exam+solution.pdf",
+ "solutionFile": "calculus-1/19B-A exam+solution.pdf",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $y=\\frac{2x^2}{x^2-1}$ על פי הסעיפים הבאים: תחום הגדרה, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
+   "solution": "$$f(x)=\\frac{2x^2}{x^2-1}=2+\\frac{2}{x^2-1}$$\n**תחום ההגדרה:** $(-\\infty,-1)\\cup(-1,1)\\cup(1,+\\infty)$.\n**אסימפטוטה אנכית** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{2x^2}{x^2-1}=\\left[\\frac{2}{0^+}\\right]=+\\infty,\\qquad\\lim_{x\\to1^-}\\frac{2x^2}{x^2-1}=\\left[\\frac{2}{0^-}\\right]=-\\infty$$\n**אסימפטוטה אנכית** $x=-1$:\n$$\\lim_{x\\to-1^+}\\frac{2x^2}{x^2-1}=\\left[\\frac{2}{0^-}\\right]=-\\infty,\\qquad\\lim_{x\\to-1^-}\\frac{2x^2}{x^2-1}=\\left[\\frac{2}{0^+}\\right]=+\\infty$$\n**אסימפטוטה אופקית** ב-$+\\infty$ וב-$-\\infty$: $y=2$:\n$$\\lim_{x\\to\\pm\\infty}\\frac{2x^2}{x^2-1}=\\lim_{x\\to\\pm\\infty}\\left(2+\\frac{2}{x^2-1}\\right)=\\left[2+\\frac{2}{+\\infty}\\right]=2$$\n$$f'(x)=\\left(2+\\frac{2}{x^2-1}\\right)'=\\frac{-4x}{\\left(x^2-1\\right)^2}$$\nתחומי עלייה: $(-\\infty,-1),(-1,0)$. תחומי ירידה: $(0,1),(1,+\\infty)$. נקודת מקסימום מקומי: $x=0$, $f(0)=0$.\n$$f''(x)=\\left(\\frac{-4x}{\\left(x^2-1\\right)^2}\\right)'=\\frac{-4\\left(x^2-1\\right)^2+4x\\cdot2\\left(x^2-1\\right)2x}{\\left(x^2-1\\right)^4}=\\frac{4\\left(-x^2+1+4x^2\\right)}{\\left(x^2-1\\right)^3}=\\frac{4\\left(3x^2+1\\right)}{\\left(x^2-1\\right)^3}$$\nקמורה ב: $(-\\infty,-1),(1,+\\infty)$. קעורה ב: $(-1,1)$. אין נקודת פיתול.\n![גרף הפונקציה y = 2x²/(x²−1) עם האסימפטוטות x=1, x=−1, y=2 והמקסימום ב-(0,0)](images/exams/19B-A-Q1-graph.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "הוכיחו כי הסדרה $a_{n+1}=\\sqrt{5a_n-6},\\quad a_1=4$ מתכנסת וחשבו את הגבול של הסדרה.",
+   "solution": "סדרה $\\{a_n\\}_{n=1}^\\infty$ חסומה מלמטה כי $a_n>3$ לכל $n\\in\\mathbb{N}$.\nהוכחה על ידי אינדוקציה מתמטית: $n=1$: $a_1=4>3$. נניח ש-$a_k>3$. יש להוכיח ש-$a_{k+1}>3$.\n$$a_{k+1}=\\sqrt{5a_k-6}>\\sqrt{5\\cdot3-6}=3$$\nסדרה $\\{a_n\\}_{n=1}^\\infty$ מונוטונית יורדת:\n$$a_{n+1}-a_n=\\sqrt{5a_n-6}-a_n=\\frac{5a_n-6-a_n^2}{\\sqrt{5a_n-6}+a_n}=-\\frac{(a_n-2)(a_n-3)}{\\sqrt{5a_n-6}+a_n}<0$$\nכי $a_n>3$. אז סדרה $\\{a_n\\}_{n=1}^\\infty$ מונוטונית יורדת.\nסדרה $\\{a_n\\}_{n=1}^\\infty$ מונוטונית יורדת וחסומה מלמטה, אז $\\{a_n\\}_{n=1}^\\infty$ מתכנסת. ז\"א קיים $L\\ge3$ כך ש-$L=\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}a_n$.\n$$L=\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\sqrt{5a_n-6}=\\sqrt{5L-6}\\ \\Rightarrow\\ L=\\sqrt{5L-6}$$\n$$L^2-5L+6=0,\\ L\\ge3\\ \\Rightarrow\\ L=3$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "continuity",
+   "question": "הוכח כי למשוואה $x^3+e^x=-x$ קיים פתרון אחד בלבד.",
+   "solution": "נניח ש-$f(x)=x^3+x+e^x$, המשוואה $f(x)=0$ היא שקולה למשוואה הנתונה.\n$$f(-1)=(-1)^3+(-1)+e^{(-1)}=-2+\\frac1e<-2+1=-1<0$$\n$$f(0)=0^3+0+e^0=1>0$$\n$f(x)$ רציפה ב-$[-1,0]$ ו-$f(-1)\\cdot f(0)<0$, אז לפי משפט על ערך הביניים קיים $c\\in(-1,0)$ כך ש-$f(c)=0$. ז\"א למשוואה הנתונה קיים פתרון $x=c$.\n$f'(x)=\\left(x^3+x+e^x\\right)'=3x^2+1+e^x$. אז $f'(x)>0$ ב-$(-\\infty,+\\infty)$, ז\"א $f(x)$ מונוטונית עולה ממש ב-$(-\\infty,+\\infty)$. קיבלנו ש-$f(x)$ חח\"ע ב-$(-\\infty,+\\infty)$. אז $f(x)=0$ רק כאשר $x=c$.\nז\"א למשוואה הנתונה קיים פתרון אחד בלבד $x=c$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to+\\infty}\\left(1+e^x\\right)^{\\frac{1}{x}}$.",
+   "solution": "$$\\lim_{x\\to+\\infty}\\left(1+e^x\\right)^{\\frac1x}=\\left[\\infty^0\\right]=\\lim_{x\\to+\\infty}e^{\\frac1x\\ln\\left(1+e^x\\right)}$$\n$$\\lim_{x\\to+\\infty}\\frac1x\\ln\\left(1+e^x\\right)=\\lim_{x\\to+\\infty}\\frac{\\ln\\left(1+e^x\\right)}{x}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to+\\infty}\\frac{\\left(\\ln\\left(1+e^x\\right)\\right)'}{(x)'}=$$\n$$=\\lim_{x\\to+\\infty}\\frac{\\frac{e^x}{1+e^x}}{1}=\\lim_{x\\to+\\infty}\\frac{e^x}{1+e^x}=\\lim_{x\\to+\\infty}\\frac{1}{e^{-x}+1}=\\frac{1}{0+1}=1$$\n$$\\lim_{x\\to+\\infty}\\left(1+e^x\\right)^{\\frac1x}=e^1=e$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\arcsin x\\,dx$.",
+   "solution": "$$\\int\\arcsin x\\,dx=\\left[u=\\arcsin x,\\ v'=1\\Rightarrow u'=\\frac{1}{\\sqrt{1-x^2}},\\ v=x\\right]=$$\n$$=x\\arcsin x-\\int\\frac{x}{\\sqrt{1-x^2}}\\,dx=x\\arcsin x+\\frac12\\int\\frac{\\left(1-x^2\\right)'}{\\sqrt{1-x^2}}\\,dx=x\\arcsin x+\\sqrt{1-x^2}+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "continuity",
+   "question": "נתונה הפונקציה $g(x)=\\begin{cases}\\ln\\left(a+e^{-\\frac1x}\\right), & x>0\\\\[2mm] \\ln^2\\left(a+x^2\\right), & x\\le0\\end{cases}$, כאשר $a>0$. עבור אילו ערכי $a$ הפונקציה $g$ רציפה ב-$\\mathbb{R}$?",
+   "solution": "הפונקציה רציפה ב-$x=0$, אם $\\lim_{x\\to0^-}g(x)=\\lim_{x\\to0^+}g(x)=g(0)$.\n$$\\lim_{x\\to0^-}g(x)=\\lim_{x\\to0^-}\\left(\\ln\\left(a+x^2\\right)\\right)^2=(\\ln a)^2,\\qquad g(0)=(\\ln a)^2$$\n$$\\lim_{x\\to0^+}g(x)=\\lim_{x\\to0^+}\\ln\\left(a+e^{-\\frac1x}\\right)=\\ln a$$\n$$(\\ln a)^2=\\ln a\\ \\Rightarrow\\ (\\ln a)^2-\\ln a=0\\ \\Rightarrow\\ \\ln a(\\ln a-1)=0$$\nז\"א $\\ln a=0$ או $\\ln a=1$ ז\"א $a=1$ או $a=e$.\nאם $x\\in(-\\infty,0)$, $g(x)=\\ln^2\\left(a+x^2\\right)$ רציפה כפונקציה אלמנטרית.\nאם $x\\in(0,+\\infty)$, $g(x)=\\ln\\left(a+e^{-\\frac1x}\\right)$ רציפה כפונקציה אלמנטרית.\nאז הפונקציה $g(x)$ רציפה ב-$\\mathbb{R}$ עבור $a=1$ או $a=e$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "מצאו את משוואת המשיק לגרף של הפונקציה $f(x)=\\ln\\left(1+x^2\\right)$ המקביל לישר $x-y=7$.",
+   "solution": "$$y=1\\cdot x-7\\ \\Rightarrow\\ f'(x_0)=1\\ \\Rightarrow\\ \\frac{2x_0}{1+x_0^2}=1\\ \\Rightarrow\\ x_0=1,\\quad f(1)=\\ln2$$\n$$y=f(1)+f'(1)(x-1)\\ \\Rightarrow\\ y=\\ln2+(x-1)\\ \\Rightarrow\\ y=x+(\\ln2-1)$$\nמשוואת המשיק לגרף של הפונקציה היא $y=x+(\\ln2-1)$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול $\\lim_{x\\to-\\infty}\\left(\\sqrt{2+2x+x^2}-\\sqrt{2-2x+x^2}\\right)$.",
+   "solution": "$$\\lim_{x\\to-\\infty}\\left(\\sqrt{2+2x+x^2}-\\sqrt{2-2x+x^2}\\right)=\\lim_{x\\to-\\infty}\\frac{2+2x+x^2-2+2x-x^2}{\\sqrt{2+2x+x^2}+\\sqrt{2-2x+x^2}}=$$\n$$=\\lim_{x\\to-\\infty}\\frac{4x}{\\sqrt{2+2x+x^2}+\\sqrt{2-2x+x^2}}=\\lim_{x\\to-\\infty}\\frac{4x}{|x|\\left(\\sqrt{\\frac{2}{x^2}+\\frac2x+1}+\\sqrt{\\frac{2}{x^2}-\\frac2x+1}\\right)}=$$\n$$=\\lim_{x\\to-\\infty}\\frac{4}{-\\left(\\sqrt{\\frac{2}{x^2}+\\frac2x+1}+\\sqrt{\\frac{2}{x^2}-\\frac2x+1}\\right)}=\\frac{4}{-\\left(\\sqrt1+\\sqrt1\\right)}=-2$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{x}{\\left(x^2+1\\right)(x+1)}\\,dx$.",
+   "solution": "$$\\frac{x}{\\left(x^2+1\\right)(x+1)}=\\frac{A}{x+1}+\\frac{Bx+C}{x^2+1}=\\frac{A\\left(x^2+1\\right)+(Bx+C)(x+1)}{\\left(x^2+1\\right)(x+1)}$$\n$$x=A\\left(x^2+1\\right)+(Bx+C)(x+1)=(A+B)x^2+(B+C)x+(A+C)$$\n$$(A+B)=0,\\ (B+C)=1,\\ (A+C)=0\\ \\Rightarrow\\ A=-\\frac12,\\ B=\\frac12,\\ C=\\frac12$$\n$$\\int\\frac{x}{\\left(x^2+1\\right)(x+1)}dx=\\int\\left(\\frac{-\\frac12}{x+1}+\\frac{\\frac12x+\\frac12}{x^2+1}\\right)dx=$$\n$$=-\\frac12\\int\\frac{1}{x+1}dx+\\frac14\\int\\frac{2x}{x^2+1}dx+\\frac12\\int\\frac{1}{x^2+1}dx=-\\frac12\\ln|x+1|+\\frac14\\ln\\left(x^2+1\\right)+\\frac12\\arctan x+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "מצאו את נפח הגוף, הנוצר על-ידי סיבוב סביב ציר ה-$X$ של התחום הכלוא בין הקווים הבאים: $y=\\cos x,\\ y=\\frac\\pi2-x$ כאשר $0\\le x\\le\\frac\\pi2$.",
+   "solution": "$$V=\\pi\\int_0^{\\frac\\pi2}\\left(\\left(\\frac\\pi2-x\\right)^2-(\\cos x)^2\\right)dx=\\pi\\int_0^{\\frac\\pi2}\\left(\\left(x-\\frac\\pi2\\right)^2-\\frac12-\\frac12\\cos2x\\right)dx=$$\n$$=\\pi\\left(-\\frac13\\left(\\frac\\pi2-x\\right)^3-\\frac12x-\\frac14\\sin2x\\right)\\Bigg|_0^{\\frac\\pi2}=\\pi\\left(-\\frac12\\cdot\\frac\\pi2+\\frac13\\left(\\frac\\pi2\\right)^3\\right)=\\frac{\\pi^2}{4}\\left(-1+\\frac16\\pi^2\\right)$$\n![התחום הכלוא בין y = cos x לבין הישר y = π/2 − x וציר ה-y, שמסתובב סביב ציר ה-x](images/exams/19B-A-Q6a-fig.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את השטח הכלוא בין הקווים הבאים: $y=\\sqrt{x+2},\\ y=\\sqrt{2x}$ ו-$y=0$.",
+   "solution": "$$S=\\int_{-2}^{2}\\sqrt{x+2}\\,dx-\\int_0^2\\sqrt{2x}\\,dx=\\left(\\frac23(x+2)^{\\frac32}\\right)\\Bigg|_{-2}^{2}-\\sqrt2\\left(\\frac23(x)^{\\frac32}\\right)\\Bigg|_0^2=$$\n$$=\\frac23(4)^{\\frac32}-\\sqrt2\\,\\frac23(2)^{\\frac32}=\\frac23(8-4)=\\frac83$$\n![התחום הכלוא בין y = √(x+2), y = √(2x) וציר ה-x](images/exams/19B-A-Q6b-fig.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  }
+ ]
+}
