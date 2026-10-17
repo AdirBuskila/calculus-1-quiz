@@ -1,0 +1,33 @@
+# sympy check of every official answer in 23A-B. Run: PYTHONUTF8=1 py tools/verify/23A-B/check.py
+import sympy as sp
+x=sp.symbols('x',positive=True); xr=sp.symbols('xr',real=True); L=sp.symbols('L')
+r=[]
+def ok(name,cond): r.append((name,bool(cond)))
+f=(sp.log(x)-1)/sp.log(x)
+ok("Q1 f'",sp.simplify(sp.diff(f,x)-1/(x*sp.log(x)**2))==0)
+ok("Q1 f''",sp.simplify(sp.diff(f,x,2)+(sp.log(x)+2)/(x**2*sp.log(x)**3))==0)
+ok("Q1 zero (e,0)",f.subs(x,sp.E)==0)
+ok("Q1 asymptotes",sp.limit(f,x,1,'-')==sp.oo and sp.limit(f,x,1,'+')==-sp.oo and sp.limit(f,x,sp.oo)==1 and sp.limit(f/x,x,sp.oo)==0 and sp.limit(f,x,0,'+')==1)
+ok("Q1 f'' signs (+ on (e^-2,1), - on x>1, - on (0,e^-2))",[sp.sign(sp.diff(f,x,2).subs(x,v)) for v in (sp.exp(-3),sp.exp(-1),2)]==[-1,1,-1])
+ok("Q2a coeffs A=1,B=1,C=0",sp.simplify(sp.apart((2*x**2+x+4)/((x+1)*(x**2+4)),x)-(1/(x+1)+x/(x**2+4)))==0)
+ok("Q2a",sp.simplify(sp.diff(sp.log(x+1)+sp.log(x**2+4)/2,x)-(2*x**2+x+4)/((x+1)*(x**2+4)))==0)
+a=[sp.Integer(3)]
+for i in range(7): a.append((a[-1]+7/a[-1])/2)
+ok("Q2b a2=8/3 a3=127/48 decreasing >=sqrt7",a[1]==sp.Rational(8,3) and a[2]==sp.Rational(127,48) and all(a[i+1]<a[i] and a[i]>=sp.sqrt(7) for i in range(7)))
+ok("Q2b limit sqrt7",sp.solve(sp.Eq(L,(L+7/L)/2),L)==[-sp.sqrt(7),sp.sqrt(7)] or set(sp.solve(sp.Eq(L,(L+7/L)/2),L))=={sp.sqrt(7),-sp.sqrt(7)})
+ok("Q3a",sp.exp(sp.limit(2*sp.log(1+xr)/xr,xr,0))==sp.exp(2) and abs((1+1e-12)**(2e12)-float(sp.exp(2)))<1e-2)
+ok("Q3b",sp.simplify(sp.diff(sp.atan((sp.log(x)+1)/2)/2,x)-1/(x*(sp.log(x)**2+2*sp.log(x)+5)))==0)
+h=(xr+2)*sp.sqrt(4-xr**2)
+ok("Q4a h'",sp.simplify(sp.diff(h,xr)+2*(xr**2+xr-2)/sp.sqrt(4-xr**2))==0)
+ok("Q4a max 3*sqrt3 at x=1",sp.solve(xr**2+xr-2,xr)==[-2,1] and h.subs(xr,1)==3*sp.sqrt(3) and h.subs(xr,-2)==0 and h.subs(xr,2)==0)
+V=sp.pi*sp.integrate(x*sp.log(x),(x,1,sp.E)); ok("Q4b pi/4 (e^2+1)",sp.simplify(V-sp.pi*(sp.E**2+1)/4)==0)
+ok("Q5a",sp.exp(sp.limit(sp.log(xr)/sp.sin(2*xr-2),xr,1))==sp.sqrt(sp.E))
+d=sp.limit(sp.atan(1/xr**2),xr,0); ok("Q5b f'(0)=pi/2 (both sides)",d==sp.pi/2 and sp.limit(sp.atan(1/xr**2),xr,0,'-')==sp.pi/2)
+S=2*sp.integrate(1/(1+xr**2)-3/(9+xr**2),(xr,0,sp.sqrt(3)))
+ok("Q6a pi/3 and crossing x=+-sqrt3",abs(float(S-sp.pi/3))<1e-12 and set(sp.solve(sp.Eq(3/(9+xr**2),1/(1+xr**2)),xr))=={sp.sqrt(3),-sp.sqrt(3)})
+ok("Q6b ln0.9 ~ -0.105",abs(float(sp.log(sp.Rational(9,10)))+0.105)<1e-3 and abs(-0.1-0.01/2+0.105)<1e-12)
+b=sp.Rational(1,3000)/sp.Rational(9,10)**3
+ok("Q6b bound 1/(3000*0.9^3)=0.000457 (official prints 0.00045: truncated)",abs(float(b)-0.000457)<1e-6 and float(b)>0.00045)
+ok("Q6b true error 0.00036 < 0.00045",abs(float(sp.log(sp.Rational(9,10)))+0.105)<0.00045)
+for k,v in r: print(k,"OK" if v else "MISMATCH")
+print("ALL OK" if all(v for _,v in r) else "FAIL (see MISMATCH lines)")

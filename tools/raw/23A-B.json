@@ -1,0 +1,142 @@
+{
+ "examCode": "23A-B",
+ "examLabel": "מבחן סוף סמסטר ב' תשפ\"ג, מועד א'",
+ "year": 2023,
+ "examDate": "19/06/2023",
+ "sourceFile": "calculus-1/23A-B exam+solution.pdf",
+ "solutionFile": "calculus-1/23A-B exam+solution.pdf",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $f(x)=\\frac{\\ln(x)-1}{\\ln(x)}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
+   "solution": "**א.** תחום הגדרה הוא $D=\\{x>0,\\ x\\neq1\\}$.\n**ב.** נק' חיתוך עם הצירים היא $(e,0)$.\n**ג.** $f'(x)=\\frac{\\frac{1}{x}\\ln x-(\\ln x-1)\\frac{1}{x}}{(\\ln x)^2}=\\frac{\\frac{1}{x}}{(\\ln x)^2}>0$ ולכן הפונקציה עולה ממש כל הזמן ללא נקודת קיצון.\n**ד.** $f''(x)=\\frac{-(\\ln x+2)}{x^2(\\ln x)^3}$ ולכן פונקציה קעורה כאשר $e^{-2}<x<1$ וקמורה כאשר $x>1$ או $x<e^{-2}$. בנקודה $x=e^{-2}$ הפונקציה בעלת נקודת פיתול.\n**ה. אסימפטוטות:** אם נחשב $\\begin{cases}\\lim_{x\\to1^-}f(x)=+\\infty\\\\ \\lim_{x\\to1^+}f(x)=-\\infty\\end{cases}$, אז נקבל שקו ישר $x=1$ מהווה אסימפטוטה אנכית לגרף הפונקציה. בנוסף, $\\begin{cases}\\lim_{x\\to+\\infty}\\frac{f(x)}{x}=0\\\\ \\lim_{x\\to+\\infty}f(x)=1\\end{cases}$ ולכן קו ישר $y=1$ מהווה אסימפטוטה אופקית באינסוף לגרף הפונקציה.\nנקי' אי-רציפות מימין בנק' $x=0$: $\\lim_{x\\to0^+}f(x)=1$.\n\n![הגרף הרשמי של הפונקציה](images/exams/23A-B-Q1-graph.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 20
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{2x^2+x+4}{(x+1)(x^2+4)}\\,dx$.",
+   "solution": "מנות פולינומים והדרגה במונה קטנה מהדרגה במכנה. לכן נפרק לסכום של מנות פולינומים:\n$$\\frac{2x^2+x+4}{(x+1)(x^2+4)}=\\frac{A}{x+1}+\\frac{Bx+C}{x^2+4}$$\n$$A(x^2+4)+(Bx+C)(x+1)=2x^2+x+4\\Rightarrow$$\nמכאן\n$$x=0\\Rightarrow4A+C=4$$\n$$x=-1\\Rightarrow5A=5\\Rightarrow A=1\\Rightarrow C=0$$\n$$x=1\\Rightarrow5A+(B+C)\\cdot2=7\\Rightarrow5+2B=7\\Rightarrow B=1$$\nלכן:\n$$\\int\\frac{2x^2+x+4}{(x+1)(x^2+4)}dx=\\int\\frac{1}{x+1}dx+\\int\\frac{x}{x^2+4}dx=\\ln|x+1|+\\frac{1}{2}\\ln(x^2+4)+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "נתונה הסדרה: $a_1=3,\\ a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)$.\nהוכיחו כי הסדרה מתכנסת וחשבו את הגבול של הסדרה.",
+   "solution": "$$a_1=3$$\n$$a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3$$\n$$a_3=\\frac{1}{2}\\left(\\frac{8}{3}+\\frac{21}{8}\\right)=\\frac{127}{48}<\\frac{8}{3}$$\nנראה באינדוקציה כי הסדרה יורדת וחיובית.\n**הוכחת חסימות:** קודם כל, לפי אי שיוויון הממוצעים, $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{7}{a_n}}=\\sqrt{7}$. לכן לכל $n$, $a_n\\ge\\sqrt{7}$.\n**הוכחת מונוטוניות:** $a_1=3$. $a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3=a_1$. נניח $a_n<a_{n-1}$. צריך להוכיח כי $a_{n+1}<a_n$.\nנסתכל על\n$$a_{n+1}-a_n=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)-a_n=-\\frac{1}{2}a_n+\\frac{7}{2a_n}=\\frac{7-a_n^2}{2a_n}=\\frac{\\left[\\sqrt{7}-a_n\\right]\\left[\\sqrt{7}+a_n\\right]}{2a_n}$$\nהמכנה שלילי כי $a_n\\ge\\sqrt{7}$ ו-$a_n>0$. המכנה חיובי.\nלכן $a_{n+1}-a_n<0$. לכן הסדרה מונוטונית יורדת.\nכמו כן הסדרה חסומה מלרע כי ראינו כי $a_n\\ge\\sqrt{7}$. ולפי משפט סידרה מונוטונית וחסומה מתכנסת.\nנניח שהגבול הוא $L$, כך ש-$\\lim_{n\\to\\infty}a_n=\\lim_{n\\to\\infty}a_{n+1}=L$.\nמתוך ההגדרה הרקורסיבית של הסדרה $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)$ ואריתמטיקה של גבולות נקבל:\n$$L=\\frac{1}{2}\\left(L+\\frac{7}{L}\\right)\\Rightarrow\\frac{1}{2}L=\\frac{7}{2L}\\Rightarrow L^2=7\\Rightarrow L=\\pm\\sqrt{7}$$\nאבל הסדרה חיובית ולכן לא ייתכן שהגבול שלה שלילי. לכן $L=\\sqrt{7}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "lhopital_taylor",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to0}\\frac{\\int_0^{x^4}(1+t)^{\\frac{2}{t}}\\,dt}{x^4}$.",
+   "solution": "$$\\lim_{x\\to0}\\frac{\\int_0^{x^4}(1+t)^{\\frac{2}{t}}dt}{x^4}=\\lim_{x\\to0}\\frac{(1+x^4)^{\\frac{2}{x^4}}4x^3}{4x^3}=\\lim_{x\\to0}(1+x^4)^{\\frac{2}{x^4}}=e^2$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{dx}{x\\cdot(\\ln^2x+2\\ln x+5)}$.",
+   "solution": "$$\\int\\frac{dx}{x\\cdot(\\ln^2x+2\\ln x+5)}\\left\\{\\begin{matrix}t=\\ln x\\\\ dt=\\frac{dx}{x}\\end{matrix}\\right\\}=\\int\\frac{dt}{(t^2+2t+5)}$$\n$$=\\int\\frac{dt}{(t+1)^2+2^2}=\\frac{1}{2}\\arctan\\frac{(t+1)}{2}+C=\\frac{1}{2}\\arctan\\frac{(\\ln(x)+1)}{2}+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "proof",
+   "topic": "extrema_optimization",
+   "question": "הוכיחו כי לכל $x\\in[-2,2]$ מתקיים את האי-שוויון הבא: $(x+2)\\sqrt{4-x^2}\\le3\\sqrt{3}$.",
+   "solution": "נגדיר הפונקציה $f(x)=(x+2)\\sqrt{4-x^2}$. הפונקציה היא רציפה ב-$[-2,2]$ ו-$f(-2)=f(2)=0$.\n$$f'(x)=\\sqrt{4-x^2}+(x+2)\\frac{1}{2}(4-x^2)^{-\\frac{1}{2}}(-2x)=(4-x^2)^{\\frac{1}{2}}-\\frac{x^2+2x}{(4-x^2)^{\\frac{1}{2}}}$$\n$$=\\frac{-2x^2-2x+4}{(4-x^2)^{\\frac{1}{2}}}=-2\\cdot\\frac{x^2+x-2}{(4-x^2)^{\\frac{1}{2}}},$$\n$f'(x)=0\\iff x^2+x-2=0\\iff x=\\begin{cases}1\\\\-2\\end{cases}$.\n$$\\Rightarrow f'(x)=-2\\frac{(x-1)(x+2)}{(2-x)^{\\frac{1}{2}}(2+x)^{\\frac{1}{2}}}=-2\\frac{(x-1)(x+2)^{\\frac{1}{2}}}{(2-x)^{\\frac{1}{2}}}$$\nאזי הפונקציה רציפה ב-$[-2,2]$ וגזירה ב-$(-2,2)$.\n$f(1)=3\\sqrt{3}$. כך ש-$x=1$ מקסימום מוחלט של $f$ ב-$[-2,2]$.\nלכן: $f(x)\\le f(1)=3\\sqrt{3}\\quad\\forall x\\in[-2,2]$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח גוף הסיבוב הנוצר מסיבוב של התחום המישורי הכלוא בין הקווים: $y=\\sqrt{x\\ln x},\\ y=0,\\ x=1,\\ x=e$ סביב ציר ה-$X$.",
+   "solution": "נגדיר הפונקציה $y=f(x)=\\sqrt{x\\ln x}$; $y(1)=0$, $y(2)\\approx1.177$, $y(e)\\approx1.64$. התחום הוא בין הגרף של $f$ לציר ה-$X$ בין $x=1$ ל-$x=e$.\n$$V=\\pi\\int_1^ef^2(x)\\,dx=\\pi\\int_1^ex\\ln x\\,dx=\\left|\\begin{matrix}u=\\ln x & du=\\frac{1}{x}dx\\\\ dv=x\\,dx & v=\\frac{1}{2}x^2\\end{matrix}\\right|=$$\n$$=\\pi\\left(\\frac{1}{2}x^2\\ln x\\Big|_1^e-\\frac{1}{2}\\int_1^ex\\,dx\\right)=\\pi\\left(\\frac{e^2}{2}-\\frac{1}{2}\\frac{x^2}{2}\\Big|_1^e\\right)=$$\n$$=\\pi\\left(\\frac{e^2}{2}-\\left(\\frac{e^2}{4}-\\frac{1}{4}\\right)\\right)=\\pi\\left(\\frac{e^2}{4}+\\frac{1}{4}\\right)=\\frac{\\pi}{4}\\left(e^2+1\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to1}x^{\\frac{1}{\\sin(2x-2)}}$.",
+   "solution": "$$\\lim_{x\\to1}x^{\\frac{1}{\\sin(2x-2)}}=\\lim_{x\\to1}(1+x-1)^{\\frac{1}{\\sin(2x-2)}}$$\n$$=\\lim_{x\\to1}(1+x-1)^{\\frac{x-1}{(x-1)\\sin(2x-2)}}=\\sqrt{e}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "נתונה הפונקציה $f(x)=\\begin{cases}x\\arctan\\frac{1}{x^2}, & x\\neq0\\\\ 0, & x=0\\end{cases}$\nבדקו האם הפונקציה גזירה בנקודה $x=0$. אם כן, מצאו את הנגזרת, אם לא, נמקו.",
+   "solution": "$$\\lim_{\\Delta x\\to0}\\frac{\\Delta x\\arctan\\frac{1}{\\Delta x^2}-0}{\\Delta x}=\\lim_{\\Delta x\\to0}\\arctan\\frac{1}{\\Delta x^2}=\\frac{\\pi}{2}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את השטח הכלוא בין הגרפים של הפונקציות: $y=\\frac{3}{9+x^2},\\ y=\\frac{1}{1+x^2}$.",
+   "solution": "$$y=\\frac{3}{9+x^2},\\qquad y=\\frac{1}{1+x^2}$$\n$$\\frac{3}{9+x^2}=\\frac{1}{1+x^2},\\qquad3+3x^2=9+x^2,\\qquad x^2=3,\\ x=\\pm\\sqrt{3}$$\n$$S=2S_1=2\\int_0^{\\sqrt{3}}\\left(\\frac{1}{1+x^2}-\\frac{3}{9+x^2}\\right)dx=2\\left(\\arctan x-3\\cdot\\frac{1}{3}\\arctan\\frac{x}{3}\\right)\\Big|_0^{\\sqrt{3}}=$$\n$$=2\\left(\\arctan\\sqrt{3}-\\arctan\\frac{\\sqrt{3}}{3}\\right)=2\\left(\\frac{\\pi}{3}-\\frac{\\pi}{6}\\right)=\\frac{\\pi}{3}$$\nתשובה: $\\frac{\\pi}{3}$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "lhopital_taylor",
+   "question": "חשבו בקירוב $\\ln(0.9)$ באמצעות נוסחת מקלורן מסדר 2 של פונקציה $y=\\ln(1+x)$ והעריכו את שגיאת החישוב.",
+   "solution": "$$\\ln(1+x)=x-\\frac{x^2}{2}+R_2(x),\\qquad R_2(x)=\\frac{\\left(\\ln(1+x)\\right)^{(3)}(c)}{3!}x^3=\\frac{1}{3(1+c)^3}x^3,$$\n$c$ בין $x$ ל-$0$.\n$$\\ln0.9=\\ln(1+(-0.1))=-0.1-\\frac{(-0.1)^2}{2}+R_2(x)\\approx-0.105,$$\n$$R_2(x)=\\frac{1}{3(1+c)^3}(-0.1)^3,\\qquad-0.1<c<0$$\n$$|R_2(x)|=\\left|\\frac{1}{3(1+c)^3}(-0.1)^3\\right|<\\frac{1}{3000\\cdot0.9^3}=0.00045=\\delta$$\nתשובה: $\\ln0.9\\approx-0.105,\\qquad\\delta<0.00045$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  }
+ ]
+}

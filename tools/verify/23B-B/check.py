@@ -1,0 +1,32 @@
+# sympy check of every official answer in 23B-B. Run: PYTHONUTF8=1 py tools/verify/23B-B/check.py
+import sympy as sp
+x,t,L,a=sp.symbols('x t L a',positive=True)
+xr=sp.symbols('xr',real=True)
+r=[]
+def ok(name,cond): r.append((name,bool(cond)))
+f=x*sp.exp(1/x)
+ok("Q1 f'",sp.simplify(sp.diff(f,x)-sp.exp(1/x)*(1-1/x))==0)
+ok("Q1 f''",sp.simplify(sp.diff(f,x,2)-sp.exp(1/x)/x**3)==0)
+ok("Q1 limits x->0",sp.limit(xr*sp.exp(1/xr),xr,0,'-')==0 and sp.limit(xr*sp.exp(1/xr),xr,0,'+')==sp.oo)
+ok("Q1 slant y=x+1",sp.limit(sp.exp(1/xr),xr,sp.oo)==1 and sp.limit(xr*(sp.exp(1/xr)-1),xr,sp.oo)==1 and sp.limit(xr*(sp.exp(1/xr)-1),xr,-sp.oo)==1)
+ok("Q1 min at x=1",sp.diff(f,x).subs(x,1)==0 and sp.diff(f,x,2).subs(x,1)==sp.E>0)
+ok("Q2a",sp.simplify(sp.diff(2/sp.sqrt(3)*sp.atan(sp.tan(xr/2)/sp.sqrt(3)),xr)-1/(2+sp.cos(xr))).subs(xr,sp.Rational(7,10)).evalf()<1e-12)
+seq=[sp.Integer(0)]
+for i in range(40): seq.append(sp.sqrt(20+seq[-1]))
+ok("Q2b increasing and <5",all(seq[i+1]>seq[i]>=0 and seq[i]<5 for i in range(40)))
+ok("Q2b fixed point 5 (L^2-L-20=0 -> 5,-4)",sp.solve(sp.Eq(L**2-L-20,0),L)==[5] or set(sp.solve(sp.Symbol('q')**2-sp.Symbol('q')-20,sp.Symbol('q')))=={5,-4})
+ok("Q3a",sp.limit(x**4/sp.integrate(sp.log(1+3*t),(t,0,x**2)),x,0)==sp.Rational(2,3))
+ok("Q3b ln a = ln^2 a -> a=1,e",set(sp.solve(sp.Eq(sp.log(a),sp.log(a)**2),a))=={1,sp.E})
+ok("Q3b right limit",sp.limit(sp.log(a+sp.exp(-1/xr)),xr,0,'+')==sp.log(a))
+ok("Q4a g' = x^2/(1-x^2)^(3/2)>0",sp.simplify(sp.diff(x/sp.sqrt(1-x**2)-sp.asin(x),x)-x**2/(1-x**2)**sp.Rational(3,2))==0)
+ok("Q4a numeric a<asin a<a/sqrt(1-a^2)",all(k/10<sp.asin(sp.Rational(k,10))<(sp.Rational(k,10)/sp.sqrt(1-sp.Rational(k,10)**2)) for k in range(1,10)))
+V=2*sp.pi*sp.integrate(x*(2*x-x**2),(x,0,2)); ok("Q4b",V==sp.Rational(8,3)*sp.pi)
+ok("Q5a",sp.limit(sp.log(1+1/xr)/sp.sin(3/xr),xr,sp.oo)==sp.Rational(1,3))
+ok("Q5b",sp.simplify(sp.diff(xr-sp.log(1+sp.exp(2*xr)),xr)-(sp.exp(-xr)-sp.exp(xr))/(sp.exp(-xr)+sp.exp(xr)))==0)
+ok("Q5b typo: x-ln(1+x^2) is NOT an antiderivative (official middle expr uses x for t)",sp.simplify(sp.diff(xr-sp.log(1+xr**2),xr)-(sp.exp(-xr)-sp.exp(xr))/(sp.exp(-xr)+sp.exp(xr))).subs(xr,1).evalf()!=0)
+fl=sp.log(sp.sin(xr)); Lg=sp.integrate(sp.sqrt(1+sp.diff(fl,xr)**2).simplify(),(xr,sp.pi/3,sp.pi/2))
+ok("Q6a arc length = ln(sqrt3)=0.5493",abs(float(sp.log(sp.sqrt(3)))-0.5493)<1e-4 and abs(float(sp.N(sp.Integral(1/sp.sin(xr),(xr,sp.pi/3,sp.pi/2))))-0.5493)<1e-4)
+g=sp.atan(xr)+xr**3+xr**5-2
+ok("Q6b",g.subs(xr,0)==-2 and sp.N(g.subs(xr,1))>0 and abs(float(g.subs(xr,1))-float(sp.pi/4))<1e-12 and sp.simplify(sp.diff(g,xr)-(1/(1+xr**2)+3*xr**2+5*xr**4))==0)
+for k,v in r: print(k,"OK" if v else "MISMATCH")
+print("ALL OK" if all(v for _,v in r) else "FAIL (see MISMATCH lines)")
