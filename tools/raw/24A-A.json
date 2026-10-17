@@ -29,7 +29,78 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק לשברים חלקיים בצורה $\\frac{A}{x+2}+\\frac{Bx+C}{x^2+1}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב המקדמים $A=\\frac45$, $B=\\frac15$, $C=-\\frac25$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה של השברים: לוגריתמים ו-$\\arctan x$",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית עם $+C$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב מונה קבוע מעל $x^2+1$ במקום $Bx+C$, ואז אין פתרון למערכת.",
+    "לפצל את $\\frac{x-2}{x^2+1}$ לא נכון: $\\int\\frac{x}{x^2+1}=\\frac12\\ln(x^2+1)$ ו-$\\int\\frac{2}{x^2+1}=2\\arctan x$.",
+    "לשכוח שהמונה $x^2$ ממעלה זהה למכנה הריבועי: הפירוק תקף כי דרגת המונה קטנה מדרגת המכנה הכולל (3)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה פירוק לשברים חלקיים מתאים ל-$\\frac{x^2}{(x+2)(x^2+1)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x+2}+\\frac{Bx+C}{x^2+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{x+2}+\\frac{B}{x^2+1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x+2}+\\frac{Bx}{x^2+1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$x^2+1$ אי-פריק ולכן מונה לינארי מלא. בשתי האפשרויות האחרות מערכת המקדמים חסרת פתרון (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $A$? (עשרוני)",
+     "answer": 0.8,
+     "tol": 0.0005,
+     "explain": "הצבת $x=-2$: $4=5A$ ולכן $A=\\frac45=0.8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $B$? (עשרוני)",
+     "answer": 0.2,
+     "tol": 0.0005,
+     "explain": "מקדמי $x^2$: $A+B=1$ ולכן $B=\\frac15=0.2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $C$? (עשרוני)",
+     "answer": -0.4,
+     "tol": 0.0005,
+     "explain": "מקדמי $x$: $2B+C=0$ ולכן $C=-\\frac25=-0.4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -41,7 +112,103 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחת חסם מלעיל $a_n\\le2$ באינדוקציה",
+     "points": 3
+    },
+    {
+     "text": "הוכחת עליה: $\\frac{6}{5-a_n}\\ge a_n\\iff a_n^2-5a_n+6\\ge0$, נכון כי $a_n\\le2$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: מתכנסת (סדרה עולה וחסומה)",
+     "points": 1
+    },
+    {
+     "text": "משוואת הגבול $L=\\frac{6}{5-L}$, שורשים $2,3$",
+     "points": 2
+    },
+    {
+     "text": "פסילת $L=3$ והגבול $2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להכפיל באי-שוויון ב-$5-a_n$ בלי לוודא שהוא חיובי. כאן $5-a_n\\ge3>0$ הודות לחסם.",
+    "לא לפסול את $L=3$: שני השורשים מקיימים את משוואת הגבול, והחסם $a_n\\le2$ הוא שפוסל את $3$.",
+    "להוכיח עליה לפני החסם, ואז אי-השוויון $a_n^2-5a_n+6\\ge0$ לא מובטח."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$ בסדרה $a_{n+1}=\\frac{6}{5-a_n}$, $a_1=1$? (עשרוני)",
+     "answer": 1.5,
+     "tol": 0.0005,
+     "explain": "$a_2=\\frac{6}{4}=1.5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_3$? (עשרוני)",
+     "answer": 1.7143,
+     "tol": 0.001,
+     "explain": "$a_3=\\frac{6}{5-1.5}=\\frac{12}{7}\\approx1.7143$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע נפסל הפתרון $L=3$ של $L^2-5L+6=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$3$ אינו פתרון של $L^2-5L+6=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל איברי הסדרה קטנים או שווים ל-$2$, ולכן $L\\le2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הסדרה יורדת ולכן $L<a_1=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{6}{5-3}$ אינו מוגדר"
+      }
+     ],
+     "correctId": "b",
+     "explain": "השורשים הם $2$ ו-$3$ (sympy), $\\frac{6}{5-3}=3$ מוגדר, והסדרה עולה. הנימוק הוא החסם $a_n\\le2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$a_n\\le2$: $a_1=1\\le2$, ואם $a_n\\le2$ אז $5-a_n\\ge3$ ולכן $a_{n+1}=\\frac{6}{5-a_n}\\le2$.",
+      "הסדרה עולה: $a_{n+1}\\ge a_n$ שקול ל-$a_n^2-5a_n+6\\ge0$, וזה נכון כי $a_n\\le2$.",
+      "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "$L=\\frac{6}{5-L}$ ולכן $L^2-5L+6=0$, כלומר $L=2$ או $L=3$; כיוון ש-$a_n\\le2$, מתקבל $L=2$."
+     ],
+     "explain": "החסם קודם, כי ההוכחה של העליה משתמשת בו; אחר כך התכנסות; ובסוף משוואת הגבול ובחירת השורש."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$a_n\\le2$: $a_1=1\\le2$, ואם $a_n\\le2$ אז $5-a_n\\ge3$ ולכן $a_{n+1}=\\frac{6}{5-a_n}\\le2$.",
+      "הסדרה עולה: $a_{n+1}\\ge a_n$ שקול ל-$a_n^2-5a_n+6\\ge0$, וזה נכון כי $a_n\\le2$.",
+      "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "$L=\\frac{6}{5-L}$ ולכן $L^2-5L-6=0$, כלומר $L=2$ או $L=3$; כיוון ש-$a_n\\le2$, מתקבל $L=2$."
+     ],
+     "bugIndex": 3,
+     "explain": "מ-$L=\\frac{6}{5-L}$ מקבלים $L(5-L)=6$, כלומר $L^2-5L+6=0$ ולא $L^2-5L-6=0$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -53,7 +220,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $1^\\infty$",
+     "points": 2
+    },
+    {
+     "text": "כתיבה כ-$\\left((1-\\tan x)^{-1/\\tan x}\\right)^{-\\tan x/\\sin2x}$ או דרך $e^{\\lim\\frac{\\ln(1-\\tan x)}{\\sin2x}}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב גבול המעריך $\\frac{-\\tan x}{\\sin2x}\\to-\\frac12$",
+     "points": 3
+    },
+    {
+     "text": "תשובה $e^{-1/2}=\\frac{1}{\\sqrt e}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב ישר ולקבל $1^\\infty=1$: זו צורה לא מסוימת.",
+    "לטעות בגבול המעריך: $\\sin2x=2\\sin x\\cos x$ ולכן $\\frac{-\\tan x}{\\sin2x}\\to-\\frac12$ ולא $-1$.",
+    "לשכוח את הסימן המינוס בשבר $\\frac{-\\tan x}{\\sin2x}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $(1-\\tan x)^{1/\\sin2x}$ כאשר $x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0^0$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $1-\\tan x\\to1$ והמעריך $\\frac{1}{\\sin2x}\\to\\pm\\infty$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\frac{-\\tan x}{\\sin2x}$? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.0005,
+     "explain": "$\\frac{-\\tan x}{2\\sin x\\cos x}=\\frac{-1}{2\\cos^2x}\\to-\\frac12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.6065,
+     "tol": 0.001,
+     "explain": "$e^{-1/2}\\approx0.6065$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -65,7 +301,76 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\cos2x$, $dt=-2\\sin2x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "מעבר ל-$-\\frac12\\int\\frac{dt}{3+t^2}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל מסוג $\\arctan$: $-\\frac{1}{2\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$",
+     "points": 3
+    },
+    {
+     "text": "חזרה ל-$x$ וקבוע אינטגרציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $-\\frac12$ מ-$dt=-2\\sin2x\\,dx$.",
+    "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$: הקבוע במכנה הוא $3$ ולא $1$.",
+    "לשכוח שהצבה שוברת את הגורם הפנימי: $\\cos^2 2x=t^2$ ולא $\\cos^2x$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אחרי ההצבה $t=\\cos2x$, מהו האינטגרנד ב-$t$ (כלומר $\\int\\ldots\\,dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{2 t^{2} + 6}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{1}{t^{2} + 3}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{t}{2 t^{2} + 6}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{1}{2 t^{2} + 6}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$dt=-2\\sin2x\\,dx$ ולכן $\\sin2x\\,dx=-\\frac{dt}{2}$ ומתקבל $-\\frac{1}{2(3+t^2)}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם של $\\arctan\\frac{t}{\\sqrt3}$ בקדומה? (עשרוני)",
+     "answer": -0.2887,
+     "tol": 0.001,
+     "explain": "$-\\frac12\\cdot\\frac{1}{\\sqrt3}=-\\frac{1}{2\\sqrt3}\\approx-0.2887$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כבדיקה: מהו $\\int_0^{\\pi/4}\\frac{\\sin2x}{3+\\cos^22x}dx$? (עשרוני)",
+     "answer": 0.1511,
+     "tol": 0.001,
+     "explain": "הערך הוא $\\frac{\\pi}{12\\sqrt3}\\approx0.1512$ (חישוב ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -77,7 +382,104 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $y'=e^{-x}\\cdot\\frac{2-3x}{3\\sqrt[3]{x}}$ ונקודה קריטית $x=\\frac23$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי $x=0$ כנקודה חשודה (הנגזרת לא מוגדרת)",
+     "points": 2
+    },
+    {
+     "text": "חישוב הערך בנקודות $-3,0,\\frac23,1$",
+     "points": 3
+    },
+    {
+     "text": "מקסימום $y(-3)\\approx41.8$ ומינימום $y(0)=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $x=0$, שבו הנגזרת לא מוגדרת אך הפונקציה כן, והוא נקודת המינימום.",
+    "לחשב $(-3)^{2/3}$ לא נכון: $\\sqrt[3]{(-3)^2}=\\sqrt[3]{9}$, חיובי.",
+    "לא לבדוק את קצוות הקטע $-3$ ו-$1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו נקודות פנימיות בקטע $(-3,1)$ חשודות בקיצון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x=0$ (הנגזרת לא מוגדרת) ו-$x=\\frac23$ (הנגזרת מתאפסת)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x=\\frac23$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x=0$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=-3$ ו-$x=1$ בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$y'=0$ רק ב-$x=\\frac23$ ו-$y'\\to\\infty$ כש-$x\\to0$, כלומר לא מוגדרת ב-$0$ (sympy). הקצוות אינם נקודות פנימיות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(-3)=\\sqrt[3]{9}\\,e^3$? (עשרוני)",
+     "answer": 41.7796,
+     "tol": 0.1,
+     "explain": "$\\sqrt[3]{9}\\approx2.0801$ ו-$e^3\\approx20.0855$, ומכפלתם $\\approx41.78$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y\\left(\\frac23\\right)$? (עשרוני)",
+     "answer": 0.3918,
+     "tol": 0.001,
+     "explain": "$\\left(\\frac23\\right)^{2/3}e^{-2/3}\\approx0.3918$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המקסימום והמינימום המוחלטים בקטע $[-3,1]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום $y\\left(\\frac23\\right)\\approx0.39$, מינימום $y(0)=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מקסימום $y(-3)\\approx41.8$, מינימום $y(0)=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מקסימום $y(-3)\\approx41.8$, מינימום $y(1)\\approx0.37$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מקסימום $y(1)\\approx0.37$, מינימום $y(0)=0$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הערכים: $41.78$, $0$, $0.3918$, $0.3679$ (sympy). הגדול ביותר ב-$-3$ והקטן ביותר ב-$0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -89,7 +491,76 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת הדיסקות $V=\\pi\\int_0^1y^2\\,dx=\\pi\\int_0^1\\arctan x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה בחלקים עם $u=\\arctan x$, $v'=1$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\int\\frac{x}{1+x^2}dx=\\frac12\\ln(1+x^2)$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הגבולות ותשובה $\\frac{\\pi^2}{4}-\\frac{\\pi}{2}\\ln2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לרבע: $y^2=\\arctan x$, והשורש נעלם.",
+    "להשתמש בקליפות $2\\pi\\int xy\\,dx$ כשהסיבוב סביב ציר ה-$x$.",
+    "לא לזכור שאפשר לבצע בחלקים עם $v'=1$ על $\\arctan x$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה אינטגרל נותן את הנפח בסיבוב סביב ציר ה-$x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\pi\\int_0^1\\sqrt{\\arctan x}\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2\\pi\\int_0^1x\\sqrt{\\arctan x}\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\pi\\int_0^1\\arctan x\\,dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\pi\\int_0^1\\arctan^2x\\,dx$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "סיבוב סביב ציר ה-$x$: דיסקות, $V=\\pi\\int y^2dx$ עם $y^2=\\arctan x$. הערכים המספריים של האפשרויות האחרות שונים (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^1\\arctan x\\,dx$? (עשרוני)",
+     "answer": 0.4388,
+     "tol": 0.001,
+     "explain": "$\\frac{\\pi}{4}-\\frac{\\ln2}{2}\\approx0.4388$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V=\\frac{\\pi^2}{4}-\\frac{\\pi}{2}\\ln2$? (עשרוני)",
+     "answer": 1.3786,
+     "tol": 0.001,
+     "explain": "$\\pi\\cdot0.4388\\approx1.3785$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -101,7 +572,97 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$ והפעלת לופיטל",
+     "points": 3
+    },
+    {
+     "text": "גזירת המונה לפי המשפט היסודי וכלל השרשרת: $\\sin x\\cdot\\frac{1}{2\\sqrt x}$",
+     "points": 3
+    },
+    {
+     "text": "גזירת המכנה $\\frac32\\sqrt x$ וצמצום ל-$\\frac{\\sin x}{3x}$",
+     "points": 2
+    },
+    {
+     "text": "ערך הגבול $\\frac13$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את כלל השרשרת של הגבול העליון $\\sqrt x$ (הגורם $\\frac{1}{2\\sqrt x}$).",
+    "להציב $t^2\\to x$ בתוך האינטגרנד: בגבול העליון $\\sqrt x$ מתקבל $\\sin\\left((\\sqrt x)^2\\right)=\\sin x$.",
+    "לטעות בנגזרת המכנה: $\\left(x^{3/2}\\right)'=\\frac32x^{1/2}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\frac{\\int_0^{\\sqrt x}\\sin(t^2)dt}{x^{3/2}}$ כאשר $x\\to0^+$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac\\infty\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "המונה הוא אינטגרל על קטע שמתכווץ ל-$0$ והמכנה $x^{3/2}\\to0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של המונה לפי $x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\sin{\\left(xp \\right)}}{2 \\sqrt{xp}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sin{\\left(xp \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\sin{\\left(xp \\right)}}{\\sqrt{xp}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\cos{\\left(xp \\right)}}{2 \\sqrt{xp}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "משפט יסודי עם כלל שרשרת: $\\sin\\left((\\sqrt x)^2\\right)\\cdot\\frac{1}{2\\sqrt x}=\\frac{\\sin x}{2\\sqrt x}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.0005,
+     "explain": "$\\frac{\\sin x/(2\\sqrt x)}{\\frac32\\sqrt x}=\\frac{\\sin x}{3x}\\to\\frac13$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -113,7 +674,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול משמאל: $\\left(\\lim\\frac{e^{ax}-1}{x}\\right)^2=a^2$",
+     "points": 3
+    },
+    {
+     "text": "הגבול מימין: $4$ כאשר $a\\ne0$ (ו-$5$ כאשר $a=0$)",
+     "points": 3
+    },
+    {
+     "text": "דרישת הרציפות $a^2=b=4$",
+     "points": 2
+    },
+    {
+     "text": "תשובה: $b=4$, $a=\\pm2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את המקרה $a=0$ בגבול הימני, שבו $e^{-a^2/x}=1$ והגבול $5$ ולא $4$.",
+    "לקבל $a=2$ בלבד ולשכוח את $a=-2$.",
+    "לחשב את הגבול השמאלי כ-$a$ במקום $a^2$ (הביטוי בריבוע)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}x^{-2}\\left(e^{ax}-1\\right)^2$ עבור $a=3$?",
+     "answer": 9,
+     "tol": 0.001,
+     "explain": "$\\left(\\frac{e^{ax}-1}{x}\\right)^2\\to a^2=9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}\\left(4+e^{-a^2/x}\\right)$ עבור $a\\neq0$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$-\\frac{a^2}{x}\\to-\\infty$, לכן $e^{-a^2/x}\\to0$ והגבול $4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $b$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "הגבול הימני הוא $4$ ולכן $b=4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם ערכי $a$ האפשריים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=2$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=2$ או $a=-2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=4$ או $a=-4$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "דרוש $a^2=4$. עבור $a=0$ הגבול הימני $5$ והשמאלי $0$; עבור $a=\\pm4$ השמאלי $16$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -125,7 +762,85 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת $f(x)=\\tan x$ על הקטע $[0,x]$ ובדיקת תנאי לגרנז' (רציפות וגזירות)",
+     "points": 3
+    },
+    {
+     "text": "כתיבת השוויון $f'(c)=\\frac{\\tan x-\\tan0}{x-0}$ עם $f'(c)=\\frac{1}{\\cos^2c}$",
+     "points": 3
+    },
+    {
+     "text": "הערכה $0<\\cos^2c<1\\Rightarrow\\frac{1}{\\cos^2c}>1$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה $\\tan x>x$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל לגרנז' על קטע שבו $\\tan$ אינה רציפה: חייבים להישאר ב-$\\left[0,x\\right]$ עם $x<\\frac\\pi2$.",
+    "לשכוח שהאי-שוויון $\\frac{1}{\\cos^2c}>1$ דורש $c\\neq0$, והנקודה $c$ בקטע הפתוח $(0,x)$.",
+    "לטעות בנגזרת של $\\tan$: היא $\\frac{1}{\\cos^2x}$ ולא $\\frac{1}{\\sin^2x}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $\\tan x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{\\sin^{2}{\\left(x \\right)}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{1}{\\cos^{2}{\\left(x \\right)}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{\\cos^{2}{\\left(x \\right)}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\cos{\\left(x \\right)}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\tan'x=\\frac{1}{\\cos^2x}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "הפונקציה $\\tan$ רציפה וגזירה בקטע $[0,x]$ לכל $0<x<\\frac\\pi2$, ולכן מתקיימים תנאי משפט לגרנז'.",
+      "קיימת $c\\in(0,x)$ כך ש-$\\frac{1}{\\cos^2c}=\\frac{\\tan x-\\tan0}{x-0}=\\frac{\\tan x}{x}$.",
+      "כיוון ש-$0<\\cos^2c<1$ מתקיים $\\frac{1}{\\cos^2c}>1$.",
+      "לכן $\\frac{\\tan x}{x}>1$, כלומר $\\tan x>x$."
+     ],
+     "explain": "בדיקת התנאים, משפט לגרנז', הערכת $\\frac{1}{\\cos^2c}$, מסקנה. כל שלב מסתמך על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "הפונקציה $\\tan$ רציפה וגזירה בקטע $[0,x]$ לכל $0<x<\\frac\\pi2$, ולכן מתקיימים תנאי משפט לגרנז'.",
+      "קיימת $c\\in(0,x)$ כך ש-$\\frac{1}{\\cos^2c}=\\frac{\\tan x-\\tan0}{x-0}=\\frac{\\tan x}{x}$.",
+      "כיוון ש-$0<\\cos^2c<1$ מתקיים $\\frac{1}{\\cos^2c}<1$.",
+      "לכן $\\frac{\\tan x}{x}>1$, כלומר $\\tan x>x$."
+     ],
+     "bugIndex": 2,
+     "explain": "כש-$0<\\cos^2c<1$ ההופכי גדול מ-$1$, לא קטן (נבדק ב-sympy בנקודות לדוגמה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -137,7 +852,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "שיפוע המשיק $y'(3)=1$ ומשוואתו $y=x-2$",
+     "points": 3
+    },
+    {
+     "text": "חיתוכים עם ציר ה-$x$: משיק ב-$x=2$, עקום ב-$x=\\frac52$",
+     "points": 2
+    },
+    {
+     "text": "הצבת השטח כשטח משולש/אינטגרל של המשיק פחות האינטגרל של העקום",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\frac12-\\frac13=\\frac16$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהעקום מתחיל ב-$x=\\frac52$ ולא ב-$x=2$, ולכן הפרש האינטגרלים נעשה בשני קטעים שונים.",
+    "לטעות בנגזרת השורש: $\\left(\\sqrt{2x-5}\\right)'=\\frac{1}{\\sqrt{2x-5}}$ (כלל שרשרת, הגורם $2$ מצטמצם).",
+    "לחשב $\\int_2^3\\left(x-2-\\sqrt{2x-5}\\right)dx$ כשהעקום לא מוגדר לפני $\\frac52$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו שיפוע המשיק לעקום $y=\\sqrt{2x-5}$ ב-$x=3$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$y'=\\frac{1}{\\sqrt{2x-5}}$ ולכן $y'(3)=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק $y=\\ ?$",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x - 1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 x - 5$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x - 3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x - 2$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "המשיק עובר ב-$(3,1)$ עם שיפוע $1$: $y-1=x-3$ כלומר $y=x-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ חותך המשיק את ציר ה-$x$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$x-2=0$ נותן $x=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח? (עשרוני)",
+     "answer": 0.1667,
+     "tol": 0.001,
+     "explain": "$\\int_2^3(x-2)dx-\\int_{5/2}^3\\sqrt{2x-5}\\,dx=\\frac12-\\frac13=\\frac16\\approx0.1667$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

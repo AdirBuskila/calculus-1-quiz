@@ -22,7 +22,145 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה ($x\\neq0$) ונקודת חיתוך עם ציר ה-$x$: $(1,0)$, ללא חיתוך עם ציר ה-$y$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=1+\\frac{2}{x^3}$, נקודה קריטית $x=-\\sqrt[3]{2}$ ותחומי עליה וירידה",
+     "points": 5
+    },
+    {
+     "text": "סיווג הקיצון (מקסימום מקומי) וחישוב ערכו",
+     "points": 3
+    },
+    {
+     "text": "$f''(x)=-\\frac{6}{x^4}<0$: קמירות כלפי מטה בכל התחום, ללא נקודות פיתול",
+     "points": 3
+    },
+    {
+     "text": "אסימפטוטה אנכית $x=0$ ואסימפטוטה משופעת $y=x$",
+     "points": 4
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$x=0$ מחוץ לתחום ההגדרה, ולכן לחלק את תחומי העליה והירידה גם דרכו או להתייחס אליה כנקודת קיצון.",
+    "לטעון לנקודת פיתול ב-$x=0$ רק כי $f''$ לא מוגדרת שם. $f''<0$ משני צדי $0$, אין שינוי סימן ולכן אין פיתול.",
+    "לפשט לא נכון את $f$: צריך לכתוב $f(x)=x-\\frac{1}{x^2}$ לפני הגזירה, ואז האסימפטוטה המשופעת $y=x$ נראית מיד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=\\frac{x^3-1}{x^2}=x-\\frac{1}{x^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1 + \\frac{2}{x^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1 - \\frac{2}{x^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1 + \\frac{2}{x^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1 - \\frac{1}{x^{3}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$f(x)=x-x^{-2}$ ולכן $f'(x)=1+2x^{-3}=1+\\frac{2}{x^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ של הנקודה הקריטית היחידה של $f$? (עשרוני)",
+     "answer": -1.2599,
+     "tol": 0.001,
+     "explain": "$1+\\frac{2}{x^3}=0$ נותן $x^3=-2$, כלומר $x=-\\sqrt[3]{2}\\approx-1.2599$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $f\\left(-\\sqrt[3]{2}\\right)$ בנקודת המקסימום המקומי? (עשרוני)",
+     "answer": -1.8899,
+     "tol": 0.001,
+     "explain": "$f=-\\frac{3}{\\sqrt[3]{4}}\\approx-1.8899$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סימן $f''(x)=-\\frac{6}{x^4}$ בתחום ההגדרה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חיובי בכל תחום ההגדרה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שלילי בכל תחום ההגדרה, ולכן אין נקודות פיתול"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שלילי עבור $x<0$ וחיובי עבור $x>0$ ולכן $x=0$ נקודת פיתול"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מתאפס ב-$x=-\\sqrt[3]{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x^4>0$ לכל $x\\neq0$, לכן $f''<0$ והפונקציה קמורה כלפי מטה בכל תחום ההגדרה (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $f$ ב-$+\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=x+1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=x-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=2x$"
+      },
+      {
+       "id": "e",
+       "type": "text",
+       "value": "אין אסימפטוטה משופעת"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$m=\\lim\\frac{f(x)}{x}=1$ ו-$k=\\lim(f(x)-x)=\\lim\\left(-\\frac{1}{x^2}\\right)=0$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -34,7 +172,91 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק לשברים חלקיים בצורה $\\frac{A}{x+1}+\\frac{Bx+C}{x^2+1}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב המקדמים $A=-\\frac{1}{2}$, $B=C=\\frac{1}{2}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה של $\\frac{1}{x+1}$ ושל $\\frac{2x}{x^2+1}$ כלוגריתמים",
+     "points": 2
+    },
+    {
+     "text": "אינטגרל $\\frac{1}{x^2+1}$ כ-$\\arctan x$ ותשובה סופית עם $+c$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $\\frac{A}{x+1}+\\frac{B}{x^2+1}$ במקום מונה לינארי $Bx+C$ מעל הגורם הריבועי, ואז אין פתרון למערכת.",
+    "לאנטגרל $\\int\\frac{x+1}{x^2+1}dx$ לתת רק לוגריתם ולשכוח את החלק $\\int\\frac{1}{x^2+1}dx=\\arctan x$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה פירוק לשברים חלקיים מתאים ל-$\\frac{x}{(x+1)(x^2+1)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x+1}+\\frac{Bx+C}{x^2+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{x+1}+\\frac{B}{x^2+1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x+1}+\\frac{Bx}{x^2+1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$x^2+1$ אי-פריק, לכן מעליו מונה לינארי. בשתי האפשרויות האחרות מערכת המקדמים חסרת פתרון (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$ בפירוק? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.0005,
+     "explain": "הצבת $x=-1$ ב-$x=A(x^2+1)+(Bx+C)(x+1)$ נותנת $-1=2A$, כלומר $A=-\\frac{1}{2}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (בתחום $x>-1$, בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{\\log{\\left(x + 1 \\right)}}{2} + \\frac{\\log{\\left(x^{2} + 1 \\right)}}{4} + \\frac{\\operatorname{atan}{\\left(x \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(x + 1 \\right)}}{2} + \\frac{\\log{\\left(x^{2} + 1 \\right)}}{4} + \\frac{\\operatorname{atan}{\\left(x \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{\\log{\\left(x + 1 \\right)}}{2} - \\frac{\\log{\\left(x^{2} + 1 \\right)}}{4} + \\frac{\\operatorname{atan}{\\left(x \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{\\log{\\left(x + 1 \\right)}}{2} + \\frac{\\log{\\left(x^{2} + 1 \\right)}}{2} + \\operatorname{atan}{\\left(x \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "אחרי הפירוק מקבלים $-\\frac{1}{2}\\ln(x+1)+\\frac{1}{4}\\ln(x^2+1)+\\frac{1}{2}\\arctan x$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -46,7 +268,92 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת פונקציית עזר מתאימה $f(x)=x-\\ln(1+x)$ והמטרה $f(x)>0$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f(0)=0$",
+     "points": 1
+    },
+    {
+     "text": "חישוב הנגזרת $f'(x)=\\frac{x}{1+x}$ והצגת חיוביותה לכל $x>0$",
+     "points": 4
+    },
+    {
+     "text": "מסקנה: $f$ עולה ולכן $f(x)>f(0)=0$ ומכאן אי-השוויון",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב כמה ערכים מספריים ל-$x$ ולהסיק שאי-השוויון נכון. זו לא הוכחה.",
+    "לשכוח לבדוק את $f(0)=0$, שבלעדיו מונוטוניות לבדה לא נותנת $f(x)>0$.",
+    "טעות בנגזרת של $\\ln(1+x)$: היא $\\frac{1}{1+x}$ ולא $\\frac{1}{x}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו פונקציית עזר מגדיר הפתרון הרשמי כדי להוכיח את אי-השוויון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f(x)=x+\\ln(1+x)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f(x)=x-\\ln(1+x)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f(x)=x\\cdot\\ln(1+x)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f(x)=e^x-1-x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפתרון הרשמי מוכיח ש-$x-\\ln(1+x)>0$, כלומר מגדיר $f(x)=x-\\ln(1+x)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $f'(1)$ עבור פונקציית העזר? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.0005,
+     "explain": "$f'(x)=\\frac{x}{1+x}$ ולכן $f'(1)=\\frac{1}{2}=0.5$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נגדיר $f(x)=x-\\ln(1+x)$ ונוכיח ש-$f(x)>0$ לכל $x>0$.",
+      "מתקיים $f(0)=0$ ו-$f'(x)=1-\\frac{1}{1+x}=\\frac{x}{1+x}$.",
+      "לכל $x>0$ מתקיים $f'(x)>0$, ולכן $f$ עולה ממש בקטע $[0,\\infty)$.",
+      "לכן $f(x)>f(0)=0$ לכל $x>0$, כלומר $\\ln(1+x)<x$."
+     ],
+     "explain": "הגדרה, ערך ונגזרת, חיוביות הנגזרת ומונוטוניות, ובסוף המסקנה. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(x)=x-\\ln(1+x)$ ונוכיח ש-$f(x)>0$ לכל $x>0$.",
+      "מתקיים $f(0)=0$ ו-$f'(x)=1-(1+x)=-x$.",
+      "לכל $x>0$ מתקיים $f'(x)>0$, ולכן $f$ עולה ממש בקטע $[0,\\infty)$.",
+      "לכן $f(x)>f(0)=0$ לכל $x>0$, כלומר $\\ln(1+x)<x$."
+     ],
+     "bugIndex": 1,
+     "explain": "הנגזרת של $x-\\ln(1+x)$ היא $1-\\frac{1}{1+x}$ ולא $1-(1+x)$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -59,7 +366,61 @@
    "confidence": "high",
    "part": "א",
    "points": 5,
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "חישוב הגבול השמאלי $\\frac{b}{3}$ (לפי $\\frac{\\sin bx}{x}\\to b$ ו-$\\frac{\\sin2x}{x}\\to2$)",
+     "points": 2
+    },
+    {
+     "text": "חישוב הגבול הימני $\\lim_{x\\to0^+}x\\ln x=0$ (לופיטל)",
+     "points": 1
+    },
+    {
+     "text": "דרישת רציפות $2a-7=\\frac{b}{3}=0$",
+     "points": 1
+    },
+    {
+     "text": "פתרון: $b=0$, $a=\\frac{7}{2}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשאיר את $x\\ln x$ כ-$0\\cdot\\infty$ בלי להפוך למנה ולהפעיל לופיטל.",
+    "לדרוש רק שהגבול השמאלי שווה ל-$f(0)$ ולשכוח את הגבול הימני."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}\\frac{\\sin bx}{x+\\sin2x}$ עבור $b=6$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\frac{\\sin6x}{x}\\to6$ ו-$1+\\frac{\\sin2x}{x}\\to3$, לכן הגבול הוא $\\frac{6}{3}=2$ (בכלל: $\\frac{b}{3}$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}x\\ln x$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$x\\ln x=\\frac{\\ln x}{1/x}\\to\\frac{1/x}{-1/x^2}=-x\\to0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $b$ המבטיח רציפות?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "הגבול הימני הוא $0$, לכן $\\frac{b}{3}=0$ ו-$b=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $a$ המבטיח רציפות? (עשרוני)",
+     "answer": 3.5,
+     "tol": 0.001,
+     "explain": "$f(0)=2a-7=0$, לכן $a=\\frac{7}{2}=3.5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -72,7 +433,64 @@
    "confidence": "high",
    "part": "ב",
    "points": 5,
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "חישוב שני הגבולות החד-צדדיים: $\\frac{b}{3}$ ו-$0$",
+     "points": 2
+    },
+    {
+     "text": "תנאי אי-רציפות סליקה: הגבולות שווים, לכן $b=0$",
+     "points": 1
+    },
+    {
+     "text": "הגבול שונה מ-$f(0)=2a-7$, לכן $a\\neq\\frac{7}{2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שבאי-רציפות סליקה הגבול חייב להתקיים (שני הצדדים שווים) ורק להיות שונה מ-$f(0)$.",
+    "לכתוב $a=\\frac{7}{2}$ כתנאי: זה בדיוק מקרה הרציפות ולא הסליקה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $b$ שבו שני הגבולות החד-צדדיים שווים?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "הגבול הימני $0$, השמאלי $\\frac{b}{3}$, לכן $b=0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה התנאי על $a$ לאי-רציפות סליקה (כאשר $b=0$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=\\frac{7}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=0$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a\\neq\\frac{7}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a>\\frac{7}{2}$ בלבד"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הגבול הוא $0$ ו-$f(0)=2a-7$. סליקה כאשר $2a-7\\neq0$, כלומר $a\\neq\\frac{7}{2}$. לדוגמה $a=0$ ו-$a=4$ שניהם מתאימים (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -85,7 +503,64 @@
    "confidence": "high",
    "part": "ג",
    "points": 5,
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "חישוב הגבולות החד-צדדיים $\\frac{b}{3}$ ו-$0$",
+     "points": 2
+    },
+    {
+     "text": "תנאי אי-רציפות ממין ראשון: גבולות סופיים ושונים, כלומר $b\\neq0$",
+     "points": 2
+    },
+    {
+     "text": "$a$ אינו משפיע, לכן $a\\in\\mathbb{R}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוסיף תנאי על $a$: הערך $f(0)$ אינו משפיע על קיום הגבולות החד-צדדיים.",
+    "לבלבל בין ממין ראשון (גבולות חד-צדדיים סופיים ושונים) לבין סליקה (שווים)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}f(x)$ עבור $b=3$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הגבול השמאלי הוא $\\frac{b}{3}=1$, והימני $0$, כלומר שונים."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו ערכי פרמטרים נותנים אי-רציפות ממין ראשון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$b=0$ ו-$a\\neq\\frac{7}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$b\\neq0$ ו-$a=\\frac{7}{2}$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא קיימים ערכים כאלה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$b\\neq0$ ו-$a$ ממשי כלשהו"
+      }
+     ],
+     "correctId": "d",
+     "explain": "גבולות חד-צדדיים סופיים ושונים כאשר $\\frac{b}{3}\\neq0$, ללא תלות ב-$a$ (נבדק ב-sympy עבור $a=0,\\frac72,10$ עם $b=3$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -98,7 +573,60 @@
    "confidence": "high",
    "part": "ד",
    "points": 5,
-   "contextId": "c3"
+   "contextId": "c3",
+   "rubric": [
+    {
+     "text": "חישוב הגבולות החד-צדדיים: שניהם קיימים וסופיים לכל $a,b$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: אין ערכים שנותנים אי-רציפות ממין שני, והסבר",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב ערכים כלשהם של $b$ בלי לבדוק שהגבול השמאלי $\\frac{b}{3}$ סופי לכל $b$.",
+    "לא לנמק: התשובה \"לא קיימים\" דורשת הסבר שהגבולות החד-צדדיים תמיד סופיים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}f(x)$ עבור $b=-9$?",
+     "answer": -3,
+     "tol": 0.001,
+     "explain": "הגבול הוא $\\frac{b}{3}=-3$, ערך סופי."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם קיימים $a,b$ שעבורם $x=0$ אי-רציפות ממין שני?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי שני הגבולות החד-צדדיים קיימים וסופיים לכל $a,b$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כאשר $b\\neq0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כאשר $a=\\frac{7}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כן, כאשר $b=0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגבול השמאלי הוא $\\frac{b}{3}$ והימני $0$, שניהם סופיים תמיד, ולכן אין אי-רציפות ממין שני."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -110,7 +638,86 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "העברה למכנה משותף: $\\frac{x-1-\\ln x}{\\ln x\\cdot(x-1)}$ וזיהוי $\\frac{0}{0}$",
+     "points": 3
+    },
+    {
+     "text": "הפעלה ראשונה של לופיטל וצמצום ל-$\\frac{x-1}{x-1+x\\ln x}$",
+     "points": 3
+    },
+    {
+     "text": "הפעלה שנייה של לופיטל",
+     "points": 2
+    },
+    {
+     "text": "ערך הגבול $\\frac{1}{2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל לופיטל על הפרש $\\infty-\\infty$ בלי להעביר קודם למנה.",
+    "לעצור אחרי לופיטל אחד: הביטוי $\\frac{x-1}{x-1+x\\ln x}$ עדיין מסוג $\\frac{0}{0}$.",
+    "טעות בנגזרת של $\\ln x\\cdot(x-1)$: צריך כלל מכפלה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\frac{x-1-\\ln x}{\\ln x\\cdot(x-1)}$ כאשר $x\\to1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\infty}{\\infty}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "המונה $x-1-\\ln x\\to0$ והמכנה $\\ln x\\cdot(x-1)\\to0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי הפעלת לופיטל הראשונה מתקבל $\\frac{x-1}{x-1+x\\ln x}$. מהי הנגזרת של המכנה $x-1+x\\ln x$ בנקודה $x=1$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "הנגזרת היא $1+\\ln x+1=2+\\ln x$, ובנקודה $x=1$ היא $2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2}=0.5$ (sympy: ערך הגבול המקורי)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "$\\lim_{x\\to1}\\left(\\frac{1}{\\ln x}-\\frac{1}{x-1}\\right)=\\lim_{x\\to1}\\frac{x-1-\\ln x}{\\ln x\\cdot(x-1)}$, מסוג $\\frac{0}{0}$.",
+      "לפי לופיטל: $\\lim_{x\\to1}\\frac{1-\\frac{1}{x}}{\\frac{1}{x}(x-1)+\\ln x}=\\lim_{x\\to1}\\frac{x-1}{x-1+x\\ln x}$, שוב מסוג $\\frac{0}{0}$.",
+      "לפי לופיטל שוב: $\\lim_{x\\to1}\\frac{1}{1+\\ln x+1}=\\frac{1}{2}$."
+     ],
+     "explain": "מכנה משותף, לופיטל ראשון, לופיטל שני. כל שלב מקבל את הביטוי שהתקבל בקודמו."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -122,7 +729,76 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $\\frac{0}{0}$ והפעלת לופיטל",
+     "points": 3
+    },
+    {
+     "text": "גזירת המונה לפי המשפט היסודי: $\\tan x$, וגזירת המכנה $\\sin x+x\\cos x$",
+     "points": 3
+    },
+    {
+     "text": "חלוקה ב-$x$ וחישוב $\\frac{\\tan x/x}{\\sin x/x+\\cos x}\\to\\frac{1}{1+1}$",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $\\frac{1}{2}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור את האינטגרל כאילו הגבול התחתון תלוי ב-$x$, או לחשב אותו ישירות במקום להשתמש במשפט היסודי.",
+    "לשכוח כלל מכפלה במכנה $x\\sin x$.",
+    "לטעות בגבול $\\lim\\left(\\frac{\\sin x}{x}+\\cos x\\right)$: הוא $2$ ולא $1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת (לפי $x$) של המונה $\\int_0^x\\tan t\\,dt$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\sec^2x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x\\tan x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\tan x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln|\\cos x|$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "לפי המשפט היסודי של החשבון האינטגרלי, $\\frac{d}{dx}\\int_0^xg(t)\\,dt=g(x)$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\left(\\frac{\\sin x}{x}+\\cos x\\right)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$1+1=2$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{\\tan x/x}{\\sin x/x+\\cos x}\\to\\frac{1}{2}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -134,7 +810,66 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירה נכונה לאינטגרציה בחלקים: $u=x^2+2x$ ו-$v'=\\cos2x$",
+     "points": 2
+    },
+    {
+     "text": "חלק ראשון: $\\frac{(x^2+2x)\\sin2x}{2}-\\int(x+1)\\sin2x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "חלק שני באינטגרל הנותר, עם $u=x+1$",
+     "points": 3
+    },
+    {
+     "text": "איחוד התוצאה וקבוע האינטגרציה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $u=\\cos2x$ ו-$v'=x^2+2x$: הדרגה של הפולינום עולה במקום לרדת והאינטגרל מסתבך.",
+    "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל של $\\cos2x$ ($v=\\frac{\\sin2x}{2}$).",
+    "שגיאת סימן בשלב השני, כאשר $v=-\\frac{\\cos2x}{2}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו בחירה באינטגרציה בחלקים מורידה את דרגת הפולינום בכל שלב?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=\\cos2x,\\ v'=x^2+2x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=x^2+2x,\\ v'=\\cos2x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בבחירה הראשונה $u'=2x+2$ מדרגה 1; בשנייה $v=\\frac{x^3}{3}+x^2$ מדרגה 3, כלומר הדרגה עולה (הדרגות נבדקו ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פעמים צריך להפעיל אינטגרציה בחלקים כאן?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "אחרי הפעם הראשונה נשאר $\\int(x+1)\\sin2x\\,dx$ עם פולינום מדרגה 1, ופעם שנייה מורידה אותו לקבוע."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כבדיקה: מהו הערך של $\\int_0^{\\pi/4}(x^2+2x)\\cos2x\\,dx$? (עשרוני)",
+     "answer": 0.3438,
+     "tol": 0.001,
+     "explain": "מציבים את הקדומה $\\frac{x^2+2x-0.5}{2}\\sin2x+\\frac{(x+1)\\cos2x}{2}$ בין $0$ ל-$\\frac{\\pi}{4}$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -146,7 +881,57 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "מציאת נקודות החיתוך של הפרבולה והישר: $x=-1$ ו-$x=3$, ובחירת $x=3$ הנמצא בקטע $[0,6]$",
+     "points": 4
+    },
+    {
+     "text": "פיצול השטח ל-$[0,3]$ ו-$[3,6]$ לפי מי העליון",
+     "points": 3
+    },
+    {
+     "text": "חישוב שני האינטגרלים וסכומם $36$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\int_0^6(2x+5-x^2-2)dx$ בלי לפצל: שם הפרבולה מעל הישר ולכן מתקבל שטח מסומן ולא שטח.",
+    "לכלול את נקודת החיתוך $x=-1$ שמחוץ ל-$[0,6]$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך של $x$ בקטע $[0,6]$ נפגשים הפרבולה והישר?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$x^2-2x-3=0$ נותן $x=3$ או $x=-1$; רק $x=3$ בקטע (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח בין הישר לפרבולה בקטע $[0,3]$ (הישר למעלה)?",
+     "answer": 9,
+     "tol": 0.001,
+     "explain": "$\\left(3x+x^2-\\frac{x^3}{3}\\right)\\Big|_0^3=9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח בקטע $[3,6]$ (הפרבולה למעלה)?",
+     "answer": 27,
+     "tol": 0.001,
+     "explain": "$\\left(-3x-x^2+\\frac{x^3}{3}\\right)\\Big|_3^6=27$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח הכולל?",
+     "answer": 36,
+     "tol": 0.001,
+     "explain": "$9+27=36$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -158,7 +943,60 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $g(x)=e^x-\\frac{1}{x}-3$ ורציפותה בקטע",
+     "points": 2
+    },
+    {
+     "text": "נגזרת חיובית $g'(x)=e^x+\\frac{1}{x^2}>0$ ולכן מונוטוניות עולה",
+     "points": 3
+    },
+    {
+     "text": "סימנים הפוכים בקצוות: $g(1)<0<g(1.5)$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: קיום לפי ערך הביניים ויחידות לפי מונוטוניות",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק במשפט ערך הביניים: הוא נותן קיום בלבד, ויחידות דורשת מונוטוניות (או משפט רול).",
+    "טעות סימן בנגזרת של $-\\frac{1}{x}$: היא $+\\frac{1}{x^2}$.",
+    "לא לחשב את ערכי הקצוות, או להסתפק בהערכה בלי להראות את הסימן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $g(1)$ עבור $g(x)=e^x-\\frac{1}{x}-3$? (עשרוני)",
+     "answer": -1.2817,
+     "tol": 0.001,
+     "explain": "$g(1)=e-1-3=e-4\\approx-1.2817<0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $g(1.5)$? (עשרוני)",
+     "answer": 0.815,
+     "tol": 0.001,
+     "explain": "$e^{1.5}-\\frac{2}{3}-3\\approx0.8149>0$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $g(x)=e^x-\\frac{1}{x}-3$ בקטע $(1,1.5)$.",
+      "$g'(x)=e^x-\\frac{1}{x^2}>0$ לכל $x$ בקטע, ולכן $g$ עולה ממש.",
+      "$g(1)=e-4<0$ וגם $g(1.5)=e^{1.5}-\\frac{2}{3}-3>0$.",
+      "לפי משפט ערך הביניים יש שורש בקטע, והמונוטוניות הממשית מבטיחה שהוא יחיד."
+     ],
+     "bugIndex": 1,
+     "explain": "הנגזרת של $-\\frac{1}{x}$ היא $+\\frac{1}{x^2}$, לא $-\\frac{1}{x^2}$ (נבדק ב-sympy), וכך נגזרת $g$ מובטחת להיות חיובית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -170,7 +1008,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $y'=\\frac{x^2+4x-5}{(x+2)^2}$ ונקודות קריטיות $x=1$ ו-$x=-5$",
+     "points": 3
+    },
+    {
+     "text": "פסילת $x=-5$ (מחוץ לקטע $[0,10]$)",
+     "points": 1
+    },
+    {
+     "text": "חישוב $y$ בקצוות ובנקודה הקריטית: $2.5$, $2$, $\\frac{105}{12}$",
+     "points": 4
+    },
+    {
+     "text": "קביעה: מינימום $2$ ב-$x=1$ ומקסימום $\\frac{105}{12}$ ב-$x=10$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכלול את $x=-5$ כנקודה חשודה אף שהיא מחוץ לקטע.",
+    "לשכוח לבדוק את קצוות הקטע ולהסתפק בקיצון המקומי.",
+    "לשכוח שהמכנה $x+2$ מתאפס ב-$x=-2$ (מחוץ לקטע, אך כדאי לוודא)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ בקטע $[0,10]$ שבו $y'=0$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$x^2+4x-5=0$ נותן $x=1$ או $x=-5$; רק $x=1$ בקטע."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(0)$? (עשרוני)",
+     "answer": 2.5,
+     "tol": 0.001,
+     "explain": "$y(0)=\\frac{5}{2}=2.5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(10)$? (עשרוני)",
+     "answer": 8.75,
+     "tol": 0.001,
+     "explain": "$y(10)=\\frac{105}{12}=8.75$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המינימום והמקסימום המוחלטים בקטע $[0,10]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מינימום $2$ (ב-$x=1$) ומקסימום $\\frac{105}{12}$ (ב-$x=10$)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מינימום $\\frac{5}{2}$ (ב-$x=0$) ומקסימום $\\frac{105}{12}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מינימום $2$ ומקסימום $\\frac{5}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מינימום $0$ ומקסימום $\\frac{105}{12}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הערכים הם $y(0)=2.5$, $y(1)=2$, $y(10)=8.75$; הקטן ביותר $2$ והגדול ביותר $\\frac{105}{12}$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

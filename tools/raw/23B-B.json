@@ -16,7 +16,165 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq0$ וללא חיתוך עם הצירים",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=e^{1/x}\\left(1-\\frac1x\\right)$, נקודה קריטית $x=1$ ותחומי עליה וירידה",
+     "points": 5
+    },
+    {
+     "text": "סיווג $x=1$ כמינימום מקומי",
+     "points": 2
+    },
+    {
+     "text": "$f''(x)=\\frac{e^{1/x}}{x^3}$: קמירות וקעירות, ללא נקודות פיתול",
+     "points": 3
+    },
+    {
+     "text": "אסימפטוטה אנכית $x=0$ (מימין בלבד)",
+     "points": 3
+    },
+    {
+     "text": "אסימפטוטה משופעת $y=x+1$ בשני הכיוונים",
+     "points": 3
+    },
+    {
+     "text": "שרטוט הגרף",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהישר $x=0$ הוא אסימפטוטה משני הצדדים: משמאל $f\\to0$, ורק מימין $f\\to\\infty$.",
+    "לשכוח את הגזירה של $e^{1/x}$ עם כלל שרשרת: $\\left(e^{1/x}\\right)'=-\\frac{1}{x^2}e^{1/x}$.",
+    "לחשב את $b=\\lim\\left(f(x)-x\\right)$ בלי להפוך ל-$\\frac{e^{1/x}-1}{1/x}$, ולכן לטעות ולקבל $0$ במקום $1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=xe^{1/x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(1 - \\frac{1}{x}\\right) e^{\\frac{1}{x}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(1 + \\frac{1}{x}\\right) e^{\\frac{1}{x}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$e^{\\frac{1}{x}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(1 - \\frac{1}{x^{2}}\\right) e^{\\frac{1}{x}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל מכפלה: $e^{1/x}+x\\cdot\\left(-\\frac{1}{x^2}\\right)e^{1/x}=e^{1/x}\\left(1-\\frac1x\\right)$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המינימום המקומי $x=1$? (עשרוני)",
+     "answer": 2.7183,
+     "tol": 0.001,
+     "explain": "$f'(x)=0$ רק ב-$x=1$, ו-$f(1)=e\\approx2.718$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סימן $f''(x)=\\frac{e^{1/x}}{x^3}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חיובי בכל תחום ההגדרה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שלילי עבור $x<0$ וחיובי עבור $x>0$, ואין נקודות פיתול"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שלילי בכל תחום ההגדרה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מתאפס ב-$x=1$, ולכן זו נקודת פיתול"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$e^{1/x}>0$ ולכן הסימן הוא סימן $x^3$. השינוי נעשה ב-$x=0$ שמחוץ לתחום, ולכן אין פיתול (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה נכון לגבי הישר $x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אסימפטוטה אנכית משני הצדדים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אין אסימפטוטה אנכית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אסימפטוטה אנכית מימין בלבד (משמאל $f\\to0$)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אסימפטוטה אנכית משמאל בלבד"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to0^+}xe^{1/x}=\\infty$ ו-$\\lim_{x\\to0^-}xe^{1/x}=0$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=x-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=x+1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$m=\\lim e^{1/x}=1$ ו-$k=\\lim x\\left(e^{1/x}-1\\right)=1$ (אומת ב-sympy בשני הכיוונים)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +186,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\tan\\frac x2$ עם $\\cos x=\\frac{1-t^2}{1+t^2}$ ו-$dx=\\frac{2}{1+t^2}dt$",
+     "points": 3
+    },
+    {
+     "text": "פישוט האינטגרנד ל-$\\frac{2}{t^2+3}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\arctan$: $\\frac{2}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$",
+     "points": 3
+    },
+    {
+     "text": "חזרה ל-$x$ וקבוע אינטגרציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $\\frac{2}{1+t^2}$ מ-$dx$.",
+    "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$.",
+    "לשכוח שההצבה $t=\\tan\\frac x2$ לא מוגדרת ב-$x=\\pi+2\\pi k$; כאן המכנה $2+\\cos x$ אינו מתאפס ולכן הקדומה נשארת תקפה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אחרי ההצבה $t=\\tan\\frac x2$ מהו האינטגרנד ב-$t$ (כלומר $\\int\\ldots\\,dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{2}{t^{2} + 3}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2}{t^{2} + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{t^{2} + 3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2}{3 - t^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac{1}{2+\\frac{1-t^2}{1+t^2}}\\cdot\\frac{2}{1+t^2}=\\frac{2}{t^2+3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם של $\\arctan\\frac{t}{\\sqrt3}$ בקדומה? (עשרוני)",
+     "answer": 1.1547,
+     "tol": 0.001,
+     "explain": "$2\\cdot\\frac{1}{\\sqrt3}\\approx1.1547$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כבדיקה: מהו $\\int_0^{\\pi/2}\\frac{dx}{2+\\cos x}$? (עשרוני)",
+     "answer": 0.6046,
+     "tol": 0.001,
+     "explain": "$\\frac{\\pi}{3\\sqrt3}\\approx0.6046$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +267,96 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחה באינדוקציה שהסדרה עולה ואי-שלילית",
+     "points": 3
+    },
+    {
+     "text": "הוכחה באינדוקציה שהסדרה חסומה מלעיל ב-$5$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: מתכנסת (סדרה מונוטונית וחסומה)",
+     "points": 1
+    },
+    {
+     "text": "משוואת הגבול $L=\\sqrt{20+L}$ ופתרונה",
+     "points": 2
+    },
+    {
+     "text": "פסילת $L=-4$ והגבול $5$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הגבול מהמשוואה בלי להוכיח קודם התכנסות.",
+    "לא לפסול את $L=-4$ אף שאיברי הסדרה אי-שליליים.",
+    "בשלב האינדוקציה לחסם: להשתמש בהנחה $a_n<5$ ולהסיק $\\sqrt{a_n+20}<\\sqrt{25}=5$, ולא להניח את המסקנה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$ בסדרה $a_1=0$, $a_{n+1}=\\sqrt{20+a_n}$? (עשרוני)",
+     "answer": 4.4721,
+     "tol": 0.001,
+     "explain": "$a_2=\\sqrt{20}\\approx4.4721$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע נפסל הפתרון $L=-4$ של $L^2-L-20=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$-4$ אינו שורש של $L^2-L-20=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל איברי הסדרה אי-שליליים, ולכן הגבול אינו שלילי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\sqrt{20+L}$ אינו מוגדר עבור $L=-4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הסדרה יורדת ולכן הגבול שלילי"
+      }
+     ],
+     "correctId": "b",
+     "explain": "השורשים הם $5$ ו-$-4$ (sympy) ו-$\\sqrt{20-4}=4$ מוגדר. הסדרה עולה מ-$0$, ולכן הגבול אינו שלילי."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$0\\le a_n\\le a_{n+1}$ וש-$a_n<5$ לכל $n$: הסדרה עולה וחסומה מלעיל.",
+      "סדרה עולה וחסומה מלעיל מתכנסת; נסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "$L=\\sqrt{20+L}$, ולכן $L^2-L-20=0$.",
+      "$L=5$ או $L=-4$; כיוון ש-$a_n\\ge0$, $L\\ne-4$ ולכן $L=5$."
+     ],
+     "explain": "קודם עליה וחסימות, אחר כך התכנסות, אחר כך משוואת הגבול ובחירת השורש."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$0\\le a_n\\le a_{n+1}$ וש-$a_n<5$ לכל $n$: הסדרה עולה וחסומה מלעיל.",
+      "סדרה עולה וחסומה מלעיל מתכנסת; נסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "$L=\\sqrt{20+L}$, ולכן $L^2=20-L$, כלומר $L^2+L-20=0$.",
+      "$L=5$ או $L=-4$; כיוון ש-$a_n\\ge0$, $L\\ne-4$ ולכן $L=5$."
+     ],
+     "bugIndex": 2,
+     "explain": "העלאה בריבוע של $L=\\sqrt{20+L}$ נותנת $L^2=20+L$, כלומר $L^2-L-20=0$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +368,97 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$ והפעלת לופיטל",
+     "points": 2
+    },
+    {
+     "text": "גזירת המכנה לפי המשפט היסודי וכלל השרשרת: $2x\\ln(1+3x^2)$",
+     "points": 3
+    },
+    {
+     "text": "צמצום ל-$\\frac{2x^2}{\\ln(1+3x^2)}$, שוב $\\frac00$, ולופיטל שני",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $\\frac23$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $2x$ מכלל השרשרת של הגבול העליון $x^2$.",
+    "לעצור אחרי לופיטל אחד: $\\frac{2x^2}{\\ln(1+3x^2)}$ עדיין $\\frac00$.",
+    "לחשב את האינטגרל במפורש במקום להשתמש במשפט היסודי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\frac{x^4}{\\int_0^{x^2}\\ln(1+3t)dt}$ כאשר $x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac\\infty\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac00$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$x^4\\to0$ והאינטגרל על קטע $[0,x^2]$ שמתכווץ שואף ל-$0$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של המכנה $\\int_0^{x^2}\\ln(1+3t)\\,dt$ לפי $x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(3 x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^{2} \\log{\\left(3 x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 x \\log{\\left(3 x + 1 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 x \\log{\\left(3 x^{2} + 1 \\right)}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "משפט יסודי וכלל שרשרת: $\\ln\\left(1+3x^2\\right)\\cdot(x^2)'=2x\\ln(1+3x^2)$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.6667,
+     "tol": 0.001,
+     "explain": "אחרי לופיטל שני: $\\frac{4x}{\\frac{6x}{1+3x^2}}\\to\\frac23\\approx0.6667$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +470,97 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול הימני $\\lim_{x\\to0^+}\\ln\\left(a+e^{-1/x}\\right)=\\ln a$",
+     "points": 3
+    },
+    {
+     "text": "הערך בנקודה $f(0)=\\ln^2a$ ומשוואת הרציפות $\\ln a=\\ln^2a$",
+     "points": 3
+    },
+    {
+     "text": "פתרון: $\\ln a\\,(\\ln a-1)=0$",
+     "points": 2
+    },
+    {
+     "text": "תשובה: $a=1$ או $a=e$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק את המשוואה $\\ln a=\\ln^2a$ ב-$\\ln a$ ולאבד את הפתרון $a=1$.",
+    "להשוות גם את הגבול השמאלי: הוא שווה ל-$f(0)$ מראש, כי שם הפונקציה היא $\\ln^2(a+x^2)$.",
+    "לטעות בגבול הימני: $e^{-1/x}\\to0$ כאשר $x\\to0^+$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה מבטיחה רציפות ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\ln a=\\ln^2a$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\ln a=2\\ln a$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln a=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln^2a=0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגבול הימני $\\ln a$ שווה ל-$f(0)=\\ln^2a$. שלוש האפשרויות האחרות נותנות רק $a=1$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)=\\ln^2\\left(a+0\\right)$ עבור $a=e$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\ln^2e=1^2=1$, ושווה לגבול הימני $\\ln e=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו ערכי $a$ מבטיחים רציפות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=1$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=1$ או $a=e$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=e$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=1$ או $a=e^2$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\ln a(\\ln a-1)=0$ נותן $\\ln a=0$ או $\\ln a=1$, כלומר $a=1$ או $a=e$. עבור $a=e^2$: $\\ln a=2\\neq4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +572,60 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פונקציית עזר $f(x)=\\arcsin x-x$ והנגזרת $f'(x)=\\frac{1}{\\sqrt{1-x^2}}-1>0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה $\\arcsin a>a$ מ-$f(0)=0$ ומונוטוניות",
+     "points": 2
+    },
+    {
+     "text": "פונקציית עזר $g(x)=\\frac{x}{\\sqrt{1-x^2}}-\\arcsin x$ ונגזרתה $\\frac{x^2}{(1-x^2)^{3/2}}>0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה $\\arcsin a<\\frac{a}{\\sqrt{1-a^2}}$ מ-$g(0)=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוכיח רק אחד משני אי-השוויונות.",
+    "טעות בנגזרת של $\\frac{x}{\\sqrt{1-x^2}}$: התוצאה היא $\\frac{1}{(1-x^2)^{3/2}}$, ולכן $g'=\\frac{1}{(1-x^2)^{3/2}}-\\frac{1}{(1-x^2)^{1/2}}=\\frac{x^2}{(1-x^2)^{3/2}}$.",
+    "לשכוח את $f(0)=0$ ו-$g(0)=0$ שבלעדיהם מונוטוניות לא נותנת סימן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'\\left(\\frac35\\right)$ עבור $f(x)=\\arcsin x-x$? (עשרוני)",
+     "answer": 0.25,
+     "tol": 0.0005,
+     "explain": "$\\frac{1}{\\sqrt{1-\\frac{9}{25}}}-1=\\frac54-1=0.25>0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $g'\\left(\\frac12\\right)$ עבור $g(x)=\\frac{x}{\\sqrt{1-x^2}}-\\arcsin x$? (עשרוני)",
+     "answer": 0.3849,
+     "tol": 0.001,
+     "explain": "$g'(x)=\\frac{x^2}{(1-x^2)^{3/2}}$ ולכן $g'\\left(\\frac12\\right)=\\frac{0.25}{0.75^{1.5}}\\approx0.3849$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(x)=\\arcsin x-x$; $f'(x)=\\frac{1}{\\sqrt{1-x^2}}-1>0$ בקטע $(0,1)$ ו-$f(0)=0$, לכן $\\arcsin a>a$.",
+      "נגדיר $g(x)=\\frac{x}{\\sqrt{1-x^2}}-\\arcsin x$.",
+      "$g'(x)=\\frac{x}{(1-x^2)^{3/2}}>0$ בקטע $(0,1)$, ולכן $g$ עולה ממש.",
+      "$g(0)=0$ ולכן $g(a)>0$, כלומר $\\arcsin a<\\frac{a}{\\sqrt{1-a^2}}$."
+     ],
+     "bugIndex": 2,
+     "explain": "הנגזרת הנכונה היא $\\frac{x^2}{(1-x^2)^{3/2}}$ ולא $\\frac{x}{(1-x^2)^{3/2}}$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +637,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודות חיתוך $x=0$ ו-$x=2$ וקביעה ש-$2x\\ge x^2$ בקטע",
+     "points": 3
+    },
+    {
+     "text": "נוסחת הקליפות $V=2\\pi\\int_0^2x\\left(2x-x^2\\right)dx$",
+     "points": 3
+    },
+    {
+     "text": "חישוב האינטגרל $\\frac43$",
+     "points": 2
+    },
+    {
+     "text": "תשובה $V=\\frac{8\\pi}{3}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בנוסחת הדיסקות $\\pi\\int y^2$ כשהסיבוב סביב ציר ה-$y$ והפונקציות ב-$x$.",
+    "לכתוב את ההפרש בסדר הפוך ($x^2-2x$) ולקבל נפח שלילי.",
+    "לשכוח את הגורם $x$ (רדיוס הקליפה) בתוך האינטגרל."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ החיובי שבו נפגשים $y=2x$ ו-$y=x^2$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$x^2=2x$ נותן $x=0$ או $x=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה אינטגרל נותן את נפח הסיבוב סביב ציר ה-$y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2\\pi\\int_0^2x\\left(x^2-2x\\right)dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\pi\\int_0^2\\left((2x)^2-\\left(x^2\\right)^2\\right)dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2\\pi\\int_0^2x\\left(2x-x^2\\right)dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2\\pi\\int_0^2x^2\\left(2x-x^2\\right)dx$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "קליפות: רדיוס $x$, גובה $2x-x^2\\ge0$. ערכי שלוש האפשרויות האחרות שונים מ-$\\frac{8\\pi}{3}$ (חושב ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^2\\left(2x^2-x^3\\right)dx$? (עשרוני)",
+     "answer": 1.3333,
+     "tol": 0.001,
+     "explain": "$\\left(\\frac{2x^3}{3}-\\frac{x^4}{4}\\right)\\Big|_0^2=\\frac{16}{3}-4=\\frac43\\approx1.3333$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V$? (עשרוני)",
+     "answer": 8.3776,
+     "tol": 0.001,
+     "explain": "$V=2\\pi\\cdot\\frac43=\\frac{8\\pi}{3}\\approx8.3776$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -100,7 +725,69 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$ כש-$x\\to\\infty$",
+     "points": 2
+    },
+    {
+     "text": "לופיטל: גזירת המונה והמכנה עם כלל שרשרת",
+     "points": 4
+    },
+    {
+     "text": "צמצום $\\frac{-1/x^2}{-3/x^2}$ והצבה",
+     "points": 2
+    },
+    {
+     "text": "ערך הגבול $\\frac13$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את כלל השרשרת: $\\left(\\frac1x\\right)'=-\\frac{1}{x^2}$ מופיע גם במונה וגם במכנה.",
+    "לחשב $\\sin\\frac3x\\approx\\frac3x$ ו-$\\ln\\left(1+\\frac1x\\right)\\approx\\frac1x$ ולקבל $\\frac13$: זה נכון, אך בלי נימוק (לופיטל או גבול ידוע) לא מקבלים ניקוד.",
+    "להתבלבל בין הצורה כשהמשתנה הולך לאינסוף לבין הצורה כשהוא הולך ל-$0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\frac{\\ln\\left(1+\\frac1x\\right)}{\\sin\\left(\\frac3x\\right)}$ כאשר $x\\to+\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac\\infty\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\infty\\cdot0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\ln\\left(1+\\frac1x\\right)\\to\\ln1=0$ ו-$\\sin\\frac3x\\to\\sin0=0$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.0005,
+     "explain": "אחרי לופיטל: $\\frac{\\frac{1}{1+1/x}}{3\\cos(3/x)}\\to\\frac13\\approx0.3333$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -112,7 +799,97 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "כתיבת המונה כ-$\\left(e^{-x}+e^x\\right)-2e^x$ ופיצול ל-$1-\\frac{2e^x}{e^{-x}+e^x}$",
+     "points": 3
+    },
+    {
+     "text": "הצבה $t=e^x$ והגעה ל-$\\int\\frac{t}{t^2+1}dt$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\frac12\\ln\\left(1+t^2\\right)$ עם המקדם $2$",
+     "points": 2
+    },
+    {
+     "text": "תשובה $x-\\ln\\left(1+e^{2x}\\right)+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לכפול את המונה והמכנה ב-$e^x$ (או לעבוד עם $t=e^x$) ולהישאר עם $e^{-x}$.",
+    "לכתוב $\\ln\\left(1+x^2\\right)$ במקום $\\ln\\left(1+e^{2x}\\right)$: צריך להחזיר את $t=e^x$.",
+    "לשכוח את הגורם $2$ שלפני האינטגרל השני."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצגה של האינטגרנד מתאימה לפיצול?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1 - \\frac{2 e^{x}}{e^{x} + e^{- x}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1 + \\frac{2 e^{x}}{e^{x} + e^{- x}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1 - \\frac{e^{x}}{e^{x} + e^{- x}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$-1 + \\frac{2 e^{x}}{e^{x} + e^{- x}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac{e^{-x}-e^x}{e^{-x}+e^x}=\\frac{\\left(e^{-x}+e^x\\right)-2e^x}{e^{-x}+e^x}=1-\\frac{2e^x}{e^{-x}+e^x}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקדומה? (בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x - \\log{\\left(e^{x} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x - \\log{\\left(e^{2 x} + 1 \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x - 2 \\log{\\left(e^{2 x} + 1 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x - \\log{\\left(x^{2} + 1 \\right)}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "אחרי $t=e^x$: $x-2\\cdot\\frac12\\ln(1+t^2)=x-\\ln\\left(1+e^{2x}\\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כבדיקה: מהו $\\int_0^1\\frac{e^{-x}-e^x}{e^{-x}+e^x}dx$? (עשרוני)",
+     "answer": -0.4338,
+     "tol": 0.001,
+     "explain": "$1-\\ln\\frac{1+e^2}{2}\\approx-0.4337$ (חושב ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -124,7 +901,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת אורך הקשת $L=\\int_a^b\\sqrt{1+f'(x)^2}dx$ ונגזרת $f'(x)=\\cot x$",
+     "points": 3
+    },
+    {
+     "text": "פישוט $\\sqrt{1+\\cot^2x}=\\frac{1}{\\sin x}$ (חיובי בקטע)",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int\\frac{dx}{\\sin x}=\\ln\\left|\\tan\\frac x2\\right|$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הגבולות ותשובה $\\ln\\sqrt3\\approx0.5493$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את ההעלאה בריבוע של $f'$ בתוך השורש.",
+    "לכתוב $\\sqrt{1+\\cot^2x}=\\cot x$ או $\\csc^2x$ במקום $\\frac{1}{\\sin x}$: צריך שורש של $\\csc^2x$.",
+    "לשכוח שהקדומה של $\\frac{1}{\\sin x}$ היא $\\ln\\left|\\tan\\frac x2\\right|$ ולא $\\ln|\\sin x|$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'\\left(\\frac\\pi3\\right)$ עבור $f(x)=\\ln(\\sin x)$? (עשרוני)",
+     "answer": 0.5774,
+     "tol": 0.001,
+     "explain": "$f'(x)=\\cot x$ ו-$\\cot\\frac\\pi3=\\frac{1}{\\sqrt3}\\approx0.5774$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\sqrt{1+f'(x)^2}$ בקטע $\\left[\\frac\\pi3,\\frac\\pi2\\right]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{\\cos{\\left(x \\right)}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\cos{\\left(x \\right)}}{\\sin{\\left(x \\right)}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{\\sin{\\left(x \\right)}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\sin{\\left(x \\right)}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$1+\\cot^2x=\\frac{1}{\\sin^2x}$ ובקטע $\\sin x>0$ ולכן השורש הוא $\\frac{1}{\\sin x}$ (נבדק ב-sympy בנקודות בקטע)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך הקשת? (עשרוני)",
+     "answer": 0.5493,
+     "tol": 0.001,
+     "explain": "$\\ln\\left|\\tan\\frac x2\\right|\\Big|_{\\pi/3}^{\\pi/2}=\\ln1-\\ln\\frac{1}{\\sqrt3}\\approx0.5493$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -136,7 +982,88 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=\\arctan x+x^3+x^5-2$ ורציפותה",
+     "points": 2
+    },
+    {
+     "text": "$f(0)=-2<0$ ו-$f(1)=\\frac\\pi4>0$ וקיום שורש לפי ערך הביניים",
+     "points": 3
+    },
+    {
+     "text": "נגזרת חיובית $f'(x)=\\frac{1}{1+x^2}+3x^2+5x^4>0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: $f$ עולה ממש ולכן השורש יחיד",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בערך הביניים: הוא נותן קיום בלבד, ויחידות דורשת מונוטוניות.",
+    "לטעות בנגזרת של $\\arctan x$: היא $\\frac{1}{1+x^2}$.",
+    "להראות $f'>0$ רק בקטע $(0,1)$ ולא על כל הישר, ולכן לא לשלול שורשים אחרים מחוץ לקטע."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$ עבור $f(x)=\\arctan x+x^3+x^5-2$?",
+     "answer": -2,
+     "tol": 0.001,
+     "explain": "$\\arctan0+0+0-2=-2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(1)$? (עשרוני)",
+     "answer": 0.7854,
+     "tol": 0.001,
+     "explain": "$\\frac\\pi4+1+1-2=\\frac\\pi4\\approx0.7854$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מבטיח שהשורש יחיד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f$ רציפה בקטע $[0,1]$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f(0)<0<f(1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f(1)>0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f'(x)>0$ לכל $x$, ולכן $f$ עולה ממש"
+      }
+     ],
+     "correctId": "d",
+     "explain": "רציפות וסימנים הפוכים נותנים קיום בלבד. יחידות נובעת ממונוטוניות חזקה, וזו נובעת מ-$f'>0$ (נבדק ב-sympy בנקודות שונות)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$f(x)=\\arctan x+x^3+x^5-2$ רציפה בקטע $[0,1]$.",
+      "$f(0)=-2<0$ ו-$f(1)=\\frac\\pi4>0$, לכן לפי משפט ערך הביניים יש שורש ב-$(0,1)$.",
+      "$f'(x)=\\frac{1}{1+x^2}+3x^2-5x^4>0$ לכל $x$, ולכן $f$ עולה ממש.",
+      "פונקציה עולה ממש חותכת את ציר ה-$x$ לכל היותר פעם אחת, ולכן השורש יחיד."
+     ],
+     "bugIndex": 2,
+     "explain": "הנגזרת הנכונה היא $\\frac{1}{1+x^2}+3x^2+5x^4$ ולא עם $-5x^4$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

@@ -16,7 +16,112 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $\\mathbb{R}$ וחיתוך עם הצירים $(0,0)$",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=(x^2+2x)e^x$, נקודות קריטיות $x=0,-2$ ותחומי עליה וירידה",
+     "points": 5
+    },
+    {
+     "text": "סיווג הקיצון: מקסימום מקומי ב-$x=-2$, מינימום מקומי ב-$x=0$",
+     "points": 3
+    },
+    {
+     "text": "$f''(x)=e^x(x^2+4x+2)$, נקודות פיתול $x=-2\\pm\\sqrt{2}$ ותחומי קמירות",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטות: $y=0$ ב-$-\\infty$, אין אנכית ואין משופעת ב-$+\\infty$",
+     "points": 3
+    },
+    {
+     "text": "שרטוט הגרף",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ל-$y=0$ כאסימפטוטה אופקית משני הכיוונים. ב-$+\\infty$ הפונקציה שואפת ל-$\\infty$, ואין אסימפטוטה משופעת כי $\\frac{f(x)}{x}\\to\\infty$.",
+    "לשכוח את $e^x$ בנגזרת: $(x^2)'e^x+x^2(e^x)'=(2x+x^2)e^x$.",
+    "להסיק שגם $x=0$ מקסימום: סימן הנגזרת משתנה משלילי לחיובי, ולכן מינימום."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=x^2e^x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(x^{2} + 2 x\\right) e^{x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^{2} e^{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 x e^{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(x^{2} - 2 x\\right) e^{x}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל מכפלה: $2xe^x+x^2e^x=(x^2+2x)e^x$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המקסימום המקומי $x=-2$? (עשרוני)",
+     "answer": 0.5413,
+     "tol": 0.001,
+     "explain": "$f(-2)=4e^{-2}\\approx0.5413$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ של נקודת הפיתול הימנית $x=-2+\\sqrt{2}$? (עשרוני)",
+     "answer": -0.5858,
+     "tol": 0.001,
+     "explain": "$x^2+4x+2=0$ נותן $x=-2\\pm\\sqrt{2}$; הימנית היא $-2+\\sqrt{2}\\approx-0.5858$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של $f$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=0$ בשני הכיוונים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=0$ ב-$-\\infty$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=x$ ב-$+\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=0$ אנכית"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\lim_{x\\to-\\infty}x^2e^x=0$, וב-$+\\infty$ הפונקציה שואפת ל-$\\infty$ מהר מכל ישר ($\\frac{f(x)}{x}\\to\\infty$). אין אסימפטוטה אנכית כי $f$ רציפה (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +133,78 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק לשברים חלקיים בצורה $\\frac{A}{x-1}+\\frac{B}{x+2}+\\frac{C}{(x+2)^2}$ (כולל הגורם הריבועי)",
+     "points": 3
+    },
+    {
+     "text": "חישוב $A=\\frac{2}{3}$, $B=\\frac{1}{3}$, $C=-1$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה של כל אחד משלושת השברים",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית עם $+c$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשמיט את השבר $\\frac{C}{(x+2)^2}$ כשהמכנה כולל גורם בריבוע, ואז אין פתרון למערכת.",
+    "לאנטגרל $\\int\\frac{dx}{(x+2)^2}$ לתת לוגריתם: התוצאה היא $-\\frac{1}{x+2}$.",
+    "לשכוח לפרק את $x^2+4x+4=(x+2)^2$ לפני בניית הפירוק."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה פירוק לשברים חלקיים מתאים ל-$\\frac{x^2+2x+3}{(x-1)(x+2)^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{B}{x+2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{B}{(x+2)^2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{B}{x+2}+\\frac{C}{(x+2)^2}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "גורם בריבוע דורש שני שברים. בשתי האפשרויות האחרות מערכת המקדמים חסרת פתרון (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $A$? (עשרוני)",
+     "answer": 0.6667,
+     "tol": 0.0005,
+     "explain": "הצבת $x=1$: $6=9A$ ולכן $A=\\frac{2}{3}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $B$? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.0005,
+     "explain": "השוואת מקדמי $x^2$: $A+B=1$ ולכן $B=\\frac{1}{3}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $C$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "הצבת $x=-2$: $3=-3C$ ולכן $C=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +216,96 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחה באינדוקציה שהסדרה עולה",
+     "points": 3
+    },
+    {
+     "text": "הוכחה באינדוקציה שהסדרה חסומה מלעיל ב-$5$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: סדרה מונוטונית וחסומה מתכנסת (משפט ויירשטראס)",
+     "points": 1
+    },
+    {
+     "text": "משוואת הגבול $L=\\sqrt{L+20}$ ופתרונה $L=5$",
+     "points": 2
+    },
+    {
+     "text": "פסילת $L=-4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הגבול מהמשוואה $L=\\sqrt{L+20}$ בלי להוכיח קודם שהגבול קיים.",
+    "לא לפסול את השורש השלילי $L=-4$: הסדרה חיובית ולכן גבולה אינו שלילי.",
+    "להוכיח רק שהסדרה עולה, בלי חסם מלעיל, ולהסיק התכנסות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו האיבר $a_2$ בסדרה $a_{n+1}=\\sqrt{a_n+20}$, $a_1=4$? (עשרוני)",
+     "answer": 4.899,
+     "tol": 0.001,
+     "explain": "$a_2=\\sqrt{24}\\approx4.8990$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע בפתרון המשוואה $L^2-L-20=0$ נפסל השורש $L=-4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$-4$ אינו פתרון של $L^2-L-20=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sqrt{L+20}$ אינו מוגדר עבור $L=-4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הסדרה יורדת ולכן הגבול קטן מ-$a_1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כל איברי הסדרה גדולים מ-$4$, ולכן הגבול אינו יכול להיות שלילי"
+      }
+     ],
+     "correctId": "d",
+     "explain": "השורשים הם $5$ ו-$-4$ (sympy), והביטוי $\\sqrt{-4+20}=4$ מוגדר. הסדרה עולה מ-$a_1=4$, לכן הגבול לפחות $4$ ומתקבל $5$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$a_n\\le a_{n+1}$ וש-$a_n\\le5$ לכל $n$, כלומר הסדרה עולה וחסומה מלעיל ב-$5$.",
+      "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "מאריתמטיקה של גבולות $L=\\sqrt{L+20}$, ולכן $L^2-L-20=0$.",
+      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים מ-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
+     ],
+     "explain": "קודם מוכיחים עליה וחסימות, אחר כך התכנסות, אחר כך משוואת הגבול, ובסוף בחירת השורש."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$a_n\\le a_{n+1}$ וש-$a_n\\le5$ לכל $n$, כלומר הסדרה עולה וחסומה מלעיל ב-$5$.",
+      "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
+      "מאריתמטיקה של גבולות $L=\\sqrt{L+20}$, ולכן $L^2+L-20=0$.",
+      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים מ-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
+     ],
+     "bugIndex": 2,
+     "explain": "העלאה בריבוע של $L=\\sqrt{L+20}$ נותנת $L^2=L+20$, כלומר $L^2-L-20=0$ ולא $L^2+L-20=0$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +317,72 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $1^\\infty$ וכתיבת הבסיס כ-$1+\\frac{2n}{n^2+3n-2}$",
+     "points": 4
+    },
+    {
+     "text": "שימוש בגבול הידוע $\\left(1+\\frac{a}{x}\\right)^x\\to e^a$ או בחישוב גבול המעריך",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\lim n\\cdot\\frac{2n}{n^2+3n-2}=2$ ותשובה $e^2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $1^\\infty=1$: זו צורה לא מסוימת ולא ערך.",
+    "לחשב רק את גבול הבסיס ($1$) ולהתעלם מהמעריך שהולך לאינסוף.",
+    "לטעות בחישוב $n\\cdot\\frac{2n}{n^2+3n-2}$ ולקבל $0$ או $\\infty$ במקום $2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\left(\\frac{n^2+5n-2}{n^2+3n-2}\\right)^n$ כאשר $n\\to\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0^0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הבסיס שואף ל-$1$ והמעריך ל-$\\infty$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{n\\to\\infty}n\\cdot\\left(\\frac{n^2+5n-2}{n^2+3n-2}-1\\right)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\frac{n^2+5n-2}{n^2+3n-2}-1=\\frac{2n}{n^2+3n-2}$ ולכן המכפלה $\\frac{2n^2}{n^2+3n-2}\\to2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 7.3891,
+     "tol": 0.001,
+     "explain": "$e^2\\approx7.389$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +394,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודת החיתוך $(4,2)$ של הישר והעקום",
+     "points": 2
+    },
+    {
+     "text": "זיהוי התחום $2\\le x\\le4$ והרדיוסים: חיצוני $4-\\sqrt{x}$ ופנימי $x-2$",
+     "points": 3
+    },
+    {
+     "text": "נוסחת הפרוסות $V=\\pi\\int_2^4\\left((4-\\sqrt{x})^2-(x-2)^2\\right)dx$",
+     "points": 3
+    },
+    {
+     "text": "חישוב האינטגרל: $7.752\\pi\\approx24.35$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפריד את הגבולות לא נכון: התחום מתחיל ב-$x=2$ (הישר האנכי) ונגמר ב-$x=4$.",
+    "לחשב $\\pi\\int\\left((4-\\sqrt{x})-(x-2)\\right)^2dx$ במקום הפרש ריבועי הרדיוסים.",
+    "לבלבל בין הרדיוס החיצוני לפנימי: העליון $4-\\sqrt{x}$ הוא החיצוני."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך של $x$ נפגשים הישר $y=x-2$ והעקום $y=4-\\sqrt{x}$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$x-2=4-\\sqrt{x}$ עם $t=\\sqrt{x}$: $t^2+t-6=0$ ולכן $t=2$ ו-$x=4$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "בקטע $2\\le x\\le4$, מהו הרדיוס החיצוני של הפרוסה בסיבוב סביב ציר ה-$x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x-2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$4-\\sqrt{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$4-\\sqrt{x}-(x-2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\sqrt{x}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפרוסה נמדדת מציר ה-$x$ עד הקו העליון, וזה $y=4-\\sqrt{x}$; הפנימי הוא $x-2$ (נבדק בנקודות לדוגמה ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\frac{V}{\\pi}$ כאשר $V=\\pi\\int_2^4\\left((4-\\sqrt{x})^2-(x-2)^2\\right)dx$? (עשרוני)",
+     "answer": 7.7516,
+     "tol": 0.001,
+     "explain": "הערך הוא $7.752$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V$? (עשרוני)",
+     "answer": 24.3524,
+     "tol": 0.01,
+     "explain": "$7.752\\pi\\approx24.352$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +482,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $y'=e^{1/x}\\cdot\\frac{x-1}{x}$ ונקודה קריטית $x=1$",
+     "points": 3
+    },
+    {
+     "text": "חישוב הערך בקצוות הקטע: $0.5e^2\\approx3.694$ ו-$3e^{1/3}\\approx4.187$",
+     "points": 3
+    },
+    {
+     "text": "חישוב הערך בנקודה הקריטית $e\\approx2.718$",
+     "points": 2
+    },
+    {
+     "text": "השוואה וקביעת מקסימום $3\\sqrt[3]{e}$ ומינימום $e$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות רק את הקיצון המקומי ולשכוח לבדוק את שני קצוות הקטע הסגור.",
+    "לטעות בכלל השרשרת: $\\left(e^{1/x}\\right)'=-\\frac{1}{x^2}e^{1/x}$.",
+    "להסיק שמקסימום בקצה השמאלי: $0.5e^2\\approx3.694$ קטן מ-$3e^{1/3}\\approx4.187$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ בקטע $\\left[\\frac12,3\\right]$ שבו $y'=0$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$y'=e^{1/x}\\cdot\\frac{x-1}{x}$ מתאפס ב-$x=1$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y\\left(\\frac12\\right)$? (עשרוני)",
+     "answer": 3.6945,
+     "tol": 0.001,
+     "explain": "$\\frac12e^2\\approx3.694$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(3)$? (עשרוני)",
+     "answer": 4.1868,
+     "tol": 0.001,
+     "explain": "$3e^{1/3}\\approx4.187$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המקסימום והמינימום המוחלטים בקטע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום $\\frac12e^2$ (ב-$x=\\frac12$), מינימום $e$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מקסימום $3\\sqrt[3]{e}$, מינימום $\\frac12e^2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מקסימום $3\\sqrt[3]{e}$ (ב-$x=3$), מינימום $e$ (ב-$x=1$)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מקסימום $e$ (ב-$x=1$), מינימום $\\frac12e^2$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הערכים $3.694$, $2.718$, $4.187$ (sympy): הגדול ביותר ב-$x=3$ והקטן ביותר ב-$x=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +570,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "גזירה ופתרון $f'(x)=-\\frac12$: נקודת ההשקה $(-1,2)$",
+     "points": 3
+    },
+    {
+     "text": "משוואת המשיק $y=1.5-0.5x$ וחיתוכו עם ציר ה-$x$ ב-$(3,0)$",
+     "points": 3
+    },
+    {
+     "text": "הצבת השטח כסכום אינטגרלים או כהפרש (משיק פחות עקום)",
+     "points": 2
+    },
+    {
+     "text": "חישוב השטח $\\frac43$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הנגזרת בלי כלל השרשרת: $\\left(\\sqrt{2-2x}\\right)'=\\frac{-1}{\\sqrt{2-2x}}$.",
+    "לשכוח שהשטח כולל את חלק המשיק שמעל ציר ה-$x$ עד $x=3$, כאשר העקום מסתיים ב-$x=1$.",
+    "לחשב אינטגרל של המשיק פחות העקום על כל $[-1,3]$, אך העקום לא מוגדר אחרי $x=1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכל נקודה $x$ שבה השיפוע של $\\sqrt{2-2x}$ הוא $-\\frac12$, מהו $x$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "$\\frac{-1}{\\sqrt{2-2x}}=-\\frac12$ נותן $\\sqrt{2-2x}=2$ ולכן $x=-1$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק $y=\\ ?$",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{5}{2} - \\frac{x}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x}{2} + \\frac{3}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 - \\frac{x}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{3}{2} - \\frac{x}{2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "המשיק עובר ב-$(-1,2)$ עם שיפוע $-\\frac12$: $y-2=-\\frac12(x+1)$ כלומר $y=1.5-0.5x$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ חותך המשיק את ציר ה-$x$?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$1.5-0.5x=0$ נותן $x=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח התחום בין העקום, המשיק וציר ה-$x$? (עשרוני)",
+     "answer": 1.3333,
+     "tol": 0.001,
+     "explain": "$\\int_{-1}^{1}(1.5-0.5x-\\sqrt{2-2x})dx+\\int_1^3(1.5-0.5x)dx=\\frac43\\approx1.3333$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -100,7 +658,93 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\ln x$, $dt=\\frac{dx}{x}$",
+     "points": 3
+    },
+    {
+     "text": "האינטגרל $\\int\\frac{t}{t^2+1}dt$ ופתרונו $\\frac12\\ln(t^2+1)$",
+     "points": 5
+    },
+    {
+     "text": "חזרה למשתנה $x$ וקבוע האינטגרציה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח להחליף את $dx$ ב-$x\\,dt$, כך שנשאר $x$ באינטגרל.",
+    "לכתוב $\\arctan(\\ln x)$ במקום $\\frac12\\ln(\\ln^2x+1)$: המונה $t$ הוא נגזרת המכנה עד גורם $2$.",
+    "לשכוח את הגורם $\\frac12$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אחרי ההצבה $t=\\ln x$ מהו האינטגרנד ב-$t$ (כלומר $\\int\\ldots\\,dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{t}{t^{2} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{t^{2} + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{t}{\\left(t^{2} + 1\\right)^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{t^{2}}{t^{2} + 1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$dx=x\\,dt$ מצמצם את $\\frac1x$, ונשאר $\\frac{t}{t^2+1}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקדומה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(\\log{\\left(x \\right)}^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\log{\\left(x \\right)}^{2} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}{\\left(\\log{\\left(x \\right)} \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\log{\\left(x \\right)} \\right)}}{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\int\\frac{t}{t^2+1}dt=\\frac12\\ln(t^2+1)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כבדיקה: מהו $\\int_1^e\\frac{\\ln x}{x(\\ln^2x+1)}dx$? (עשרוני)",
+     "answer": 0.3466,
+     "tol": 0.001,
+     "explain": "$\\frac12\\ln2\\approx0.3466$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -112,7 +756,51 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול ב-$x=0^-$: $\\lim\\frac{\\arctan2x}{x}=2$, ולכן $b=2$",
+     "points": 3
+    },
+    {
+     "text": "הגבול ב-$x=2^+$: הכפלה בצמוד וצמצום נותנים $1$",
+     "points": 4
+    },
+    {
+     "text": "רציפות ב-$x=2$: $2a+b=1$ ומכאן $a=-\\frac12$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רציפות רק ב-$x=0$ או רק ב-$x=2$. יש שתי נקודות תפר.",
+    "לא להכפיל בצמוד בגבול ב-$x=2^+$, ולהישאר בצורה $\\frac00$ בלי לצמצם $(x-2)$.",
+    "לשכוח שבקטע $0\\le x\\le2$ הפונקציה היא $ax+b$, ולכן שני התנאים קושרים את $a$ ו-$b$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}\\frac{\\arctan(2x)}{x}$ (וכך $b$)?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "לפי לופיטל: $\\frac{2}{1+4x^2}\\to2$, ולכן $b=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to2^+}\\frac{4\\left(x-\\sqrt{3x-2}\\right)}{x-2}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הכפלה בצמוד: $\\frac{4(x-2)(x-1)}{(x-2)\\left(x+\\sqrt{3x-2}\\right)}\\to\\frac{4\\cdot1}{2+2}=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $a$? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.0005,
+     "explain": "$2a+b=1$ עם $b=2$ נותן $a=-\\frac12$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -124,7 +812,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=2^{\\sqrt{x}}+\\arctan(2x)-5$ ורציפותה בתחום $x\\ge0$",
+     "points": 2
+    },
+    {
+     "text": "$f(0)=-4<0$ וגבול ב-$\\infty$ חיובי, ולכן קיים שורש לפי ערך הביניים",
+     "points": 4
+    },
+    {
+     "text": "$f'(x)>0$, כלומר $f$ עולה ממש",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: השורש יחיד",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בקיום השורש (ערך הביניים) ולא להוכיח יחידות.",
+    "לבדוק את הנגזרת ב-$x=0$ שבו $\\sqrt{x}$ אינו גזיר: הגזירות רק עבור $x>0$.",
+    "לא להראות שהפונקציה חיובית בנקודה כלשהי, ולכן אין שינוי סימן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$ עבור $f(x)=2^{\\sqrt{x}}+\\arctan(2x)-5$?",
+     "answer": -4,
+     "tol": 0.001,
+     "explain": "$2^0+\\arctan0-5=1-5=-4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(16)$? (עשרוני)",
+     "answer": 12.5396,
+     "tol": 0.001,
+     "explain": "$2^4+\\arctan32-5=11+\\arctan32\\approx12.54>0$, ולכן יש שינוי סימן."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מבטיח שהשורש יחיד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f$ רציפה בקטע"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f(0)<0$ ו-$f(16)>0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f'(x)>0$ לכל $x>0$, ולכן $f$ עולה ממש"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\lim_{x\\to\\infty}f(x)=\\infty$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "רציפות וסימנים הפוכים נותנים קיום בלבד. יחידות נובעת ממונוטוניות חזקה: הנגזרת חיובית (נבדק ב-sympy בנקודות שונות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
