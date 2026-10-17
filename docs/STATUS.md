@@ -1,6 +1,6 @@
 # STATUS - calculus-1
 
-Resume here: phase 0 - not started
+Resume here: phase 2 - flagship 24B-B transcribed (11 items, validated, built); next: steps + refuter
 Opus sessions: 0 of 2
 Engine: open   Format: unknown   Cutoff: unknown
 
@@ -17,8 +17,8 @@ Gates 1, 2 and 7 always stop for Adir.
   - [ ] Adir approved
   - [ ] config.overlay.json written, app repo scaffolded (triage stays in the factory)
 - [ ] Phase 2 - flagship  (GATE 2: Adir tries it in the browser)
-  - [ ] topic taxonomy chosen
-  - [ ] flagship sitting transcribed + validated
+  - [x] topic taxonomy chosen
+  - [x] flagship sitting transcribed + validated (24B-B, 12/08/2024)
   - [ ] steps (if open questions) + refuter pass
   - [ ] smoke / verify_dom green, running locally
   - [ ] Adir tried it
@@ -55,3 +55,4 @@ Gates 1, 2 and 7 always stop for Adir.
   - [ ] registry status = live
 
 ## Notes
+- Phase 2 flagship: 24B-B (sem B 2024, moed B), 11 items (Q1 whole + Q2-Q6 a/b), all official, no holds. No rubric/steps yet. Solution figures (Q1 graph, Q6b plot) not shipped: the schema has no solution image.
