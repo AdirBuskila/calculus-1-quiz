@@ -1,0 +1,131 @@
+{
+ "examCode": "22B-A",
+ "examLabel": "מבחן סוף סמסטר א' תשפ\"ב, מועד ב'",
+ "year": 2022,
+ "examDate": "22/02/2022",
+ "sourceFile": "calculus-1/22B-A exam.pdf",
+ "solutionFile": "",
+ "contexts": {
+  "c0": {
+   "kind": "text",
+   "title": "הפרמטרים A, B, C",
+   "text": "בחלק מסעיפי המבחן מופיעים הפרמטרים $A$, $B$ ו-$C$. חובה להציב בתחילת הפתרון לכל שאלה את ערכי הפרמטרים, בהתאם לשלוש הספרות האחרונות של מספר תעודת הזהות שלכם: למשל עבור ת.ז. 123456789 נקבל $A=7$, $B=8$, $C=9$. שאלות בהן $A$, $B$ ו-$C$ יוצבו רק בשלב התשובה הסופית לא ייבדקו."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "extrema_optimization",
+   "question": "מצאו ומיינו את כל הנקודות החשודות לקיצון מקומי של הפונקציה $f(x)=2x+3\\sqrt[3]{x^2}$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א"
+  },
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "sequences_limits",
+   "question": "חשבו את הגבול $\\lim_{n\\to\\infty}\\frac{(n+2)!+(A+1)\\,n\\,(n+1)!}{(n+1)!-n\\cdot n!}\\sin\\frac{C+1}{(n+1)^2}$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב",
+   "contextId": "c0"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הראו כי לכל $x>0$ מתקיים האי-שוויון $\\frac{x}{1+x^2}<\\arctan x<x$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "הוכיחו כי הסדרה $a_{n+1}=\\frac{(B+3)a_n}{(B+2)a_n+1},\\ a_1=C+2$ מתכנסת וחשבו את גבולה.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב",
+   "contextId": "c0"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "מצאו את כל האסימפטוטות לגרף הפונקציה $f(x)=(x+A)\\left(2+\\cos\\frac{B+1}{x+A}\\right)$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א",
+   "contextId": "c0"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{dx}{1+\\sin x+3\\cos x}$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב"
+  },
+  {
+   "num": 4,
+   "kind": "proof",
+   "topic": "continuity",
+   "question": "הוכיחו כי למשוואה $x^3+(C+1)x+\\cos\\left((C+1)x\\right)=B+1$ קיים שורש ממשי אחד בלבד.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א",
+   "contextId": "c0"
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{\\arctan^3\\left(\\sqrt{x}\\right)}{(x+1)\\sqrt{x}}\\,dx$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב"
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול: $\\lim_{x\\to+\\infty}\\left(x^3+A\\right)\\left(\\sqrt{x^2+\\sqrt{x^4+C+1}}-x\\sqrt{2}\\right)$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א",
+   "contextId": "c0"
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את אורך הקשת של העקומה $y=\\ln(\\sin x)$ בקטע $\\left[\\frac{\\pi}{3},\\frac{\\pi}{2}\\right]$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב"
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "תהיה $f(x)=\\begin{cases}\\frac{1}{\\sin x}-\\frac{1}{x}, & x\\neq0\\\\ p, & x=0\\end{cases}$. מצאו ערך פרמטר ממשי $p$ כך שפונקציה $f$ תהיה גזירה ב-$x=0$. מהו $f'(0)$?",
+   "hold": "no-key",
+   "points": 10,
+   "part": "א"
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח גוף הסיבוב הנוצר כסיבוב של התחום המישורי הכלוא בין הקווים: $y=\\sin^2\\left((B+1)x\\right),\\ y=0,\\ x=0,\\ x=\\frac{\\pi}{B+1}$ סביב ציר ה-$y$.",
+   "hold": "no-key",
+   "points": 10,
+   "part": "ב",
+   "contextId": "c0"
+  }
+ ]
+}

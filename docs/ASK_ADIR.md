@@ -41,4 +41,25 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: approve shipping with the corrected value, or leave Q4b out.
 - Status: hold
 
+### 22B-A Q1-Q6 - no key
+- Path: sitting 22B-A (printed exam only)
+- Page: 1-2
+- Question: no solution exists; all 12 items (Q1a-b ... Q6a-b) are transcribed and held with reason no-key.
+- Needed: route to the solver (no action from Adir).
+- Status: hold
+
+### 22A-B Q5b - official arc-length decimal is off
+- Path: sitting 22A-B (worked-solution PDF)
+- Page: 8
+- Question: the closed form is right, but the final decimal 1.98 is wrong: the exact value of the integral of sqrt(1+e^(2x)) over [0,1] is 2.0035 (sympy); the rounding of sqrt(1+e^2) to 2.9 spoils it.
+- Needed: approve shipping the closed form with the corrected decimal 2.00, or leave Q5b out.
+- Status: hold
+
+### 22B-B Q6b - official remainder bound uses the wrong power
+- Path: sitting 22B-B (exam + official solution PDF)
+- Page: 9
+- Question: for |x|<=0.1 the bound is 1/(3*0.9^3)*(0.1)^3 = 4.57e-4, but the solution prints (0.01)^3 and 4.57e-7 (sympy). The Taylor polynomial x - x^2/2 is right.
+- Needed: approve shipping with the corrected bound 4.57e-4, or leave Q6b out.
+- Status: hold
+
 ## Resolved

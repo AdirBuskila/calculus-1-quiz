@@ -1,0 +1,167 @@
+{
+ "examCode": "22A-A",
+ "examLabel": "מבחן סוף סמסטר א' תשפ\"ב, מועד א'",
+ "year": 2022,
+ "examDate": "25/01/2022",
+ "sourceFile": "calculus-1/22A-A exam+solution.pdf",
+ "solutionFile": "calculus-1/22A-A exam+solution.pdf",
+ "contexts": {
+  "c0": {
+   "kind": "text",
+   "title": "הפרמטרים A, B, C",
+   "text": "בחלק מסעיפי המבחן מופיעים הפרמטרים $A$, $B$ ו-$C$. חובה להציב בתחילת הפתרון לכל שאלה את ערכי הפרמטרים, בהתאם לשלוש הספרות האחרונות של מספר תעודת הזהות שלכם: למשל עבור ת.ז. 123456789 נקבל $A=7$, $B=8$, $C=9$. שאלות בהן $A$, $B$ ו-$C$ יוצבו רק בשלב התשובה הסופית לא ייבדקו."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "extrema_optimization",
+   "question": "מצאו את הערך הגדול ביותר ואת הערך הקטן ביותר של הפונקציה $f(x)=\\frac{4}{5}x-\\sqrt[5]{(x-1)^4}+2$ בקטע $[0,3]$.",
+   "solution": "תחום הגדרה: $D(f)=(-\\infty,\\infty)$.\n$$f'(x)=\\frac{4}{5}-\\frac{4}{5}\\cdot\\frac{1}{\\sqrt[5]{x-1}}=\\frac{4}{5}\\cdot\\frac{\\sqrt[5]{x-1}-1}{\\sqrt[5]{x-1}}$$\n$f'(x)=0$ כאשר $\\sqrt[5]{x-1}=1$, כלומר $x=2$. בנקודה $x=1$ הנגזרת $f'(x)$ אינה קיימת.\nהנקודות החשודות בקטע $[0,3]$ הן: $1,\\ 2,\\ 0,\\ 3$.\n$$f(0)=1,\\quad f(1)=\\frac{14}{5},\\quad f(2)=\\frac{13}{5},\\quad f(3)=\\frac{22}{5}-\\sqrt[5]{16}\\approx 2.66$$\n$$\\max_{[0,3]}f=f(1)=\\frac{14}{5},\\qquad \\min_{[0,3]}f=f(0)=1$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 1,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "הוכיחו כי הסדרה $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{A+1}{a_n}\\right),\\ a_1=A+B+2$ מתכנסת וחשבו את גבולה.",
+   "solution": "לפי אי-שוויון הממוצעים:\n$$a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{A+1}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{A+1}{a_n}}=\\sqrt{A+1}$$\nלכן הסדרה חסומה מלמטה על ידי $\\sqrt{A+1}$.\n$$a_{n+1}-a_n=\\frac{1}{2}\\left(a_n+\\frac{A+1}{a_n}\\right)-a_n=\\frac{1}{2}\\left(\\frac{A+1}{a_n}-a_n\\right)=\\frac{1}{2}\\cdot\\frac{(A+1)-a_n^2}{a_n}=\\frac{\\left(\\sqrt{A+1}-a_n\\right)\\left(\\sqrt{A+1}+a_n\\right)}{2a_n}\\le 0$$\nלכן הסדרה יורדת. מכיוון שהיא יורדת וחסומה מלמטה, יש לה גבול. נסמן אותו ב-$L$. נעבור לגבול בנוסחת הנסיגה:\n$$L=\\frac{1}{2}\\left(L+\\frac{A+1}{L}\\right)\\ \\Rightarrow\\ L^2=A+1\\ \\Rightarrow\\ L=\\sqrt{A+1}$$\nאו $L=-\\sqrt{A+1}$.\nמכיוון ש-$a_n\\ge 0$ מתקבל:\n$$\\lim_{n\\to\\infty}a_n=\\sqrt{A+1}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10,
+   "contextId": "c0"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "sequences_limits",
+   "question": "חשבו את הגבול $\\lim_{n\\to\\infty}\\left(\\sqrt{n^2+C+1}-n\\right)\\sin\\left(2^{(B+1)n}\\right)$.",
+   "solution": "$$\\lim_{n\\to\\infty}\\left(\\sqrt{n^2+C+1}-n\\right)\\sin\\left(2^{(B+1)n}\\right)=\\lim_{n\\to\\infty}\\frac{n^2+C+1-n^2}{\\sqrt{n^2+C+1}+n}\\cdot\\sin\\left(2^{(B+1)n}\\right)=0$$\nכי $-1\\le\\sin\\left(2^{(B+1)n}\\right)\\le 1$ (סדרה חסומה), והסדרה $\\frac{C+1}{\\sqrt{n^2+C+1}+n}$ שואפת ל-$0$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10,
+   "contextId": "c0"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int x\\arctan\\left(x^2\\right)dx$.",
+   "solution": "$$\\int x\\arctan\\left(x^2\\right)dx=\\left|\\begin{array}{l}t=x^2\\\\ dt=2x\\,dx\\end{array}\\right|=\\frac{1}{2}\\int\\arctan t\\,dt=$$\n$$=\\left|\\begin{array}{ll}u=\\arctan t & du=\\frac{dt}{1+t^2}\\\\ dv=dt & v=t\\end{array}\\right|=\\frac{1}{2}\\left(t\\arctan t-\\int\\frac{t\\,dt}{1+t^2}\\right)=$$\n$$=\\frac{1}{2}\\left(t\\arctan t-\\frac{1}{2}\\ln\\left(1+t^2\\right)\\right)+c=\\frac{1}{2}\\left(x^2\\arctan\\left(x^2\\right)-\\frac{1}{2}\\ln\\left(1+x^4\\right)\\right)+c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "continuity",
+   "question": "מצאו את נקודות האי-רציפות של הפונקציה $f(x)=\\frac{(A+2)\\,x\\,|x-B-1|}{\\left(2x^2-(2B+3)x+B+1\\right)\\arctan\\left((C+3)x\\right)}$ ומיינו אותן.",
+   "solution": "$$f(x)=\\frac{(A+2)\\,x\\,|x-B-1|}{\\left(2x^2-(2B+3)x+B+1\\right)\\arctan\\left((C+3)x\\right)}$$\n$$2x^2-(2B+3)x+B+1=0\\ \\Rightarrow\\ x=\\frac{1}{2},\\ x=B+1$$\n$$f(x)=\\frac{(A+2)\\,x\\,|x-(B+1)|}{2\\left(x-\\frac{1}{2}\\right)\\left(x-(B+1)\\right)\\arctan\\left((C+3)x\\right)}$$\nהנקודות החשודות כנקודות אי-רציפות הן: $x=0,\\ x=\\frac{1}{2},\\ x=B+1$.\n$$\\lim_{x\\to0}f(x)=\\frac{(A+2)\\,|-(B+1)|}{2\\cdot\\left(-\\frac{1}{2}\\right)\\left(-(B+1)\\right)}\\lim_{x\\to0}\\frac{x}{\\arctan\\left((C+3)x\\right)}=(A+2)\\lim_{x\\to0}\\frac{1}{\\frac{C+3}{1+(C+3)^2x^2}}=\\frac{A+2}{C+3}$$\nלכן $x=0$ היא נקודת אי-רציפות סליקה.\n$$\\lim_{x\\to\\frac{1}{2}}f(x)=\\frac{(A+2)\\cdot\\frac{1}{2}\\left|\\frac{1}{2}-(B+1)\\right|}{2\\left(\\frac{1}{2}-(B+1)\\right)\\arctan\\frac{C+3}{2}}\\lim_{x\\to\\frac{1}{2}}\\frac{1}{x-\\frac{1}{2}}=\\infty$$\nלכן $x=\\frac{1}{2}$ היא נקודת אי-רציפות מסוג שני.\n$$\\lim_{x\\to B+1}f(x)=\\frac{(A+2)(B+1)}{2\\left(B+1-\\frac{1}{2}\\right)\\arctan\\left((C+3)(B+1)\\right)}\\lim_{x\\to B+1}\\frac{|x-(B+1)|}{x-(B+1)}$$\nהגבול $\\lim_{x\\to B+1}\\frac{|x-(B+1)|}{x-(B+1)}$ אינו קיים, אך הגבול הימני שלו שווה ל-$1$ והגבול השמאלי שלו שווה ל-$-1$. לכן $x=B+1$ היא נקודת אי-רציפות מסוג ראשון.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10,
+   "contextId": "c0"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "נתונה הפונקציה $f(x)=\\begin{cases}\\frac{x-\\sin x}{x^2}, & x<0\\\\ 0, & x=0\\\\ \\frac{e^{px}-px-1}{x}, & x>0\\end{cases}$ כאשר $p$ פרמטר ממשי. מצאו את כל הערכים של $p$ כך ש-$f$ תהיה גזירה ב-$x=0$.",
+   "solution": "נמצא את הנגזרת של $f$ ב-$x=0$ לפי ההגדרה:\n$$f'(0)=\\lim_{h\\to0}\\frac{f(h)-f(0)}{h}$$\nנעבור לגבולות חד-צדדיים.\n$$\\lim_{h\\to0^+}\\frac{f(h)-f(0)}{h}=\\lim_{h\\to0^+}\\frac{e^{ph}-ph-1}{h^2}=\\left\\{\\tfrac{0}{0}\\right\\}=\\lim_{h\\to0^+}\\frac{pe^{ph}-p}{2h}=\\left\\{\\tfrac{0}{0}\\right\\}=\\lim_{h\\to0^+}\\frac{p^2e^{ph}}{2}=\\frac{p^2}{2}$$\n$$\\lim_{h\\to0^-}\\frac{f(h)-f(0)}{h}=\\lim_{h\\to0^-}\\frac{h-\\sin h}{h^3}=\\left\\{\\tfrac{0}{0}\\right\\}=\\lim_{h\\to0^-}\\frac{1-\\cos h}{3h^2}=\\left\\{\\tfrac{0}{0}\\right\\}=\\lim_{h\\to0^-}\\frac{\\sin h}{6h}=\\frac{1}{6}$$\nלכן $f$ גזירה ב-$0$ אם ורק אם $\\frac{p^2}{2}=\\frac{1}{6}$, כלומר $p=\\pm\\frac{1}{\\sqrt{3}}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "מצאו משיק משותף לשני הגרפים של הפונקציות $y=2(A+1)\\ln x+C$ ו-$y=(A+1)\\left(x^2-1\\right)+C$.",
+   "solution": "עבור הפונקציה $y=2(A+1)\\ln x+C$ נקבל $y'=\\frac{2(A+1)}{x}$.\nועבור הפונקציה $y=(A+1)\\left(x^2-1\\right)+C$ נקבל $y'=2(A+1)x$.\nמכאן נקבל שהנגזרות שוות כאשר $\\frac{2(A+1)}{x}=2(A+1)x$, כלומר $x^2=1$. מכיוון שתחום ההגדרה של $\\ln x$ הוא $x>0$, מתקבל $x=1$.\nשתי הפונקציות נחתכות ב-$x=1$ כי בנקודה זו $y=C$ בשתיהן, ולכן $x=1$ היא נקודת ההשקה והשיפוע המשותף הוא $2(A+1)$. משוואת המשיק:\n$$y-C=2(A+1)(x-1)$$\nכלומר $y=2(A+1)x-2A+C-2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10,
+   "contextId": "c0"
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{3x^3+x^2+4x+8}{x^4+4x^2}\\,dx$.",
+   "solution": "$$\\frac{3x^3+x^2+4x+8}{x^2\\left(x^2+4\\right)}=\\frac{A}{x^2}+\\frac{B}{x}+\\frac{Cx+D}{x^2+4}=\\frac{A\\left(x^2+4\\right)+Bx\\left(x^2+4\\right)+(Cx+D)x^2}{x^2\\left(x^2+4\\right)}$$\nנמצא את המקדמים מהשוואת הפולינומים (כאן $A,B,C,D$ הם מקדמי הפירוק ולא הפרמטרים של המבחן):\n$$\\begin{array}{c|l}x^3 & B+C=3\\\\ x^2 & A+D=1\\\\ x & 4B=4\\\\ 1 & 4A=8\\end{array}\\ \\Longrightarrow\\ A=2,\\ B=1,\\ C=2,\\ D=-1$$\n$$\\int\\frac{3x^3+x^2+4x+8}{x^2\\left(x^2+4\\right)}dx=\\int\\left(\\frac{2}{x^2}+\\frac{1}{x}+\\frac{2x-1}{x^2+4}\\right)dx=\\int\\left(\\frac{2}{x^2}+\\frac{1}{x}+\\frac{2x}{x^2+4}-\\frac{1}{x^2+4}\\right)dx$$\n$$=-\\frac{2}{x}+\\ln|x|+\\ln\\left(x^2+4\\right)-\\frac{1}{2}\\arctan\\frac{x}{2}+c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הוכיחו את האי-שוויון: $\\arcsin x\\le\\frac{x}{\\sqrt{1-x^2}}$ עבור כל $x\\in[0,1)$.",
+   "solution": "נגדיר $f(x)=\\arcsin x-\\frac{x}{\\sqrt{1-x^2}}$. אז\n$$f'(x)=\\frac{1}{\\sqrt{1-x^2}}-\\frac{\\sqrt{1-x^2}-x\\cdot\\frac{-x}{\\sqrt{1-x^2}}}{1-x^2}=\\frac{1}{\\sqrt{1-x^2}}-\\frac{1}{\\sqrt{1-x^2}}-\\frac{x^2}{\\sqrt{\\left(1-x^2\\right)^3}}\\le 0$$\nלכן $f$ יורדת. מכיוון ש-$f(0)=0$ נקבל עבור $x\\in[0,1)$ כי $f(x)\\le 0$, כלומר\n$$\\arcsin x\\le\\frac{x}{\\sqrt{1-x^2}}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את שטח התחום הכלוא בין הקווים: $y=\\frac{(A+2)x^2}{2}+B$ ו-$y=\\frac{A+2}{1+x^2}+B$.",
+   "solution": "נמצא את נקודות החיתוך של שני הגרפים:\n$$\\frac{A+2}{1+x^2}+B=\\frac{(A+2)x^2}{2}+B\\ \\Rightarrow\\ \\frac{1}{1+x^2}=\\frac{x^2}{2}\\ \\Rightarrow\\ x^4+x^2-2=0$$\nנסמן $t=x^2\\ge 0$: $t^2+t-2=0$, ולכן $t=-2$ (לא מתקבל, כי $t\\ge 0$) או $t=1$. מכאן $x=\\pm 1$.\n![שרטוט שני הגרפים והתחום הכלוא ביניהם](images/exams/22A-A-Q5b-sketch.png)\n$$S=2\\int_0^1\\left(\\frac{A+2}{1+x^2}+B-\\left(\\frac{(A+2)x^2}{2}+B\\right)\\right)dx=2(A+2)\\int_0^1\\left(\\frac{1}{1+x^2}-\\frac{x^2}{2}\\right)dx=2(A+2)\\left(\\arctan x-\\frac{x^3}{6}\\right)\\Big|_0^1$$\n$$=2(A+2)\\left(\\frac{\\pi}{4}-\\frac{1}{6}\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10,
+   "contextId": "c0"
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "lhopital_taylor",
+   "question": "חשבו את הגבול: $\\lim_{x\\to0}\\frac{x-\\arcsin x}{\\int_0^x\\ln\\left(1+t^2\\right)dt}$.",
+   "solution": "$$\\lim_{x\\to0}\\frac{x-\\arcsin x}{\\int_0^x\\ln\\left(1+t^2\\right)dt}=\\left\\{\\tfrac{0}{0}\\right\\}\\overset{\\text{L'H}}{=}\\lim_{x\\to0}\\frac{1-\\frac{1}{\\sqrt{1-x^2}}}{\\ln\\left(1+x^2\\right)}=\\lim_{x\\to0}\\frac{\\sqrt{1-x^2}-1}{\\sqrt{1-x^2}\\,\\ln\\left(1+x^2\\right)}$$\n$$=\\lim_{x\\to0}\\frac{1-x^2-1}{\\sqrt{1-x^2}\\left(\\sqrt{1-x^2}+1\\right)\\ln\\left(1+x^2\\right)}=-\\lim_{x\\to0}\\frac{x^2}{\\ln\\left(1+x^2\\right)}\\cdot\\frac{1}{\\sqrt{1-x^2}\\left(\\sqrt{1-x^2}+1\\right)}=-\\frac{1}{2}$$\n(כאשר $\\lim_{x\\to0}\\frac{x^2}{\\ln\\left(1+x^2\\right)}=1$.)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח גוף הסיבוב הנוצר כסיבוב של התחום המישורי הכלוא בין הקווים: $y=\\sqrt[5]{x^2+B+1},\\ x=0,\\ x=C+1,\\ y=0$ סביב ציר ה-$y$.",
+   "solution": "![שרטוט התחום המסתובב סביב ציר ה-y](images/exams/22A-A-Q6b-sketch.png)\n$$V=2\\pi\\int_0^{C+1}x\\sqrt[5]{x^2+B+1}\\,dx=\\left|\\begin{array}{l}t=x^2+B+1\\\\ dt=2x\\,dx\\\\ x=0\\Rightarrow t=B+1\\\\ x=C+1\\Rightarrow t=(C+1)^2+B+1\\end{array}\\right|=\\frac{2\\pi}{2}\\int_{B+1}^{(C+1)^2+B+1}\\sqrt[5]{t}\\,dt$$\n$$=\\pi\\,\\frac{t^{6/5}}{\\frac{6}{5}}\\Bigg|_{B+1}^{(C+1)^2+B+1}=\\frac{5\\pi}{6}\\left(\\left[(C+1)^2+B+1\\right]^{6/5}-\\left[B+1\\right]^{6/5}\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10,
+   "contextId": "c0"
+  }
+ ]
+}

@@ -1,0 +1,138 @@
+{
+ "examCode": "22A-B",
+ "examLabel": "מבחן סוף סמסטר ב' תשפ\"ב, מועד א'",
+ "year": 2022,
+ "examDate": "14/06/2022",
+ "sourceFile": "calculus-1/22A-B solution.pdf",
+ "solutionFile": "calculus-1/22A-B solution.pdf",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $f(x)=\\frac{x^3}{x^2-1}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה ונקודות קיצון, תחומי קמירות וקעירות ונקודות פיתול, אסימפטוטות, שרטוט.",
+   "solution": "**א. תחום הגדרה:** $D=\\{x\\in\\mathbb{R},\\ x\\neq\\pm1\\}$.\n**ב. נקודת חיתוך עם צירי הקואורדינטות:** $(0,0)$.\n**ג.** $$f'(x)=\\frac{3x^2\\left(x^2-1\\right)-2x^4}{\\left(x^2-1\\right)^2}=\\frac{x^4-3x^2}{\\left(x^2-1\\right)^2}=\\frac{x^2\\left(x^2-3\\right)}{\\left(x^2-1\\right)^2}$$ והנקודות הקריטיות של הפונקציה הן $x=0,\\ x=\\pm\\sqrt{3}$.\nטבלת סימן של $f'$: חיובית כאשר $x<-\\sqrt{3}$, שלילית כאשר $-\\sqrt{3}<x<0$ וגם כאשר $0<x<\\sqrt{3}$, וחיובית כאשר $x>\\sqrt{3}$ (בתחום ההגדרה).\n**סיכום:** $f(x)$ עולה כאשר $x<-\\sqrt{3}$ וגם $x>\\sqrt{3}$, ו-$f(x)$ יורדת כאשר $-\\sqrt{3}<x<\\sqrt{3}$. הנקודה $x=-\\sqrt{3}$ היא נקודת מקסימום מקומי כך ש-$f(-\\sqrt{3})=-\\frac{3\\sqrt{3}}{2}$, והנקודה $x=\\sqrt{3}$ היא נקודת מינימום מקומי כך ש-$f(\\sqrt{3})=\\frac{3\\sqrt{3}}{2}$.\n**ד.** $$f''(x)=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)^2-2\\left(x^4-3x^2\\right)\\left(x^2-1\\right)2x}{\\left(x^2-1\\right)^4}=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)-2\\left(x^4-3x^2\\right)2x}{\\left(x^2-1\\right)^3}=\\frac{2x^3+6x}{\\left(x^2-1\\right)^3}$$\nטבלת סימן של $f''$: שלילית כאשר $x<-1$, חיובית כאשר $-1<x<0$, שלילית כאשר $0<x<1$, וחיובית כאשר $x>1$.\n**סיכום:** $f(x)$ קמורה כאשר $x<-1$ וגם $0<x<1$. $f(x)$ קעורה כאשר $x>1$ וגם $-1<x<0$. הנקודה $x=0$ היא נקודת פיתול.\n**ה.** הישרים $x=\\pm1$ מהווים אסימפטוטות אנכיות לגרף הפונקציה, כך ש-$\\lim_{x\\to-1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to-1^+}f(x)=\\infty$, וכן $\\lim_{x\\to1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to1^+}f(x)=\\infty$.\nבנוסף לזאת,\n$$k=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^2}{x^2-1}=1,\\qquad m=\\lim_{x\\to\\pm\\infty}\\left(f(x)-x\\right)=0$$\nוהתוצאה מכך היא ש-$y=x$ היא אסימפטוטה משופעת לגרף הפונקציה ב-$\\pm\\infty$.\n**ו. שרטוט:**\n![גרף הפונקציה עם האסימפטוטות x=1, x=-1 ו-y=x](images/exams/22A-B-Q1-graph.png)",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "הוכיחו כי הסדרה הבאה מתכנסת ומצאו את גבולה: $a_1=5,\\ a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{5}{a_n}\\right)$.",
+   "solution": "השערה: $a_1=5,\\ a_2=3,\\ a_3=2.3\\ldots$ הסדרה יורדת וחסומה מלרע. אם זה נכון, אז הסדרה מתכנסת וגבולה מקיים את המשוואה (על פניו הסדרה חיובית):\n$$L=\\frac{1}{2}\\left(L+\\frac{5}{L}\\right),\\qquad L=\\sqrt{5},\\ L^2=5$$\nבמקרה זה $L=\\sqrt{5}$ הוא החסם התחתון של הסדרה.\nנוכיח באינדוקציה שהסדרה באמת חסומה מלרע על ידי $\\sqrt{5}$.\nבסיס האינדוקציה: $a_1=5>\\sqrt{5}$.\nשלב האינדוקציה: נניח ש-$a_n>\\sqrt{5}$, בפרט $a_n$ חיובי וניתן להשתמש באי-שוויון הממוצעים:\n$$a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{5}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{5}{a_n}}=\\sqrt{5}$$\nנותר להראות שהסדרה מונוטונית יורדת. נקבל:\n$$\\frac{a_{n+1}}{a_n}=\\frac{1}{2}\\left(1+\\frac{5}{a_n^2}\\right)<\\frac{1}{2}\\left(1+\\frac{5}{5}\\right)=1$$\nכלומר הסדרה יורדת. לפי חישוב העזר שעשינו מקודם, $L=\\sqrt{5}$.",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "א"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int x\\arctan\\frac{2}{x}\\,dx$.",
+   "solution": "$$\\int x\\arctan\\frac{2}{x}\\,dx=\\left\\{u=\\arctan\\frac{2}{x},\\ du=\\frac{-\\frac{2}{x^2}}{1+\\frac{4}{x^2}}dx,\\ dv=x\\,dx,\\ v=\\frac{x^2}{2}\\right\\}=$$\n$$=\\frac{x^2}{2}\\arctan\\frac{2}{x}+\\int\\frac{\\frac{2}{x^2}\\cdot\\frac{x^2}{2}}{1+\\frac{4}{x^2}}dx=\\frac{x^2}{2}\\arctan\\frac{2}{x}+\\int\\frac{x^2+4-4}{x^2+4}dx=$$\n$$=\\frac{x^2}{2}\\arctan\\frac{2}{x}+x-2\\arctan\\frac{x}{2}+c$$",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "ב"
+  },
+  {
+   "num": 3,
+   "kind": "proof",
+   "topic": "continuity",
+   "question": "הוכיחו כי למשוואה $\\ln(x+1)-\\frac{3x+2}{x+2}=0$ יש פתרון יחיד.",
+   "solution": "נגדיר את הפונקציה החדשה $f(x)=\\ln(x+1)-\\frac{3x+2}{x+2}$. הפונקציה רציפה וגזירה לכל $x>-1$, כפונקציה אלמנטרית ומוגדרת בתחום.\n$$f(0)=-1<0,\\qquad \\lim_{x\\to+\\infty}f(x)=+\\infty>0$$\nלפי משפט ערך הביניים של קושי קיימת נקודה $c\\in(0,+\\infty)$ כך ש-$f(c)=0$.\nנבדוק את הסימן של נגזרת:\n$$f'(x)=\\frac{1}{x+1}-\\frac{4}{(x+2)^2}=\\frac{(x+2)^2-4x-4}{(x+1)(x+2)^2}=\\frac{x^2}{(x+1)(x+2)^2}>0$$\nהפונקציה מונוטונית עולה, לכן הפתרון הוא יחיד.",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{\\cos x\\,dx}{\\left(3-\\cos^2x\\right)(3-\\sin x)}$.",
+   "solution": "$$\\int\\frac{\\cos x\\,dx}{\\left(3-\\cos^2x\\right)(3-\\sin x)}=\\int\\frac{\\cos x\\,dx}{\\left(2+\\sin^2x\\right)(3-\\sin x)}\\ \\left\\{\\begin{array}{l}t=\\sin x\\\\ dt=\\cos x\\,dx\\end{array}\\right\\}=\\int\\frac{dt}{\\left(2+t^2\\right)(3-t)}$$\nנחפש את הפירוק מן הצורה:\n$$\\frac{1}{\\left(2+t^2\\right)(3-t)}=\\frac{At+B}{t^2+2}+\\frac{C}{3-t}$$\nנמצא את המקדמים של השברים: $1=(At+B)(3-t)+C\\left(t^2+2\\right)$.\n$$t=3:\\ 1=11C\\Rightarrow C=\\frac{1}{11}$$\n$$t^2:\\ 0=-A+C\\Rightarrow A=C=\\frac{1}{11}$$\n$$t:\\ 0=3A-B\\Rightarrow B=3A=\\frac{3}{11}$$\n$$\\int\\frac{dt}{\\left(2+t^2\\right)(3-t)}=\\frac{1}{11}\\int\\frac{t+3}{t^2+2}dt+\\frac{1}{11}\\int\\frac{dt}{3-t}=\\frac{1}{22}\\int\\frac{2t\\,dt}{t^2+2}+\\frac{3}{11}\\int\\frac{dt}{t^2+2}+\\frac{1}{11}\\int\\frac{dt}{3-t}=$$\n$$=\\frac{1}{22}\\ln\\left(t^2+2\\right)+\\frac{3}{11\\sqrt{2}}\\arctan\\frac{t}{\\sqrt{2}}-\\frac{1}{11}\\ln|3-t|+C=$$\n$$=\\frac{1}{22}\\ln\\left(\\sin^2x+2\\right)+\\frac{3}{11\\sqrt{2}}\\arctan\\frac{\\sin x}{\\sqrt{2}}-\\frac{1}{11}\\ln|3-\\sin x|+C$$",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "continuity",
+   "question": "מצאו את הנקודות האי-רציפות של הפונקציה הבאה וסווגו אותן: $y=\\frac{e^{\\frac{x}{1-x}}}{1-e^{\\frac{x}{1-x}}}$.",
+   "solution": "תחום ההגדרה: $x\\neq0,1$. נקודות האי-רציפות הן $0,1$.\n$x=0$:\n$$\\lim_{x\\to0^-}y=\\lim_{x\\to0^-}\\frac{e^{\\frac{x}{1-x}}}{1-e^{\\frac{x}{1-x}}}=\\frac{e^{\\frac{0}{1-0}}}{1-e^{\\frac{0}{1-0}}}=\\frac{1}{0(+)}=\\infty$$\n$$\\lim_{x\\to0^+}y=\\lim_{x\\to0^+}\\frac{e^{\\frac{x}{1-x}}}{1-e^{\\frac{x}{1-x}}}=\\frac{e^{\\frac{0}{1-0}}}{1-e^{\\frac{0}{1-0}}}=\\frac{1}{0(-)}=-\\infty$$\n$0$ היא אי-רציפות מהסוג השני.\n$x=1$:\n$$\\lim_{x\\to1^-}y=\\lim_{x\\to1^-}\\frac{e^{\\frac{x}{1-x}}}{1-e^{\\frac{x}{1-x}}}=\\frac{e^{\\frac{1}{0(+)}}}{1-e^{\\frac{1}{0(+)}}}=\\frac{e^{\\infty}}{1-e^{\\infty}}=\\frac{\\infty}{-\\infty}=\\left[t=e^{\\frac{x}{1-x}}\\to\\infty\\right]=\\lim_{t\\to\\infty}\\frac{t}{1-t}=-1$$\n$$\\lim_{x\\to1^+}y=\\lim_{x\\to1^+}\\frac{e^{\\frac{x}{1-x}}}{1-e^{\\frac{x}{1-x}}}=\\frac{e^{\\frac{1}{0(-)}}}{1-e^{\\frac{1}{0(-)}}}=\\frac{e^{-\\infty}}{1-e^{-\\infty}}=\\frac{0}{1-0}=0$$\n$\\lim_{x\\to1^-}y\\neq\\lim_{x\\to1^+}y$, לכן $1$ היא אי-רציפות מהסוג הראשון.",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח הגוף, הנוצר על ידי סיבוב סביב ציר ה-$y$ של התחום הכלוא בין הקווים הבאים: $y=\\cos^2x,\\ y=0$ כאשר $\\frac{\\pi}{2}\\le x\\le\\pi$.",
+   "solution": "![התחום הכלוא בין הגרף לציר ה-x](images/exams/22A-B-Q4b-sketch.png)\nנשתמש בשיטת הקליפה:\n$$V=2\\pi\\int_{\\frac{\\pi}{2}}^{\\pi}x\\cos^2x\\,dx=\\pi\\int_{\\frac{\\pi}{2}}^{\\pi}x\\left(\\cos(2x)+1\\right)dx=\\pi\\left(\\int_{\\frac{\\pi}{2}}^{\\pi}x\\cos(2x)\\,dx+\\int_{\\frac{\\pi}{2}}^{\\pi}x\\,dx\\right)=$$\n$$=\\left|\\begin{array}{ll}u=x & du=dx\\\\ dv=\\cos(2x)\\,dx & v=\\frac{1}{2}\\sin(2x)\\end{array}\\right|=$$\n$$=\\pi\\left(\\frac{1}{2}x\\sin(2x)\\Big|_{\\frac{\\pi}{2}}^{\\pi}-\\frac{1}{2}\\int_{\\frac{\\pi}{2}}^{\\pi}\\sin(2x)\\,dx+\\frac{x^2}{2}\\Big|_{\\frac{\\pi}{2}}^{\\pi}\\right)$$\n$$=\\pi\\left(\\frac{1}{2}\\pi\\sin(2\\pi)-\\frac{1}{2}\\cdot\\frac{\\pi}{2}\\sin(\\pi)+\\frac{1}{4}\\cos(2x)\\Big|_{\\frac{\\pi}{2}}^{\\pi}+\\frac{1}{2}\\left(\\pi^2-\\frac{\\pi^2}{4}\\right)\\right)$$\n$$=\\pi\\left(\\frac{1}{4}\\left(\\cos(2\\pi)-\\cos(\\pi)\\right)+\\frac{3}{8}\\pi^2\\right)=\\pi\\left(\\frac{1}{2}+\\frac{3}{8}\\pi^2\\right)=\\frac{\\pi}{2}\\left(1+\\frac{3}{4}\\pi^2\\right)$$",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "ב"
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הוכיחו את האי-שוויון $\\frac{x}{x+1}<\\ln(1+x)<x$, כאשר $x>0$.",
+   "solution": "ניקח $x>0$. לפי משפט לגרנז', קיימת $c\\in(0,x)$ כך שלפונקציה $f(x)=\\ln(1+x)$ מקבלים:\n$$\\frac{f(x)-f(0)}{x-0}=\\frac{\\ln(1+x)}{x}=f'(c)=\\frac{1}{1+c}$$\nמכיוון ש-$0<c<x$, נובע מכך ש-\n$$1<1+c<1+x\\ \\Longrightarrow\\ \\frac{1}{1+x}<\\frac{1}{1+c}<1$$\nזה אומר ש-\n$$\\frac{1}{1+x}<\\frac{\\ln(1+x)}{x}<\\frac{1}{1+c}<1$$\nומכיוון ש-$x>0$ נקבל ש-\n$$\\frac{x}{1+x}<\\ln(1+x)<x$$",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את אורך הקשת של העקומה $y=e^x$ בקטע $0\\le x\\le1$.",
+   "solution": "$$L=\\int_0^1\\sqrt{1+\\left(\\left(e^x\\right)'\\right)^2}\\cdot dx=\\int_0^1\\sqrt{1+e^{2x}}\\cdot dx=$$\n$$=\\left[t=\\sqrt{1+e^{2x}},\\ dt=\\frac{2e^{2x}}{2\\sqrt{1+e^{2x}}}dx=\\frac{t^2-1}{t}dx,\\ dx=\\frac{t}{t^2-1}dt;\\quad x=0\\Rightarrow t=\\sqrt{2},\\ x=1\\Rightarrow t=\\sqrt{1+e^2}\\right]=$$\n$$=\\int_{\\sqrt{2}}^{\\sqrt{1+e^2}}t\\cdot\\frac{t}{t^2-1}dt=\\int_{\\sqrt{2}}^{\\sqrt{1+e^2}}\\frac{t^2}{t^2-1}dt=\\int_{\\sqrt{2}}^{\\sqrt{1+e^2}}\\left(1+\\frac{1}{t^2-1}\\right)dt=$$\n$$=\\left(t+\\frac{1}{2}\\ln\\left|\\frac{t-1}{t+1}\\right|\\right)\\Bigg|_{\\sqrt{2}}^{\\sqrt{1+e^2}}=\\left(\\sqrt{1+e^2}+\\frac{1}{2}\\ln\\left|\\frac{\\sqrt{1+e^2}-1}{\\sqrt{1+e^2}+1}\\right|\\right)-\\left(\\sqrt{2}+\\frac{1}{2}\\ln\\left|\\frac{\\sqrt{2}-1}{\\sqrt{2}+1}\\right|\\right)=$$\n$$=\\left(2.9+\\frac{1}{2}\\ln\\left|\\frac{2.9-1}{2.9+1}\\right|\\right)-\\left(1.41+\\frac{1}{2}\\ln\\left|\\frac{1.41-1}{1.41+1}\\right|\\right)=2.5-(0.52)=1.98$$",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "ב",
+   "hold": "official decimal value 1.98 disagrees with the exact value 2.0035 of the arc length"
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "extrema_optimization",
+   "question": "מצאו את הערך הגדול ביותר ואת הערך הקטן ביותר של הפונקציה $f(x)=x\\cdot\\sqrt[3]{3x-1}$ בקטע $-1\\le x\\le\\frac{2}{3}$.",
+   "solution": "$$f'(x)=\\sqrt[3]{3x-1}+x\\cdot\\frac{1}{3}(3x-1)^{-2/3}\\cdot3=(3x-1)^{1/3}+\\frac{x}{(3x-1)^{2/3}}=\\frac{4x-1}{(3x-1)^{2/3}}$$\n$$f'(x)=0\\iff x=\\frac{1}{4}\\in\\left(-1,\\frac{2}{3}\\right)$$\nוגם $x=\\frac{1}{3}\\in\\left[-1,\\frac{2}{3}\\right]$ (שם הנגזרת אינה קיימת).\n$$f\\left(\\frac{1}{4}\\right)=\\frac{1}{4}\\sqrt[3]{\\frac{3}{4}-1}=-\\left(\\frac{1}{4}\\right)^{4/3},\\qquad f\\left(\\frac{1}{3}\\right)=0$$\n$$f(-1)=-\\sqrt[3]{-3-1}=\\sqrt[3]{4},\\qquad f\\left(\\frac{2}{3}\\right)=\\frac{2}{3}$$\nהערך הגדול ביותר הוא: $\\sqrt[3]{4}$.\nהערך הקטן ביותר הוא: $-\\left(\\frac{1}{4}\\right)^{4/3}$.",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "נתונה הפונקציה $f(x)=\\begin{cases}ax^3, & x\\le2\\\\ x^2+b, & x>2\\end{cases}$ כאשר $a$ ו-$b$ פרמטרים ממשיים. מצאו את כל הערכים של $a$ ו-$b$ כך ש-$f(x)$ תהיה גזירה בנקודה $x=2$.",
+   "solution": "$$\\lim_{x\\to2^+}f(x)=\\lim_{x\\to2^+}\\left(x^2+b\\right)=4+b$$\n$$\\lim_{x\\to2^-}f(x)=\\lim_{x\\to2^-}ax^3=8a$$\n$$f(2)=8a=4+b$$\n$$f_+'(2)=\\lim_{\\Delta x\\to0^+}\\frac{f(2+\\Delta x)-f(2)}{\\Delta x}=\\lim_{\\Delta x\\to0^+}\\frac{(2+\\Delta x)^2+b-8a}{\\Delta x}$$\n$$\\lim_{\\Delta x\\to0^+}\\frac{(2+\\Delta x)^2-4}{\\Delta x}=\\lim_{\\Delta x\\to0^+}\\frac{4\\Delta x+\\Delta x^2}{\\Delta x}=\\lim_{\\Delta x\\to0^+}(4+\\Delta x)=4$$\n$$f_-'(2)=\\lim_{\\Delta x\\to0^-}\\frac{f(2+\\Delta x)-f(2)}{\\Delta x}=\\lim_{\\Delta x\\to0^-}\\frac{a(2+\\Delta x)^3-8a}{\\Delta x}=$$\n$$\\lim_{\\Delta x\\to0^-}\\frac{12a\\Delta x+6a\\Delta x^2+a\\Delta x^3}{\\Delta x}=\\lim_{\\Delta x\\to0^-}\\left(12a+6a\\Delta x+a\\Delta x^2\\right)=12a$$\nנקבל $8a=4+b$ ו-$12a=4\\Rightarrow a=\\frac{1}{3}$, ולכן $b=-\\frac{4}{3}$.",
+   "solutionSource": "student-solution",
+   "official": false,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  }
+ ]
+}

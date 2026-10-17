@@ -1,0 +1,141 @@
+{
+ "examCode": "22B-B",
+ "examLabel": "מבחן סוף סמסטר ב' תשפ\"ב, מועד ב'",
+ "year": 2022,
+ "examDate": "12/07/2022",
+ "sourceFile": "calculus-1/22B-B exam+solution.pdf",
+ "solutionFile": "calculus-1/22B-B exam+solution.pdf",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה $f(x)=x\\cdot e^{1-2x^2}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
+   "solution": "**א. תחום ההגדרה של הפונקציה:** $x\\in\\mathbb{R}$.\n**ב. נקודות החיתוך עם הצירים:** $x\\cdot e^{1-2x^2}=0$, נקבל את הנקודה $x=0,\\ y=0$.\n**ג. תחומי עליה וירידה, נקודות קיצון:**\n$$f'(x)=e^{1-2x^2}\\left(1-4x^2\\right)=0$$\nקיימות שתי נקודות חשודות לקיצון: $x_1=\\frac{1}{2},\\ x_2=-\\frac{1}{2}$.\nטבלת סימן של $f'(x)$: שלילית כאשר $x<-\\frac{1}{2}$, חיובית כאשר $-\\frac{1}{2}<x<\\frac{1}{2}$, ושלילית כאשר $x>\\frac{1}{2}$.\nקיימות שתי נקודות קיצון: נקודת מקסימום $\\left(\\frac{1}{2},\\frac{\\sqrt{e}}{2}\\right)$, נקודת מינימום $\\left(-\\frac{1}{2},-\\frac{\\sqrt{e}}{2}\\right)$.\n**ד. תחומי קמירות וקעירות, נקודות פיתול:**\n$$f''(x)=4xe^{1-2x^2}\\left(4x^2-3\\right)=0$$\nטבלת סימן של $f''(x)$: שלילית כאשר $x<-\\frac{\\sqrt{3}}{2}$, חיובית כאשר $-\\frac{\\sqrt{3}}{2}<x<0$, שלילית כאשר $0<x<\\frac{\\sqrt{3}}{2}$, וחיובית כאשר $x>\\frac{\\sqrt{3}}{2}$.\nנקודות פיתול הן: $x_1=0,\\ x_2=\\frac{\\sqrt{3}}{2},\\ x_3=-\\frac{\\sqrt{3}}{2}$.\n**ה. אסימפטוטות:**\n1. אין אסימפטוטה אנכית (פונקציה מוגדרת ורציפה בכל תחום הגדרתה).\n2. אסימפטוטה משופעת:\n$$a=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\pm\\infty}\\frac{xe^{1-2x^2}}{x}=0$$\n$$b=\\lim_{x\\to\\pm\\infty}xe^{1-2x^2}\\,[\\infty\\cdot0]=\\lim_{x\\to\\pm\\infty}\\frac{x}{e^{2x^2-1}}\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to\\pm\\infty}\\frac{1}{4xe^{2x^2-1}}\\left[\\frac{1}{\\infty}\\right]=0$$\n$y=0$ - אסימפטוטה אופקית של הפונקציה.\n**ו. שרטוט:**\n![גרף הפונקציה f(x)=x e^(1-2x^2): מקסימום ב-x=1/2, מינימום ב-x=-1/2, אסימפטוטה y=0](images/exams/22B-B-Q1-graph.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 20
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "sequences_limits",
+   "question": "נתונה הסדרה: $a_1=1,\\ a_{n+1}=\\frac{2a_n}{a_n+3}$. הוכיחו כי הסדרה מתכנסת וחשבו את הגבול של הסדרה.",
+   "solution": "מתוך ההגדרה של הסדרה מקבלים ש-$a_n>0$. לכן $0$ הוא חסם תחתון של הסדרה.\nנוכיח לפי אינדוקציה שהסדרה הנתונה יורדת. צריך להוכיח ש-$a_{n+1}<a_n$.\nבדיקה $n=1$: $a_2=\\frac{2}{1+3}=\\frac{1}{2}<a_1=1$.\nההנחה עבור $n=k$: $a_{k+1}<a_k$. צריך להוכיח עבור $n=k+1$: $a_{k+2}<a_{k+1}$.\n$$a_{k+1}<a_k\\ \\Rightarrow\\ \\frac{1}{a_{k+1}}>\\frac{1}{a_k}\\ \\Rightarrow\\ \\frac{3}{a_{k+1}}>\\frac{3}{a_k}\\ \\Rightarrow$$\n$$1+\\frac{3}{a_{k+1}}>1+\\frac{3}{a_k}\\ \\Rightarrow$$\n$$\\frac{1}{1+\\frac{3}{a_{k+1}}}<\\frac{1}{1+\\frac{3}{a_k}}\\ \\Rightarrow\\ \\frac{2}{1+\\frac{3}{a_{k+1}}}<\\frac{2}{1+\\frac{3}{a_k}}\\ \\Rightarrow\\ a_{k+2}<a_{k+1}$$\nמ.ש.ל.\nלכן הסדרה הנתונה מתכנסת כסדרה יורדת וחסומה מלמטה. נסמן\n$$\\lim_{n\\to\\infty}a_n=L\\ \\Rightarrow\\ \\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\frac{2}{1+\\frac{3}{a_n}}\\ \\Rightarrow$$\n$$L=\\frac{2}{1+\\frac{3}{L}},\\qquad L=\\frac{2L}{L+3}\\ \\Rightarrow\\ L^2+3L=2L,\\ L^2+L=0$$\n$$L_1=0,\\ L_2=-1$$\n$$a_n>0\\ \\Rightarrow\\ L\\neq-1\\ \\Rightarrow\\ L=0$$\n$$\\lim_{n\\to\\infty}a_n=0$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{dx}{5-4\\sin(x)+3\\cos(x)}$.",
+   "solution": "אם נשתמש בהצבה טריגונומטרית אוניברסלית, $t=\\tan\\frac{x}{2}$, אז $\\sin x=\\frac{2t}{1+t^2},\\ \\cos x=\\frac{1-t^2}{1+t^2},\\ dx=\\frac{2dt}{1+t^2}$, וכתוצאה מכך נוכל להציג את האינטגרל המקורי בצורה:\n$$\\int\\frac{dx}{5-4\\sin x+3\\cos x}=\\int\\frac{2\\,dt}{(1+t^2)\\left(5-4\\frac{2t}{1+t^2}+3\\frac{1-t^2}{1+t^2}\\right)}=\\int\\frac{dt}{4-4t+t^2}=\\int\\frac{dt}{(t-2)^2}=$$\n$$=-\\frac{1}{t-2}+C=-\\frac{1}{\\tan\\frac{x}{2}-2}+C=\\frac{1}{2-\\tan\\frac{x}{2}}+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הוכיחו את האי-שוויון $\\frac{b-a}{\\sqrt{1-a^2}}\\le\\arcsin(b)-\\arcsin(a)\\le\\frac{b-a}{\\sqrt{1-b^2}}$, כאשר $0<a<b<1$.",
+   "solution": "הבה נבחן את הפונקציה $f(x)=\\arcsin x$ שנגזרת שלה היא: $f'(x)=(\\arcsin x)'=\\frac{1}{\\sqrt{1-x^2}}$.\nלפי משפט לגרנז' קיימת נקודה $c\\in(a,b)$ כך ש-\n$$f'(c)=\\frac{f(b)-f(a)}{b-a}$$\nכלומר:\n$$\\frac{1}{\\sqrt{1-c^2}}=\\frac{\\arcsin b-\\arcsin a}{b-a}\\iff\\frac{b-a}{\\sqrt{1-c^2}}=\\arcsin b-\\arcsin a$$\nמאז $0<a<c<b$ יש לנו כי\n$$a^2<c^2<b^2\\ \\Longrightarrow\\ -b^2<-c^2<-a^2\\ \\Longrightarrow\\ 1-b^2<1-c^2<1-a^2\\ \\Longrightarrow\\ \\sqrt{1-b^2}<\\sqrt{1-c^2}<\\sqrt{1-a^2}\\ \\Longrightarrow$$\n$$\\frac{1}{\\sqrt{1-a^2}}<\\frac{1}{\\sqrt{1-c^2}}<\\frac{1}{\\sqrt{1-b^2}}\\ \\Longrightarrow\\ \\frac{b-a}{\\sqrt{1-a^2}}<\\frac{b-a}{\\sqrt{1-c^2}}<\\frac{b-a}{\\sqrt{1-b^2}}\\iff$$\n$$\\frac{b-a}{\\sqrt{1-a^2}}<\\arcsin(b)-\\arcsin(a)<\\frac{b-a}{\\sqrt{1-b^2}}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את נפח גוף הסיבוב הנוצר כסיבוב של התחום המישורי הכלוא בין הקווים: $y=\\sqrt{x\\ln(x)},\\ y=0,\\ x=1,\\ x=e$ סביב ציר ה-$X$.",
+   "solution": "![התחום הכלוא בין y=sqrt(x ln x) לציר ה-x עבור 1<=x<=e](images/exams/22B-B-Q3b-sketch.png)\n$$V=\\pi\\int_1^ef^2(x)\\,dx=\\pi\\int_1^ex\\ln x\\,dx=\\left|\\begin{array}{ll}u=\\ln x & du=\\frac{dx}{x}\\\\ dv=x\\,dx & v=\\frac{x^2}{2}\\end{array}\\right|=$$\n$$=\\pi\\left(\\frac{x^2}{2}\\ln x\\Big|_1^e-\\frac{1}{2}\\int_1^ex^2\\frac{dx}{x}\\right)=\\pi\\left(\\frac{e^2}{2}-\\frac{1}{2}\\int_1^ex\\,dx\\right)=$$\n$$=\\pi\\left(\\frac{e^2}{2}-\\frac{1}{2}\\cdot\\frac{x^2}{2}\\Big|_1^e\\right)=\\pi\\left(\\frac{e^2}{2}-\\frac{1}{2}\\left(\\frac{e^2}{2}-\\frac{1}{2}\\right)\\right)=$$\n$$=\\pi\\left(\\frac{e^2}{2}-\\frac{e^2}{4}+\\frac{1}{4}\\right)=\\frac{\\pi}{4}\\left(e^2+1\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "lhopital_taylor",
+   "question": "חשבו את הגבול הבא: $\\lim_{x\\to0}\\frac{x-\\int_0^{x^2}\\cos\\left(t^2\\right)dt}{x^3-6x}$.",
+   "solution": "$$\\lim_{x\\to0}\\frac{x-\\int_0^{x^2}\\cos\\left(t^2\\right)dt}{x^3-6x}=\\left\\{\\tfrac{0}{0}\\right\\}=\\lim_{x\\to0}\\frac{1-\\cos\\left(x^4\\right)(2x)}{3x^2-6}=-\\frac{1}{6}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את אורך הקשת של העקומה $y=x\\sqrt{x}$ בקטע $0\\le x\\le1$.",
+   "solution": "$$L=\\int_0^1\\sqrt{1+\\left(f'(x)\\right)^2}\\,dx$$\n$$f(x)=x\\sqrt{x}=x^{3/2}\\ \\Longrightarrow\\ f'(x)=\\frac{3}{2}x^{1/2}\\ \\Longrightarrow\\ \\left(f'(x)\\right)^2=\\frac{9}{4}x\\ \\Longrightarrow$$\n$$L=\\int_0^1\\sqrt{1+\\frac{9}{4}x}\\,dx=\\frac{4}{9}\\int_0^1\\frac{9}{4}\\left(1+\\frac{9}{4}x\\right)^{1/2}dx=$$\n$$=\\frac{4}{9}\\cdot\\frac{2}{3}\\left(1+\\frac{9}{4}x\\right)^{3/2}\\Big|_0^1=\\frac{8}{27}\\left(\\left(\\frac{13}{4}\\right)^{3/2}-1\\right)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "continuity",
+   "question": "הוכיחו כי למשוואה $2x^3+3\\arctan x+e^x+1=0$ קיים פתרון אחד בלבד.",
+   "solution": "נסמן $f(x)=2x^3+3\\arctan x+e^x+1$. המשוואה הנתונה שקולה ל-$f(x)=0$.\n$$f(0)=2>0,\\qquad f(-1)=-2-\\frac{3\\pi}{4}+\\frac{1}{e}+1<0$$\n$f(x)$ רציפה על $[-1,0]$, אז לפי משפט על ערך הביניים $f(0)\\cdot f(-1)<0$, קיימת נקודה $x=c\\in(-1,0)$ כך ש-$f(c)=0$. ז\"א למשוואה קיים פתרון $x=c$.\nנוכיח שפתרון יחיד: $f'(x)=6x^2+\\frac{3}{1+x^2}+e^x>0$ ב-$(-\\infty,\\infty)$. ז\"א $f(x)$ מונוטונית עולה ממש ב-$(-\\infty,\\infty)$. לכן $x=c$ הוא פתרון יחיד למשוואה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א"
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את השטח הכלוא בין הגרף של הפונקציה $y=\\sqrt{x-1}$, משיק לאותה הפונקציה העובר דרך ראשית הצירים $(0,0)$ וציר ה-$X$.",
+   "solution": "נסמן נקודת השקה: $A\\left(a,\\sqrt{a-1}\\right)$.\n![גרף y=sqrt(x-1), המשיק דרך הראשית והתחום הכלוא בין הגרף, המשיק וציר ה-x](images/exams/22B-B-Q5b-sketch.png)\nשיפוע של משיק דרך 2 נקודות: $m_{OA}=\\frac{\\sqrt{a-1}}{a}$.\nשיפוע של משיק דרך נקודת השקה: $m=y'(a)=\\frac{1}{2\\sqrt{a-1}}$.\n$$\\frac{1}{2\\sqrt{a-1}}=\\frac{\\sqrt{a-1}}{a}\\ \\to\\ 2(a-1)=a\\ \\to\\ a=2\\ \\to\\ A(2,1)$$\nמשוואת משיק: $y-1=\\frac{1}{2}(x-2)\\ \\to\\ y=\\frac{1}{2}x$.\n$$S_{\\triangle OAB}=\\frac{2\\cdot1}{2}=1,\\qquad S_2=\\int_1^2\\sqrt{x-1}\\,dx=\\frac{2}{3}\\left((x-1)^{3/2}\\right)\\Big|_1^2=\\frac{2}{3}\\ \\to\\ S=S_{\\triangle OAB}-S_2=\\frac{1}{3}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב"
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל הבא: $\\int\\frac{dx}{(x+1)\\left(x^2+4x+5\\right)}$.",
+   "solution": "נמצא את הפירוק מן הצורה:\n$$\\frac{1}{(x+1)\\left(x^2+4x+5\\right)}=\\frac{A}{x+1}+\\frac{Bx+C}{x^2+4x+5}$$\n$$1=A\\left(x^2+4x+5\\right)+(Bx+C)(x+1)$$\nנמצא את המקדמים:\n$$x=-1:\\ 1=2A\\Rightarrow A=\\frac{1}{2}$$\n$$x^2:\\ A+B=0\\Rightarrow B=-\\frac{1}{2}$$\n$$x:\\ 4A+B+C=0\\Rightarrow C=-\\frac{3}{2}$$\n$$\\int\\frac{dx}{(x+1)\\left(x^2+4x+5\\right)}=\\frac{1}{2}\\int\\frac{dx}{x+1}-\\frac{1}{2}\\int\\frac{x\\,dx}{x^2+4x+5}-\\frac{3}{2}\\int\\frac{dx}{x^2+4x+5}=$$\n$$=\\frac{1}{2}\\ln|x+1|-\\frac{1}{4}\\int\\frac{(2x+4-4)\\,dx}{x^2+4x+5}-\\frac{3}{2}\\int\\frac{dx}{x^2+4x+5}=$$\n$$=\\frac{1}{2}\\ln|x+1|-\\frac{1}{4}\\int\\frac{(2x+4)\\,dx}{x^2+4x+5}-\\frac{1}{2}\\int\\frac{dx}{(x+2)^2+1}$$\n$$=\\frac{1}{2}\\ln|x+1|-\\frac{1}{4}\\ln\\left(x^2+4x+5\\right)-\\frac{1}{2}\\arctan(x+2)+C$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "lhopital_taylor",
+   "question": "פתחו את הפונקציה $y=\\ln(1+x)$ לפולינום מקלורן מסדר שני והעריכו את השארית עבור הקטע $[-0.1,0.1]$.",
+   "solution": "הפולינום הנדרש הוא $T_2(x)=y(0)+\\frac{y'(0)}{1!}x+\\frac{y''(0)}{2!}x^2$, ואם נחשב\n$$y'=\\frac{1}{1+x}\\Big|_{x=0}=1,\\qquad y''=-\\frac{1}{(1+x)^2}\\Big|_{x=0}=-1$$\nאז נקבל אותו בצורה $T_2(x)=x-\\frac{1}{2}x^2$. לפי משפט טיילור עם שארית, שגיאת הקירוב $y=\\ln(1+x)\\approx T_2(x)=x-\\frac{1}{2}x^2$ ניתן להעריך בהתאם ל-\n$$\\left|y-T_2(x)\\right|=\\left|R_2(x)\\right|=\\left|\\frac{y'''(z)}{3!}x^3\\right|=\\left|\\frac{2}{3!(1+z)^3}x^3\\right|$$\nכאשר $-0.1<z<0.1$. מכאן נובע ש-\n$$\\left|R_2(x)\\right|=\\left|\\frac{1}{3(1+z)^3}x^3\\right|\\le\\frac{1}{3\\cdot0.9^3}(0.01)^3=4.57\\cdot10^{-7}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10,
+   "hold": "official remainder bound uses (0.01)^3 although |x|<=0.1 gives 4.57e-4, not 4.57e-7"
+  }
+ ]
+}
