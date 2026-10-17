@@ -33,3 +33,6 @@ r.append(("Q6b S1,S2", sp.integrate(4-x,(x,1,4))==sp.Rational(9,2) and sp.simpli
 r.append(("Q6a min", sp.diff(sp.exp(x)-x-1,x).subs(x,0)==0))
 for k,v in r: print(k,"OK" if v else "MISMATCH")
 print("ALL OK" if all(v for _,v in r) else "FAIL")
+
+import pathlib
+exec(compile(open(pathlib.Path(__file__).with_name("steps_check.py"),encoding="utf-8").read(),"steps_check.py","exec"))
