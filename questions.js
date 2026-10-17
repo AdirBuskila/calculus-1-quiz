@@ -84,7 +84,7 @@ window.OPEN_BANK = {
    "computation",
    "proof"
   ],
-  "built": "2026-10-17T13:40:14Z",
+  "built": "2026-10-17T13:47:50Z",
   "exams": [
    {
     "examCode": "24B-B",
@@ -97,8 +97,8 @@ window.OPEN_BANK = {
   "counts": {
    "total": 11,
    "contexts": 0,
-   "math": 105,
-   "steps": 0
+   "math": 301,
+   "steps": 49
   }
  },
  "contexts": {},
@@ -113,6 +113,149 @@ window.OPEN_BANK = {
    "official": true,
    "confidence": "high",
    "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה ונקודות חיתוך עם הצירים",
+     "points": 3,
+     "html": "תחום הגדרה ונקודות חיתוך עם הצירים"
+    },
+    {
+     "text": "נגזרת ראשונה, תחומי עליה וירידה ונקודות קיצון עם ערכיהן",
+     "points": 5,
+     "html": "נגזרת ראשונה, תחומי עליה וירידה ונקודות קיצון עם ערכיהן"
+    },
+    {
+     "text": "נגזרת שנייה, קמירות וקעירות ונקודת הפיתול",
+     "points": 4,
+     "html": "נגזרת שנייה, קמירות וקעירות ונקודת הפיתול"
+    },
+    {
+     "text": "אסימפטוטות אנכיות (גבולות חד-צדדיים) ואסימפטוטה משופעת (חישוב $a$ ו-$b$)",
+     "points": 6,
+     "html": "אסימפטוטות אנכיות (גבולות חד-צדדיים) ואסימפטוטה משופעת (חישוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span>)"
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 2,
+     "html": "שרטוט הגרף בהתאם לכל הנתונים"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לשכוח שהנקודות $x=\\pm 1$ מחוץ לתחום ההגדרה, ולכן הן אינן קיצון אלא אסימפטוטות אנכיות.",
+    "לקבוע קיצון רק לפי $f'(x)=0$ בלי לבדוק את סימן הנגזרת: ב-$x=0$ הנגזרת מתאפסת אך אין שם קיצון (שם נקודת פיתול).",
+    "לחשב אסימפטוטה משופעת בלי לחשב את $b=\\lim(f(x)-ax)$, או לשכוח לבדוק את שני הכיוונים $x\\to\\pm\\infty$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באילו נקודות מתאפסת הנגזרת $f'(x)=\\frac{x^2(x^2-3)}{(x^2-1)^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x=0,\\ \\pm\\sqrt{3}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><mo>±</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=0,\\ \\pm\\sqrt{3}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x=\\pm\\sqrt{3}$ בלבד",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=\\pm\\sqrt{3}</annotation></semantics></math></span> בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x=0,\\ \\pm 1$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=0,\\ \\pm 1</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=\\pm 1$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm 1</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המונה $x^2(x^2-3)$ מתאפס ב-$x=0$ וב-$x=\\pm\\sqrt{3}$. הנקודות $\\pm1$ מאפסות את המכנה ולכן אינן בתחום.",
+     "promptHtml": "באילו נקודות מתאפסת הנגזרת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=\\frac{x^2(x^2-3)}{(x^2-1)^2}</annotation></semantics></math></span>?",
+     "explainHtml": "המונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x^2(x^2-3)</annotation></semantics></math></span> מתאפס ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> וב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=\\pm\\sqrt{3}</annotation></semantics></math></span>. הנקודות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\pm1</annotation></semantics></math></span> מאפסות את המכנה ולכן אינן בתחום."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $f(\\sqrt{3})$ (מינימום מקומי)? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 2.598,
+     "tol": 0.001,
+     "explain": "$f(\\sqrt{3})=\\frac{3\\sqrt{3}}{2}=\\frac{\\sqrt{27}}{2}\\approx 2.598$.",
+     "promptHtml": "מהו הערך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msqrt><mn>3</mn></msqrt><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(\\sqrt{3})</annotation></semantics></math></span> (מינימום מקומי)? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msqrt><mn>3</mn></msqrt><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mrow><mn>3</mn><msqrt><mn>3</mn></msqrt></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><msqrt><mn>27</mn></msqrt><mn>2</mn></mfrac><mo>≈</mo><mn>2.598</mn></mrow><annotation encoding=\"application/x-tex\">f(\\sqrt{3})=\\frac{3\\sqrt{3}}{2}=\\frac{\\sqrt{27}}{2}\\approx 2.598</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "נתון $f''(x)=\\frac{2x(x^2+3)}{(x^2-1)^3}$. מה אופי הפונקציה בקטע $(0,1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קעורה (כלפי מטה)",
+       "html": "קעורה (כלפי מטה)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "קמורה (כלפי מעלה)",
+       "html": "קמורה (כלפי מעלה)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ישרה",
+       "html": "ישרה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין מספיק נתונים",
+       "html": "אין מספיק נתונים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ב-$(0,1)$ המונה חיובי והמכנה $(x^2-1)^3$ שלילי, לכן $f''<0$ והפונקציה קעורה.",
+     "promptHtml": "נתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>x</mi><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(x)=\\frac{2x(x^2+3)}{(x^2-1)^3}</annotation></semantics></math></span>. מה אופי הפונקציה בקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1)</annotation></semantics></math></span>?",
+     "explainHtml": "ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1)</annotation></semantics></math></span> המונה חיובי והמכנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">(x^2-1)^3</annotation></semantics></math></span> שלילי, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;&lt;0</annotation></semantics></math></span> והפונקציה קעורה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו שיפוע האסימפטוטה המשופעת, $a=\\lim_{x\\to\\infty}\\frac{f(x)}{x}$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$\\frac{f(x)}{x}=\\frac{x^2}{x^2-1}\\to 1$, ואז $b=\\lim(f(x)-x)=0$ ולכן $y=x$.",
+     "promptHtml": "מהו שיפוע האסימפטוטה המשופעת, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">a=\\lim_{x\\to\\infty}\\frac{f(x)}{x}</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>→</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{f(x)}{x}=\\frac{x^2}{x^2-1}\\to 1</annotation></semantics></math></span>, ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><mi>lim</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b=\\lim(f(x)-x)=0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החקירה לפי סדר הפתרון הרשמי.",
+     "lines": [
+      "תחום הגדרה: $x\\neq\\pm1$",
+      "נקודות חיתוך עם הצירים: $(0,0)$",
+      "נגזרת ראשונה וקיצון: מינימום ב-$x=\\sqrt{3}$ ומקסימום ב-$x=-\\sqrt{3}$",
+      "נגזרת שנייה, קמירות ופיתול: נקודת פיתול ב-$(0,0)$",
+      "אסימפטוטות: $x=\\pm1$ ו-$y=x$"
+     ],
+     "explain": "הסדר הוא סדר הסעיפים א-ו בפתרון.",
+     "promptHtml": "סדרו את שלבי החקירה לפי סדר הפתרון הרשמי.",
+     "explainHtml": "הסדר הוא סדר הסעיפים א-ו בפתרון.",
+     "linesHtml": [
+      "תחום הגדרה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo mathvariant=\"normal\">≠</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x\\neq\\pm1</annotation></semantics></math></span>",
+      "נקודות חיתוך עם הצירים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,0)</annotation></semantics></math></span>",
+      "נגזרת ראשונה וקיצון: מינימום ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=\\sqrt{3}</annotation></semantics></math></span> ומקסימום ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=-\\sqrt{3}</annotation></semantics></math></span>",
+      "נגזרת שנייה, קמירות ופיתול: נקודת פיתול ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,0)</annotation></semantics></math></span>",
+      "אסימפטוטות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q1",
    "partKey": "",
    "examCode": "24B-B",
@@ -122,7 +265,12 @@ window.OPEN_BANK = {
    "topicLabel": "חקירת פונקציה",
    "questionHtml": "חקרו את הפונקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">f(x)=\\frac{x^3}{x^2-1}</annotation></semantics></math></span> על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
    "solutionHtml": "<strong>א. תחום הגדרה:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">R</mi><mo>:</mo><mi>x</mi><mo mathvariant=\"normal\">≠</mo><mo>±</mo><mn>1</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">D=\\{x\\in\\mathbb{R}: x\\neq \\pm 1\\}</annotation></semantics></math></span>.<br><strong>ב. נקודות חיתוך עם צירי הקואורדינטות:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,0)</annotation></semantics></math></span>.<br><strong>ג. נגזרת:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">y&#x27;=\\frac{x^2(x^2-3)}{(x^2-1)^2}</annotation></semantics></math></span>, ומכאן רואים שהנגזרת מתאפסת ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mo>±</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x=0,\\pm\\sqrt{3}</annotation></semantics></math></span> ובנוסף <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;&gt;0</annotation></semantics></math></span> כאשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mo>−</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x&lt;-\\sqrt{3}</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&gt;</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x&gt;\\sqrt{3}</annotation></semantics></math></span>, וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;&lt;0</annotation></semantics></math></span> כאשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><msqrt><mn>3</mn></msqrt><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">-\\sqrt{3}&lt;x&lt;-1</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>1</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">-1&lt;x&lt;1</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">1&lt;x&lt;\\sqrt{3}</annotation></semantics></math></span>.<br><strong>ד. קיצון:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>=</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x_{min}=\\sqrt{3}</annotation></semantics></math></span> הנקודה היא נקודת מינימום מקומי, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><msqrt><mn>27</mn></msqrt><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">y(x_{min})=\\frac{\\sqrt{27}}{2}</annotation></semantics></math></span>; <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>=</mo><mo>−</mo><msqrt><mn>3</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">x_{max}=-\\sqrt{3}</annotation></semantics></math></span> הנקודה היא נקודת מקסימום מקומי, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mrow><mo>−</mo><msqrt><mn>27</mn></msqrt></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">y(x_{max})=\\frac{-\\sqrt{27}}{2}</annotation></semantics></math></span>.<br><strong>ה. נגזרת שנייה:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo>=</mo><mfrac><mrow><mn>2</mn><mi>x</mi><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">y&#x27;&#x27;=\\frac{2x(x^2+3)}{(x^2-1)^3}</annotation></semantics></math></span>. הנקודה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,0)</annotation></semantics></math></span> היא נקודת פיתול. בנוסף, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;&#x27;&gt;0</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x&gt;1</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>1</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">-1&lt;x&lt;0</annotation></semantics></math></span>, הפונקציה קמורה (כלפי מעלה); <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;&#x27;&lt;0</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x&lt;-1</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">0&lt;x&lt;1</annotation></semantics></math></span>, הפונקציה קעורה (כלפי מטה).<br><strong>ו. אסימפטוטות:</strong> קווים ישרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm 1</annotation></semantics></math></span> מהווים אסימפטוטות אנכיות לגרף הפונקציה, כי<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></munder><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mo>−</mo><mi mathvariant=\"normal\">∞</mi><mo separator=\"true\">,</mo><mspace width=\"1em\"/><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>1</mn><mo>+</mo></msup></mrow></munder><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi><mo separator=\"true\">,</mo><mspace width=\"1em\"/><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></munder><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mo>−</mo><mi mathvariant=\"normal\">∞</mi><mo separator=\"true\">,</mo><mspace width=\"1em\"/><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>+</mo></msup></mrow></munder><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to -1^-}\\frac{x^3}{x^2-1}=-\\infty,\\quad \\lim_{x\\to -1^+}\\frac{x^3}{x^2-1}=+\\infty,\\quad \\lim_{x\\to 1^-}\\frac{x^3}{x^2-1}=-\\infty,\\quad \\lim_{x\\to 1^+}\\frac{x^3}{x^2-1}=+\\infty</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>a</mi><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><mi>x</mi><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^3}{x(x^2-1)}=1</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>b</mi><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mo stretchy=\"false\">(</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mrow><mo fence=\"true\">(</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>−</mo><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mrow><mo fence=\"true\">(</mo><mfrac><mi>x</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo fence=\"true\">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b=\\lim_{x\\to\\pm\\infty}(f(x)-x)=\\lim_{x\\to\\pm\\infty}\\left(\\frac{x^3}{x^2-1}-x\\right)=\\lim_{x\\to\\pm\\infty}\\left(\\frac{x}{x^2-1}\\right)=0</annotation></semantics></math></span><br>לכן הישר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span> הוא האסימפטוטה המשופעת של הפונקציה. השרטוט הרשמי מציג את הגרף יחד עם האסימפטוטות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span>.",
-   "pointsTotal": 20
+   "pointsTotal": 20,
+   "pitfallsHtml": [
+    "לשכוח שהנקודות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm 1</annotation></semantics></math></span> מחוץ לתחום ההגדרה, ולכן הן אינן קיצון אלא אסימפטוטות אנכיות.",
+    "לקבוע קיצון רק לפי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=0</annotation></semantics></math></span> בלי לבדוק את סימן הנגזרת: ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> הנגזרת מתאפסת אך אין שם קיצון (שם נקודת פיתול).",
+    "לחשב אסימפטוטה משופעת בלי לחשב את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><mi>lim</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>a</mi><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">b=\\lim(f(x)-ax)</annotation></semantics></math></span>, או לשכוח לבדוק את שני הכיוונים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>→</mo><mo>±</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">x\\to\\pm\\infty</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 2,
@@ -135,6 +283,117 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "א",
    "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק המכנה $x^2(x^2+4)$ וכתיבת פירוק לשברים חלקיים בצורה הנכונה",
+     "points": 3,
+     "html": "פירוק המכנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x^2(x^2+4)</annotation></semantics></math></span> וכתיבת פירוק לשברים חלקיים בצורה הנכונה"
+    },
+    {
+     "text": "מציאת המקדמים $A=C=0$, $B=2$, $D=-1$",
+     "points": 3,
+     "html": "מציאת המקדמים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mi>C</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">A=C=0</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">B=2</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">D=-1</annotation></semantics></math></span>"
+    },
+    {
+     "text": "אינטגרציה של כל איבר: $-\\frac{2}{x}$ ו-$-\\frac{1}{2}\\arctan\\frac{x}{2}$",
+     "points": 3,
+     "html": "אינטגרציה של כל איבר: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">-\\frac{2}{x}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">-\\frac{1}{2}\\arctan\\frac{x}{2}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "הוספת הקבוע $c$",
+     "points": 1,
+     "html": "הוספת הקבוע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לכתוב $\\frac{Cx+D}{x^2+4}$ כשני שברים עם $x\\pm 2$: הביטוי $x^2+4$ אינו פריק מעל הממשיים.",
+    "לשכוח את האיבר $\\frac{A}{x}$ מהפירוק עבור הגורם הריבועי $x^2$ (צריך גם חזקה ראשונה וגם שנייה).",
+    "לשכוח את הגורם $\\frac12$ באינטגרל של $\\frac{1}{x^2+4}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי צורת הפירוק לשברים חלקיים של $\\frac{x^2+8}{x^2(x^2+4)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{B}{x^2}+\\frac{Cx+D}{x^2+4}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x}+\\frac{B}{x^2}+\\frac{Cx+D}{x^2+4}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{B}{x+2}+\\frac{C}{x-2}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mi>C</mi><mrow><mi>x</mi><mo>−</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x}+\\frac{B}{x+2}+\\frac{C}{x-2}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{B}{x^2+4}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x}+\\frac{B}{x^2+4}</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגורם $x^2$ נותן $\\frac{A}{x}+\\frac{B}{x^2}$, והגורם הריבועי הבלתי פריק $x^2+4$ נותן מונה לינארי $Cx+D$.",
+     "promptHtml": "מהי צורת הפירוק לשברים חלקיים של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+8}{x^2(x^2+4)}</annotation></semantics></math></span>?",
+     "explainHtml": "הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span> נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><msup><mi>x</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x}+\\frac{B}{x^2}</annotation></semantics></math></span>, והגורם הריבועי הבלתי פריק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x^2+4</annotation></semantics></math></span> נותן מונה לינארי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><annotation encoding=\"application/x-tex\">Cx+D</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $B$ בפירוק?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הצבה/השוואת מקדמים נותנת $A=C=0$, $B=2$, $D=-1$ (בדיקה: $\\frac{2}{x^2}-\\frac{1}{x^2+4}=\\frac{x^2+8}{x^2(x^2+4)}$).",
+     "promptHtml": "מהו המקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> בפירוק?",
+     "explainHtml": "הצבה/השוואת מקדמים נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mi>C</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">A=C=0</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">B=2</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">D=-1</annotation></semantics></math></span> (בדיקה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>−</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{x^2}-\\frac{1}{x^2+4}=\\frac{x^2+8}{x^2(x^2+4)}</annotation></semantics></math></span>)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $D$ בפירוק?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$D=-1$, ולכן האיבר השני הוא $-\\frac{1}{x^2+4}$.",
+     "promptHtml": "מהו המקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi></mrow><annotation encoding=\"application/x-tex\">D</annotation></semantics></math></span> בפירוק?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">D=-1</annotation></semantics></math></span>, ולכן האיבר השני הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">-\\frac{1}{x^2+4}</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$-\\frac{2}{x}-\\frac{1}{2}\\arctan\\frac{x}{2}+c$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{2}{x}-\\frac{1}{2}\\arctan\\frac{x}{2}+c</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$-\\frac{2}{x}-\\arctan\\frac{x}{2}+c$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>−</mo><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{2}{x}-\\arctan\\frac{x}{2}+c</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-\\frac{2}{x}+\\frac{1}{2}\\arctan\\frac{x}{2}+c$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{2}{x}+\\frac{1}{2}\\arctan\\frac{x}{2}+c</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2}{x}-\\frac{1}{2}\\arctan\\frac{x}{2}+c$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{x}-\\frac{1}{2}\\arctan\\frac{x}{2}+c</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\int\\frac{2}{x^2}dx=-\\frac{2}{x}$ ו-$\\int\\frac{1}{x^2+4}dx=\\frac12\\arctan\\frac{x}{2}$, עם סימן מינוס לפני האחרון.",
+     "promptHtml": "מהו האינטגרל?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{2}{x^2}dx=-\\frac{2}{x}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{1}{x^2+4}dx=\\frac12\\arctan\\frac{x}{2}</annotation></semantics></math></span>, עם סימן מינוס לפני האחרון."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q2a",
    "partKey": "a",
    "examCode": "24B-B",
@@ -144,7 +403,12 @@ window.OPEN_BANK = {
    "topicLabel": "אינטגרל לא מסוים",
    "questionHtml": "חשבו את האינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><mn>4</mn><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int \\frac{x^2+8}{x^4+4x^2}\\,dx</annotation></semantics></math></span>.",
    "solutionHtml": "כיוון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>4</mn></msup><mo>+</mo><mn>4</mn><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+8}{x^4+4x^2}=\\frac{x^2+8}{x^2(x^2+4)}</annotation></semantics></math></span> קיימים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi><mo separator=\"true\">,</mo><mi>C</mi><mo separator=\"true\">,</mo><mi>D</mi><mo>∈</mo><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">A,B,C,D\\in\\mathbb{R}</annotation></semantics></math></span> כך ש:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+8}{x^2(x^2+4)}=\\frac{A}{x}+\\frac{B}{x^2}+\\frac{Cx+D}{x^2+4}.</annotation></semantics></math></span><br>על-ידי השוואת מקדמים או הצבת ערכים ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>, מקבלים ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mi>C</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">A=C=0</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">B=2</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>D</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">D=-1</annotation></semantics></math></span>. לכן<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>∫</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mo>∫</mo><mfrac><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi><mo>−</mo><mo>∫</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>c</mi><mo separator=\"true\">,</mo><mspace width=\"2em\"/><mi>c</mi><mo>∈</mo><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x^2+8}{x^2(x^2+4)}dx=\\int\\frac{2}{x^2}dx-\\int\\frac{1}{x^2+4}dx=-\\frac{2}{x}-\\frac{1}{2}\\arctan\\frac{x}{2}+c,\\qquad c\\in\\mathbb{R}</annotation></semantics></math></span>",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לכתוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{Cx+D}{x^2+4}</annotation></semantics></math></span> כשני שברים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>±</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\pm 2</annotation></semantics></math></span>: הביטוי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x^2+4</annotation></semantics></math></span> אינו פריק מעל הממשיים.",
+    "לשכוח את האיבר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x}</annotation></semantics></math></span> מהפירוק עבור הגורם הריבועי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span> (צריך גם חזקה ראשונה וגם שנייה).",
+    "לשכוח את הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12</annotation></semantics></math></span> באינטגרל של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{x^2+4}</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 2,
@@ -157,6 +421,133 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "ב",
    "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחה באינדוקציה שהסדרה יורדת (בסיס $a_2\\le a_1$ וצעד)",
+     "points": 3,
+     "html": "הוכחה באינדוקציה שהסדרה יורדת (בסיס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>≤</mo><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2\\le a_1</annotation></semantics></math></span> וצעד)"
+    },
+    {
+     "text": "הוכחה באינדוקציה שהסדרה חסומה מלרע על-ידי $1$",
+     "points": 3,
+     "html": "הוכחה באינדוקציה שהסדרה חסומה מלרע על-ידי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>"
+    },
+    {
+     "text": "שימוש במשפט: סדרה מונוטונית וחסומה מתכנסת",
+     "points": 1,
+     "html": "שימוש במשפט: סדרה מונוטונית וחסומה מתכנסת"
+    },
+    {
+     "text": "מעבר לגבול במשוואה הרקורסיבית והגעה ל-$L(L-1)=0$",
+     "points": 2,
+     "html": "מעבר לגבול במשוואה הרקורסיבית והגעה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L(L-1)=0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "פסילת $L=0$ בעזרת החסם התחתון ומסקנה $L=1$",
+     "points": 1,
+     "html": "פסילת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L=0</annotation></semantics></math></span> בעזרת החסם התחתון ומסקנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L=1</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "להניח שהגבול קיים ולפתור את משוואת נקודת השבת $L=\\frac{3}{2+1/L}$ לפני שהוכחנו התכנסות.",
+    "להוכיח רק מונוטוניות בלי חסם (או להפך): שניהם נדרשים כדי להשתמש במשפט.",
+    "לא לפסול את הפתרון $L=0$ לפי החסם $a_n\\ge1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה מוכיחים את ההתכנסות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שתי אינדוקציות: הסדרה יורדת וחסומה מלרע, ואז משפט הסדרה המונוטונית החסומה",
+       "html": "שתי אינדוקציות: הסדרה יורדת וחסומה מלרע, ואז משפט הסדרה המונוטונית החסומה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט הסנדוויץ' עם שתי סדרות קבועות",
+       "html": "משפט הסנדוויץ' עם שתי סדרות קבועות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הגדרת הגבול ישירות עם $\\varepsilon$ לכל $n$",
+       "html": "הגדרת הגבול ישירות עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ε</mi></mrow><annotation encoding=\"application/x-tex\">\\varepsilon</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מבחן המנה לסדרות",
+       "html": "מבחן המנה לסדרות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מראה $a_{n+1}\\le a_n$ ו-$a_n\\ge1$ באינדוקציה, ומסיק התכנסות ממשפט.",
+     "promptHtml": "באיזו שיטה מוכיחים את ההתכנסות?",
+     "explainHtml": "הפתרון הרשמי מראה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le a_n</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge1</annotation></semantics></math></span> באינדוקציה, ומסיק התכנסות ממשפט."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_3$? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 1.059,
+     "tol": 0.001,
+     "explain": "$a_2=\\frac{6}{5}$ ו-$a_3=\\frac{3}{2+\\frac56}=\\frac{18}{17}\\approx1.059$. הסדרה אכן יורדת: $2>1.2>1.059$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_3</annotation></semantics></math></span>? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>6</mn><mn>5</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac{6}{5}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>5</mn><mn>6</mn></mfrac></mrow></mfrac><mo>=</mo><mfrac><mn>18</mn><mn>17</mn></mfrac><mo>≈</mo><mn>1.059</mn></mrow><annotation encoding=\"application/x-tex\">a_3=\\frac{3}{2+\\frac56}=\\frac{18}{17}\\approx1.059</annotation></semantics></math></span>. הסדרה אכן יורדת: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>&gt;</mo><mn>1.2</mn><mo>&gt;</mo><mn>1.059</mn></mrow><annotation encoding=\"application/x-tex\">2&gt;1.2&gt;1.059</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שורות ההוכחה שהסדרה יורדת.",
+     "lines": [
+      "בסיס: $a_2=\\frac{6}{5}\\le 2=a_1$",
+      "הנחת האינדוקציה: $a_{n+1}\\le a_n$",
+      "צעד: $a_{n+2}=\\frac{3}{2+\\frac{1}{a_{n+1}}}\\le\\frac{3}{2+\\frac{1}{a_n}}=a_{n+1}$",
+      "לפי עקרון האינדוקציה $a_{n+1}\\le a_n$ לכל $n$"
+     ],
+     "explain": "בסיס, הנחה, צעד, מסקנה.",
+     "promptHtml": "סדרו את שורות ההוכחה שהסדרה יורדת.",
+     "explainHtml": "בסיס, הנחה, צעד, מסקנה.",
+     "linesHtml": [
+      "בסיס: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mo>≤</mo><mn>2</mn><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac{6}{5}\\le 2=a_1</annotation></semantics></math></span>",
+      "הנחת האינדוקציה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le a_n</annotation></semantics></math></span>",
+      "צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mfrac></mrow></mfrac><mo>≤</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo>=</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+2}=\\frac{3}{2+\\frac{1}{a_{n+1}}}\\le\\frac{3}{2+\\frac{1}{a_n}}=a_{n+1}</annotation></semantics></math></span>",
+      "לפי עקרון האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le a_n</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>"
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת החסם התחתון $a_n\\ge1$ שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "בסיס: $a_1=2\\ge 1$",
+      "הנחת האינדוקציה: $a_n\\ge 1$",
+      "צעד: $a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}}\\ge\\frac{3}{2+\\frac{1}{1}}=\\frac{3}{2}$",
+      "לפי עקרון האינדוקציה $a_n\\ge 1$ לכל $n$"
+     ],
+     "bugIndex": 2,
+     "explain": "$\\frac{3}{2+1}=1$ ולא $\\frac32$. הערך הנכון הוא בדיוק החסם $1$.",
+     "promptHtml": "בהוכחת החסם התחתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge1</annotation></semantics></math></span> שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{2+1}=1</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac32</annotation></semantics></math></span>. הערך הנכון הוא בדיוק החסם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>.",
+     "linesHtml": [
+      "בסיס: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>2</mn><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_1=2\\ge 1</annotation></semantics></math></span>",
+      "הנחת האינדוקציה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge 1</annotation></semantics></math></span>",
+      "צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo>≥</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mn>1</mn></mfrac></mrow></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}}\\ge\\frac{3}{2+\\frac{1}{1}}=\\frac{3}{2}</annotation></semantics></math></span>",
+      "לפי עקרון האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge 1</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>"
+     ]
+    },
+    {
+     "type": "numeric",
+     "prompt": "פותרים $L=\\frac{3}{2+\\frac1L}$ ופוסלים $L=0$ לפי החסם. מהו הגבול?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$L^2-L=0$ ולכן $L\\in\\{0,1\\}$. כיוון ש-$a_n\\ge1$ מקבלים $L=1$.",
+     "promptHtml": "פותרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mi>L</mi></mfrac></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">L=\\frac{3}{2+\\frac1L}</annotation></semantics></math></span> ופוסלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L=0</annotation></semantics></math></span> לפי החסם. מהו הגבול?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>L</mi><mn>2</mn></msup><mo>−</mo><mi>L</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L^2-L=0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>∈</mo><mo stretchy=\"false\">{</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">L\\in\\{0,1\\}</annotation></semantics></math></span>. כיוון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge1</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L=1</annotation></semantics></math></span>."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q2b",
    "partKey": "b",
    "examCode": "24B-B",
@@ -166,7 +557,12 @@ window.OPEN_BANK = {
    "topicLabel": "סדרות וגבולות",
    "questionHtml": "נתונה הסדרה:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo separator=\"true\">,</mo><mspace width=\"1em\"/><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}},\\quad a_1=2</annotation></semantics></math></span><br>הוכיחו כי הסדרה מתכנסת וחשבו את הגבול של הסדרה.",
    "solutionHtml": "ראשית, נוכיח באינדוקציה שהסדרה יורדת. נשים לב שאכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mo>≤</mo><mn>2</mn><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac{6}{5}\\le 2=a_1</annotation></semantics></math></span>. יהא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">n\\in\\mathbb{N}</annotation></semantics></math></span>, ונניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le a_n</annotation></semantics></math></span> מתקיים. אז<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>2</mn></mrow></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mfrac></mrow></mfrac><mo>≤</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo>=</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">a_{n+2}=\\frac{3}{2+\\frac{1}{a_{n+1}}}\\le\\frac{3}{2+\\frac{1}{a_n}}=a_{n+1}.</annotation></semantics></math></span><br>לכן, לפי עקרון האינדוקציה, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le a_n</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">n\\in\\mathbb{N}</annotation></semantics></math></span>.<br>כעת נוכיח באינדוקציה שהסדרה חסומה מלרע (מלמטה) על-ידי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>. נשים לב שאכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>2</mn><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_1=2\\ge 1</annotation></semantics></math></span>. יהא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">n\\in\\mathbb{N}</annotation></semantics></math></span>, ונניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge 1</annotation></semantics></math></span> מתקיים. אז כיוון שפונקציית השורש עולה מתקיים<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo>≥</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mn>1</mn></mfrac></mrow></mfrac><mo>=</mo><mn>1.</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}}\\ge\\frac{3}{2+\\frac{1}{1}}=1.</annotation></semantics></math></span><br>לכן, לפי עקרון האינדוקציה, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge 1</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">n\\in\\mathbb{N}</annotation></semantics></math></span>.<br>לפיכך, הסדרה יורדת וחסומה מלרע, ולכן, לפי משפט, מתכנסת. נסמן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">L=\\lim_{n\\to\\infty}a_n</annotation></semantics></math></span>. אז גם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>L</mi></mrow><annotation encoding=\"application/x-tex\">\\lim_{n\\to\\infty}a_{n+1}=L</annotation></semantics></math></span>. מאריתמטיקה של גבולות מתקיים<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>L</mi><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></mfrac><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mfrac><mn>1</mn><mi>L</mi></mfrac></mrow></mfrac><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">L=\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\frac{3}{2+\\frac{1}{a_n}}=\\frac{3}{2+\\frac{1}{L}},</annotation></semantics></math></span><br>כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>L</mi><mn>2</mn></msup><mo>−</mo><mi>L</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L^2-L=0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L(L-1)=0</annotation></semantics></math></span>. אבל כיוון שהסדרה חסומה מלרע על-ידי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, גם גבולה חסום מלרע על-ידי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, ולכן לא ייתכן שגבולה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>. מכאן שגבול הסדרה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>.",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "להניח שהגבול קיים ולפתור את משוואת נקודת השבת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>3</mn><mrow><mn>2</mn><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">/</mi><mi>L</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">L=\\frac{3}{2+1/L}</annotation></semantics></math></span> לפני שהוכחנו התכנסות.",
+    "להוכיח רק מונוטוניות בלי חסם (או להפך): שניהם נדרשים כדי להשתמש במשפט.",
+    "לא לפסול את הפתרון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L=0</annotation></semantics></math></span> לפי החסם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\ge1</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 3,
@@ -179,6 +575,108 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "א",
    "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $\\infty-\\infty$ וכפל בצמוד",
+     "points": 3,
+     "html": "זיהוי הצורה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∞</mi><mo>−</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">\\infty-\\infty</annotation></semantics></math></span> וכפל בצמוד"
+    },
+    {
+     "text": "פישוט המונה ל-$3n$",
+     "points": 3,
+     "html": "פישוט המונה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">3n</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חילוק המונה והמכנה ב-$n$",
+     "points": 2,
+     "html": "חילוק המונה והמכנה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב הגבול $\\frac{3}{2}$",
+     "points": 2,
+     "html": "חישוב הגבול <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{2}</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לקבוע שהגבול הוא $0$ כי \"אינסוף פחות אינסוף\": זו צורה לא מוגדרת.",
+    "אחרי הכפל בצמוד לשכוח לחלק גם את המכנה ב-$n$ ולקבל גבול שגוי.",
+    "טעות סימן בפישוט המונה: $(1+n+n^2)-(1-2n+n^2)=3n$ ולא $-n$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו שיטה מתאימה לגבול ההפרש של שני שורשים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כפל בצמוד (סכום השורשים) ופישוט המונה",
+       "html": "כפל בצמוד (סכום השורשים) ופישוט המונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבת $n=\\infty$ בכל שורש והסקה שההפרש הוא $0$",
+       "html": "הצבת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">n=\\infty</annotation></semantics></math></span> בכל שורש והסקה שההפרש הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חלוקת כל איבר בנפרד ב-$n$ בלי כפל בצמוד",
+       "html": "חלוקת כל איבר בנפרד ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> בלי כפל בצמוד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "פירוק לגורמים וצמצום",
+       "html": "פירוק לגורמים וצמצום"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ההפרש הוא מצורה $\\infty-\\infty$. כפל בצמוד הופך אותו לשבר שאפשר לחשב.",
+     "promptHtml": "איזו שיטה מתאימה לגבול ההפרש של שני שורשים?",
+     "explainHtml": "ההפרש הוא מצורה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∞</mi><mo>−</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">\\infty-\\infty</annotation></semantics></math></span>. כפל בצמוד הופך אותו לשבר שאפשר לחשב."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי הכפל בצמוד המונה הוא $kn$. מהו $k$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$(1+n+n^2)-(1-2n+n^2)=3n$.",
+     "promptHtml": "אחרי הכפל בצמוד המונה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">kn</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">(1+n+n^2)-(1-2n+n^2)=3n</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "לאחר חילוק המכנה ב-$n$, לאיזה ערך שואף $\\frac{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}{n}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "כל שורש מחולק ב-$n$ שואף ל-$1$, ובסך הכול $1+1=2$.",
+     "promptHtml": "לאחר חילוק המכנה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, לאיזה ערך שואף <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow><mi>n</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}{n}</annotation></semantics></math></span>?",
+     "explainHtml": "כל שורש מחולק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> שואף ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, ובסך הכול <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">1+1=2</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "כפל בצמוד: $\\frac{\\left(\\sqrt{1+n+n^2}-\\sqrt{1-2n+n^2}\\right)\\left(\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}\\right)}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}$",
+      "פישוט המונה: $\\frac{3n}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}$",
+      "חילוק ב-$n$: $\\frac{3}{\\sqrt{\\frac{1}{n^2}+\\frac{1}{n}+1}+\\sqrt{\\frac{1}{n^2}-\\frac{2}{n}+1}}$",
+      "גבול: $\\frac{3}{2}$"
+     ],
+     "explain": "כפל בצמוד, פישוט, חילוק בחזקה הגבוהה, ואז גבול.",
+     "promptHtml": "סדרו את שלבי החישוב.",
+     "explainHtml": "כפל בצמוד, פישוט, חילוק בחזקה הגבוהה, ואז גבול.",
+     "linesHtml": [
+      "כפל בצמוד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>−</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\left(\\sqrt{1+n+n^2}-\\sqrt{1-2n+n^2}\\right)\\left(\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}\\right)}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}</annotation></semantics></math></span>",
+      "פישוט המונה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>3</mn><mi>n</mi></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3n}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}</annotation></semantics></math></span>",
+      "חילוק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mrow><msqrt><mrow><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>+</mo><mn>1</mn></mrow></msqrt><mo>+</mo><msqrt><mrow><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><mo>−</mo><mfrac><mn>2</mn><mi>n</mi></mfrac><mo>+</mo><mn>1</mn></mrow></msqrt></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{\\sqrt{\\frac{1}{n^2}+\\frac{1}{n}+1}+\\sqrt{\\frac{1}{n^2}-\\frac{2}{n}+1}}</annotation></semantics></math></span>",
+      "גבול: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{2}</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q3a",
    "partKey": "a",
    "examCode": "24B-B",
@@ -188,7 +686,12 @@ window.OPEN_BANK = {
    "topicLabel": "סדרות וגבולות",
    "questionHtml": "חשבו את הגבול הבא: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>−</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\lim_{n\\to\\infty}\\left(\\sqrt{1+n+n^2}-\\sqrt{1-2n+n^2}\\right)</annotation></semantics></math></span>.",
    "solutionHtml": "<span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>−</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>−</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow><mrow><mo fence=\"true\">(</mo><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo fence=\"true\">)</mo></mrow></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\lim_{n\\to\\infty}\\left(\\sqrt{1+n+n^2}-\\sqrt{1-2n+n^2}\\right)=\\lim_{n\\to\\infty}\\frac{\\left(\\sqrt{1+n+n^2}-\\sqrt{1-2n+n^2}\\right)\\left(\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}\\right)}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo>−</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow></mfrac><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mn>3</mn><mi>n</mi></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></msqrt></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">=\\lim_{n\\to\\infty}\\frac{1+n+n^2-(1-2n+n^2)}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}=\\lim_{n\\to\\infty}\\frac{3n}{\\sqrt{1+n+n^2}+\\sqrt{1-2n+n^2}}</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>n</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mn>3</mn><mrow><msqrt><mrow><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>+</mo><mn>1</mn></mrow></msqrt><mo>+</mo><msqrt><mrow><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><mo>−</mo><mfrac><mn>2</mn><mi>n</mi></mfrac><mo>+</mo><mn>1</mn></mrow></msqrt></mrow></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><mi mathvariant=\"normal\">.</mi></mrow><annotation encoding=\"application/x-tex\">=\\lim_{n\\to\\infty}\\frac{3}{\\sqrt{\\frac{1}{n^2}+\\frac{1}{n}+1}+\\sqrt{\\frac{1}{n^2}-\\frac{2}{n}+1}}=\\frac{3}{2}.</annotation></semantics></math></span>",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לקבוע שהגבול הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> כי \"אינסוף פחות אינסוף\": זו צורה לא מוגדרת.",
+    "אחרי הכפל בצמוד לשכוח לחלק גם את המכנה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> ולקבל גבול שגוי.",
+    "טעות סימן בפישוט המונה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mn>2</mn><mi>n</mi><mo>+</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">(1+n+n^2)-(1-2n+n^2)=3n</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">-n</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 3,
@@ -201,6 +704,108 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "ב",
    "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי שיטת קליפות וקביעת הגבולות $0\\le x\\le1$",
+     "points": 2,
+     "html": "זיהוי שיטת קליפות וקביעת הגבולות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">0\\le x\\le1</annotation></semantics></math></span>"
+    },
+    {
+     "text": "כתיבת האינטגרל $2\\pi\\int_0^1 x(e-e^x)\\,dx$ (רדיוס $x$, גובה $e-e^x$)",
+     "points": 3,
+     "html": "כתיבת האינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\pi\\int_0^1 x(e-e^x)\\,dx</annotation></semantics></math></span> (רדיוס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>, גובה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e-e^x</annotation></semantics></math></span>)"
+    },
+    {
+     "text": "אינטגרציה בחלקים של $\\int xe^x\\,dx$",
+     "points": 3,
+     "html": "אינטגרציה בחלקים של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int xe^x\\,dx</annotation></semantics></math></span>"
+    },
+    {
+     "text": "הצבת גבולות והתוצאה $2\\pi\\left(\\frac{e}{2}-1\\right)$",
+     "points": 2,
+     "html": "הצבת גבולות והתוצאה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mi>e</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">2\\pi\\left(\\frac{e}{2}-1\\right)</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "להשתמש בשיטת דיסקים סביב ציר $y$ בלי להפוך את הפונקציות לפי $y$, או לשכוח את הגורם $x$ (הרדיוס) באינטגרל.",
+    "טעות בגובה הקליפה: הגובה הוא $(e+1)-(e^x+1)=e-e^x$ ולא $e^x+1$.",
+    "בעיית סימן באינטגרציה בחלקים: $\\int xe^x\\,dx=xe^x-\\int e^x\\,dx$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה אינטגרל נותן את הנפח בשיטת קליפות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$V=2\\pi\\int_0^1 x\\,(e-e^x)\\,dx$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mtext> </mtext><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\int_0^1 x\\,(e-e^x)\\,dx</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$V=\\pi\\int_0^1 (e-e^x)^2\\,dx$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">V=\\pi\\int_0^1 (e-e^x)^2\\,dx</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$V=2\\pi\\int_0^1 (e-e^x)\\,dx$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\int_0^1 (e-e^x)\\,dx</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$V=2\\pi\\int_0^1 x\\,(e^x+1)\\,dx$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mtext> </mtext><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\int_0^1 x\\,(e^x+1)\\,dx</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "קליפה ברדיוס $x$ וגובה $(e+1)-(e^x+1)=e-e^x$ נותנת $2\\pi x(e-e^x)\\,dx$.",
+     "promptHtml": "איזה אינטגרל נותן את הנפח בשיטת קליפות?",
+     "explainHtml": "קליפה ברדיוס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> וגובה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">(e+1)-(e^x+1)=e-e^x</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>π</mi><mi>x</mi><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\pi x(e-e^x)\\,dx</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "חשבו $\\int_0^1 xe^x\\,dx$.",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$\\left[xe^x-e^x\\right]_0^1=(e-e)-(0-1)=1$.",
+     "promptHtml": "חשבו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int_0^1 xe^x\\,dx</annotation></semantics></math></span>.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mrow><mo fence=\"true\">[</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo fence=\"true\">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>=</mo><mo stretchy=\"false\">(</mo><mi>e</mi><mo>−</mo><mi>e</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mn>0</mn><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\left[xe^x-e^x\\right]_0^1=(e-e)-(0-1)=1</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V$? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 2.257,
+     "tol": 0.001,
+     "explain": "$V=2\\pi\\left(\\frac{e}{2}-1\\right)\\approx 2.257$.",
+     "promptHtml": "מהו הנפח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi></mrow><annotation encoding=\"application/x-tex\">V</annotation></semantics></math></span>? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mi>e</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>≈</mo><mn>2.257</mn></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\left(\\frac{e}{2}-1\\right)\\approx 2.257</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "$V=2\\pi\\int_0^1 x\\left(e-e^x\\right)dx=2\\pi\\left(e\\int_0^1 x\\,dx-\\int_0^1 xe^x\\,dx\\right)$",
+      "אינטגרציה בחלקים עם $u=x,\\ v'=e^x$: $\\int_0^1 xe^x\\,dx=xe^x\\Big|_0^1-\\int_0^1 e^x\\,dx$",
+      "$V=2\\pi\\left(\\frac{1}{2}e-e+e^x\\Big|_0^1\\right)$",
+      "$V=2\\pi\\left(\\frac{e}{2}-1\\right)$"
+     ],
+     "explain": "הצבת האינטגרל, אינטגרציה בחלקים, הצבת גבולות ותוצאה.",
+     "promptHtml": "סדרו את שלבי החישוב.",
+     "explainHtml": "הצבת האינטגרל, אינטגרציה בחלקים, הצבת גבולות ותוצאה.",
+     "linesHtml": [
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>−</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\int_0^1 x\\left(e-e^x\\right)dx=2\\pi\\left(e\\int_0^1 x\\,dx-\\int_0^1 xe^x\\,dx\\right)</annotation></semantics></math></span>",
+      "אינטגרציה בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><msup><mi>v</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">u=x,\\ v&#x27;=e^x</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><msubsup><mo fence=\"false\" stretchy=\"true\" minsize=\"1.8em\" maxsize=\"1.8em\">∣</mo><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int_0^1 xe^x\\,dx=xe^x\\Big|_0^1-\\int_0^1 e^x\\,dx</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>e</mi><mo>−</mo><mi>e</mi><mo>+</mo><msup><mi>e</mi><mi>x</mi></msup><msubsup><mo fence=\"false\" stretchy=\"true\" minsize=\"1.8em\" maxsize=\"1.8em\">∣</mo><mn>0</mn><mn>1</mn></msubsup><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\left(\\frac{1}{2}e-e+e^x\\Big|_0^1\\right)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mi>e</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\left(\\frac{e}{2}-1\\right)</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q3b",
    "partKey": "b",
    "examCode": "24B-B",
@@ -210,7 +815,12 @@ window.OPEN_BANK = {
    "topicLabel": "אינטגרל מסוים",
    "questionHtml": "חשבו את נפח גוף הסיבוב הנוצר מסיבוב התחום המישורי הכלוא בין הקווים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>y</mi><mo>=</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y=e^x+1,\\ y=e+1,\\ x=0</annotation></semantics></math></span> סביב ציר ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>.",
    "solutionHtml": "שיטת קליפות:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo>−</mo><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>2</mn><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>−</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">V=2\\pi\\int_0^1 x\\left(e+1-(e^x+1)\\right)dx=2\\pi\\int_0^1 x\\left(e-e^x\\right)dx=2\\pi\\left(e\\int_0^1 x\\,dx-\\int_0^1 xe^x\\,dx\\right)</annotation></semantics></math></span><br>באינטגרציה בחלקים, עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><msup><mi>v</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>u</mi><mo>=</mo><mi>d</mi><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>v</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">u=x,\\ v&#x27;=e^x,\\ du=dx,\\ v=e^x</annotation></semantics></math></span>:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mi>e</mi><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><msubsup><mo fence=\"false\" stretchy=\"true\" minsize=\"1.8em\" maxsize=\"1.8em\">∣</mo><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><mrow><mo fence=\"true\">(</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><msubsup><mo fence=\"false\" stretchy=\"true\" minsize=\"1.8em\" maxsize=\"1.8em\">∣</mo><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo fence=\"true\">)</mo></mrow><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>e</mi><mo>−</mo><mi>e</mi><mo>+</mo><msup><mi>e</mi><mi>x</mi></msup><msubsup><mo fence=\"false\" stretchy=\"true\" minsize=\"1.8em\" maxsize=\"1.8em\">∣</mo><mn>0</mn><mn>1</mn></msubsup><mo fence=\"true\">)</mo></mrow><mo>=</mo><mn>2</mn><mi>π</mi><mrow><mo fence=\"true\">(</mo><mfrac><mi>e</mi><mn>2</mn></mfrac><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">=2\\pi\\left(e\\frac{x^2}{2}\\Big|_0^1-\\left(xe^x\\Big|_0^1-\\int_0^1 e^x\\,dx\\right)\\right)=2\\pi\\left(\\frac{1}{2}e-e+e^x\\Big|_0^1\\right)=2\\pi\\left(\\frac{e}{2}-1\\right)</annotation></semantics></math></span>",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "להשתמש בשיטת דיסקים סביב ציר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> בלי להפוך את הפונקציות לפי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span>, או לשכוח את הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> (הרדיוס) באינטגרל.",
+    "טעות בגובה הקליפה: הגובה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>e</mi><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">(e+1)-(e^x+1)=e-e^x</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x+1</annotation></semantics></math></span>.",
+    "בעיית סימן באינטגרציה בחלקים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mo>∫</mo><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int xe^x\\,dx=xe^x-\\int e^x\\,dx</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 4,
@@ -223,6 +833,107 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "א",
    "points": 10,
+   "rubric": [
+    {
+     "text": "גזירה: $y'=\\frac{2}{x}(\\ln x-1)$",
+     "points": 3,
+     "html": "גזירה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">y&#x27;=\\frac{2}{x}(\\ln x-1)</annotation></semantics></math></span>"
+    },
+    {
+     "text": "נקודה קריטית $x=e$ ובדיקה שהיא בתוך הקטע",
+     "points": 2,
+     "html": "נקודה קריטית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding=\"application/x-tex\">x=e</annotation></semantics></math></span> ובדיקה שהיא בתוך הקטע"
+    },
+    {
+     "text": "חישוב ערכי הפונקציה בשני הקצוות ובנקודה הקריטית",
+     "points": 3,
+     "html": "חישוב ערכי הפונקציה בשני הקצוות ובנקודה הקריטית"
+    },
+    {
+     "text": "קביעת המקסימום $0$ והמינימום $-1$",
+     "points": 2,
+     "html": "קביעת המקסימום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> והמינימום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">-1</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לא לבדוק את קצוות הקטע: המקסימום מתקבל בקצה $x=e^2$.",
+    "לפתור $\\ln x=1$ ולכתוב $x=1$ במקום $x=e$.",
+    "לפרש את הנקודה הקריטית כמקסימום בלי להשוות עם הערכים בקצוות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך מוצאים מקסימום ומינימום של פונקציה רציפה בקטע סגור?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "משווים את ערכי הפונקציה בנקודות הקריטיות שבתוך הקטע ובשני הקצוות",
+       "html": "משווים את ערכי הפונקציה בנקודות הקריטיות שבתוך הקטע ובשני הקצוות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בודקים רק את הנקודות שבהן הנגזרת מתאפסת",
+       "html": "בודקים רק את הנקודות שבהן הנגזרת מתאפסת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בודקים רק את שני הקצוות",
+       "html": "בודקים רק את שני הקצוות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לוקחים את הנקודה בה הנגזרת השנייה חיובית",
+       "html": "לוקחים את הנקודה בה הנגזרת השנייה חיובית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "משפט ויירשטראס: הקיצון מתקבל בקצה או בנקודה קריטית.",
+     "promptHtml": "איך מוצאים מקסימום ומינימום של פונקציה רציפה בקטע סגור?",
+     "explainHtml": "משפט ויירשטראס: הקיצון מתקבל בקצה או בנקודה קריטית."
+    },
+    {
+     "type": "numeric",
+     "prompt": "פותרים $y'=\\frac{2}{x}(\\ln x-1)=0$. מהו $x$? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 2.718,
+     "tol": 0.001,
+     "explain": "$\\ln x=1$ ולכן $x=e\\approx2.718$, והוא בתוך הקטע $[\\sqrt{e},e^2]$.",
+     "promptHtml": "פותרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;=\\frac{2}{x}(\\ln x-1)=0</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\ln x=1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mi>e</mi><mo>≈</mo><mn>2.718</mn></mrow><annotation encoding=\"application/x-tex\">x=e\\approx2.718</annotation></semantics></math></span>, והוא בתוך הקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><msqrt><mi>e</mi></msqrt><mo separator=\"true\">,</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">[\\sqrt{e},e^2]</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(\\sqrt{e})$?",
+     "answer": -0.75,
+     "tol": 0,
+     "explain": "$\\ln\\sqrt{e}=\\frac12$, ולכן $\\frac14-1=-\\frac34$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><msqrt><mi>e</mi></msqrt><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">y(\\sqrt{e})</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><msqrt><mi>e</mi></msqrt><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\ln\\sqrt{e}=\\frac12</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>−</mo><mn>1</mn><mo>=</mo><mo>−</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac14-1=-\\frac34</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(e^2)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$\\ln e^2=2$, ולכן $4-4=0$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">y(e^2)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><msup><mi>e</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">\\ln e^2=2</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mo>−</mo><mn>4</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">4-4=0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך המינימלי של הפונקציה בקטע?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$y(e)=1-2=-1$ הוא הנמוך מבין $-\\frac34,\\,-1,\\,0$.",
+     "promptHtml": "מהו הערך המינימלי של הפונקציה בקטע?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><mi>e</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mn>2</mn><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">y(e)=1-2=-1</annotation></semantics></math></span> הוא הנמוך מבין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mo>−</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">-\\frac34,\\,-1,\\,0</annotation></semantics></math></span>."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q4a",
    "partKey": "a",
    "examCode": "24B-B",
@@ -232,7 +943,12 @@ window.OPEN_BANK = {
    "topicLabel": "מקסימום ומינימום",
    "questionHtml": "מצאו את הערך המקסימלי ואת הערך המינימלי של הפונקציה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mrow><mi>ln</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi><mo>−</mo><mn>2</mn><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=\\ln^2 x-2\\ln x</annotation></semantics></math></span>, בקטע הסגור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><msqrt><mi>e</mi></msqrt><mo separator=\"true\">,</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">[\\sqrt{e},e^2]</annotation></semantics></math></span>.",
    "solutionHtml": "<span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mn>2</mn><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>⋅</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>−</mo><mfrac><mn>2</mn><mi>x</mi></mfrac><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&#x27;=2(\\ln x)\\cdot\\frac{1}{x}-\\frac{2}{x}=0</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mfrac><mn>2</mn><mi>x</mi></mfrac><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mspace width=\"1em\"/><mi>x</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{x}(\\ln x-1)=0,\\quad x=e</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>y</mi><mo stretchy=\"false\">(</mo><msqrt><mi>e</mi></msqrt><mo stretchy=\"false\">)</mo><mo>=</mo><mo>−</mo><mn>0.75</mn><mo separator=\"true\">,</mo><mspace width=\"1em\"/><mi>y</mi><mo stretchy=\"false\">(</mo><mi>e</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo>−</mo><mn>1</mn><mo separator=\"true\">,</mo><mspace width=\"1em\"/><mi>y</mi><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y(\\sqrt{e})=-0.75,\\quad y(e)=-1,\\quad y(e^2)=0</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msub><mi>y</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>=</mo><mi>y</mi><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mspace width=\"1em\"/><msub><mi>y</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>y</mi><mo stretchy=\"false\">(</mo><mi>e</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">y_{max}=y(e^2)=0,\\quad y_{min}=y(e)=-1</annotation></semantics></math></span>",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לא לבדוק את קצוות הקטע: המקסימום מתקבל בקצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><msup><mi>e</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x=e^2</annotation></semantics></math></span>.",
+    "לפתור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\ln x=1</annotation></semantics></math></span> ולכתוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span> במקום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding=\"application/x-tex\">x=e</annotation></semantics></math></span>.",
+    "לפרש את הנקודה הקריטית כמקסימום בלי להשוות עם הערכים בקצוות."
+   ]
   },
   {
    "num": 4,
@@ -245,6 +961,123 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "ב",
    "points": 10,
+   "rubric": [
+    {
+     "text": "איחוד לשבר אחד ודרישה שמקדם $x^4$ במונה יתאפס",
+     "points": 3,
+     "html": "איחוד לשבר אחד ודרישה שמקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^4</annotation></semantics></math></span> במונה יתאפס"
+    },
+    {
+     "text": "קביעה ש-$a=3$",
+     "points": 3,
+     "html": "קביעה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a=3</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב הגבול הנותר ומציאת $b=0$",
+     "points": 3,
+     "html": "חישוב הגבול הנותר ומציאת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b=0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "ניסוח התשובה $a=3,\\ b=0$",
+     "points": 1,
+     "html": "ניסוח התשובה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a=3,\\ b=0</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לבחור $a\\neq3$: אז המונה מדרגה $4$ והמכנה מדרגה $3$ והגבול אינסופי ולא $0$.",
+    "לחשב רק את $a$ ולשכוח שגם $b$ נקבע (כאן $b=0$).",
+    "לחלק ב-$x^4$ במקום להשוות דרגות אחרי האיחוד לשבר אחד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה המשמעות של הגבול הנתון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הישר $y=ax+b$ הוא אסימפטוטה משופעת של $f$",
+       "html": "הישר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">y=ax+b</annotation></semantics></math></span> הוא אסימפטוטה משופעת של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הישר $y=ax+b$ משיק לגרף בראשית",
+       "html": "הישר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">y=ax+b</annotation></semantics></math></span> משיק לגרף בראשית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f$ חסומה על-ידי $ax+b$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> חסומה על-ידי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">ax+b</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f$ רציפה בכל נקודה",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> רציפה בכל נקודה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפרש שואף ל-0 בדיוק כשהישר הוא אסימפטוטה משופעת.",
+     "promptHtml": "מה המשמעות של הגבול הנתון?",
+     "explainHtml": "הפרש שואף ל-0 בדיוק כשהישר הוא אסימפטוטה משופעת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a=\\lim_{x\\to\\infty}\\frac{3x^4}{x(x^3+2x+9)}$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "דרגות שוות והמקדמים המובילים $3$ ו-$1$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup></mrow><mrow><mi>x</mi><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a=\\lim_{x\\to\\infty}\\frac{3x^4}{x(x^3+2x+9)}</annotation></semantics></math></span>?",
+     "explainHtml": "דרגות שוות והמקדמים המובילים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "אם בוחרים $a=2$ (ו-$b=0$), למה שואף ההפרש $\\frac{3x^4}{x^3+2x+9}-2x$ כש-$x\\to+\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$+\\infty$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">+\\infty</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$0$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-\\infty$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">-\\infty</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המונה מכיל $x^4$ במקדם $3-2=1>0$ והמכנה מדרגה 3, לכן הגבול הוא $+\\infty$.",
+     "promptHtml": "אם בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">a=2</annotation></semantics></math></span> (ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b=0</annotation></semantics></math></span>), למה שואף ההפרש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>−</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{3x^4}{x^3+2x+9}-2x</annotation></semantics></math></span> כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">x\\to+\\infty</annotation></semantics></math></span>?",
+     "explainHtml": "המונה מכיל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^4</annotation></semantics></math></span> במקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><mn>2</mn><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">3-2=1&gt;0</annotation></semantics></math></span> והמכנה מדרגה 3, לכן הגבול הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">+\\infty</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עם $a=3$, מהו $b=\\lim_{x\\to\\infty}\\left(\\frac{3x^4}{x^3+2x+9}-3x\\right)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$\\frac{-6x^2-27x}{x^3+2x+9}\\to0$ כי דרגת המונה קטנה מדרגת המכנה.",
+     "promptHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a=3</annotation></semantics></math></span>, מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><mrow><mo fence=\"true\">(</mo><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>−</mo><mn>3</mn><mi>x</mi><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">b=\\lim_{x\\to\\infty}\\left(\\frac{3x^4}{x^3+2x+9}-3x\\right)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mo>−</mo><mn>6</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>27</mn><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>→</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{-6x^2-27x}{x^3+2x+9}\\to0</annotation></semantics></math></span> כי דרגת המונה קטנה מדרגת המכנה."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q4b",
    "partKey": "b",
    "examCode": "24B-B",
@@ -254,7 +1087,12 @@ window.OPEN_BANK = {
    "topicLabel": "גבולות של פונקציות",
    "questionHtml": "מצאו לאלו ערכים של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a,b</annotation></semantics></math></span> (ממשיים) מתקיים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></msub><mrow><mo fence=\"true\">(</mo><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>−</mo><mi>a</mi><mi>x</mi><mo>−</mo><mi>b</mi><mo fence=\"true\">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to+\\infty}\\left(\\frac{3x^4}{x^3+2x+9}-ax-b\\right)=0</annotation></semantics></math></span>.",
    "solutionHtml": "<span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mrow><mo fence=\"true\">(</mo><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>−</mo><mi>a</mi><mi>x</mi><mo>−</mo><mi>b</mi><mo fence=\"true\">)</mo></mrow><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><mi>a</mi><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><mn>2</mn><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>9</mn><mi>a</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>−</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to+\\infty}\\left(\\frac{3x^4}{x^3+2x+9}-ax-b\\right)=\\lim_{x\\to+\\infty}\\frac{3x^4-ax^4-2ax^2-9ax}{x^3+2x+9}-b=0</annotation></semantics></math></span><br>לקיום גבול נדרש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a=3</annotation></semantics></math></span>, אז מקבלים:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></munder><mfrac><mrow><mo>−</mo><mn>6</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>27</mn><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>9</mn></mrow></mfrac><mo>=</mo><mi>b</mi><mtext> </mtext><mo>⟹</mo><mtext> </mtext><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to+\\infty}\\frac{-6x^2-27x}{x^3+2x+9}=b\\ \\Longrightarrow\\ b=0</annotation></semantics></math></span><br>אז התשובה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a=3,\\ b=0</annotation></semantics></math></span>.",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לבחור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo mathvariant=\"normal\">≠</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a\\neq3</annotation></semantics></math></span>: אז המונה מדרגה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">4</annotation></semantics></math></span> והמכנה מדרגה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> והגבול אינסופי ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>.",
+    "לחשב רק את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ולשכוח שגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> נקבע (כאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b=0</annotation></semantics></math></span>).",
+    "לחלק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^4</annotation></semantics></math></span> במקום להשוות דרגות אחרי האיחוד לשבר אחד."
+   ]
   },
   {
    "num": 5,
@@ -267,6 +1105,132 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "א",
    "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי נקודות החשד $x=-2$ ו-$x=0$",
+     "points": 2,
+     "html": "זיהוי נקודות החשד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב הגבולות החד-צדדיים ב-$x=-2$: $+\\infty$ משמאל ו-$1$ מימין",
+     "points": 3,
+     "html": "חישוב הגבולות החד-צדדיים ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">+\\infty</annotation></semantics></math></span> משמאל ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> מימין"
+    },
+    {
+     "text": "חישוב הגבולות החד-צדדיים ב-$x=0$: $3$ משמאל ו-$\\frac{\\pi}{2}$ מימין",
+     "points": 3,
+     "html": "חישוב הגבולות החד-צדדיים ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> משמאל ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\pi}{2}</annotation></semantics></math></span> מימין"
+    },
+    {
+     "text": "סיווג: אי רציפות מסוג שני ב-$-2$ ומסוג ראשון (קפיצה) ב-$0$",
+     "points": 2,
+     "html": "סיווג: אי רציפות מסוג שני ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">-2</annotation></semantics></math></span> ומסוג ראשון (קפיצה) ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לחשב רק את הערך של הפונקציה בנקודה ולא את הגבולות החד-צדדיים משני הצדדים.",
+    "לפשט את המעריך בלי לשים לב שעבור $x<-2$ מתקיים $|x+2|=-(x+2)$.",
+    "לסווג את $x=-2$ כקפיצה למרות שאחד הגבולות החד-צדדיים אינסופי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to-2^+}f(x)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "מימין ל-$-2$ מתקיים $f(x)=x+3\\to1$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>2</mn><mo>+</mo></msup></mrow></msub><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to-2^+}f(x)</annotation></semantics></math></span>?",
+     "explainHtml": "מימין ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">-2</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>→</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=x+3\\to1</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "משמאל ל-$-2$ מתקיים $f(x)=e^{x/(x+2)}\\to e^{+\\infty}=+\\infty$. מהו סוג אי הרציפות ב-$x=-2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מסוג שני (גבול חד-צדדי אינסופי)",
+       "html": "מסוג שני (גבול חד-צדדי אינסופי)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מסוג ראשון (קפיצה סופית)",
+       "html": "מסוג ראשון (קפיצה סופית)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סליקה",
+       "html": "סליקה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הפונקציה רציפה שם",
+       "html": "הפונקציה רציפה שם"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כשאחד הגבולות החד-צדדיים אינו סופי, אי הרציפות היא מסוג שני.",
+     "promptHtml": "משמאל ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">-2</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>x</mi><mi mathvariant=\"normal\">/</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow></msup><mo>→</mo><msup><mi>e</mi><mrow><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></msup><mo>=</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">f(x)=e^{x/(x+2)}\\to e^{+\\infty}=+\\infty</annotation></semantics></math></span>. מהו סוג אי הרציפות ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span>?",
+     "explainHtml": "כשאחד הגבולות החד-צדדיים אינו סופי, אי הרציפות היא מסוג שני."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}f(x)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "משמאל ל-$0$ מתקיים $f(x)=x+3\\to3$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>−</mo></msup></mrow></msub><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to0^-}f(x)</annotation></semantics></math></span>?",
+     "explainHtml": "משמאל ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>→</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=x+3\\to3</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}f(x)$? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 1.571,
+     "tol": 0.001,
+     "explain": "$\\arctan(\\frac1x)\\to\\arctan(+\\infty)=\\frac{\\pi}{2}\\approx1.571$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>+</mo></msup></mrow></msub><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to0^+}f(x)</annotation></semantics></math></span>? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo stretchy=\"false\">)</mo><mo>→</mo><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>≈</mo><mn>1.571</mn></mrow><annotation encoding=\"application/x-tex\">\\arctan(\\frac1x)\\to\\arctan(+\\infty)=\\frac{\\pi}{2}\\approx1.571</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו סוג אי הרציפות ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מסוג ראשון (קפיצה סופית)",
+       "html": "מסוג ראשון (קפיצה סופית)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מסוג שני",
+       "html": "מסוג שני"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סליקה",
+       "html": "סליקה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הפונקציה רציפה שם",
+       "html": "הפונקציה רציפה שם"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שני הגבולות החד-צדדיים סופיים אך שונים ($3\\neq\\frac{\\pi}{2}$), לכן זו קפיצה.",
+     "promptHtml": "מהו סוג אי הרציפות ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>?",
+     "explainHtml": "שני הגבולות החד-צדדיים סופיים אך שונים (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo mathvariant=\"normal\">≠</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">3\\neq\\frac{\\pi}{2}</annotation></semantics></math></span>), לכן זו קפיצה."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q5a",
    "partKey": "a",
    "examCode": "24B-B",
@@ -276,7 +1240,12 @@ window.OPEN_BANK = {
    "topicLabel": "רציפות",
    "questionHtml": "נתונה הפונקציה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mrow><mo fence=\"true\">{</mo><mtable rowspacing=\"0.36em\" columnalign=\"left left\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><msup><mi>e</mi><mfrac><mrow><mo>−</mo><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></msup></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>x</mi><mo>&lt;</mo><mo>−</mo><mn>2</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mo>−</mo><mn>2</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo fence=\"true\">)</mo></mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding=\"application/x-tex\">f(x)=\\begin{cases} e^{\\frac{-x|x+2|}{(x+2)^2}} &amp; x&lt;-2\\\\ x+3 &amp; -2\\le x\\le 0\\\\ \\arctan\\left(\\frac{1}{x}\\right) &amp; x&gt;0\\end{cases}</annotation></semantics></math></span><br>מצאו את נקודות אי הרציפות שלה, וציינו את סוג אי הרציפות בנקודה.",
    "solutionHtml": "ראשית, נחשב גבולות חד צדדיים בנקודות התפר:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>2</mn><mo>−</mo></msup></mrow></munder><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>2</mn><mo>−</mo></msup></mrow></munder><msup><mi>e</mi><mfrac><mrow><mo>−</mo><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></msup><mo>→</mo><msup><mi>e</mi><mrow><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow></msup><mo>=</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to-2^-}f(x)=\\lim_{x\\to-2^-}e^{\\frac{-x|x+2|}{(x+2)^2}}\\to e^{+\\infty}=+\\infty</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>2</mn><mo>+</mo></msup></mrow></munder><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><mo>−</mo><msup><mn>2</mn><mo>+</mo></msup></mrow></munder><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to-2^+}f(x)=\\lim_{x\\to-2^+}(x+3)=1</annotation></semantics></math></span><br><strong>סיכום:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span> היא נקודת אי רציפות מסוג שני.<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>−</mo></msup></mrow></munder><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>−</mo></msup></mrow></munder><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to0^-}f(x)=\\lim_{x\\to0^-}(x+3)=3</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>+</mo></msup></mrow></munder><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>0</mn><mo>+</mo></msup></mrow></munder><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo fence=\"true\">)</mo></mrow><mo>→</mo><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mo>+</mo><mi mathvariant=\"normal\">∞</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\lim_{x\\to0^+}f(x)=\\lim_{x\\to0^+}\\arctan\\left(\\frac{1}{x}\\right)\\to\\arctan(+\\infty)=\\frac{\\pi}{2}</annotation></semantics></math></span><br><strong>סיכום:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> היא נקודת אי רציפות מסוג ראשון (קפיצה סופית).",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לחשב רק את הערך של הפונקציה בנקודה ולא את הגבולות החד-צדדיים משני הצדדים.",
+    "לפשט את המעריך בלי לשים לב שעבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x&lt;-2</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">|x+2|=-(x+2)</annotation></semantics></math></span>.",
+    "לסווג את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span> כקפיצה למרות שאחד הגבולות החד-צדדיים אינסופי."
+   ]
   },
   {
    "num": 5,
@@ -289,6 +1258,128 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "ב",
    "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת ההצבה $t=x^2$",
+     "points": 3,
+     "html": "בחירת ההצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב $dt=2x\\,dx$ והמרת האינטגרל ל-$\\frac12\\int\\cos t\\,dt$",
+     "points": 4,
+     "html": "חישוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=2x\\,dx</annotation></semantics></math></span> והמרת האינטגרל ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int\\cos t\\,dt</annotation></semantics></math></span>"
+    },
+    {
+     "text": "אינטגרציה וחזרה למשתנה המקורי: $\\frac12\\sin(x^2)+C$",
+     "points": 3,
+     "html": "אינטגרציה וחזרה למשתנה המקורי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\sin(x^2)+C</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "לשכוח את הגורם $\\frac12$ אחרי ההצבה, ולכתוב $\\sin(x^2)+C$.",
+    "לא להמיר את $dx$ ולהשאיר את $x$ בתוך האינטגרל במשתנה $t$.",
+    "לא לחזור למשתנה $x$ בסוף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה מתאימה ל-$\\int x\\cos(x^2)\\,dx$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=x^2$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos(x^2)$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">t=\\cos(x^2)</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=x$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=x</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\sin x$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\sin x</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$x\\,dx$ הוא הנגזרת של הפנימית $x^2$ עד כדי קבוע, לכן $t=x^2$ מתאים.",
+     "promptHtml": "איזו הצבה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\cos(x^2)\\,dx</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx</annotation></semantics></math></span> הוא הנגזרת של הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span> עד כדי קבוע, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span> מתאים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $dt=2x\\,dx$, אז $x\\,dx=k\\,dt$. מהו $k$?",
+     "answer": 0.5,
+     "tol": 0,
+     "explain": "$x\\,dx=\\frac{1}{2}dt$.",
+     "promptHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=2x\\,dx</annotation></semantics></math></span>, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>k</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=k\\,dt</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=\\frac{1}{2}dt</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה בחזרה למשתנה $x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{2}\\sin(x^2)+C$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{2}\\sin(x^2)+C</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sin(x^2)+C$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\sin(x^2)+C</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-\\frac{1}{2}\\sin(x^2)+C$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{1}{2}\\sin(x^2)+C</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{2}\\cos(x^2)+C$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{2}\\cos(x^2)+C</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac12\\int\\cos t\\,dt=\\frac12\\sin t+C$. נגזרת התוצאה היא $x\\cos(x^2)$.",
+     "promptHtml": "מהי התוצאה בחזרה למשתנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mi>t</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int\\cos t\\,dt=\\frac12\\sin t+C</annotation></semantics></math></span>. נגזרת התוצאה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x\\cos(x^2)</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הפתרון.",
+     "lines": [
+      "הצבה: $t=x^2,\\ dt=2x\\,dx$",
+      "$\\int x\\cos(x^2)\\,dx=\\frac{1}{2}\\int\\cos(t)\\,dt$",
+      "$=\\frac{1}{2}\\sin(t)+C$",
+      "חזרה למשתנה המקורי: $=\\frac{1}{2}\\sin(x^2)+C$"
+     ],
+     "explain": "הצבה, המרה, אינטגרציה, חזרה.",
+     "promptHtml": "סדרו את שלבי הפתרון.",
+     "explainHtml": "הצבה, המרה, אינטגרציה, חזרה.",
+     "linesHtml": [
+      "הצבה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=x^2,\\ dt=2x\\,dx</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\cos(x^2)\\,dx=\\frac{1}{2}\\int\\cos(t)\\,dt</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">=\\frac{1}{2}\\sin(t)+C</annotation></semantics></math></span>",
+      "חזרה למשתנה המקורי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">=\\frac{1}{2}\\sin(x^2)+C</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q5b",
    "partKey": "b",
    "examCode": "24B-B",
@@ -298,7 +1389,12 @@ window.OPEN_BANK = {
    "topicLabel": "אינטגרל לא מסוים",
    "questionHtml": "חשבו את האינטגרל הבא: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mo>⋅</mo><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\cdot\\cos(x^2)\\,dx</annotation></semantics></math></span>.",
    "solutionHtml": "<span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mrow><mo fence=\"true\">∣</mo><mtable rowspacing=\"0.16em\" columnalign=\"center\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow></mstyle></mtd></mtr></mtable><mo fence=\"true\">∣</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\cos(x^2)\\,dx=\\left|\\begin{matrix}t=x^2\\\\dt=2x\\,dx\\end{matrix}\\right|=\\frac{1}{2}\\int\\cos(t)\\,dt=\\frac{1}{2}\\sin(t)+C=\\frac{1}{2}\\sin(x^2)+C</annotation></semantics></math></span>",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "לשכוח את הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12</annotation></semantics></math></span> אחרי ההצבה, ולכתוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\sin(x^2)+C</annotation></semantics></math></span>.",
+    "לא להמיר את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dx</annotation></semantics></math></span> ולהשאיר את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> בתוך האינטגרל במשתנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span>.",
+    "לא לחזור למשתנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> בסוף."
+   ]
   },
   {
    "num": 6,
@@ -311,6 +1407,132 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "א",
    "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת פונקציית העזר $f(x)=e^x-x-1$",
+     "points": 2,
+     "html": "הגדרת פונקציית העזר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב $f'(x)=e^x-1$ ומציאת הנקודה הקריטית $x=0$",
+     "points": 3,
+     "html": "חישוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=e^x-1</annotation></semantics></math></span> ומציאת הנקודה הקריטית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "נגזרת שנייה $f''(0)=1>0$ ולכן מינימום מקומי",
+     "points": 2,
+     "html": "נגזרת שנייה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)=1&gt;0</annotation></semantics></math></span> ולכן מינימום מקומי"
+    },
+    {
+     "text": "$f(0)=0$ והמסקנה $f(x)\\ge0$, כלומר $e^x\\ge x+1$",
+     "points": 3,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(0)=0</annotation></semantics></math></span> והמסקנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)\\ge0</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>≥</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x\\ge x+1</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "להציב ערכים מספריים בלבד: הטענה היא לכל $x$ ממשי ולא נבדקת על דוגמאות.",
+    "להגדיר $f(x)=e^x$ ולהשוות ל-$x+1$ בלי פונקציית עזר ובלי חקירת נגזרת.",
+    "לשכוח לחשב את $f(0)$ ולכן לא להגיע ל-$f(x)\\ge0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו שיטה מוכיחה את אי-השוויון לכל $x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פונקציית עזר $f(x)=e^x-x-1$ וחקירת המינימום שלה בעזרת נגזרות",
+       "html": "פונקציית עזר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span> וחקירת המינימום שלה בעזרת נגזרות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על $x$",
+       "html": "אינדוקציה על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הצבת $x=0$ בלבד",
+       "html": "הצבת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "משפט ערך הביניים על $e^x$ בלבד",
+       "html": "משפט ערך הביניים על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span> בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מראה שערך המינימום של $f$ הוא $0$.",
+     "promptHtml": "איזו שיטה מוכיחה את אי-השוויון לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>?",
+     "explainHtml": "הפתרון הרשמי מראה שערך המינימום של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f''(0)$ עבור $f(x)=e^x-x-1$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$f''(x)=e^x$ ולכן $f''(0)=1>0$: מינימום מקומי ב-$0$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(x)=e^x</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)=1&gt;0</annotation></semantics></math></span>: מינימום מקומי ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$f(0)=e^0-0-1=0$, ולכן $f(x)\\ge f(0)=0$.",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(0)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mn>0</mn></msup><mo>−</mo><mn>0</mn><mo>−</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(0)=e^0-0-1=0</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)\\ge f(0)=0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שורות ההוכחה.",
+     "lines": [
+      "נגדיר $f(x)=e^x-x-1$",
+      "$f'(x)=e^x-1$ ולכן $f'(0)=0$",
+      "$f''(x)=e^x$ ולכן $f''(0)=1>0$ ו-$x=0$ מינימום מקומי",
+      "$f(0)=0$ ולכן $f(x)\\ge f(0)=0$ לכל $x$",
+      "מכאן $e^x\\ge x+1$"
+     ],
+     "explain": "הגדרה, נגזרת ראשונה, נגזרת שנייה, ערך המינימום, מסקנה.",
+     "promptHtml": "סדרו את שורות ההוכחה.",
+     "explainHtml": "הגדרה, נגזרת ראשונה, נגזרת שנייה, ערך המינימום, מסקנה.",
+     "linesHtml": [
+      "נגדיר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=e^x-1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(0)=0</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(x)=e^x</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)=1&gt;0</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> מינימום מקומי",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(0)=0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)\\ge f(0)=0</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>≥</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x\\ge x+1</annotation></semantics></math></span>"
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת בהוכחה שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(x)=e^x-x-1$",
+      "$f'(x)=e^x+1$ ולכן $f'(0)=2$",
+      "$f''(x)=e^x$ ולכן $f''(0)=1>0$ ו-$x=0$ מינימום מקומי",
+      "$f(0)=0$ ולכן $f(x)\\ge f(0)=0$ לכל $x$",
+      "מכאן $e^x\\ge x+1$"
+     ],
+     "bugIndex": 1,
+     "explain": "$f'(x)=e^x-1$, ולכן $f'(0)=0$ ויש נקודה קריטית. עם $e^x+1$ הנגזרת אינה מתאפסת.",
+     "promptHtml": "שורה אחת בהוכחה שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=e^x-1</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(0)=0</annotation></semantics></math></span> ויש נקודה קריטית. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x+1</annotation></semantics></math></span> הנגזרת אינה מתאפסת.",
+     "linesHtml": [
+      "נגדיר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=e^x+1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(0)=2</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(x)=e^x</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)=1&gt;0</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> מינימום מקומי",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(0)=0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)\\ge f(0)=0</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>≥</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x\\ge x+1</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q6a",
    "partKey": "a",
    "examCode": "24B-B",
@@ -320,7 +1542,12 @@ window.OPEN_BANK = {
    "topicLabel": "מקסימום ומינימום",
    "questionHtml": "הוכיחו כי לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> ממשי מתקיים אי השוויון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>≥</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x\\ge x+1</annotation></semantics></math></span>.",
    "solutionHtml": "נגדיר פונקציית עזר: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1</annotation></semantics></math></span>. הפונקציה גזירה. נגזור ונקבל: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(x)=e^x-1</annotation></semantics></math></span>. מתקיים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;(0)=0</annotation></semantics></math></span>. כמו כן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(x)=e^x</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>f</mi><mrow><mo mathvariant=\"normal\">′</mo><mo mathvariant=\"normal\">′</mo></mrow></msup><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mn>0</mn></msup><mo>=</mo><mn>1</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f&#x27;&#x27;(0)=e^0=1&gt;0</annotation></semantics></math></span>. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> היא נקודת מינימום מקומי. <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(0)=0</annotation></semantics></math></span> ולכן הפונקציה מקיימת לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>≥</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x-x-1\\ge f(0)=0</annotation></semantics></math></span>. מכאן: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>≥</mo><mn>0</mn><mo>⇒</mo><msup><mi>e</mi><mi>x</mi></msup><mo>≥</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">e^x-x-1\\ge 0\\Rightarrow e^x\\ge x+1</annotation></semantics></math></span>.",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "להציב ערכים מספריים בלבד: הטענה היא לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> ממשי ולא נבדקת על דוגמאות.",
+    "להגדיר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">f(x)=e^x</annotation></semantics></math></span> ולהשוות ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span> בלי פונקציית עזר ובלי חקירת נגזרת.",
+    "לשכוח לחשב את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(0)</annotation></semantics></math></span> ולכן לא להגיע ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">f(x)\\ge0</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 6,
@@ -333,6 +1560,78 @@ window.OPEN_BANK = {
    "confidence": "high",
    "part": "ב",
    "points": 10,
+   "rubric": [
+    {
+     "text": "נקודת החיתוך $y=x$ עם $y=\\frac1x$ ברביע הראשון: $(1,1)$, ושרטוט התחום",
+     "points": 2,
+     "html": "נקודת החיתוך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac1x</annotation></semantics></math></span> ברביע הראשון: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1)</annotation></semantics></math></span>, ושרטוט התחום"
+    },
+    {
+     "text": "חלוקת התחום למשולש $S_1$ ולשטח $S_2$ מתחת ל-$y=4$ ומעל $y=\\frac1x$",
+     "points": 2,
+     "html": "חלוקת התחום למשולש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_1</annotation></semantics></math></span> ולשטח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_2</annotation></semantics></math></span> מתחת ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=4</annotation></semantics></math></span> ומעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac1x</annotation></semantics></math></span>"
+    },
+    {
+     "text": "שטח המשולש $S_1=\\frac92$",
+     "points": 2,
+     "html": "שטח המשולש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub><mo>=</mo><mfrac><mn>9</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">S_1=\\frac92</annotation></semantics></math></span>"
+    },
+    {
+     "text": "שטח $S_2=3-\\ln4$ באינטגרל $\\int_1^4\\frac1y\\,dy$",
+     "points": 3,
+     "html": "שטח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>3</mn><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">S_2=3-\\ln4</annotation></semantics></math></span> באינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mn>4</mn></msubsup><mfrac><mn>1</mn><mi>y</mi></mfrac><mtext> </mtext><mi>d</mi><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\int_1^4\\frac1y\\,dy</annotation></semantics></math></span>"
+    },
+    {
+     "text": "סכום $S=\\frac{15}{2}-\\ln4$",
+     "points": 1,
+     "html": "סכום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><mfrac><mn>15</mn><mn>2</mn></mfrac><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">S=\\frac{15}{2}-\\ln4</annotation></semantics></math></span>"
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "pitfalls": [
+    "להתעלם מהקו $y=4$ ולחשב רק את השטח בין $y=x$ ל-$y=\\frac1x$.",
+    "לשכוח שהתחום ממשיך שמאלה ל-$x=\\frac14$ בנקודה שבה $y=\\frac1x$ פוגש את $y=4$.",
+    "טעות בשטח המלבן ($S_4=3$) או בסימן של $\\ln4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "באיזה $x>0$ נחתכים $y=x$ ו-$y=\\frac1x$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$x=\\frac1x$ נותן $x=\\pm1$, ובתחום החיובי $x=1$.",
+     "promptHtml": "באיזה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x&gt;0</annotation></semantics></math></span> נחתכים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac1x</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">x=\\frac1x</annotation></semantics></math></span> נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm1</annotation></semantics></math></span>, ובתחום החיובי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "שטח המשולש $S_1$ שקדקדיו $(1,1),(4,4),(1,4)$?",
+     "answer": 4.5,
+     "tol": 0,
+     "explain": "משולש ישר זווית עם ניצבים באורך $3$: $\\frac{3\\cdot3}{2}=\\frac92$.",
+     "promptHtml": "שטח המשולש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_1</annotation></semantics></math></span> שקדקדיו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1),(4,4),(1,4)</annotation></semantics></math></span>?",
+     "explainHtml": "משולש ישר זווית עם ניצבים באורך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>3</mn><mo>⋅</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mn>9</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3\\cdot3}{2}=\\frac92</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "חשבו $\\int_1^4\\frac1y\\,dy$. עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 1.386,
+     "tol": 0.001,
+     "explain": "$\\ln4\\approx1.386$, ו-$S_2=3-\\ln4$.",
+     "promptHtml": "חשבו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mn>4</mn></msubsup><mfrac><mn>1</mn><mi>y</mi></mfrac><mtext> </mtext><mi>d</mi><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\int_1^4\\frac1y\\,dy</annotation></semantics></math></span>. עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mn>4</mn><mo>≈</mo><mn>1.386</mn></mrow><annotation encoding=\"application/x-tex\">\\ln4\\approx1.386</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mn>3</mn><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">S_2=3-\\ln4</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח הכולל $S=S_1+S_2$? עגלו לשלוש ספרות אחרי הנקודה.",
+     "answer": 6.114,
+     "tol": 0.001,
+     "explain": "$S=\\frac{15}{2}-\\ln4\\approx6.114$.",
+     "promptHtml": "מהו השטח הכולל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><msub><mi>S</mi><mn>1</mn></msub><mo>+</mo><msub><mi>S</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">S=S_1+S_2</annotation></semantics></math></span>? עגלו לשלוש ספרות אחרי הנקודה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><mfrac><mn>15</mn><mn>2</mn></mfrac><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4</mn><mo>≈</mo><mn>6.114</mn></mrow><annotation encoding=\"application/x-tex\">S=\\frac{15}{2}-\\ln4\\approx6.114</annotation></semantics></math></span>."
+    }
+   ],
+   "stepsSource": "ai-verified",
    "id": "24B-B-Q6b",
    "partKey": "b",
    "examCode": "24B-B",
@@ -342,7 +1641,12 @@ window.OPEN_BANK = {
    "topicLabel": "אינטגרל מסוים",
    "questionHtml": "מצאו את השטח התחום החסום בין הגרפים של הפונקציות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mi>y</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=\\frac{1}{x},\\ y=x,\\ y=4</annotation></semantics></math></span>.",
    "solutionHtml": "הפונקציות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=x,\\ y=\\frac{1}{x}</annotation></semantics></math></span> נחתכות ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=\\pm1</annotation></semantics></math></span>. אבל ברביע הראשון זה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span>.<br>השטח המבוקש מורכב ממשולש ישר זוית שנסמן ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_1</annotation></semantics></math></span>, שקדקדיו: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1),(4,4),(1,4)</annotation></semantics></math></span>. שטחו הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>9</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{9}{2}</annotation></semantics></math></span>.<br>שטח נוסף שצריך לחשב הוא השטח בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=4</annotation></semantics></math></span>, הפונקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac{1}{x}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span>. נסמן אותו ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_2</annotation></semantics></math></span>. נסמן ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>4</mn></msub></mrow><annotation encoding=\"application/x-tex\">S_4</annotation></semantics></math></span> את המלבן שקדקודיו הם: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>4</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1),(1,1),(1,4),(0,4)</annotation></semantics></math></span>. מקבלים:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><msub><mi>S</mi><mn>4</mn></msub><mo>−</mo><msub><mi>S</mi><mn>3</mn></msub><mo>=</mo><mn>3</mn><mo>−</mo><msubsup><mo>∫</mo><mn>1</mn><mn>4</mn></msubsup><mfrac><mn>1</mn><mi>y</mi></mfrac><mtext> </mtext><mi>d</mi><mi>y</mi><mo>=</mo><mn>3</mn><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4.</mn></mrow><annotation encoding=\"application/x-tex\">S_2=S_4-S_3=3-\\int_1^4\\frac{1}{y}\\,dy=3-\\ln 4.</annotation></semantics></math></span><br>בסה\"כ: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><msub><mi>S</mi><mn>1</mn></msub><mo>+</mo><msub><mi>S</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>15</mn><mn>2</mn></mfrac><mo>−</mo><mi>ln</mi><mo>⁡</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">S=S_1+S_2=\\frac{15}{2}-\\ln 4</annotation></semantics></math></span>.",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "להתעלם מהקו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=4</annotation></semantics></math></span> ולחשב רק את השטח בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=x</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac1x</annotation></semantics></math></span>.",
+    "לשכוח שהתחום ממשיך שמאלה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">x=\\frac14</annotation></semantics></math></span> בנקודה שבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac1x</annotation></semantics></math></span> פוגש את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=4</annotation></semantics></math></span>.",
+    "טעות בשטח המלבן (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>S</mi><mn>4</mn></msub><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">S_4=3</annotation></semantics></math></span>) או בסימן של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\ln4</annotation></semantics></math></span>."
+   ]
   }
  ]
 };

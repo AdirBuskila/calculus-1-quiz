@@ -39,7 +39,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהנקודות $x=\\pm 1$ מחוץ לתחום ההגדרה, ולכן הן אינן קיצון אלא אסימפטוטות אנכיות.",
     "לקבוע קיצון רק לפי $f'(x)=0$ בלי לבדוק את סימן הנגזרת: ב-$x=0$ הנגזרת מתאפסת אך אין שם קיצון (שם נקודת פיתול).",
@@ -129,7 +129,7 @@
      "explain": "הסדר הוא סדר הסעיפים א-ו בפתרון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -160,7 +160,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\frac{Cx+D}{x^2+4}$ כשני שברים עם $x\\pm 2$: הביטוי $x^2+4$ אינו פריק מעל הממשיים.",
     "לשכוח את האיבר $\\frac{A}{x}$ מהפירוק עבור הגורם הריבועי $x^2$ (צריך גם חזקה ראשונה וגם שנייה).",
@@ -233,7 +233,7 @@
      "explain": "$\\int\\frac{2}{x^2}dx=-\\frac{2}{x}$ ו-$\\int\\frac{1}{x^2+4}dx=\\frac12\\arctan\\frac{x}{2}$, עם סימן מינוס לפני האחרון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -268,7 +268,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שהגבול קיים ולפתור את משוואת נקודת השבת $L=\\frac{3}{2+1/L}$ לפני שהוכחנו התכנסות.",
     "להוכיח רק מונוטוניות בלי חסם (או להפך): שניהם נדרשים כדי להשתמש במשפט.",
@@ -341,7 +341,7 @@
      "explain": "$L^2-L=0$ ולכן $L\\in\\{0,1\\}$. כיוון ש-$a_n\\ge1$ מקבלים $L=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -372,7 +372,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע שהגבול הוא $0$ כי \"אינסוף פחות אינסוף\": זו צורה לא מוגדרת.",
     "אחרי הכפל בצמוד לשכוח לחלק גם את המכנה ב-$n$ ולקבל גבול שגוי.",
@@ -433,7 +433,7 @@
      "explain": "כפל בצמוד, פישוט, חילוק בחזקה הגבוהה, ואז גבול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -464,7 +464,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בשיטת דיסקים סביב ציר $y$ בלי להפוך את הפונקציות לפי $y$, או לשכוח את הגורם $x$ (הרדיוס) באינטגרל.",
     "טעות בגובה הקליפה: הגובה הוא $(e+1)-(e^x+1)=e-e^x$ ולא $e^x+1$.",
@@ -525,7 +525,7 @@
      "explain": "הצבת האינטגרל, אינטגרציה בחלקים, הצבת גבולות ותוצאה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -556,7 +556,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא לבדוק את קצוות הקטע: המקסימום מתקבל בקצה $x=e^2$.",
     "לפתור $\\ln x=1$ ולכתוב $x=1$ במקום $x=e$.",
@@ -620,7 +620,7 @@
      "explain": "$y(e)=1-2=-1$ הוא הנמוך מבין $-\\frac34,\\,-1,\\,0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -651,7 +651,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $a\\neq3$: אז המונה מדרגה $4$ והמכנה מדרגה $3$ והגבול אינסופי ולא $0$.",
     "לחשב רק את $a$ ולשכוח שגם $b$ נקבע (כאן $b=0$).",
@@ -729,7 +729,7 @@
      "explain": "$\\frac{-6x^2-27x}{x^3+2x+9}\\to0$ כי דרגת המונה קטנה מדרגת המכנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -760,7 +760,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב רק את הערך של הפונקציה בנקודה ולא את הגבולות החד-צדדיים משני הצדדים.",
     "לפשט את המעריך בלי לשים לב שעבור $x<-2$ מתקיים $|x+2|=-(x+2)$.",
@@ -845,7 +845,7 @@
      "explain": "שני הגבולות החד-צדדיים סופיים אך שונים ($3\\neq\\frac{\\pi}{2}$), לכן זו קפיצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -872,7 +872,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\frac12$ אחרי ההצבה, ולכתוב $\\sin(x^2)+C$.",
     "לא להמיר את $dx$ ולהשאיר את $x$ בתוך האינטגרל במשתנה $t$.",
@@ -954,7 +954,7 @@
      "explain": "הצבה, המרה, אינטגרציה, חזרה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -985,7 +985,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב ערכים מספריים בלבד: הטענה היא לכל $x$ ממשי ולא נבדקת על דוגמאות.",
     "להגדיר $f(x)=e^x$ ולהשוות ל-$x+1$ בלי פונקציית עזר ובלי חקירת נגזרת.",
@@ -1060,7 +1060,7 @@
      "explain": "$f'(x)=e^x-1$, ולכן $f'(0)=0$ ויש נקודה קריטית. עם $e^x+1$ הנגזרת אינה מתאפסת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1095,7 +1095,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתעלם מהקו $y=4$ ולחשב רק את השטח בין $y=x$ ל-$y=\\frac1x$.",
     "לשכוח שהתחום ממשיך שמאלה ל-$x=\\frac14$ בנקודה שבה $y=\\frac1x$ פוגש את $y=4$.",
@@ -1131,7 +1131,7 @@
      "explain": "$S=\\frac{15}{2}-\\ln4\\approx6.114$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
