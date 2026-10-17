@@ -47,7 +47,74 @@
       "אינטגרל מסוים"
     ]
   ],
-  "briefs": [],
+  "briefs": [
+    [
+      "01 - sequences_limits.md",
+      "sequences_limits",
+      "sequences_limits",
+      "topic"
+    ],
+    [
+      "02 - function_limits.md",
+      "function_limits",
+      "function_limits",
+      "topic"
+    ],
+    [
+      "03 - continuity.md",
+      "continuity",
+      "continuity",
+      "topic"
+    ],
+    [
+      "04 - derivatives_tangents.md",
+      "derivatives_tangents",
+      "derivatives_tangents",
+      "topic"
+    ],
+    [
+      "05 - mean_value_theorems.md",
+      "mean_value_theorems",
+      "mean_value_theorems",
+      "topic"
+    ],
+    [
+      "06 - lhopital_taylor.md",
+      "lhopital_taylor",
+      "lhopital_taylor",
+      "topic"
+    ],
+    [
+      "07 - function_investigation.md",
+      "function_investigation",
+      "function_investigation",
+      "topic"
+    ],
+    [
+      "08 - extrema_optimization.md",
+      "extrema_optimization",
+      "extrema_optimization",
+      "topic"
+    ],
+    [
+      "09 - indefinite_integrals.md",
+      "indefinite_integrals",
+      "indefinite_integrals",
+      "topic"
+    ],
+    [
+      "10 - definite_integrals.md",
+      "definite_integrals",
+      "definite_integrals",
+      "topic"
+    ],
+    [
+      "11 - cheat_sheet.md",
+      "cheat_sheet",
+      "function_limits",
+      "cheat"
+    ]
+  ],
   "needHelp": [
     {
       "id": "investigation",
