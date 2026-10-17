@@ -111,6 +111,30 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: confirm skipping it (then 17-and-older is the next batch member instead).
 - Status: skipped
 
+### 18A2-A Q1 - official extremum type and inflection x misprinted
+- Page: 1-2
+- Question: the text calls x=e^2 a minimum (y' goes + to -, so it is a maximum) and prints the inflection point as e^(2/3) (3 ln x = 8 gives e^(8/3), matching the printed sign diagram).
+- Needed: none if the corrected, labeled version is acceptable (solved, official:false, confidence med).
+- Status: shipped with label
+
+### 18A1-A Q1 - official y'' numerator and roots misprinted
+- Page: 2
+- Question: y'' numerator printed -4x^2-3x-2 (correct: +2), inflection roots printed (-3 +- sqrt41)/16 and labeled (3 -+ sqrt41)/16 on the diagram (correct: (-3 +- sqrt41)/8). Sympy checked.
+- Needed: none if the corrected, labeled version is acceptable.
+- Status: shipped with label
+
+### 18A1-A Q3a - official computes only the right-hand limit
+- Page: 4
+- Question: the question asks lim x->0; the solution computes x->0+ (1/3). The left limit is -1/3, so the two-sided limit does not exist. Shipped as a labeled correction (solved, official:false), with the solution showing both one-sided limits.
+- Needed: confirm that the intended question was x->0+ (then the official 1/3 stands).
+- Status: shipped with label
+
+### 17B-A Q5a - handwritten solution has wrong endpoint values
+- Page: solution p.4
+- Question: f(1/4) written 17/2 (correct 33/2), f(100) written 52/2 (correct 251/25), maximum declared at x=100; correct maximum is 33/2 at x=1/4, minimum 3 at x=4 (sympy + grid). Shipped labeled (solved, official:false).
+- Needed: none if acceptable. The whole 17B-A solution is an unnamed handwritten source and needs the refuter (student-solution, official:false).
+- Status: shipped with label, needs refuter
+
 ### Silent corrections (intermediate slips, no student-facing label; for the record)
 - 20B-A Q1 (p.2): printed f'' numerator has "-2e^(2x)" inside the first bracket; it must be "+2e^(2x)" (the simplified f'' printed next is right).
 - 21B-B Q3b (p.4): "0.5ln|t-3| - 0.5|t-1|" is missing the second ln; restored.
@@ -119,6 +143,12 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 21A-B Q2b (p.3-4), Q4a (p.6): not slips, but the official text ignores that arcsin(x/5) is defined only on [-5,5] and divides by a2 (assumes a2 != 0); transcribed as printed.
 - 18B-A Q1 (solution p.1): the handwritten one-sided limits at x=-sqrt(3) have the signs swapped (+oo from the right, -oo from the left is correct); corrected (y is odd, check agrees).
 - 18B-A Q6b (solution p.4): the L'Hopital quotient drops the factor x (x -> 1, harmless); restored.
+- 18A1-A Q5a (p.5-6): the substitution line lists f(0)=0, which is outside [1,4]; it must be f(2)=4 (final max 16 / min 0 unchanged). Corrected.
+- 18A1-A Q3a (p.4): the denominator derivative is printed 6x^2/cos(2x^3), it is 6x^2/cos^2(2x^3) (inside the labeled Q3a).
+- 17A2-A Q6b (p.9, the Note): printed z=t^2 should be z=x^2; the substituted line carries stray letters A and B (must read 1/2 * 1/(x^2-1) - 1/2 * 1/(x^2+1)). Corrected.
+- 17B-A Q2 (solution p.2): a(n+1)-a(n) is written over 2-a_n twice; it is 2+a_n (numerator 3-a_n^2 and the sign conclusion unchanged). Corrected.
+- 17B-A Q3b (solution p.3): V2 line reads "9pi * integral", must be 2pi (the value 77pi/5 is right). Corrected.
+- 17B-A Q4a (solution p.3): the Lagrange point is written "1<x<X"; it is c. Corrected.
 - Status: logged
 
 ## Resolved

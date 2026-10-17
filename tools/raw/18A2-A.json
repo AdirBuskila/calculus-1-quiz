@@ -1,0 +1,141 @@
+{
+ "examCode": "18A2-A",
+ "examLabel": "מבחן סוף סמסטר א' תשע\"ח, מועד א', גרסה 2",
+ "year": 2018,
+ "examDate": "30/01/2018",
+ "sourceFile": "calculus-1/18A2-A exam+solution.pdf",
+ "solutionFile": "calculus-1/18A2-A exam+solution.pdf",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "function_investigation",
+   "question": "חקרו את הפונקציה הבאה $y=\\frac{\\ln x}{\\sqrt x}$ על פי הסעיפים הבאים: תחום הגדרה, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
+   "solution": "הפתרון הרשמי עם תיקון: בפתרון הרשמי נכתב ש-$x=e^2$ היא נקודת מינימום, אבל $y'$ חיובית משמאלה ושלילית מימינה, ולכן זו נקודת מקסימום. כמו כן נכתב שנקודת הפיתול היא $x=e^{\\frac23}$, אך $3\\ln x-8=0$ נותן $x=e^{\\frac83}$ (וכך גם בטבלת הסימנים הרשמית). התיקונים נבדקו (sympy).\n**1. תחום ההגדרה:** $x>0$.\n**2. תחומי עלייה וירידה, נקודות קיצון:**\n$$y'=\\frac{2-\\ln x}{2x^{1.5}}=0\\ \\Rightarrow\\ x=e^2$$\nטבלת סימנים של $y'$: חיובית ב-$0<x<e^2$ (עולה), שלילית ב-$x>e^2$ (יורדת). נקודת מקסימום מקומי: $x=e^2$, $y\\left(e^2\\right)=\\frac2e$.\n**3. תחומי קמירות וקעירות, נקודות פיתול:**\n$$y''=\\frac{3\\ln x-8}{4x^{2.5}}=0\\ \\Rightarrow\\ x=e^{\\frac83}$$\nטבלת סימנים של $y''$: שלילית ב-$0<x<e^{\\frac83}$ (קעורה), חיובית ב-$x>e^{\\frac83}$ (קמורה). $x=e^{\\frac83}$ היא נקודת פיתול.\n**4. אסימפטוטות:**\n**אסימפטוטה אנכית:** $x=0$ חשודה לאסימפטוטה אנכית. מתקיים $\\lim_{x\\to0^+}\\frac{\\ln x}{\\sqrt x}=-\\infty$, לכן $x=0$ באמת אסימפטוטה אנכית.\n**אסימפטוטה משופעת (יש לבדוק רק ב-$+\\infty$):**\n$$a=\\lim_{x\\to+\\infty}\\frac{\\frac{\\ln x}{\\sqrt x}}{x}=\\lim_{x\\to+\\infty}\\frac{\\ln x}{x^{1.5}}=0,\\qquad b=\\lim_{x\\to+\\infty}\\left(\\frac{\\ln x}{\\sqrt x}-0\\cdot x\\right)=\\lim_{x\\to+\\infty}\\frac{\\ln x}{\\sqrt x}=0$$\nכלומר $y=0$.\n**5. שרטוט:**\n![שרטוט הגרף של y = ln x / √x עם האסימפטוטה האנכית x=0 והאסימפטוטה האופקית y=0](images/exams/18A2-A-Q1-graph.png)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "med"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "sequences_limits",
+   "question": "חשבו את הגבול $\\lim_{n\\to\\infty}\\sqrt[2n]{10^n+\\arctan n}$.",
+   "solution": "נשתמש במשפט הסנדוויץ':\n$$\\sqrt[2n]{10^n}\\ \\le\\ \\sqrt[2n]{10^n+\\arctan n}\\ \\le\\ \\sqrt[2n]{10^n+10^n}$$\n$$\\sqrt{10}\\ \\le\\ \\sqrt[2n]{10^n+\\arctan n}\\ \\le\\ 2^{\\frac{1}{2n}}\\sqrt{10}$$\nהאגף השמאלי שווה ל-$\\sqrt{10}$, והאגף הימני שואף ל-$1\\cdot\\sqrt{10}$ (כי $2^{\\frac1{2n}}\\to1$). לכן\n$$\\lim_{n\\to\\infty}\\sqrt[2n]{10^n+\\arctan n}=\\sqrt{10}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את האינטגרל $\\int_{-1}^{1}(2x+1)\\sin(\\pi x)\\,dx$.",
+   "solution": "$$\\int_{-1}^{1}(2x+1)\\sin(\\pi x)\\,dx=\\left[\\begin{matrix}u=2x+1&dv=\\sin(\\pi x)\\,dx\\\\du=2\\,dx&v=-\\frac{\\cos(\\pi x)}{\\pi}\\end{matrix}\\right]=$$\n$$=-\\frac{\\cos(\\pi x)}{\\pi}(2x+1)\\Big|_{-1}^{1}+\\frac2\\pi\\int_{-1}^{1}\\cos(\\pi x)\\,dx=\\frac4\\pi+\\frac2\\pi\\cdot\\frac{\\sin(\\pi x)}{\\pi}\\Big|_{-1}^{1}=\\frac4\\pi$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "function_limits",
+   "question": "חשבו את הגבול $\\lim_{x\\to2}(3-x)^{\\tan\\frac{\\pi x}{4}}$.",
+   "solution": "מתקיים:\n$$\\lim_{x\\to2}(3-x)^{\\tan\\frac{\\pi x}{4}}=\\{1^\\infty\\}=\\lim_{x\\to2}\\left(1+(2-x)\\right)^{\\frac{1}{2-x}\\cdot(2-x)\\cdot\\tan\\frac{\\pi x}{4}}=\\lim_{x\\to2}\\left(\\left(1+(2-x)\\right)^{\\frac{1}{2-x}}\\right)^{(2-x)\\tan\\frac{\\pi x}{4}}$$\nהביטוי בסוגריים הפנימיים שואף ל-$e$, והחזקה:\n$$\\lim_{x\\to2}(2-x)\\tan\\frac{\\pi x}{4}=\\lim_{x\\to2}\\frac{2-x}{\\cot\\frac{\\pi x}{4}}=\\lim_{x\\to2}\\frac{-1}{-\\frac{1}{\\sin^2\\frac{\\pi x}{4}}\\cdot\\frac\\pi4}=\\frac4\\pi$$\nלכן הגבול הוא $e^{\\frac4\\pi}$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "חשבו את אורך הקשת של גרף הפונקציה $f(x)=\\frac{x^3}{6}+\\frac{1}{2x}$, כאשר $1\\le x\\le2$.",
+   "solution": "$$L=\\int_a^b\\sqrt{1+\\left(f'(x)\\right)^2}\\,dx=\\int_1^2\\sqrt{1+\\left(\\frac{x^2}{2}-\\frac{1}{2x^2}\\right)^2}\\,dx=\\int_1^2\\sqrt{\\frac{x^4}{4}+\\frac12+\\frac{1}{4x^4}}\\,dx=$$\n$$=\\int_1^2\\sqrt{\\left(\\frac{x^2}{2}+\\frac{1}{2x^2}\\right)^2}\\,dx=\\int_1^2\\left(\\frac{x^2}{2}+\\frac{1}{2x^2}\\right)dx=\\left(\\frac{x^3}{6}-\\frac{1}{2x}\\right)\\Big|_1^2=\\left(\\frac86-\\frac14\\right)-\\left(\\frac16-\\frac12\\right)=\\frac{17}{12}$$\n![גרף הפונקציה f(x) = x³/6 + 1/(2x) בקטע מ-1 עד 2](images/exams/18A2-A-Q3b-graph.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "נתונה הפונקציה $f(x)=\\begin{cases}ax^2+bx+1,&x\\ge0,\\\\(x+a)e^{-bx},&x<0.\\end{cases}$ מצאו את ערכי הפרמטרים $a,b\\in\\mathbb R$ כך ש-$f(x)$ תהיה גזירה ב-$x=0$.",
+   "solution": "קודם כל נדרש שהפונקציה תהיה רציפה:\n$$\\lim_{x\\to0^+}\\left(ax^2+bx+1\\right)=1,\\qquad\\lim_{x\\to0^-}(x+a)e^{-bx}=a$$\nכלומר $a=1$, ו-\n$$f(x)=\\begin{cases}x^2+bx+1,&x\\ge0\\\\(x+1)e^{-bx},&x<0\\end{cases}$$\nעל מנת שתהיה גזירה, יש לדרוש את שוויון הנגזרות החד-צדדיות:\n$$f'_+(0)=\\lim_{h\\to0^+}\\frac{f(h)-f(0)}{h}=\\lim_{h\\to0^+}\\frac{\\left(h^2+bh+1\\right)-1}{h}=b$$\n$$f'_-(0)=\\lim_{h\\to0^-}\\frac{f(h)-f(0)}{h}=\\lim_{h\\to0^-}\\frac{(h+1)e^{-bh}-1}{h}=\\lim_{h\\to0^-}\\frac{he^{-bh}+e^{-bh}-1}{h}=\\lim_{h\\to0^-}\\left(e^{-bh}+\\frac{e^{-bh}-1}{h}\\right)=1-b$$\nמכאן $b=1-b$, כלומר $b=\\frac12$. תשובה סופית: $a=1,\\ b=\\frac12$.\n**דרך נוספת** (דורשת הסבר נוסף, כי אחרת אינה מדויקת, אך עדיין מקובלת במסגרת הקורס):\nמדרישת הרציפות מקבלים ש-$a=1$. מתקיים:\n$$f'(x)=\\begin{cases}2x^2+b,&x>0\\\\e^{-bx}-b(1+x)e^{-bx},&x<0\\end{cases}$$\n(כעקרון אנו לא יודעים האם הפונקציה גזירה ב-$0$). נחשב את הגבולות החד-צדדיים של הנגזרת:\n$$\\lim_{x\\to0^+}f'(x)=\\lim_{x\\to0^+}\\left(2x^2+b\\right)=b,\\qquad\\lim_{x\\to0^-}f'(x)=\\lim_{x\\to0^-}\\left(e^{-bx}-b(1+x)e^{-bx}\\right)=1-b$$\nנשווה את $b=1-b$ ונסיק כי $b=\\frac12$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "definite_integrals",
+   "question": "מצאו את השטח הכלוא בין הקווים $y^2=2x+1,\\ y=x-1$.",
+   "solution": "![הפרבולה y² = 2x+1 והישר y = x−1, ציר ה-x אופקי](images/exams/18A2-A-Q4b-fig1.png)\nבמקרה זה כדאי לעבור לפונקציות ההפוכות, $x=y+1$, $x=\\frac12\\left(y^2-1\\right)$, ואז החישוב מידי.\nקודם כל נמצא את נקודות החיתוך של שני הגרפים: $y+1=\\frac12\\left(y^2-1\\right)$, $y=-1$, $y=3$. כעת ניתן לחשב את השטח:\n![אותם גרפים, כשציר ה-y אופקי](images/exams/18A2-A-Q4b-fig2.png)\n$$S=\\int_{-1}^{3}\\left(y+1-\\frac12\\left(y^2-1\\right)\\right)dy=\\int_{-1}^{3}\\left(y+\\frac32-\\frac12y^2\\right)dy=\\left(\\frac{y^2}{2}+\\frac32y-\\frac{y^3}{6}\\right)\\Big|_{-1}^{3}=$$\n$$=\\left(\\frac92+\\frac92-\\frac92\\right)-\\left(\\frac12-\\frac32+\\frac16\\right)=\\frac{16}{3}$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "proof",
+   "topic": "mean_value_theorems",
+   "question": "הוכיחו את אי-השוויון $\\frac{x}{1+x}<\\ln(1+x)<x$ לכל $x>0$.",
+   "solution": "נחלק את שלושת האגפים של אי-השוויון ב-$x$ אשר חיובי ונקבל את אי-השוויון השקול:\n$$\\frac{1}{1+x}<\\frac{\\ln(1+x)}{x}<1$$\nנסתכל בפונקציה $f(x)=\\ln(1+x)$ בקטע $[0,x]$. בקטע זה הפונקציה רציפה כפונקציה אלמנטרית בתחום הגדרתה וגזירה בקטע פתוח $(0,x)$. לכן היא מקיימת בקטע הנ\"ל את כל התנאים של משפט לגרנז', לפיו קיימת נקודה $0<c<x$ כך ש:\n$$\\frac{f(x)-f(0)}{x-0}=f'(c)$$\nכלומר\n$$\\frac{\\ln(1+x)-\\ln1}{x-0}=\\frac{1}{1+c}$$\nז\"א $\\frac{\\ln(1+x)}{x}=\\frac{1}{1+c}$. כיוון ש-$0<c<x$ אנו מסיקים כי $\\frac{1}{1+x}<\\frac{1}{1+c}<1$ ומקבלים את התוצאה הרצויה:\n$$\\frac{1}{1+x}<\\frac{\\ln(1+x)}{x}<1$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 5,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{2x^2-3x+3}{x^3-2x^2+x}\\,dx$.",
+   "solution": "נפרק את השבר האמיתי $\\frac{2x^2-3x+3}{x^3-2x^2+x}$ לסכום של שברים אלמנטריים:\n$$\\frac{2x^2-3x+3}{x^3-2x^2+x}=\\frac{2x^2-3x+3}{x\\left(x^2-2x+1\\right)}=\\frac{2x^2-3x+3}{x(x-1)^2}=\\frac Ax+\\frac B{x-1}+\\frac C{(x-1)^2}$$\n$$A=3,\\quad B=-1,\\quad C=2$$\nמכאן\n$$\\int\\frac{2x^2-3x+3}{x^3-2x^2+x}dx=3\\int\\frac{dx}{x}-\\int\\frac{dx}{x-1}+2\\int\\frac{dx}{(x-1)^2}=3\\ln|x|-\\ln|x-1|-\\frac{2}{x-1}+c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "derivatives_tangents",
+   "question": "מצאו את המשוואות של כל המשיקים לגרף של $y=4-x^2$ אשר עוברים דרך נקודה $(0,8)$.",
+   "solution": "משוואת המשיק העובר דרך $(0,8)$ ייראה כך: $y=ax+8$. עלינו למצוא את $a$.\nנקודת ההשקה היא נקודה משותפת של שני הגרפים $y=ax+8$ ו-$y=4-x^2$. בנוסף שיפוע המשיק $a$ חייב להיות שווה לנגזרת של $y=4-x^2$.\nנקבל:\n$$\\begin{cases}a=-2x\\\\4-x^2=ax+8\\end{cases}\\ \\Leftarrow\\ 4-x^2=-2x^2+8\\ \\Leftarrow\\ x^2=4,\\quad x=-2,\\ x=2$$\nלכן $a=4$ או $a=-4$. סופית: ישנם שני המשיקים $y=4x+8$ ו-$y=-4x+8$.\n![הפרבולה y = 4 − x² ושני המשיקים העוברים דרך הנקודה (0,8)](images/exams/18A2-A-Q6a-fig.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 10
+  },
+  {
+   "num": 6,
+   "kind": "computation",
+   "topic": "indefinite_integrals",
+   "question": "חשבו את האינטגרל $\\int\\frac{dx}{\\tan x+\\cot x}$.",
+   "solution": "מתקיים:\n$$\\int\\frac{dx}{\\tan x+\\cot x}=\\int\\frac{dx}{\\frac{\\sin x}{\\cos x}+\\frac{\\cos x}{\\sin x}}=\\int\\frac{dx}{\\frac{\\sin^2x+\\cos^2x}{\\cos x\\cdot\\sin x}}=\\int\\cos x\\cdot\\sin x\\,dx=\\frac{\\sin^2x}{2}+c$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10
+  }
+ ]
+}
