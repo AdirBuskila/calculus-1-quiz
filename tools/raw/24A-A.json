@@ -48,11 +48,11 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב מונה קבוע מעל $x^2+1$ במקום $Bx+C$, ואז אין פתרון למערכת.",
     "לפצל את $\\frac{x-2}{x^2+1}$ לא נכון: $\\int\\frac{x}{x^2+1}=\\frac12\\ln(x^2+1)$ ו-$\\int\\frac{2}{x^2+1}=2\\arctan x$.",
-    "לשכוח שהמונה $x^2$ ממעלה זהה למכנה הריבועי: הפירוק תקף כי דרגת המונה קטנה מדרגת המכנה הכולל (3)."
+    "לטעות בהשוואת מקדמים: הכפלת $Bx$ ב-$x$ נותנת $Bx^2$, ולכן מהמקדם של $x^2$ מתקבל $A+B=1$ (לא $A=1$)."
    ],
    "steps": [
     {
@@ -100,7 +100,7 @@
      "explain": "מקדמי $x$: $2B+C=0$ ולכן $C=-\\frac25=-0.4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -135,7 +135,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכפיל באי-שוויון ב-$5-a_n$ בלי לוודא שהוא חיובי. כאן $5-a_n\\ge3>0$ הודות לחסם.",
     "לא לפסול את $L=3$: שני השורשים מקיימים את משוואת הגבול, והחסם $a_n\\le2$ הוא שפוסל את $3$.",
@@ -208,7 +208,7 @@
      "explain": "מ-$L=\\frac{6}{5-L}$ מקבלים $L(5-L)=6$, כלומר $L^2-5L+6=0$ ולא $L^2-5L-6=0$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -239,7 +239,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב ישר ולקבל $1^\\infty=1$: זו צורה לא מסוימת.",
     "לטעות בגבול המעריך: $\\sin2x=2\\sin x\\cos x$ ולכן $\\frac{-\\tan x}{\\sin2x}\\to-\\frac12$ ולא $-1$.",
@@ -289,7 +289,7 @@
      "explain": "$e^{-1/2}\\approx0.6065$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -320,7 +320,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $-\\frac12$ מ-$dt=-2\\sin2x\\,dx$.",
     "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$: הקבוע במכנה הוא $3$ ולא $1$.",
@@ -370,7 +370,7 @@
      "explain": "הערך הוא $\\frac{\\pi}{12\\sqrt3}\\approx0.1512$ (חישוב ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -401,7 +401,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=0$, שבו הנגזרת לא מוגדרת אך הפונקציה כן, והוא נקודת המינימום.",
     "לחשב $(-3)^{2/3}$ לא נכון: $\\sqrt[3]{(-3)^2}=\\sqrt[3]{9}$, חיובי.",
@@ -479,7 +479,7 @@
      "explain": "הערכים: $41.78$, $0$, $0.3918$, $0.3679$ (sympy). הגדול ביותר ב-$-3$ והקטן ביותר ב-$0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -510,7 +510,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לרבע: $y^2=\\arctan x$, והשורש נעלם.",
     "להשתמש בקליפות $2\\pi\\int xy\\,dx$ כשהסיבוב סביב ציר ה-$x$.",
@@ -560,7 +560,7 @@
      "explain": "$\\pi\\cdot0.4388\\approx1.3785$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -591,7 +591,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל השרשרת של הגבול העליון $\\sqrt x$ (הגורם $\\frac{1}{2\\sqrt x}$).",
     "להציב $t^2\\to x$ בתוך האינטגרנד: בגבול העליון $\\sqrt x$ מתקבל $\\sin\\left((\\sqrt x)^2\\right)=\\sin x$.",
@@ -633,22 +633,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{\\sin{\\left(xp \\right)}}{2 \\sqrt{xp}}$"
+       "value": "$\\frac{\\sin{\\left(x \\right)}}{2 \\sqrt{x}}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$\\sin{\\left(xp \\right)}$"
+       "value": "$\\sin{\\left(x \\right)}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{\\sin{\\left(xp \\right)}}{\\sqrt{xp}}$"
+       "value": "$\\frac{\\sin{\\left(x \\right)}}{\\sqrt{x}}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{\\cos{\\left(xp \\right)}}{2 \\sqrt{xp}}$"
+       "value": "$\\frac{\\cos{\\left(x \\right)}}{2 \\sqrt{x}}$"
       }
      ],
      "correctId": "a",
@@ -662,7 +662,7 @@
      "explain": "$\\frac{\\sin x/(2\\sqrt x)}{\\frac32\\sqrt x}=\\frac{\\sin x}{3x}\\to\\frac13$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -693,7 +693,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את המקרה $a=0$ בגבול הימני, שבו $e^{-a^2/x}=1$ והגבול $5$ ולא $4$.",
     "לקבל $a=2$ בלבד ולשכוח את $a=-2$.",
@@ -750,7 +750,7 @@
      "explain": "דרוש $a^2=4$. עבור $a=0$ הגבול הימני $5$ והשמאלי $0$; עבור $a=\\pm4$ השמאלי $16$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -781,7 +781,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל לגרנז' על קטע שבו $\\tan$ אינה רציפה: חייבים להישאר ב-$\\left[0,x\\right]$ עם $x<\\frac\\pi2$.",
     "לשכוח שהאי-שוויון $\\frac{1}{\\cos^2c}>1$ דורש $c\\neq0$, והנקודה $c$ בקטע הפתוח $(0,x)$.",
@@ -840,7 +840,7 @@
      "explain": "כש-$0<\\cos^2c<1$ ההופכי גדול מ-$1$, לא קטן (נבדק ב-sympy בנקודות לדוגמה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -871,7 +871,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהעקום מתחיל ב-$x=\\frac52$ ולא ב-$x=2$, ולכן הפרש האינטגרלים נעשה בשני קטעים שונים.",
     "לטעות בנגזרת השורש: $\\left(\\sqrt{2x-5}\\right)'=\\frac{1}{\\sqrt{2x-5}}$ (כלל שרשרת, הגורם $2$ מצטמצם).",
@@ -928,7 +928,7 @@
      "explain": "$\\int_2^3(x-2)dx-\\int_{5/2}^3\\sqrt{2x-5}\\,dx=\\frac12-\\frac13=\\frac16\\approx0.1667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

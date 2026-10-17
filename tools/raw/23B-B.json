@@ -47,7 +47,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהישר $x=0$ הוא אסימפטוטה משני הצדדים: משמאל $f\\to0$, ורק מימין $f\\to\\infty$.",
     "לשכוח את הגזירה של $e^{1/x}$ עם כלל שרשרת: $\\left(e^{1/x}\\right)'=-\\frac{1}{x^2}e^{1/x}$.",
@@ -174,7 +174,7 @@
      "explain": "$m=\\lim e^{1/x}=1$ ו-$k=\\lim x\\left(e^{1/x}-1\\right)=1$ (אומת ב-sympy בשני הכיוונים)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -205,7 +205,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\frac{2}{1+t^2}$ מ-$dx$.",
     "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$.",
@@ -255,7 +255,7 @@
      "explain": "$\\frac{\\pi}{3\\sqrt3}\\approx0.6046$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -290,7 +290,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול מהמשוואה בלי להוכיח קודם התכנסות.",
     "לא לפסול את $L=-4$ אף שאיברי הסדרה אי-שליליים.",
@@ -356,7 +356,7 @@
      "explain": "העלאה בריבוע של $L=\\sqrt{20+L}$ נותנת $L^2=20+L$, כלומר $L^2-L-20=0$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -387,7 +387,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $2x$ מכלל השרשרת של הגבול העליון $x^2$.",
     "לעצור אחרי לופיטל אחד: $\\frac{2x^2}{\\ln(1+3x^2)}$ עדיין $\\frac00$.",
@@ -458,7 +458,7 @@
      "explain": "אחרי לופיטל שני: $\\frac{4x}{\\frac{6x}{1+3x^2}}\\to\\frac23\\approx0.6667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -489,7 +489,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק את המשוואה $\\ln a=\\ln^2a$ ב-$\\ln a$ ולאבד את הפתרון $a=1$.",
     "להשוות גם את הגבול השמאלי: הוא שווה ל-$f(0)$ מראש, כי שם הפונקציה היא $\\ln^2(a+x^2)$.",
@@ -560,7 +560,7 @@
      "explain": "$\\ln a(\\ln a-1)=0$ נותן $\\ln a=0$ או $\\ln a=1$, כלומר $a=1$ או $a=e$. עבור $a=e^2$: $\\ln a=2\\neq4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -591,7 +591,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח רק אחד משני אי-השוויונות.",
     "טעות בנגזרת של $\\frac{x}{\\sqrt{1-x^2}}$: התוצאה היא $\\frac{1}{(1-x^2)^{3/2}}$, ולכן $g'=\\frac{1}{(1-x^2)^{3/2}}-\\frac{1}{(1-x^2)^{1/2}}=\\frac{x^2}{(1-x^2)^{3/2}}$.",
@@ -625,7 +625,7 @@
      "explain": "הנגזרת הנכונה היא $\\frac{x^2}{(1-x^2)^{3/2}}$ ולא $\\frac{x}{(1-x^2)^{3/2}}$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -656,7 +656,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בנוסחת הדיסקות $\\pi\\int y^2$ כשהסיבוב סביב ציר ה-$y$ והפונקציות ב-$x$.",
     "לכתוב את ההפרש בסדר הפוך ($x^2-2x$) ולקבל נפח שלילי.",
@@ -713,7 +713,7 @@
      "explain": "$V=2\\pi\\cdot\\frac43=\\frac{8\\pi}{3}\\approx8.3776$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -744,10 +744,10 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל השרשרת: $\\left(\\frac1x\\right)'=-\\frac{1}{x^2}$ מופיע גם במונה וגם במכנה.",
-    "לחשב $\\sin\\frac3x\\approx\\frac3x$ ו-$\\ln\\left(1+\\frac1x\\right)\\approx\\frac1x$ ולקבל $\\frac13$: זה נכון, אך בלי נימוק (לופיטל או גבול ידוע) לא מקבלים ניקוד.",
+    "לשכוח את הגורם הפנימי $-\\frac{3}{x^2}$ בגזירת $\\sin\\frac3x$, ולקבל $\\frac{-1/(x^2+x)}{\\cos(3/x)}\\to0$ במקום $\\frac13$.",
     "להתבלבל בין הצורה כשהמשתנה הולך לאינסוף לבין הצורה כשהוא הולך ל-$0$."
    ],
    "steps": [
@@ -787,7 +787,7 @@
      "explain": "אחרי לופיטל: $\\frac{\\frac{1}{1+1/x}}{3\\cos(3/x)}\\to\\frac13\\approx0.3333$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -818,7 +818,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לכפול את המונה והמכנה ב-$e^x$ (או לעבוד עם $t=e^x$) ולהישאר עם $e^{-x}$.",
     "לכתוב $\\ln\\left(1+x^2\\right)$ במקום $\\ln\\left(1+e^{2x}\\right)$: צריך להחזיר את $t=e^x$.",
@@ -889,7 +889,7 @@
      "explain": "$1-\\ln\\frac{1+e^2}{2}\\approx-0.4337$ (חושב ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -920,7 +920,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את ההעלאה בריבוע של $f'$ בתוך השורש.",
     "לכתוב $\\sqrt{1+\\cot^2x}=\\cot x$ או $\\csc^2x$ במקום $\\frac{1}{\\sin x}$: צריך שורש של $\\csc^2x$.",
@@ -970,7 +970,7 @@
      "explain": "$\\ln\\left|\\tan\\frac x2\\right|\\Big|_{\\pi/3}^{\\pi/2}=\\ln1-\\ln\\frac{1}{\\sqrt3}\\approx0.5493$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1001,7 +1001,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בערך הביניים: הוא נותן קיום בלבד, ויחידות דורשת מונוטוניות.",
     "לטעות בנגזרת של $\\arctan x$: היא $\\frac{1}{1+x^2}$.",
@@ -1063,7 +1063,7 @@
      "explain": "הנגזרת הנכונה היא $\\frac{1}{1+x^2}+3x^2+5x^4$ ולא עם $-5x^4$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

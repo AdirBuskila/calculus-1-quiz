@@ -182,7 +182,9 @@ TOPSRC = {}
 
 
 def T(e):
-    """TeX of a sympy expression, wrapped in $...$."""
+    """TeX of a sympy expression, wrapped in $...$; the internal positive symbol 'xp' is printed as x."""
+    if hasattr(e, "free_symbols"):
+        e = e.subs({s: x for s in e.free_symbols if s.name == "xp"})
     return "$" + sp.latex(e) + "$"
 
 
@@ -255,10 +257,10 @@ add(2, "א",
                ("חישוב המקדמים $A=\\frac45$, $B=\\frac15$, $C=-\\frac25$", 3),
                ("אינטגרציה של השברים: לוגריתמים ו-$\\arctan x$", 3),
                ("תשובה סופית עם $+C$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכתוב מונה קבוע מעל $x^2+1$ במקום $Bx+C$, ואז אין פתרון למערכת.",
               "לפצל את $\\frac{x-2}{x^2+1}$ לא נכון: $\\int\\frac{x}{x^2+1}=\\frac12\\ln(x^2+1)$ ו-$\\int\\frac{2}{x^2+1}=2\\arctan x$.",
-              "לשכוח שהמונה $x^2$ ממעלה זהה למכנה הריבועי: הפירוק תקף כי דרגת המונה קטנה מדרגת המכנה הכולל (3)."],
+              "לטעות בהשוואת מקדמים: הכפלת $Bx$ ב-$x$ נותנת $Bx^2$, ולכן מהמקדם של $x^2$ מתקבל $A+B=1$ (לא $A=1$)."],
     steps=[
         ch("איזה פירוק לשברים חלקיים מתאים ל-$\\frac{x^2}{(x+2)(x^2+1)}$?",
            "$\\frac{A}{x+2}+\\frac{Bx+C}{x^2+1}$",
@@ -268,7 +270,7 @@ add(2, "א",
         num("מהו $B$? (עשרוני)", sol2[B_], "מקדמי $x^2$: $A+B=1$ ולכן $B=\\frac15=0.2$.", tol=0.0005),
         num("מהו $C$? (עשרוני)", sol2[C_], "מקדמי $x$: $2B+C=0$ ולכן $C=-\\frac25=-0.4$.", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: a_{n+1} = 6/(5-a_n), a_1 = 1 =====
 seq = [sp.Integer(1)]
@@ -293,7 +295,7 @@ add(2, "ב",
                ("מסקנה: מתכנסת (סדרה עולה וחסומה)", 1),
                ("משוואת הגבול $L=\\frac{6}{5-L}$, שורשים $2,3$", 2),
                ("פסילת $L=3$ והגבול $2$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להכפיל באי-שוויון ב-$5-a_n$ בלי לוודא שהוא חיובי. כאן $5-a_n\\ge3>0$ הודות לחסם.",
               "לא לפסול את $L=3$: שני השורשים מקיימים את משוואת הגבול, והחסם $a_n\\le2$ הוא שפוסל את $3$.",
               "להוכיח עליה לפני החסם, ואז אי-השוויון $a_n^2-5a_n+6\\ge0$ לא מובטח."],
@@ -309,7 +311,7 @@ add(2, "ב",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L2b, 3,
                 "מ-$L=\\frac{6}{5-L}$ מקבלים $L(5-L)=6$, כלומר $L^2-5L+6=0$ ולא $L^2-5L-6=0$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (1 - tan x)^(1/sin 2x) = e^(-1/2) =====
 assert sp.limit(1 - sp.tan(x), x, 0) == 1
@@ -321,7 +323,7 @@ add(3, "א",
                ("כתיבה כ-$\\left((1-\\tan x)^{-1/\\tan x}\\right)^{-\\tan x/\\sin2x}$ או דרך $e^{\\lim\\frac{\\ln(1-\\tan x)}{\\sin2x}}$", 3),
                ("חישוב גבול המעריך $\\frac{-\\tan x}{\\sin2x}\\to-\\frac12$", 3),
                ("תשובה $e^{-1/2}=\\frac{1}{\\sqrt e}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להציב ישר ולקבל $1^\\infty=1$: זו צורה לא מסוימת.",
               "לטעות בגבול המעריך: $\\sin2x=2\\sin x\\cos x$ ולכן $\\frac{-\\tan x}{\\sin2x}\\to-\\frac12$ ולא $-1$.",
               "לשכוח את הסימן המינוס בשבר $\\frac{-\\tan x}{\\sin2x}$."],
@@ -332,7 +334,7 @@ add(3, "א",
         num("מהו $\\lim_{x\\to0}\\frac{-\\tan x}{\\sin2x}$? (עשרוני)", R(-1, 2), "$\\frac{-\\tan x}{2\\sin x\\cos x}=\\frac{-1}{2\\cos^2x}\\to-\\frac12$.", tol=0.0005),
         num("מהו ערך הגבול? (עשרוני)", sp.exp(R(-1, 2)), "$e^{-1/2}\\approx0.6065$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int sin2x / (3 + cos^2 2x) =====
 I3 = sp.sin(2*x)/(3 + sp.cos(2*x)**2)
@@ -348,7 +350,7 @@ add(3, "ב",
                ("מעבר ל-$-\\frac12\\int\\frac{dt}{3+t^2}$", 3),
                ("אינטגרל מסוג $\\arctan$: $-\\frac{1}{2\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$", 3),
                ("חזרה ל-$x$ וקבוע אינטגרציה", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הגורם $-\\frac12$ מ-$dt=-2\\sin2x\\,dx$.",
               "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$: הקבוע במכנה הוא $3$ ולא $1$.",
               "לשכוח שהצבה שוברת את הגורם הפנימי: $\\cos^2 2x=t^2$ ולא $\\cos^2x$."],
@@ -362,7 +364,7 @@ add(3, "ב",
         num("כבדיקה: מהו $\\int_0^{\\pi/4}\\frac{\\sin2x}{3+\\cos^22x}dx$? (עשרוני)", v3,
             "הערך הוא $\\frac{\\pi}{12\\sqrt3}\\approx0.1512$ (חישוב ב-sympy).", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: y = x^(2/3) e^(-x) on [-3,1] =====
 y4 = sp.Abs(x)**R(2, 3)*sp.exp(-x)
@@ -378,7 +380,7 @@ add(4, "א",
                ("זיהוי $x=0$ כנקודה חשודה (הנגזרת לא מוגדרת)", 2),
                ("חישוב הערך בנקודות $-3,0,\\frac23,1$", 3),
                ("מקסימום $y(-3)\\approx41.8$ ומינימום $y(0)=0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את $x=0$, שבו הנגזרת לא מוגדרת אך הפונקציה כן, והוא נקודת המינימום.",
               "לחשב $(-3)^{2/3}$ לא נכון: $\\sqrt[3]{(-3)^2}=\\sqrt[3]{9}$, חיובי.",
               "לא לבדוק את קצוות הקטע $-3$ ו-$1$."],
@@ -394,7 +396,7 @@ add(4, "א",
            ["מקסימום $y\\left(\\frac23\\right)\\approx0.39$, מינימום $y(0)=0$", "מקסימום $y(-3)\\approx41.8$, מינימום $y(1)\\approx0.37$", "מקסימום $y(1)\\approx0.37$, מינימום $y(0)=0$"],
            "הערכים: $41.78$, $0$, $0.3918$, $0.3679$ (sympy). הגדול ביותר ב-$-3$ והקטן ביותר ב-$0$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: volume of revolution of y = sqrt(arctan x), 0..1 about the x-axis =====
 V4 = sp.pi*sp.integrate(sp.atan(x), (x, 0, 1))
@@ -410,7 +412,7 @@ add(4, "ב",
                ("אינטגרציה בחלקים עם $u=\\arctan x$, $v'=1$", 3),
                ("חישוב $\\int\\frac{x}{1+x^2}dx=\\frac12\\ln(1+x^2)$", 2),
                ("הצבת הגבולות ותשובה $\\frac{\\pi^2}{4}-\\frac{\\pi}{2}\\ln2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לרבע: $y^2=\\arctan x$, והשורש נעלם.",
               "להשתמש בקליפות $2\\pi\\int xy\\,dx$ כשהסיבוב סביב ציר ה-$x$.",
               "לא לזכור שאפשר לבצע בחלקים עם $v'=1$ על $\\arctan x$."],
@@ -421,7 +423,7 @@ add(4, "ב",
         num("מהו $\\int_0^1\\arctan x\\,dx$? (עשרוני)", I4, "$\\frac{\\pi}{4}-\\frac{\\ln2}{2}\\approx0.4388$.", tol=0.001),
         num("מהו הנפח $V=\\frac{\\pi^2}{4}-\\frac{\\pi}{2}\\ln2$? (עשרוני)", V4, "$\\pi\\cdot0.4388\\approx1.3785$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: lim int_0^sqrt(x) sin(t^2) dt / x^(3/2) =====
 tt = sp.Symbol('tt', positive=True)
@@ -436,7 +438,7 @@ add(5, "א",
                ("גזירת המונה לפי המשפט היסודי וכלל השרשרת: $\\sin x\\cdot\\frac{1}{2\\sqrt x}$", 3),
                ("גזירת המכנה $\\frac32\\sqrt x$ וצמצום ל-$\\frac{\\sin x}{3x}$", 2),
                ("ערך הגבול $\\frac13$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את כלל השרשרת של הגבול העליון $\\sqrt x$ (הגורם $\\frac{1}{2\\sqrt x}$).",
               "להציב $t^2\\to x$ בתוך האינטגרנד: בגבול העליון $\\sqrt x$ מתקבל $\\sin\\left((\\sqrt x)^2\\right)=\\sin x$.",
               "לטעות בנגזרת המכנה: $\\left(x^{3/2}\\right)'=\\frac32x^{1/2}$."],
@@ -449,7 +451,7 @@ add(5, "א",
             "משפט יסודי עם כלל שרשרת: $\\sin\\left((\\sqrt x)^2\\right)\\cdot\\frac{1}{2\\sqrt x}=\\frac{\\sin x}{2\\sqrt x}$ (אומת ב-sympy)."),
         num("מהו ערך הגבול? (עשרוני)", R(1, 3), "$\\frac{\\sin x/(2\\sqrt x)}{\\frac32\\sqrt x}=\\frac{\\sin x}{3x}\\to\\frac13$.", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: continuity at 0 with parameters =====
 def left5(av):
@@ -469,7 +471,7 @@ add(5, "ב",
                ("הגבול מימין: $4$ כאשר $a\\ne0$ (ו-$5$ כאשר $a=0$)", 3),
                ("דרישת הרציפות $a^2=b=4$", 2),
                ("תשובה: $b=4$, $a=\\pm2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את המקרה $a=0$ בגבול הימני, שבו $e^{-a^2/x}=1$ והגבול $5$ ולא $4$.",
               "לקבל $a=2$ בלבד ולשכוח את $a=-2$.",
               "לחשב את הגבול השמאלי כ-$a$ במקום $a^2$ (הביטוי בריבוע)."],
@@ -481,7 +483,7 @@ add(5, "ב",
            ["$a=2$ בלבד", "$a=0$", "$a=4$ או $a=-4$"],
            "דרוש $a^2=4$. עבור $a=0$ הגבול הימני $5$ והשמאלי $0$; עבור $a=\\pm4$ השמאלי $16$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: tan x > x via Lagrange =====
 assert same(sp.diff(sp.tan(x), x), 1/sp.cos(x)**2)
@@ -498,7 +500,7 @@ add(6, "א",
                ("כתיבת השוויון $f'(c)=\\frac{\\tan x-\\tan0}{x-0}$ עם $f'(c)=\\frac{1}{\\cos^2c}$", 3),
                ("הערכה $0<\\cos^2c<1\\Rightarrow\\frac{1}{\\cos^2c}>1$", 3),
                ("מסקנה $\\tan x>x$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להפעיל לגרנז' על קטע שבו $\\tan$ אינה רציפה: חייבים להישאר ב-$\\left[0,x\\right]$ עם $x<\\frac\\pi2$.",
               "לשכוח שהאי-שוויון $\\frac{1}{\\cos^2c}>1$ דורש $c\\neq0$, והנקודה $c$ בקטע הפתוח $(0,x)$.",
               "לטעות בנגזרת של $\\tan$: היא $\\frac{1}{\\cos^2x}$ ולא $\\frac{1}{\\sin^2x}$."],
@@ -510,7 +512,7 @@ add(6, "א",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L6b, 2,
                 "כש-$0<\\cos^2c<1$ ההופכי גדול מ-$1$, לא קטן (נבדק ב-sympy בנקודות לדוגמה)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area between x-axis, y = sqrt(2x-5) and its tangent at x = 3 =====
 f6 = sp.sqrt(2*x - 5)
@@ -525,7 +527,7 @@ add(6, "ב",
                ("חיתוכים עם ציר ה-$x$: משיק ב-$x=2$, עקום ב-$x=\\frac52$", 2),
                ("הצבת השטח כשטח משולש/אינטגרל של המשיק פחות האינטגרל של העקום", 3),
                ("חישוב $\\frac12-\\frac13=\\frac16$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח שהעקום מתחיל ב-$x=\\frac52$ ולא ב-$x=2$, ולכן הפרש האינטגרלים נעשה בשני קטעים שונים.",
               "לטעות בנגזרת השורש: $\\left(\\sqrt{2x-5}\\right)'=\\frac{1}{\\sqrt{2x-5}}$ (כלל שרשרת, הגורם $2$ מצטמצם).",
               "לחשב $\\int_2^3\\left(x-2-\\sqrt{2x-5}\\right)dx$ כשהעקום לא מוגדר לפני $\\frac52$."],
@@ -536,7 +538,7 @@ add(6, "ב",
         num("באיזה ערך $x$ חותך המשיק את ציר ה-$x$?", 2, "$x-2=0$ נותן $x=2$."),
         num("מהו השטח? (עשרוני)", S6, "$\\int_2^3(x-2)dx-\\int_{5/2}^3\\sqrt{2x-5}\\,dx=\\frac12-\\frac13=\\frac16\\approx0.1667$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

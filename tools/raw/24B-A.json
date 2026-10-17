@@ -49,7 +49,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$x=0$ מחוץ לתחום ההגדרה, ולכן לחלק את תחומי העליה והירידה גם דרכו או להתייחס אליה כנקודת קיצון.",
     "לטעון לנקודת פיתול ב-$x=0$ רק כי $f''$ לא מוגדרת שם. $f''<0$ משני צדי $0$, אין שינוי סימן ולכן אין פיתול.",
@@ -160,7 +160,7 @@
      "explain": "$m=\\lim\\frac{f(x)}{x}=1$ ו-$k=\\lim(f(x)-x)=\\lim\\left(-\\frac{1}{x^2}\\right)=0$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -191,7 +191,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\frac{A}{x+1}+\\frac{B}{x^2+1}$ במקום מונה לינארי $Bx+C$ מעל הגורם הריבועי, ואז אין פתרון למערכת.",
     "לאנטגרל $\\int\\frac{x+1}{x^2+1}dx$ לתת רק לוגריתם ולשכוח את החלק $\\int\\frac{1}{x^2+1}dx=\\arctan x$."
@@ -256,7 +256,7 @@
      "explain": "אחרי הפירוק מקבלים $-\\frac{1}{2}\\ln(x+1)+\\frac{1}{4}\\ln(x^2+1)+\\frac{1}{2}\\arctan x$; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -287,7 +287,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב כמה ערכים מספריים ל-$x$ ולהסיק שאי-השוויון נכון. זו לא הוכחה.",
     "לשכוח לבדוק את $f(0)=0$, שבלעדיו מונוטוניות לבדה לא נותנת $f(x)>0$.",
@@ -353,7 +353,7 @@
      "explain": "הנגזרת של $x-\\ln(1+x)$ היא $1-\\frac{1}{1+x}$ ולא $1-(1+x)$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -385,7 +385,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר את $x\\ln x$ כ-$0\\cdot\\infty$ בלי להפוך למנה ולהפעיל לופיטל.",
     "לדרוש רק שהגבול השמאלי שווה ל-$f(0)$ ולשכוח את הגבול הימני."
@@ -420,7 +420,7 @@
      "explain": "$f(0)=2a-7=0$, לכן $a=\\frac{7}{2}=3.5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -448,7 +448,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שבאי-רציפות סליקה הגבול חייב להתקיים (שני הצדדים שווים) ורק להיות שונה מ-$f(0)$.",
     "לכתוב $a=\\frac{7}{2}$ כתנאי: זה בדיוק מקרה הרציפות ולא הסליקה."
@@ -490,7 +490,7 @@
      "explain": "הגבול הוא $0$ ו-$f(0)=2a-7$. סליקה כאשר $2a-7\\neq0$, כלומר $a\\neq\\frac{7}{2}$. לדוגמה $a=0$ ו-$a=4$ שניהם מתאימים (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -518,7 +518,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוסיף תנאי על $a$: הערך $f(0)$ אינו משפיע על קיום הגבולות החד-צדדיים.",
     "לבלבל בין ממין ראשון (גבולות חד-צדדיים סופיים ושונים) לבין סליקה (שווים)."
@@ -560,7 +560,7 @@
      "explain": "גבולות חד-צדדיים סופיים ושונים כאשר $\\frac{b}{3}\\neq0$, ללא תלות ב-$a$ (נבדק ב-sympy עבור $a=0,\\frac72,10$ עם $b=3$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -584,7 +584,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב ערכים כלשהם של $b$ בלי לבדוק שהגבול השמאלי $\\frac{b}{3}$ סופי לכל $b$.",
     "לא לנמק: התשובה \"לא קיימים\" דורשת הסבר שהגבולות החד-צדדיים תמיד סופיים."
@@ -626,7 +626,7 @@
      "explain": "הגבול השמאלי הוא $\\frac{b}{3}$ והימני $0$, שניהם סופיים תמיד, ולכן אין אי-רציפות ממין שני."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -657,7 +657,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל לופיטל על הפרש $\\infty-\\infty$ בלי להעביר קודם למנה.",
     "לעצור אחרי לופיטל אחד: הביטוי $\\frac{x-1}{x-1+x\\ln x}$ עדיין מסוג $\\frac{0}{0}$.",
@@ -717,7 +717,7 @@
      "explain": "מכנה משותף, לופיטל ראשון, לופיטל שני. כל שלב מקבל את הביטוי שהתקבל בקודמו."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -748,7 +748,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור את האינטגרל כאילו הגבול התחתון תלוי ב-$x$, או לחשב אותו ישירות במקום להשתמש במשפט היסודי.",
     "לשכוח כלל מכפלה במכנה $x\\sin x$.",
@@ -798,7 +798,7 @@
      "explain": "$\\frac{\\tan x/x}{\\sin x/x+\\cos x}\\to\\frac{1}{2}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -829,7 +829,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $u=\\cos2x$ ו-$v'=x^2+2x$: הדרגה של הפולינום עולה במקום לרדת והאינטגרל מסתבך.",
     "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל של $\\cos2x$ ($v=\\frac{\\sin2x}{2}$).",
@@ -869,7 +869,7 @@
      "explain": "מציבים את הקדומה $\\frac{x^2+2x-0.5}{2}\\sin2x+\\frac{(x+1)\\cos2x}{2}$ בין $0$ ל-$\\frac{\\pi}{4}$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -896,7 +896,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\int_0^6(2x+5-x^2-2)dx$ בלי לפצל: שם הפרבולה מעל הישר ולכן מתקבל שטח מסומן ולא שטח.",
     "לכלול את נקודת החיתוך $x=-1$ שמחוץ ל-$[0,6]$."
@@ -931,7 +931,7 @@
      "explain": "$9+27=36$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -962,7 +962,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק במשפט ערך הביניים: הוא נותן קיום בלבד, ויחידות דורשת מונוטוניות (או משפט רול).",
     "טעות סימן בנגזרת של $-\\frac{1}{x}$: היא $+\\frac{1}{x^2}$.",
@@ -996,7 +996,7 @@
      "explain": "הנגזרת של $-\\frac{1}{x}$ היא $+\\frac{1}{x^2}$, לא $-\\frac{1}{x^2}$ (נבדק ב-sympy), וכך נגזרת $g$ מובטחת להיות חיובית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1027,7 +1027,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול את $x=-5$ כנקודה חשודה אף שהיא מחוץ לקטע.",
     "לשכוח לבדוק את קצוות הקטע ולהסתפק בקיצון המקומי.",
@@ -1084,7 +1084,7 @@
      "explain": "הערכים הם $y(0)=2.5$, $y(1)=2$, $y(10)=8.75$; הקטן ביותר $2$ והגדול ביותר $\\frac{105}{12}$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

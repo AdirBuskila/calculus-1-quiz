@@ -43,7 +43,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ל-$y=0$ כאסימפטוטה אופקית משני הכיוונים. ב-$+\\infty$ הפונקציה שואפת ל-$\\infty$, ואין אסימפטוטה משופעת כי $\\frac{f(x)}{x}\\to\\infty$.",
     "לשכוח את $e^x$ בנגזרת: $(x^2)'e^x+x^2(e^x)'=(2x+x^2)e^x$.",
@@ -121,7 +121,7 @@
      "explain": "$\\lim_{x\\to-\\infty}x^2e^x=0$, וב-$+\\infty$ הפונקציה שואפת ל-$\\infty$ מהר מכל ישר ($\\frac{f(x)}{x}\\to\\infty$). אין אסימפטוטה אנכית כי $f$ רציפה (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -152,7 +152,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשמיט את השבר $\\frac{C}{(x+2)^2}$ כשהמכנה כולל גורם בריבוע, ואז אין פתרון למערכת.",
     "לאנטגרל $\\int\\frac{dx}{(x+2)^2}$ לתת לוגריתם: התוצאה היא $-\\frac{1}{x+2}$.",
@@ -204,7 +204,7 @@
      "explain": "הצבת $x=-2$: $3=-3C$ ולכן $C=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -239,7 +239,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול מהמשוואה $L=\\sqrt{L+20}$ בלי להוכיח קודם שהגבול קיים.",
     "לא לפסול את השורש השלילי $L=-4$: הסדרה חיובית ולכן גבולה אינו שלילי.",
@@ -275,7 +275,7 @@
       {
        "id": "d",
        "type": "text",
-       "value": "כל איברי הסדרה גדולים מ-$4$, ולכן הגבול אינו יכול להיות שלילי"
+       "value": "כל איברי הסדרה גדולים או שווים ל-$4$, ולכן הגבול אינו יכול להיות שלילי"
       }
      ],
      "correctId": "d",
@@ -288,7 +288,7 @@
       "נוכיח באינדוקציה ש-$a_n\\le a_{n+1}$ וש-$a_n\\le5$ לכל $n$, כלומר הסדרה עולה וחסומה מלעיל ב-$5$.",
       "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
       "מאריתמטיקה של גבולות $L=\\sqrt{L+20}$, ולכן $L^2-L-20=0$.",
-      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים מ-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
+      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים או שווים ל-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
      ],
      "explain": "קודם מוכיחים עליה וחסימות, אחר כך התכנסות, אחר כך משוואת הגבול, ובסוף בחירת השורש."
     },
@@ -299,13 +299,13 @@
       "נוכיח באינדוקציה ש-$a_n\\le a_{n+1}$ וש-$a_n\\le5$ לכל $n$, כלומר הסדרה עולה וחסומה מלעיל ב-$5$.",
       "סדרה עולה וחסומה מלעיל מתכנסת, ונסמן $L=\\lim_{n\\to\\infty}a_n$.",
       "מאריתמטיקה של גבולות $L=\\sqrt{L+20}$, ולכן $L^2+L-20=0$.",
-      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים מ-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
+      "$(L-5)(L+4)=0$; כל איברי הסדרה גדולים או שווים ל-$4$ ולכן $L\\ne-4$ והגבול הוא $5$."
      ],
      "bugIndex": 2,
      "explain": "העלאה בריבוע של $L=\\sqrt{L+20}$ נותנת $L^2=L+20$, כלומר $L^2-L-20=0$ ולא $L^2+L-20=0$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -332,7 +332,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $1^\\infty=1$: זו צורה לא מסוימת ולא ערך.",
     "לחשב רק את גבול הבסיס ($1$) ולהתעלם מהמעריך שהולך לאינסוף.",
@@ -382,7 +382,7 @@
      "explain": "$e^2\\approx7.389$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -413,7 +413,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפריד את הגבולות לא נכון: התחום מתחיל ב-$x=2$ (הישר האנכי) ונגמר ב-$x=4$.",
     "לחשב $\\pi\\int\\left((4-\\sqrt{x})-(x-2)\\right)^2dx$ במקום הפרש ריבועי הרדיוסים.",
@@ -470,7 +470,7 @@
      "explain": "$7.752\\pi\\approx24.352$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -501,7 +501,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות רק את הקיצון המקומי ולשכוח לבדוק את שני קצוות הקטע הסגור.",
     "לטעות בכלל השרשרת: $\\left(e^{1/x}\\right)'=-\\frac{1}{x^2}e^{1/x}$.",
@@ -558,7 +558,7 @@
      "explain": "הערכים $3.694$, $2.718$, $4.187$ (sympy): הגדול ביותר ב-$x=3$ והקטן ביותר ב-$x=1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -589,7 +589,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הנגזרת בלי כלל השרשרת: $\\left(\\sqrt{2-2x}\\right)'=\\frac{-1}{\\sqrt{2-2x}}$.",
     "לשכוח שהשטח כולל את חלק המשיק שמעל ציר ה-$x$ עד $x=3$, כאשר העקום מסתיים ב-$x=1$.",
@@ -646,7 +646,7 @@
      "explain": "$\\int_{-1}^{1}(1.5-0.5x-\\sqrt{2-2x})dx+\\int_1^3(1.5-0.5x)dx=\\frac43\\approx1.3333$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -673,7 +673,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח להחליף את $dx$ ב-$x\\,dt$, כך שנשאר $x$ באינטגרל.",
     "לכתוב $\\arctan(\\ln x)$ במקום $\\frac12\\ln(\\ln^2x+1)$: המונה $t$ הוא נגזרת המכנה עד גורם $2$.",
@@ -744,7 +744,7 @@
      "explain": "$\\frac12\\ln2\\approx0.3466$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -771,7 +771,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רציפות רק ב-$x=0$ או רק ב-$x=2$. יש שתי נקודות תפר.",
     "לא להכפיל בצמוד בגבול ב-$x=2^+$, ולהישאר בצורה $\\frac00$ בלי לצמצם $(x-2)$.",
@@ -800,7 +800,7 @@
      "explain": "$2a+b=1$ עם $b=2$ נותן $a=-\\frac12$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -831,7 +831,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בקיום השורש (ערך הביניים) ולא להוכיח יחידות.",
     "לבדוק את הנגזרת ב-$x=0$ שבו $\\sqrt{x}$ אינו גזיר: הגזירות רק עבור $x>0$.",
@@ -881,7 +881,7 @@
      "explain": "רציפות וסימנים הפוכים נותנים קיום בלבד. יחידות נובעת ממונוטוניות חזקה: הנגזרת חיובית (נבדק ב-sympy בנקודות שונות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,

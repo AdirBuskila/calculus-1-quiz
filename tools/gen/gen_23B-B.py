@@ -255,7 +255,7 @@ add(1,
                ("אסימפטוטה אנכית $x=0$ (מימין בלבד)", 3),
                ("אסימפטוטה משופעת $y=x+1$ בשני הכיוונים", 3),
                ("שרטוט הגרף", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון שהישר $x=0$ הוא אסימפטוטה משני הצדדים: משמאל $f\\to0$, ורק מימין $f\\to\\infty$.",
               "לשכוח את הגזירה של $e^{1/x}$ עם כלל שרשרת: $\\left(e^{1/x}\\right)'=-\\frac{1}{x^2}e^{1/x}$.",
               "לחשב את $b=\\lim\\left(f(x)-x\\right)$ בלי להפוך ל-$\\frac{e^{1/x}-1}{1/x}$, ולכן לטעות ולקבל $0$ במקום $1$."],
@@ -276,7 +276,7 @@ add(1,
            ["$y=x$", "$y=x-1$", "$y=1$"],
            "$m=\\lim e^{1/x}=1$ ו-$k=\\lim x\\left(e^{1/x}-1\\right)=1$ (אומת ב-sympy בשני הכיוונים)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: int 1/(2+cos x) dx (Weierstrass) =====
 I2 = 1/(2 + sp.cos(x))
@@ -291,7 +291,7 @@ add(2, "א",
                ("פישוט האינטגרנד ל-$\\frac{2}{t^2+3}$", 3),
                ("אינטגרל $\\arctan$: $\\frac{2}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$", 3),
                ("חזרה ל-$x$ וקבוע אינטגרציה", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הגורם $\\frac{2}{1+t^2}$ מ-$dx$.",
               "לכתוב $\\arctan t$ במקום $\\frac{1}{\\sqrt3}\\arctan\\frac{t}{\\sqrt3}$.",
               "לשכוח שההצבה $t=\\tan\\frac x2$ לא מוגדרת ב-$x=\\pi+2\\pi k$; כאן המכנה $2+\\cos x$ אינו מתאפס ולכן הקדומה נשארת תקפה."],
@@ -302,7 +302,7 @@ add(2, "א",
         num("מהו המקדם של $\\arctan\\frac{t}{\\sqrt3}$ בקדומה? (עשרוני)", 2/sp.sqrt(3), "$2\\cdot\\frac{1}{\\sqrt3}\\approx1.1547$.", tol=0.001),
         num("כבדיקה: מהו $\\int_0^{\\pi/2}\\frac{dx}{2+\\cos x}$? (עשרוני)", v2, "$\\frac{\\pi}{3\\sqrt3}\\approx0.6046$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: a_1 = 0, a_{n+1} = sqrt(20 + a_n) =====
 sq = [sp.Integer(0)]
@@ -326,7 +326,7 @@ add(2, "ב",
                ("מסקנה: מתכנסת (סדרה מונוטונית וחסומה)", 1),
                ("משוואת הגבול $L=\\sqrt{20+L}$ ופתרונה", 2),
                ("פסילת $L=-4$ והגבול $5$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחשב את הגבול מהמשוואה בלי להוכיח קודם התכנסות.",
               "לא לפסול את $L=-4$ אף שאיברי הסדרה אי-שליליים.",
               "בשלב האינדוקציה לחסם: להשתמש בהנחה $a_n<5$ ולהסיק $\\sqrt{a_n+20}<\\sqrt{25}=5$, ולא להניח את המסקנה."],
@@ -340,7 +340,7 @@ add(2, "ב",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L2b, 2,
                 "העלאה בריבוע של $L=\\sqrt{20+L}$ נותנת $L^2=20+L$, כלומר $L^2-L-20=0$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim x^4 / int_0^(x^2) ln(1+3t) dt = 2/3 =====
 den3 = sp.Integral(sp.log(1 + 3*t), (t, 0, x**2))
@@ -354,7 +354,7 @@ add(3, "א",
                ("גזירת המכנה לפי המשפט היסודי וכלל השרשרת: $2x\\ln(1+3x^2)$", 3),
                ("צמצום ל-$\\frac{2x^2}{\\ln(1+3x^2)}$, שוב $\\frac00$, ולופיטל שני", 3),
                ("ערך הגבול $\\frac23$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הגורם $2x$ מכלל השרשרת של הגבול העליון $x^2$.",
               "לעצור אחרי לופיטל אחד: $\\frac{2x^2}{\\ln(1+3x^2)}$ עדיין $\\frac00$.",
               "לחשב את האינטגרל במפורש במקום להשתמש במשפט היסודי."],
@@ -367,7 +367,7 @@ add(3, "א",
             "משפט יסודי וכלל שרשרת: $\\ln\\left(1+3x^2\\right)\\cdot(x^2)'=2x\\ln(1+3x^2)$ (אומת ב-sympy)."),
         num("מהו ערך הגבול? (עשרוני)", R(2, 3), "אחרי לופיטל שני: $\\frac{4x}{\\frac{6x}{1+3x^2}}\\to\\frac23\\approx0.6667$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: continuity at 0, parameter a =====
 aa = sp.Symbol('aa', positive=True)
@@ -386,7 +386,7 @@ add(3, "ב",
                ("הערך בנקודה $f(0)=\\ln^2a$ ומשוואת הרציפות $\\ln a=\\ln^2a$", 3),
                ("פתרון: $\\ln a\\,(\\ln a-1)=0$", 2),
                ("תשובה: $a=1$ או $a=e$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחלק את המשוואה $\\ln a=\\ln^2a$ ב-$\\ln a$ ולאבד את הפתרון $a=1$.",
               "להשוות גם את הגבול השמאלי: הוא שווה ל-$f(0)$ מראש, כי שם הפונקציה היא $\\ln^2(a+x^2)$.",
               "לטעות בגבול הימני: $e^{-1/x}\\to0$ כאשר $x\\to0^+$."],
@@ -399,7 +399,7 @@ add(3, "ב",
            ["$a=1$ בלבד", "$a=e$ בלבד", "$a=1$ או $a=e^2$"],
            "$\\ln a(\\ln a-1)=0$ נותן $\\ln a=0$ או $\\ln a=1$, כלומר $a=1$ או $a=e$. עבור $a=e^2$: $\\ln a=2\\neq4$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: a < arcsin a < a/sqrt(1-a^2) =====
 fa = sp.asin(x) - x
@@ -420,7 +420,7 @@ add(4, "א",
                ("מסקנה $\\arcsin a>a$ מ-$f(0)=0$ ומונוטוניות", 2),
                ("פונקציית עזר $g(x)=\\frac{x}{\\sqrt{1-x^2}}-\\arcsin x$ ונגזרתה $\\frac{x^2}{(1-x^2)^{3/2}}>0$", 3),
                ("מסקנה $\\arcsin a<\\frac{a}{\\sqrt{1-a^2}}$ מ-$g(0)=0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להוכיח רק אחד משני אי-השוויונות.",
               "טעות בנגזרת של $\\frac{x}{\\sqrt{1-x^2}}$: התוצאה היא $\\frac{1}{(1-x^2)^{3/2}}$, ולכן $g'=\\frac{1}{(1-x^2)^{3/2}}-\\frac{1}{(1-x^2)^{1/2}}=\\frac{x^2}{(1-x^2)^{3/2}}$.",
               "לשכוח את $f(0)=0$ ו-$g(0)=0$ שבלעדיהם מונוטוניות לא נותנת סימן."],
@@ -432,7 +432,7 @@ add(4, "א",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L4b, 2,
                 "הנגזרת הנכונה היא $\\frac{x^2}{(1-x^2)^{3/2}}$ ולא $\\frac{x}{(1-x^2)^{3/2}}$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: shells about the y-axis, between y = 2x and y = x^2 =====
 x4 = sorted(sp.solve(sp.Eq(x**2, 2*x), x))
@@ -450,7 +450,7 @@ add(4, "ב",
                ("נוסחת הקליפות $V=2\\pi\\int_0^2x\\left(2x-x^2\\right)dx$", 3),
                ("חישוב האינטגרל $\\frac43$", 2),
                ("תשובה $V=\\frac{8\\pi}{3}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להשתמש בנוסחת הדיסקות $\\pi\\int y^2$ כשהסיבוב סביב ציר ה-$y$ והפונקציות ב-$x$.",
               "לכתוב את ההפרש בסדר הפוך ($x^2-2x$) ולקבל נפח שלילי.",
               "לשכוח את הגורם $x$ (רדיוס הקליפה) בתוך האינטגרל."],
@@ -462,7 +462,7 @@ add(4, "ב",
         num("מהו $\\int_0^2\\left(2x^2-x^3\\right)dx$? (עשרוני)", I4, "$\\left(\\frac{2x^3}{3}-\\frac{x^4}{4}\\right)\\Big|_0^2=\\frac{16}{3}-4=\\frac43\\approx1.3333$.", tol=0.001),
         num("מהו הנפח $V$? (עשרוני)", V4, "$V=2\\pi\\cdot\\frac43=\\frac{8\\pi}{3}\\approx8.3776$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: lim_{x->inf} ln(1+1/x)/sin(3/x) =====
 assert sp.limit(sp.log(1 + 1/x)/sp.sin(3/x), x, sp.oo) == R(1, 3)
@@ -473,9 +473,9 @@ add(5, "א",
                ("לופיטל: גזירת המונה והמכנה עם כלל שרשרת", 4),
                ("צמצום $\\frac{-1/x^2}{-3/x^2}$ והצבה", 2),
                ("ערך הגבול $\\frac13$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את כלל השרשרת: $\\left(\\frac1x\\right)'=-\\frac{1}{x^2}$ מופיע גם במונה וגם במכנה.",
-              "לחשב $\\sin\\frac3x\\approx\\frac3x$ ו-$\\ln\\left(1+\\frac1x\\right)\\approx\\frac1x$ ולקבל $\\frac13$: זה נכון, אך בלי נימוק (לופיטל או גבול ידוע) לא מקבלים ניקוד.",
+              "לשכוח את הגורם הפנימי $-\\frac{3}{x^2}$ בגזירת $\\sin\\frac3x$, ולקבל $\\frac{-1/(x^2+x)}{\\cos(3/x)}\\to0$ במקום $\\frac13$.",
               "להתבלבל בין הצורה כשהמשתנה הולך לאינסוף לבין הצורה כשהוא הולך ל-$0$."],
     steps=[
         ch("מה סוג הצורה הלא מסוימת של $\\frac{\\ln\\left(1+\\frac1x\\right)}{\\sin\\left(\\frac3x\\right)}$ כאשר $x\\to+\\infty$?", "$\\frac00$",
@@ -483,7 +483,7 @@ add(5, "א",
            "$\\ln\\left(1+\\frac1x\\right)\\to\\ln1=0$ ו-$\\sin\\frac3x\\to\\sin0=0$ (sympy)."),
         num("מהו ערך הגבול? (עשרוני)", R(1, 3), "אחרי לופיטל: $\\frac{\\frac{1}{1+1/x}}{3\\cos(3/x)}\\to\\frac13\\approx0.3333$.", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: int (e^-x - e^x)/(e^-x + e^x) dx =====
 I5 = (sp.exp(-x) - sp.exp(x))/(sp.exp(-x) + sp.exp(x))
@@ -497,7 +497,7 @@ add(5, "ב",
                ("הצבה $t=e^x$ והגעה ל-$\\int\\frac{t}{t^2+1}dt$", 3),
                ("חישוב $\\frac12\\ln\\left(1+t^2\\right)$ עם המקדם $2$", 2),
                ("תשובה $x-\\ln\\left(1+e^{2x}\\right)+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לכפול את המונה והמכנה ב-$e^x$ (או לעבוד עם $t=e^x$) ולהישאר עם $e^{-x}$.",
               "לכתוב $\\ln\\left(1+x^2\\right)$ במקום $\\ln\\left(1+e^{2x}\\right)$: צריך להחזיר את $t=e^x$.",
               "לשכוח את הגורם $2$ שלפני האינטגרל השני."],
@@ -511,7 +511,7 @@ add(5, "ב",
         num("כבדיקה: מהו $\\int_0^1\\frac{e^{-x}-e^x}{e^{-x}+e^x}dx$? (עשרוני)", v5,
             "$1-\\ln\\frac{1+e^2}{2}\\approx-0.4337$ (חושב ב-sympy).", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: arc length of ln(sin x) on [pi/3, pi/2] =====
 f6 = sp.log(sp.sin(x))
@@ -526,7 +526,7 @@ add(6, "א",
                ("פישוט $\\sqrt{1+\\cot^2x}=\\frac{1}{\\sin x}$ (חיובי בקטע)", 3),
                ("אינטגרל $\\int\\frac{dx}{\\sin x}=\\ln\\left|\\tan\\frac x2\\right|$", 2),
                ("הצבת הגבולות ותשובה $\\ln\\sqrt3\\approx0.5493$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את ההעלאה בריבוע של $f'$ בתוך השורש.",
               "לכתוב $\\sqrt{1+\\cot^2x}=\\cot x$ או $\\csc^2x$ במקום $\\frac{1}{\\sin x}$: צריך שורש של $\\csc^2x$.",
               "לשכוח שהקדומה של $\\frac{1}{\\sin x}$ היא $\\ln\\left|\\tan\\frac x2\\right|$ ולא $\\ln|\\sin x|$."],
@@ -537,7 +537,7 @@ add(6, "א",
             "$1+\\cot^2x=\\frac{1}{\\sin^2x}$ ובקטע $\\sin x>0$ ולכן השורש הוא $\\frac{1}{\\sin x}$ (נבדק ב-sympy בנקודות בקטע)."),
         num("מהו אורך הקשת? (עשרוני)", L6, "$\\ln\\left|\\tan\\frac x2\\right|\\Big|_{\\pi/3}^{\\pi/2}=\\ln1-\\ln\\frac{1}{\\sqrt3}\\approx0.5493$.", tol=0.001),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: unique real root of arctan x + x^3 + x^5 - 2 =====
 f6b = sp.atan(x) + x**3 + x**5 - 2
@@ -558,7 +558,7 @@ add(6, "ב",
                ("$f(0)=-2<0$ ו-$f(1)=\\frac\\pi4>0$ וקיום שורש לפי ערך הביניים", 3),
                ("נגזרת חיובית $f'(x)=\\frac{1}{1+x^2}+3x^2+5x^4>0$", 3),
                ("מסקנה: $f$ עולה ממש ולכן השורש יחיד", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להסתפק בערך הביניים: הוא נותן קיום בלבד, ויחידות דורשת מונוטוניות.",
               "לטעות בנגזרת של $\\arctan x$: היא $\\frac{1}{1+x^2}$.",
               "להראות $f'>0$ רק בקטע $(0,1)$ ולא על כל הישר, ולכן לא לשלול שורשים אחרים מחוץ לקטע."],
@@ -571,7 +571,7 @@ add(6, "ב",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L6b_bug, 2,
                 "הנגזרת הנכונה היא $\\frac{1}{1+x^2}+3x^2+5x^4$ ולא עם $-5x^4$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {
