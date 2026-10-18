@@ -10,6 +10,9 @@ What the file does and does not contain
 - Q2 is NOT in the file at all (p.1 ends with Q1 and p.3 starts with Q3). Held, reason "not-in-source".
 - Q6a / Q6b: only the worked solution is printed, the question stems are not. The solutions are kept in raw next to
   the hold so the orchestrator can ship them once a stem is approved. Held, reason "stem-not-printed".
+- Arbiter re-search 2026-10-18: the BSC and C24-BSC copies differ in file hash but render identically page by page
+  (7 pages, same text); a text search of every other calculus-1 PDF in both trees (exams, practice sheets, summaries)
+  finds no copy of the Q2 or Q6 stems (scanned files are not text-searchable). Holds kept; Adir must supply the stems.
 
 Transcription notes
 - Q1 sketch (p.2) and Q4b sketch (p.5) are shipped as figures inside the solutions.

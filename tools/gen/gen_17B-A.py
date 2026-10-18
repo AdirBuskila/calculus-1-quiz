@@ -18,9 +18,11 @@ Transcription notes
 - Q5a: FINAL-ANSWER error in the handwritten solution: f(1/4) is written 17/2 (it is 1/2+16 = 33/2), f(100) is
   written 52/5 = "52/2" and the maximum is declared at x=100. Correct values f(1/4)=33/2, f(4)=3, f(100)=251/25, so
   the maximum is 33/2 at x=1/4 and the minimum 3 at x=4. Shipped corrected with the
-  "הפתרון הרשמי עם תיקון" label, solutionSource solved, official:false (sympy + grid check).
+  "הפתרון שבמקור (לא רשמי) עם תיקון" label (the key is not official), solutionSource solved, official:false (sympy + grid check).
 
 Checks: tools/verify/17B-A/check.py. No code in this sitting.
+Blind re-check (solver, 2026-10-18): tools/verify/17B-A/blind_recheck.py re-derives every final answer
+independently (sympy); all agree with the shipped answers (the labeled fix included), so confidence is high.
 """
 import json, pathlib
 
@@ -29,7 +31,7 @@ OUT = pathlib.Path(__file__).resolve().parents[1] / "raw" / "17B-A.json"
 
 def Q(num, kind, topic, question, solution, part=None, **kw):
     q = {"num": num, "kind": kind, "topic": topic, "question": question, "solution": solution.strip("\n"),
-         "solutionSource": "student-solution", "official": False, "confidence": "med"}
+         "solutionSource": "student-solution", "official": False, "confidence": "high"}
     if part:
         q["part"] = part
     q.update(kw)
@@ -92,7 +94,7 @@ $$S=\int_0^2\left(y^2-(4y-4)\right)dy=\left(\frac{y^3}{3}-2y^2+4y\right)\Big|_0^
 """
 
 SOL5A = r"""
-הפתרון הרשמי עם תיקון: בפתרון הכתוב ערכי הפונקציה בשני קצות הקטע מחושבים בטעות ($f\left(\frac14\right)$ נכתב $\frac{17}{2}$, $f(100)$ נכתב $\frac{52}{2}$) והמקסימום נקבע ב-$x=100$. הערכים הנכונים הם $f\left(\frac14\right)=\frac12+16=\frac{33}{2}$ ו-$f(100)=10+\frac{1}{25}=\frac{251}{25}$, ולכן המקסימום המוחלט הוא $\frac{33}{2}$ ב-$x=\frac14$. הערך $f(4)=3$ והמינימום המוחלט נכונים. התיקון נבדק (sympy).
+**הפתרון שבמקור (לא רשמי) עם תיקון:** בפתרון הכתוב ערכי הפונקציה בשני קצות הקטע מחושבים בטעות ($f\left(\frac14\right)$ נכתב $\frac{17}{2}$, $f(100)$ נכתב $\frac{52}{2}$) והמקסימום נקבע ב-$x=100$. הערכים הנכונים הם $f\left(\frac14\right)=\frac12+16=\frac{33}{2}$ ו-$f(100)=10+\frac{1}{25}=\frac{251}{25}$, ולכן המקסימום המוחלט הוא $\frac{33}{2}$ ב-$x=\frac14$. הערך $f(4)=3$ והמינימום המוחלט נכונים. התיקון נבדק (sympy).
 $$f'(x)=\frac{1}{2\sqrt x}-\frac{4}{x^2}=\frac{x^{\frac32}-8}{2x^2}=0\ \Rightarrow\ x^{\frac32}=8\ \Rightarrow\ x=4$$
 $$f\left(\tfrac14\right)=\frac12+16=\frac{33}{2},\qquad f(4)=2+1=3,\qquad f(100)=10+\frac{1}{25}=\frac{251}{25}$$
 $$\max_{\left[\frac14,100\right]}f(x)=\frac{33}{2}=f\left(\tfrac14\right),\qquad\min_{\left[\frac14,100\right]}f(x)=3=f(4)$$
@@ -141,7 +143,7 @@ questions = [
     Q(5, "computation", "extrema_optimization",
       r"מצאו מינימום ומקסימום מוחלטים של הפונקציה $f(x)=\sqrt x+\frac4x$ בקטע $[0.25,100]$.",
       SOL5A, part="א", points=10,
-      solutionSource="solved", official=False, confidence="med"),
+      solutionSource="solved", official=False),
 
     Q(5, "computation", "indefinite_integrals",
       r"חשבו את האינטגרל: $\int\sin^5x\,dx$.",

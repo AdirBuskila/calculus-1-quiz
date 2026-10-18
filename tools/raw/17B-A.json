@@ -15,7 +15,7 @@
    "solution": "**תחום ההגדרה:** $D(f)=\\{x\\in\\mathbb R,\\ x\\neq1\\}$. חיתוך עם הצירים: $(2,0)$ ו-$(0,4)$.\n**אסימפטוטה אנכית** $x=1$: $\\lim_{x\\to1^+}f(x)=\\lim_{x\\to1^-}f(x)=+\\infty$.\n**אסימפטוטה משופעת / אופקית:**\n$$a=\\lim_{x\\to\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\infty}\\frac{(x-2)^2}{x(x-1)^2}=0,\\qquad b=\\lim_{x\\to\\infty}f(x)=\\lim_{x\\to\\infty}\\frac{(x-2)^2}{(x-1)^2}=1$$\nלכן $y=1$ היא אסימפטוטה אופקית (משני הצדדים, $\\pm\\infty$).\n**עלייה וירידה:**\n$$f'(x)=2\\cdot\\frac{x-2}{x-1}\\cdot\\frac{x-1-(x-2)}{(x-1)^2}=2\\cdot\\frac{x-2}{(x-1)^3}$$\nטבלת סימנים של $f'$: חיובית ב-$x<1$ (עולה), שלילית ב-$1<x<2$ (יורדת), חיובית ב-$x>2$ (עולה). מינימום ב-$x=2$, $f(2)=0$.\n**קמירות ונקודות פיתול:**\n$$f''(x)=2\\cdot\\frac{(x-1)^3-(x-2)\\cdot3(x-1)^2}{(x-1)^6}=2\\cdot\\frac{x-1-3(x-2)}{(x-1)^4}=2\\cdot\\frac{-2x+5}{(x-1)^4}$$\nטבלת סימנים של $f''$: חיובית ב-$x<1$ (קמורה), חיובית ב-$1<x<\\frac52$ (קמורה), שלילית ב-$x>\\frac52$ (קעורה). נקודת פיתול ב-$x=\\frac52$, $f\\left(\\frac52\\right)=\\frac19$.\n**שרטוט:**\n![סקיצה של הגרף של y = ((x−2)/(x−1))² עם האסימפטוטה האנכית x=1, האסימפטוטה האופקית y=1 והמינימום ב-x=2](images/exams/17B-A-Q1-sketch.png)",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "high"
   },
   {
    "num": 2,
@@ -25,7 +25,7 @@
    "solution": "$a_1=5,\\quad a_{n+1}=2-\\frac{1}{2+a_n}$. נחשב: $a_2=2-\\frac17=\\frac{13}{7}$, $a_3=2-\\frac{1}{2+\\frac{13}{7}}=2-\\frac{7}{27}=\\frac{47}{27}$.\n**חסימות:** נראה באינדוקציה שמתקיים $\\sqrt3\\le a_n\\le2$ לכל $n\\ge2$. עבור $n=2$: $\\sqrt3\\le a_2\\le2$. אם $\\sqrt3\\le a_k\\le2$ אז\n$$2+\\sqrt3\\le2+a_k\\le4\\ \\Rightarrow\\ \\frac14\\le\\frac{1}{2+a_k}\\le\\frac{1}{2+\\sqrt3}=2-\\sqrt3$$\n$$2-(2-\\sqrt3)\\le2-\\frac{1}{2+a_k}\\le2-\\frac14\\ \\Rightarrow\\ \\sqrt3\\le a_{k+1}\\le2$$\n**מונוטוניות:** נראה שהסדרה יורדת.\n$$a_{n+1}-a_n=2-a_n-\\frac{1}{2+a_n}=\\frac{(2-a_n)(2+a_n)-1}{2+a_n}=\\frac{3-a_n^2}{2+a_n}$$\nמכיוון ש-$\\sqrt3\\le a_n\\le2$ מתקיים $a_{n+1}-a_n\\le0$.\nלכן הסדרה יורדת וחסומה מלרע, ולכן מתכנסת (מ-$n=2$ ואילך, ובהכרח גם כולה). נסמן $\\lim_{n\\to\\infty}a_n=L$:\n$$L=2-\\frac{1}{2+L}\\ \\Leftrightarrow\\ L=\\frac{4+2L-1}{2+L}\\ \\Leftrightarrow\\ L^2=3\\ \\Leftrightarrow\\ L_1=\\sqrt3,\\quad L_2=-\\sqrt3$$\nמכיוון ש-$\\sqrt3\\le a_n$ לא מתקבל $L_2$, ולכן $\\lim_{n\\to\\infty}a_n=\\sqrt3$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "points": 20
   },
   {
@@ -36,7 +36,7 @@
    "solution": "$$\\lim_{x\\to+\\infty}\\left(x-\\ln\\left(1+2e^x\\right)\\right)=\\{\\infty-\\infty\\}=\\lim_{x\\to+\\infty}\\left[\\ln e^x-\\ln\\left(1+2e^x\\right)\\right]=\\lim_{x\\to+\\infty}\\ln\\frac{e^x}{1+2e^x}=\\ln\\lim_{x\\to+\\infty}\\frac{e^x}{1+2e^x}=\\ln\\frac12=-\\ln2$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "א",
    "points": 10
   },
@@ -48,7 +48,7 @@
    "solution": "$y=1+x^3$, $x=1$, $y=9$: $9=1+x^3\\Rightarrow x^3=8\\Rightarrow x=2$.\n![סקיצה של התחום בין y = 1 + x³, x = 1 ו-y = 9 וסיבובו סביב ציר ה-y](images/exams/17B-A-Q3b-sketch.png)\n$V=V_1-V_2$:\n$$V_1=2\\pi\\int_1^2x\\cdot9\\,dx=9\\pi x^2\\Big|_1^2=27\\pi$$\n$$V_2=2\\pi\\int_1^2x\\left(1+x^3\\right)dx=2\\pi\\int_1^2\\left(x+x^4\\right)dx=2\\pi\\left(\\frac{x^2}{2}+\\frac{x^5}{5}\\right)\\Big|_1^2=2\\pi\\left(2+\\frac{32}{5}-\\frac12-\\frac15\\right)=2\\pi\\cdot\\frac{20+64-5-2}{10}=\\frac{77\\pi}{5}$$\n$$V=27\\pi-\\frac{77\\pi}{5}=\\frac{58\\pi}{5}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "ב",
    "points": 10
   },
@@ -60,7 +60,7 @@
    "solution": "נגדיר $f(x)=\\ln x$ על $[1,x]$. הפונקציה $f$ רציפה ב-$[1,x]$ וגזירה ב-$(1,x)$, $f'(x)=\\frac1x$, ולכן לפי משפט לגרנז' $f(x)-f(1)=f'(c)(x-1)$ עבור $1<c<x$, כלומר\n$$\\ln x-\\ln1=\\frac1c(x-1),\\qquad1<c<x$$\n$$\\ln x=\\frac1c(x-1)\\ \\Rightarrow\\ \\frac{x-1}{x}<\\ln x<x-1$$\n(כי $\\frac1x<\\frac1c<1$.)",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "א",
    "points": 10
   },
@@ -72,7 +72,7 @@
    "solution": "$y=\\sqrt x$, נקודה $(4,2)$. משוואת המשיק: $y-2=y'(4)(x-4)$, ומכאן $y-2=\\frac{1}{2\\sqrt4}(x-4)=\\frac{x-4}{4}$, כלומר $x=4y-4$.\n![סקיצה: הגרף של y = √x, המשיק בנקודה (4,2) והתחום הכלוא עם ציר ה-x](images/exams/17B-A-Q4b-sketch.png)\n$$S=\\int_0^2\\left(y^2-(4y-4)\\right)dy=\\left(\\frac{y^3}{3}-2y^2+4y\\right)\\Big|_0^2=\\frac83-8+8=\\frac83$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "ב",
    "points": 10
   },
@@ -81,10 +81,10 @@
    "kind": "computation",
    "topic": "extrema_optimization",
    "question": "מצאו מינימום ומקסימום מוחלטים של הפונקציה $f(x)=\\sqrt x+\\frac4x$ בקטע $[0.25,100]$.",
-   "solution": "הפתרון הרשמי עם תיקון: בפתרון הכתוב ערכי הפונקציה בשני קצות הקטע מחושבים בטעות ($f\\left(\\frac14\\right)$ נכתב $\\frac{17}{2}$, $f(100)$ נכתב $\\frac{52}{2}$) והמקסימום נקבע ב-$x=100$. הערכים הנכונים הם $f\\left(\\frac14\\right)=\\frac12+16=\\frac{33}{2}$ ו-$f(100)=10+\\frac{1}{25}=\\frac{251}{25}$, ולכן המקסימום המוחלט הוא $\\frac{33}{2}$ ב-$x=\\frac14$. הערך $f(4)=3$ והמינימום המוחלט נכונים. התיקון נבדק (sympy).\n$$f'(x)=\\frac{1}{2\\sqrt x}-\\frac{4}{x^2}=\\frac{x^{\\frac32}-8}{2x^2}=0\\ \\Rightarrow\\ x^{\\frac32}=8\\ \\Rightarrow\\ x=4$$\n$$f\\left(\\tfrac14\\right)=\\frac12+16=\\frac{33}{2},\\qquad f(4)=2+1=3,\\qquad f(100)=10+\\frac{1}{25}=\\frac{251}{25}$$\n$$\\max_{\\left[\\frac14,100\\right]}f(x)=\\frac{33}{2}=f\\left(\\tfrac14\\right),\\qquad\\min_{\\left[\\frac14,100\\right]}f(x)=3=f(4)$$",
+   "solution": "**הפתרון שבמקור (לא רשמי) עם תיקון:** בפתרון הכתוב ערכי הפונקציה בשני קצות הקטע מחושבים בטעות ($f\\left(\\frac14\\right)$ נכתב $\\frac{17}{2}$, $f(100)$ נכתב $\\frac{52}{2}$) והמקסימום נקבע ב-$x=100$. הערכים הנכונים הם $f\\left(\\frac14\\right)=\\frac12+16=\\frac{33}{2}$ ו-$f(100)=10+\\frac{1}{25}=\\frac{251}{25}$, ולכן המקסימום המוחלט הוא $\\frac{33}{2}$ ב-$x=\\frac14$. הערך $f(4)=3$ והמינימום המוחלט נכונים. התיקון נבדק (sympy).\n$$f'(x)=\\frac{1}{2\\sqrt x}-\\frac{4}{x^2}=\\frac{x^{\\frac32}-8}{2x^2}=0\\ \\Rightarrow\\ x^{\\frac32}=8\\ \\Rightarrow\\ x=4$$\n$$f\\left(\\tfrac14\\right)=\\frac12+16=\\frac{33}{2},\\qquad f(4)=2+1=3,\\qquad f(100)=10+\\frac{1}{25}=\\frac{251}{25}$$\n$$\\max_{\\left[\\frac14,100\\right]}f(x)=\\frac{33}{2}=f\\left(\\tfrac14\\right),\\qquad\\min_{\\left[\\frac14,100\\right]}f(x)=3=f(4)$$",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "א",
    "points": 10
   },
@@ -96,7 +96,7 @@
    "solution": "$$\\int\\sin^5x\\,dx=\\left|\\begin{matrix}t=\\cos x\\\\dt=-\\sin x\\,dx\\\\\\sin^4x=\\left(1-\\cos^2x\\right)^2\\end{matrix}\\right|=-\\int\\left(1-t^2\\right)^2dt=-\\int\\left(1-2t^2+t^4\\right)dt=-t+\\frac{2t^3}{3}-\\frac{t^5}{5}+C=-\\cos x+\\frac23\\cos^3x-\\frac15\\cos^5x+C$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "ב",
    "points": 10
   },
@@ -108,7 +108,7 @@
    "solution": "$$\\lim_{x\\to0^-}f(x)=\\lim_{x\\to0^-}\\left(\\frac{e^{ax}-1}{x}\\right)^2=\\lim_{x\\to0^-}\\left(a\\cdot\\frac{e^{ax}-1}{ax}\\right)^2=a^2$$\n$$\\lim_{x\\to0^+}f(x)=\\lim_{x\\to0^+}\\left(4+e^{-\\frac{a^2}{x}}\\right)=4$$\nלכן $a^2=b=4$, כלומר הפונקציה רציפה אם ורק אם $b=4$ ו-$a=\\pm2$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "א",
    "points": 10
   },
@@ -120,7 +120,7 @@
    "solution": "$$\\int\\frac{\\ln(x+1)}{\\sqrt{x+1}}\\,dx=\\left|\\begin{matrix}u=\\ln(x+1)&du=\\frac{dx}{x+1}\\\\dv=\\frac{dx}{\\sqrt{x+1}}&v=2\\sqrt{x+1}\\end{matrix}\\right|=2\\sqrt{x+1}\\ln(x+1)-2\\int\\frac{dx}{\\sqrt{x+1}}=2\\sqrt{x+1}\\ln(x+1)-4\\sqrt{x+1}+C$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med",
+   "confidence": "high",
    "part": "ב",
    "points": 10
   }

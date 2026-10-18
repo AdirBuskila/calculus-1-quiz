@@ -129,13 +129,12 @@
    "kind": "computation",
    "topic": "lhopital_taylor",
    "question": "פתחו את הפונקציה $y=\\ln(1+x)$ לפולינום מקלורן מסדר שני והעריכו את השארית עבור הקטע $[-0.1,0.1]$.",
-   "solution": "הפולינום הנדרש הוא $T_2(x)=y(0)+\\frac{y'(0)}{1!}x+\\frac{y''(0)}{2!}x^2$, ואם נחשב\n$$y'=\\frac{1}{1+x}\\Big|_{x=0}=1,\\qquad y''=-\\frac{1}{(1+x)^2}\\Big|_{x=0}=-1$$\nאז נקבל אותו בצורה $T_2(x)=x-\\frac{1}{2}x^2$. לפי משפט טיילור עם שארית, שגיאת הקירוב $y=\\ln(1+x)\\approx T_2(x)=x-\\frac{1}{2}x^2$ ניתן להעריך בהתאם ל-\n$$\\left|y-T_2(x)\\right|=\\left|R_2(x)\\right|=\\left|\\frac{y'''(z)}{3!}x^3\\right|=\\left|\\frac{2}{3!(1+z)^3}x^3\\right|$$\nכאשר $-0.1<z<0.1$. מכאן נובע ש-\n$$\\left|R_2(x)\\right|=\\left|\\frac{1}{3(1+z)^3}x^3\\right|\\le\\frac{1}{3\\cdot0.9^3}(0.01)^3=4.57\\cdot10^{-7}$$",
-   "solutionSource": "official-pdf",
-   "official": true,
+   "solution": "**הפתרון הרשמי עם תיקון:** בהערכת השארית בפתרון הרשמי הוצב $(0.01)^3$ והתקבל $4.57\\cdot10^{-7}$. בקטע $[-0.1,0.1]$ מתקיים $|x|\\le0.1$, כלומר $|x|^3\\le(0.1)^3$, והחסם הנכון הוא $\\frac{1}{3\\cdot0.9^3}(0.1)^3\\approx4.57\\cdot10^{-4}$. הפולינום $T_2(x)=x-\\frac{x^2}{2}$ נכון. השורה האחרונה מתוקנת. התיקון נבדק (sympy).\nהפולינום הנדרש הוא $T_2(x)=y(0)+\\frac{y'(0)}{1!}x+\\frac{y''(0)}{2!}x^2$, ואם נחשב\n$$y'=\\frac{1}{1+x}\\Big|_{x=0}=1,\\qquad y''=-\\frac{1}{(1+x)^2}\\Big|_{x=0}=-1$$\nאז נקבל אותו בצורה $T_2(x)=x-\\frac{1}{2}x^2$. לפי משפט טיילור עם שארית, שגיאת הקירוב $y=\\ln(1+x)\\approx T_2(x)=x-\\frac{1}{2}x^2$ ניתן להעריך בהתאם ל-\n$$\\left|y-T_2(x)\\right|=\\left|R_2(x)\\right|=\\left|\\frac{y'''(z)}{3!}x^3\\right|=\\left|\\frac{2}{3!(1+z)^3}x^3\\right|$$\nכאשר $-0.1<z<0.1$. מכאן נובע ש-\n$$\\left|R_2(x)\\right|=\\left|\\frac{1}{3(1+z)^3}x^3\\right|\\le\\frac{1}{3\\cdot0.9^3}(0.1)^3\\approx4.57\\cdot10^{-4}$$",
+   "solutionSource": "solved",
+   "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10,
-   "hold": "official remainder bound uses (0.01)^3 although |x|<=0.1 gives 4.57e-4, not 4.57e-7"
+   "points": 10
   }
  ]
 }

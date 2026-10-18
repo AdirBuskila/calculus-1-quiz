@@ -19,6 +19,7 @@ Transcription notes
   correct "-" (intermediate slip, logged).
 - Q6b: the printed first line lists x=+-1/sqrt2 and x=+-sqrt18 and restricts to x>=0; transcribed as printed.
 
+Q4b blind re-check (solver, 2026-10-18): tools/verify/21A-B/blind_recheck_q4b.py gets 128*pi by shells and by washers.
 Checks (tools/verify/21A-B/check.py, sympy): every derivative, limit, extremum, parameter, integral and area matches
 the official answer, except the Q4b final value described above. No code in this sitting.
 """
@@ -175,7 +176,7 @@ questions = [
     Q(4, "computation", "definite_integrals",
       r"מצאו את נפח הגוף המתקבל מסיבוב של התחום הכלוא בין הקווים $y=2x+8,\ y=x^2$ ו-$x=0$ כאשר $x\ge0$ סביב הציר $x=4$. "
       "צייר את התחום המסובב והסבר את פעולותיך!",
-      SOL4B, part="ב", points=10, solutionSource="solved", official=False, confidence="med"),
+      SOL4B, part="ב", points=10, solutionSource="solved", official=False),
 
     Q(5, "proof", "mean_value_theorems",
       r"הוכיחו כי למשוואה $6x^5-4x+1=0$ יש שורש ממשי אחד לפחות בקטע $(0,1)$.",

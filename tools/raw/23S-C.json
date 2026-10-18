@@ -83,13 +83,12 @@
    "kind": "computation",
    "topic": "definite_integrals",
    "question": "תחום שמוגבל ע״י הקווים $y=0$ ו-$y=\\ln x$ בתחום $(1\\le x\\le e)$ מסתובב סביב ציר ה-$X$. חשבו את נפח של גוף הסיבוב בקטע.",
-   "solution": "$$V_x=\\pi\\int_1^e\\ln^2x\\,dx\\left[\\begin{matrix}\\ln^2x=u,\\ du=2\\frac{\\ln x}{x}dx\\\\ dv=dx,\\ v=x\\end{matrix}\\right]=x\\ln^2x\\Big|_1^e-2\\int x\\cdot\\frac{1}{x}\\ln x\\,dx\\left[\\begin{matrix}\\ln x=u,\\ du=\\frac{dx}{x}\\\\ dv=dx,\\ v=x\\end{matrix}\\right]=$$\n$$=\\left(e\\ln^2e-1\\ln^21\\right)-2\\left(x\\ln x\\Big|_1^e-\\int_1^e x\\cdot\\frac{1}{x}dx\\right)=e-2\\left(e\\ln e-1\\ln1-x\\right)\\Big|_1^e=e-2(e-0-e+1)=e-2\\approx0.714$$",
-   "solutionSource": "official-pdf",
-   "official": true,
-   "confidence": "low",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי הגורם $\\pi$ שלפני האינטגרל נשמט בהמשך החישוב, והתשובה נכתבה $V=e-2\\approx0.714$ (וגם $e-2\\approx0.718$, לא $0.714$). הנפח הנכון הוא $V=\\pi(e-2)\\approx2.256$. החישוב עצמו מועתק כפי שפורסם, והשורה האחרונה מתוקנת. התיקון נבדק (sympy).\n$$V_x=\\pi\\int_1^e\\ln^2x\\,dx\\left[\\begin{matrix}\\ln^2x=u,\\ du=2\\frac{\\ln x}{x}dx\\\\ dv=dx,\\ v=x\\end{matrix}\\right]=x\\ln^2x\\Big|_1^e-2\\int x\\cdot\\frac{1}{x}\\ln x\\,dx\\left[\\begin{matrix}\\ln x=u,\\ du=\\frac{dx}{x}\\\\ dv=dx,\\ v=x\\end{matrix}\\right]=$$\n$$=\\left(e\\ln^2e-1\\ln^21\\right)-2\\left(x\\ln x\\Big|_1^e-\\int_1^e x\\cdot\\frac{1}{x}dx\\right)=e-2\\left(e\\ln e-1\\ln1-x\\right)\\Big|_1^e=e-2(e-0-e+1)=e-2$$\nולכן, עם הגורם $\\pi$ שלפני האינטגרל:\n$$V_x=\\pi(e-2)\\approx2.256$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
    "part": "ב",
-   "points": 10,
-   "hold": "official-solution-disagrees: V printed as e-2 ~ 0.714, missing the factor pi (and e-2 = 0.718); correct V = pi*(e-2) (sympy)"
+   "points": 10
   },
   {
    "num": 5,

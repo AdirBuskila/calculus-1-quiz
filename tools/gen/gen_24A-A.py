@@ -7,8 +7,10 @@ Part A (mandatory): Q1. Part B: choose 4 of Q2-Q6 (a/b parts, 10% each). Weight 
 
 Transcription notes
 - Official solution transcribed in full, as printed. Rubric and steps are intentionally not written.
-- Q1 is HELD: the official solution claims y''<0 for x<0 (concave down there), but y''=e^x(x^2-4x+6)/x^4 has a
-  quadratic with negative discriminant, so y''>0 for every x!=0 (tools/verify/24A-A/check.py). Text kept as printed.
+- Q1: the official solution claims y''<0 for x<0 (concave down there), but y''=e^x(x^2-4x+6)/x^4 has a
+  quadratic with negative discriminant, so y''>0 for every x!=0 (tools/verify/24A-A/check.py). Final-answer error ->
+  "הפתרון הרשמי עם תיקון" label, solutionSource solved, official False (standing label rule, 2026-10-18). The
+  official graph is right (convex on both branches) and is kept.
 - Figures: Q1 official graph (p.2), Q4b official sketch (p.5), Q6b official figure (p.7).
 
 Checks (tools/verify/24A-A/check.py, sympy): every derivative, limit, integral, extremum table, volume, tangent and
@@ -29,9 +31,10 @@ def Q(num, kind, topic, question, solution, part=None, **kw):
 
 
 SOL1 = r"""
+**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נכתב בסעיף ג שעבור $x<0$ מתקיים $y''<0$ והפונקציה קמורה (כלפי מטה). זה שגוי: $y''=\frac{e^x\left(x^2-4x+6\right)}{x^4}$ והגורם $x^2-4x+6=(x-2)^2+2$ חיובי תמיד, ולכן $y''>0$ לכל $x\neq0$ והגרף קעור כלפי מעלה בשני הענפים (כפי שגם רואים בגרף הרשמי). סעיף ג להלן מתוקן; שאר הפתרון כפי שפורסם. התיקון נבדק (sympy).
 **א. תחום הגדרה:** $D=\{x\neq 0\}$. אין נקודות חיתוך עם צירי הקואורדינטות.
 **ב.** $f'(x)=\frac{e^x(x^2-2x)}{x^4}=\frac{e^x\cdot x(x-2)}{x^4}=\frac{e^x\cdot(x-2)}{x^3}$. מכאן רואים שהנגזרת מתאפסת רק ב-$x=2$ ובנוסף $y'>0$ כאשר $x<0\ \cup\ x>2$ וגם $y'<0$ כאשר $0<x<2$. הנקודה $x=2$ היא נקודת מינימום מקומי.
-**ג.** $y''=\frac{e^x(x^2-4x+6)}{x^4}$. אין נקודות פיתול. בנוסף, $y''>0$ עבור $x>0$ וכאן הפונקציה קעורה (כלפי מעלה) ו-$y''<0$ עבור $x<0$ וכאן הפונקציה קמורה (כלפי מטה).
+**ג.** $y''=\frac{e^x(x^2-4x+6)}{x^4}$. אין נקודות פיתול. בנוסף, $y''>0$ עבור $x>0$ וגם עבור $x<0$, ולכן בשני התחומים הפונקציה קעורה (כלפי מעלה, $\cup$): הדיסקרימיננטה של $x^2-4x+6$ היא $16-24<0$, כך שהגורם הזה חיובי תמיד, וגם $e^x>0$ ו-$x^4>0$.
 **ד.** $\begin{cases}\lim_{x\to0^-}\frac{e^x}{x^2}=+\infty\\ \lim_{x\to0^+}\frac{e^x}{x^2}=+\infty\end{cases}$ ולכן קו ישר $x=0$ (ציר ה-$y$) מהווה אסימפטוטה אנכית לגרף הפונקציה.
 $\begin{cases}\lim_{x\to+\infty}f(x)=\lim_{x\to+\infty}\frac{e^x}{x^2}=+\infty\\ \lim_{x\to-\infty}f(x)=\lim_{x\to-\infty}\frac{e^x}{x^2}=0\end{cases}$ ולכן קו ישר $y=0$ מהווה אסימפטוטה אופקית לגרף הפונקציה במינוס אינסוף.
 
@@ -125,8 +128,7 @@ questions = [
     Q(1, "computation", "function_investigation",
       r"חקרו את הפונקציה $f(x)=\frac{e^x}{x^2}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, "
       "נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
-      SOL1, points=20, confidence="low",
-      hold="official-solution-disagrees: part ג claims y''<0 for x<0 but y''=e^x(x^2-4x+6)/x^4>0 for all x!=0 (sympy)"),
+      SOL1, points=20, solutionSource="solved", official=False),
 
     Q(2, "computation", "indefinite_integrals",
       r"חשבו את האינטגרל $\int\frac{x^2\,dx}{(x+2)(x^2+1)}$.",

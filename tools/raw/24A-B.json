@@ -888,13 +888,12 @@
    "kind": "computation",
    "topic": "lhopital_taylor",
    "question": "חשבו את הגבול הבא: $\\lim_{x\\to0^+}\\frac{x^4}{\\int_0^{x^2}t\\cos(t^2)\\,dt}$.",
-   "solution": "יש לחשב את $\\lim_{x\\to0^+}\\frac{\\sin^2x}{\\int_0^{x^2}t\\cos(t^2)\\,dt}$.\n$$\\lim_{x\\to0^+}\\frac{\\sin^2x}{\\int_0^{x^2}t\\cos(t^2)\\,dt}=\\frac{0}{0}\\overset{\\text{L'hopital}}{=}\\lim_{x\\to0^+}\\frac{2\\sin x\\cos x}{2x\\cdot x^2\\cos(x^4)}=$$\n$$=\\lim_{x\\to0^+}\\frac{\\sin2x}{2x\\cdot x^2\\cos(x^4)}=\\lim_{x\\to0^+}\\frac{\\frac{\\sin2x}{2x}}{x^2\\cos(x^4)}=\\frac{\\lim_{x\\to0^+}\\frac{\\sin2x}{2x}}{\\lim_{x\\to0^+}x^2\\cos(x^4)}$$\nהמונה שואף ל-$1$, המכנה ל-$0^+$ לכן הגבול הוא $\\infty$.",
-   "solutionSource": "official-pdf",
-   "official": true,
+   "solution": "**הפתרון הרשמי עם תיקון:** השאלה המודפסת (עמ' 6) היא $\\lim_{x\\to0^+}\\frac{x^4}{\\int_0^{x^2}t\\cos(t^2)\\,dt}$, אבל הפתרון הרשמי (עמ' 7) פותר גבול אחר, עם המונה $\\sin^2x$, ומקבל $\\infty$. להלן פתרון השאלה כפי שהודפסה; התשובה היא $2$. התיקון נבדק (sympy).\nהמונה והמכנה שואפים ל-$0$. לפי המשפט היסודי וכלל השרשרת, $\\frac{d}{dx}\\int_0^{x^2}t\\cos(t^2)\\,dt=x^2\\cos(x^4)\\cdot2x$. לפי כלל לופיטל:\n$$\\lim_{x\\to0^+}\\frac{x^4}{\\int_0^{x^2}t\\cos(t^2)\\,dt}\\left[\\frac{0}{0}\\right]=\\lim_{x\\to0^+}\\frac{4x^3}{2x\\cdot x^2\\cos(x^4)}=\\lim_{x\\to0^+}\\frac{2}{\\cos(x^4)}=2$$\n(בדיקה: $\\int_0^{x^2}t\\cos(t^2)\\,dt=\\frac{1}{2}\\sin(t^2)\\Big|_0^{x^2}=\\frac{1}{2}\\sin(x^4)$, ו-$\\frac{x^4}{\\frac{1}{2}\\sin(x^4)}\\to2$.)\n**הערה:** הפתרון הרשמי, שפותר את הגבול עם המונה $\\sin^2x$, מובא להלן לשם השלמות; עבור הגבול ההוא התשובה $\\infty$ נכונה, אך אין זו השאלה שהודפסה.\nיש לחשב את $\\lim_{x\\to0^+}\\frac{\\sin^2x}{\\int_0^{x^2}t\\cos(t^2)\\,dt}$.\n$$\\lim_{x\\to0^+}\\frac{\\sin^2x}{\\int_0^{x^2}t\\cos(t^2)\\,dt}=\\frac{0}{0}\\overset{\\text{L'hopital}}{=}\\lim_{x\\to0^+}\\frac{2\\sin x\\cos x}{2x\\cdot x^2\\cos(x^4)}=$$\n$$=\\lim_{x\\to0^+}\\frac{\\sin2x}{2x\\cdot x^2\\cos(x^4)}=\\lim_{x\\to0^+}\\frac{\\frac{\\sin2x}{2x}}{x^2\\cos(x^4)}=\\frac{\\lim_{x\\to0^+}\\frac{\\sin2x}{2x}}{\\lim_{x\\to0^+}x^2\\cos(x^4)}$$\nהמונה שואף ל-$1$, המכנה ל-$0^+$ לכן הגבול הוא $\\infty$.",
+   "solutionSource": "solved",
+   "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10,
-   "hold": "official-solution-mismatch: the official solution computes a different limit (numerator sin^2 x, answer infinity) than the printed one (numerator x^4); sympy gives 2 for the printed limit"
+   "points": 10
   }
  ]
 }

@@ -9,8 +9,9 @@ filed under "שלנו". GATE1 excludes only 23A-A, 25A-A, 25A-B by code; the orc
 
 Transcription notes
 - Official solution transcribed in full, as printed. Rubric and steps are intentionally not written.
-- Q4b is HELD: the official solution computes V = e-2 = 0.714, dropping the factor pi, and e-2 is 0.718 not 0.714;
-  the correct volume is pi*(e-2) (tools/verify/23S-C/check.py). Text kept as printed.
+- Q4b: the official solution computes V = e-2 = 0.714, dropping the factor pi, and e-2 is 0.718 not 0.714;
+  the correct volume is pi*(e-2) (tools/verify/23S-C/check.py). Final-answer error -> "הפתרון הרשמי עם תיקון" label,
+  solutionSource solved, official False (standing label rule, 2026-10-18); the working is kept as printed.
 - Q3b (shipped as printed): the official solution prints f(-3) = -59 but f(-3) = -65; only the sign is used, so the
   conclusion is unaffected.
 - Q6b (shipped as printed): the middle term of the |R1| chain repeats 1/(9*cbrt(c^5)); the bound 1/288 is correct (c>8).
@@ -101,8 +102,11 @@ $$(*)\Rightarrow\ =e^{16}.$$
 """
 
 SOL4B = r"""
+**הפתרון הרשמי עם תיקון:** בפתרון הרשמי הגורם $\pi$ שלפני האינטגרל נשמט בהמשך החישוב, והתשובה נכתבה $V=e-2\approx0.714$ (וגם $e-2\approx0.718$, לא $0.714$). הנפח הנכון הוא $V=\pi(e-2)\approx2.256$. החישוב עצמו מועתק כפי שפורסם, והשורה האחרונה מתוקנת. התיקון נבדק (sympy).
 $$V_x=\pi\int_1^e\ln^2x\,dx\left[\begin{matrix}\ln^2x=u,\ du=2\frac{\ln x}{x}dx\\ dv=dx,\ v=x\end{matrix}\right]=x\ln^2x\Big|_1^e-2\int x\cdot\frac{1}{x}\ln x\,dx\left[\begin{matrix}\ln x=u,\ du=\frac{dx}{x}\\ dv=dx,\ v=x\end{matrix}\right]=$$
-$$=\left(e\ln^2e-1\ln^21\right)-2\left(x\ln x\Big|_1^e-\int_1^e x\cdot\frac{1}{x}dx\right)=e-2\left(e\ln e-1\ln1-x\right)\Big|_1^e=e-2(e-0-e+1)=e-2\approx0.714$$
+$$=\left(e\ln^2e-1\ln^21\right)-2\left(x\ln x\Big|_1^e-\int_1^e x\cdot\frac{1}{x}dx\right)=e-2\left(e\ln e-1\ln1-x\right)\Big|_1^e=e-2(e-0-e+1)=e-2$$
+ולכן, עם הגורם $\pi$ שלפני האינטגרל:
+$$V_x=\pi(e-2)\approx2.256$$
 """
 
 SOL5A = r"""
@@ -169,8 +173,7 @@ questions = [
 
     Q(4, "computation", "definite_integrals",
       r"תחום שמוגבל ע״י הקווים $y=0$ ו-$y=\ln x$ בתחום $(1\le x\le e)$ מסתובב סביב ציר ה-$X$. חשבו את נפח של גוף הסיבוב בקטע.",
-      SOL4B, part="ב", points=10, confidence="low",
-      hold="official-solution-disagrees: V printed as e-2 ~ 0.714, missing the factor pi (and e-2 = 0.718); correct V = pi*(e-2) (sympy)"),
+      SOL4B, part="ב", points=10, solutionSource="solved", official=False),
 
     Q(5, "computation", "derivatives_tangents",
       r"רשמו את משוואת המשיק לגרף של הפונקציה $y=f(x)$ המוגדרת באמצעות משוואה: $y=\pi x\sin\left(\frac{y}{2}\right)$ בנקודה $(1,\pi)$.",

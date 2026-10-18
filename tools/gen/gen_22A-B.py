@@ -19,8 +19,11 @@ Transcription notes
   correct fraction.
 - Q4b: the part label is printed 'a' (copy of Q4a's label); it is the second part of Q4, stored as part ב. The hand-drawn
   region sketch is shipped as images/exams/22A-B-Q4b-sketch.png.
-- Q5b: the official value 1.98 does not match the exact value of the arc-length integral (2.0035, sympy); the
-  closed form is right, the decimal evaluation at the end is off. Transcribed as printed, question HELD, see ASK_ADIR.
+- Q5b: the file's value 1.98 does not match the exact value of the arc-length integral (2.0035, sympy); the
+  closed form is right, the decimal evaluation at the end is off. Final-answer error -> labeled fix (the source is not
+  official, so the label reads "הפתרון שבמקור (לא רשמי) עם תיקון"), solutionSource solved, official False.
+- Blind re-check 2026-10-18 (tools/verify/22A-B/blind_recheck.py): every final answer re-derived independently; all agree
+  except Q5b above.
 - Q6a: black handwriting added x=1/3 (where f' does not exist) and f(1/3)=0 to the typeset solution; transcribed.
 
 Checks (tools/verify/22A-B/check.py, sympy plus numeric): every derivative, sign table, limit, antiderivative, extremum,
@@ -132,11 +135,12 @@ $$\frac{x}{1+x}<\ln(1+x)<x$$
 """
 
 SOL5B = r"""
+**הפתרון שבמקור (לא רשמי) עם תיקון:** הביטוי הסגור בפתרון נכון, אבל בהצבה המספרית בסוף עוגל $\sqrt{1+e^2}$ ל-$2.9$ והתקבל $1.98$. הערך הנכון של האינטגרל הוא $L\approx2.0035\approx2.00$. השורה המספרית האחרונה מתוקנת. התיקון נבדק (sympy).
 $$L=\int_0^1\sqrt{1+\left(\left(e^x\right)'\right)^2}\cdot dx=\int_0^1\sqrt{1+e^{2x}}\cdot dx=$$
 $$=\left[t=\sqrt{1+e^{2x}},\ dt=\frac{2e^{2x}}{2\sqrt{1+e^{2x}}}dx=\frac{t^2-1}{t}dx,\ dx=\frac{t}{t^2-1}dt;\quad x=0\Rightarrow t=\sqrt{2},\ x=1\Rightarrow t=\sqrt{1+e^2}\right]=$$
 $$=\int_{\sqrt{2}}^{\sqrt{1+e^2}}t\cdot\frac{t}{t^2-1}dt=\int_{\sqrt{2}}^{\sqrt{1+e^2}}\frac{t^2}{t^2-1}dt=\int_{\sqrt{2}}^{\sqrt{1+e^2}}\left(1+\frac{1}{t^2-1}\right)dt=$$
 $$=\left(t+\frac{1}{2}\ln\left|\frac{t-1}{t+1}\right|\right)\Bigg|_{\sqrt{2}}^{\sqrt{1+e^2}}=\left(\sqrt{1+e^2}+\frac{1}{2}\ln\left|\frac{\sqrt{1+e^2}-1}{\sqrt{1+e^2}+1}\right|\right)-\left(\sqrt{2}+\frac{1}{2}\ln\left|\frac{\sqrt{2}-1}{\sqrt{2}+1}\right|\right)=$$
-$$=\left(2.9+\frac{1}{2}\ln\left|\frac{2.9-1}{2.9+1}\right|\right)-\left(1.41+\frac{1}{2}\ln\left|\frac{1.41-1}{1.41+1}\right|\right)=2.5-(0.52)=1.98$$
+$$\approx\left(2.8964-0.3600\right)-\left(1.4142-0.8814\right)=2.5363-0.5328\approx2.00$$
 """
 
 SOL6A = r"""
@@ -193,7 +197,7 @@ questions = [
       SOL5A, part="א", points=10),
     Q(5, "computation", "definite_integrals",
       r"חשבו את אורך הקשת של העקומה $y=e^x$ בקטע $0\le x\le1$.",
-      SOL5B, part="ב", hold="official decimal value 1.98 disagrees with the exact value 2.0035 of the arc length"),
+      SOL5B, part="ב", solutionSource="solved", official=False),
 
     Q(6, "computation", "extrema_optimization",
       r"מצאו את הערך הגדול ביותר ואת הערך הקטן ביותר של הפונקציה $f(x)=x\cdot\sqrt[3]{3x-1}$ בקטע $-1\le x\le\frac{2}{3}$.",

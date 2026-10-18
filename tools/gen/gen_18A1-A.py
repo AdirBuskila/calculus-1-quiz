@@ -60,11 +60,12 @@ $$=6\left(\frac{t^3}{3}-\frac{t^2}{2}+t-\ln|1+t|\right)+c=2\sqrt x-3\sqrt[3]x+6\
 """
 
 SOL3A = r"""
-הפתרון הרשמי עם תיקון: הפתרון הרשמי מחשב רק את הגבול החד-צדדי $x\to0^+$ (ומקבל $\frac13$), אבל השאלה מבקשת את הגבול הדו-צדדי $x\to0$. עבור $x\to0^-$ מתקבל $-\frac13$ (המונה חיובי והמכנה שלילי), ולכן הגבול הדו-צדדי אינו קיים. בנוסף, נגזרת המכנה היא $\frac{6x^2}{\cos^2\left(2x^3\right)}$ (בפתרון הרשמי חסר הריבוע; אין לכך השפעה על הערך). התיקון נבדק (sympy).
+**הפתרון הרשמי עם תיקון:** הפתרון הרשמי מחשב רק את הגבול החד-צדדי $x\to0^+$ ומקבל $\frac13$; התשובה הרשמית הזו נשמרת כגבול מימין. אבל השאלה כפי שהודפסה מבקשת את הגבול הדו-צדדי $x\to0$. עבור $x\to0^-$ מתקבל $-\frac13$ (המונה חיובי והמכנה שלילי), ולכן הגבול הדו-צדדי אינו קיים. בנוסף, נגזרת המכנה היא $\frac{6x^2}{\cos^2\left(2x^3\right)}$ (בפתרון הרשמי חסר הריבוע; אין לכך השפעה על הערך). התיקון נבדק (sympy).
 $$\lim_{x\to0^+}\frac{\int_0^{x^2}\sin\sqrt t\,dt}{\tan\left(2x^3\right)}=\left[\begin{matrix}\int_0^{x^2}\sin\sqrt t\,dt\xrightarrow[x\to0]{}0\\\tan\left(2x^3\right)\xrightarrow[x\to0]{}0\\\text{apply L'Hospital's rule}\end{matrix}\right]=\lim_{x\to0^+}\frac{\sin x\cdot2x}{\frac{6x^2}{\cos^2\left(2x^3\right)}}=\frac13$$
 באותו אופן, עבור $x\to0^-$ הנגזרת של האינטגרל היא $\sin|x|\cdot2x$ ולכן
 $$\lim_{x\to0^-}\frac{\sin|x|\cdot2x\cos^2\left(2x^3\right)}{6x^2}=\lim_{x\to0^-}\frac{-\sin x}{3x}=-\frac13$$
 הגבולות החד-צדדיים שונים, והגבול הדו-צדדי אינו קיים.
+**תשובה:** $\lim_{x\to0^+}=\frac13$ (התשובה הרשמית, לגבול מימין) ו-$\lim_{x\to0^-}=-\frac13$; הגבול הדו-צדדי שהודפס בשאלה אינו קיים.
 """
 
 SOL3B = r"""
@@ -124,7 +125,7 @@ questions = [
     Q(3, "computation", "function_limits",
       r"חשבו את הגבול $\lim_{x\to0}\frac{\int_0^{x^2}\sin\sqrt t\,dt}{\tan\left(2x^3\right)}$.",
       SOL3A, part="א", points=10,
-      solutionSource="solved", official=False, confidence="med"),
+      solutionSource="solved", official=False),
 
     Q(3, "computation", "derivatives_tangents",
       r"עבור איזה ערך של הפרמטר $a\in\mathbb R$ הפרבולה $y=ax^2$ משיקה לעקומה $y=\ln x$ "

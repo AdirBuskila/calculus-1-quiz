@@ -76,4 +76,7 @@ for kk, v in r:
 print("ALL OK" if all(v for _, v in r) else "FAIL")
 # Q6b mismatch probe: the PRINTED limit (numerator x^4) vs the official solution's limit (numerator sin^2 x)
 printed = sp.limit(x**4/den, x, 0, '+')
-print("Q6b printed limit (x^4 numerator) =", printed, "| official solution computes sin^2 x numerator = +oo -> HOLD")
+print("Q6b printed limit (x^4 numerator) =", printed, "| official solution computes sin^2 x numerator = +oo -> labeled fix ships 2")
+assert printed == 2, "Q6b printed limit must be 2"
+assert sp.simplify(sp.diff(x**4, x)/sp.diff(den, x) - 2/sp.cos(x**4)) == 0, "Q6b solver L'Hopital step"
+print("Q6b solver answer 2: OK")

@@ -15,8 +15,8 @@ Transcription notes
 - Q3a: the printed task has <= while the proof gives the strict inequality (which implies it); transcribed as is.
 - Q4b: the file prints the upper limit of the antiderivative as 2 instead of 1; the value is computed with 1.
 - Q3b, Q5b: the sketches in the solution are shipped as images.
-- Q6b: HELD. The official remainder estimate uses (0.01)^3 where |x|<=0.1 gives |x|^3<=0.001; the official 4.57e-7 should be
-  4.57e-4 (sympy). Solution transcribed as printed, see ASK_ADIR.
+- Q6b: the official remainder estimate uses (0.01)^3 where |x|<=0.1 gives |x|^3<=0.001; the official 4.57e-7 should be
+  4.57e-4 (sympy). Final-answer error -> "הפתרון הרשמי עם תיקון" label, solutionSource solved, official False.
 
 Checks (tools/verify/22B-B/check.py, sympy): every derivative, sign table, limit, antiderivative, volume, arc length,
 area and Taylor coefficient matches the official answers except the Q6b remainder bound.
@@ -143,12 +143,13 @@ $$=\frac{1}{2}\ln|x+1|-\frac{1}{4}\ln\left(x^2+4x+5\right)-\frac{1}{2}\arctan(x+
 """
 
 SOL6B = r"""
+**הפתרון הרשמי עם תיקון:** בהערכת השארית בפתרון הרשמי הוצב $(0.01)^3$ והתקבל $4.57\cdot10^{-7}$. בקטע $[-0.1,0.1]$ מתקיים $|x|\le0.1$, כלומר $|x|^3\le(0.1)^3$, והחסם הנכון הוא $\frac{1}{3\cdot0.9^3}(0.1)^3\approx4.57\cdot10^{-4}$. הפולינום $T_2(x)=x-\frac{x^2}{2}$ נכון. השורה האחרונה מתוקנת. התיקון נבדק (sympy).
 הפולינום הנדרש הוא $T_2(x)=y(0)+\frac{y'(0)}{1!}x+\frac{y''(0)}{2!}x^2$, ואם נחשב
 $$y'=\frac{1}{1+x}\Big|_{x=0}=1,\qquad y''=-\frac{1}{(1+x)^2}\Big|_{x=0}=-1$$
 אז נקבל אותו בצורה $T_2(x)=x-\frac{1}{2}x^2$. לפי משפט טיילור עם שארית, שגיאת הקירוב $y=\ln(1+x)\approx T_2(x)=x-\frac{1}{2}x^2$ ניתן להעריך בהתאם ל-
 $$\left|y-T_2(x)\right|=\left|R_2(x)\right|=\left|\frac{y'''(z)}{3!}x^3\right|=\left|\frac{2}{3!(1+z)^3}x^3\right|$$
 כאשר $-0.1<z<0.1$. מכאן נובע ש-
-$$\left|R_2(x)\right|=\left|\frac{1}{3(1+z)^3}x^3\right|\le\frac{1}{3\cdot0.9^3}(0.01)^3=4.57\cdot10^{-7}$$
+$$\left|R_2(x)\right|=\left|\frac{1}{3(1+z)^3}x^3\right|\le\frac{1}{3\cdot0.9^3}(0.1)^3\approx4.57\cdot10^{-4}$$
 """
 
 questions = [
@@ -191,8 +192,7 @@ questions = [
       SOL6A, part="א", points=10),
     Q(6, "computation", "lhopital_taylor",
       r"פתחו את הפונקציה $y=\ln(1+x)$ לפולינום מקלורן מסדר שני והעריכו את השארית עבור הקטע $[-0.1,0.1]$.",
-      SOL6B, part="ב", points=10,
-      hold="official remainder bound uses (0.01)^3 although |x|<=0.1 gives 4.57e-4, not 4.57e-7"),
+      SOL6B, part="ב", points=10, solutionSource="solved", official=False),
 ]
 
 exam = {

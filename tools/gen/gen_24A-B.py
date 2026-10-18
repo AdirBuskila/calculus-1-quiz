@@ -10,8 +10,10 @@ Transcription notes
 - Q3b: the figure in the official solution labels the top of the region "2-sqrt(2)" where the solution's own
   integration limit is 4-sqrt(2); the figure is shipped as printed (the text is the authority).
 - Q4b: the official solution's sketch is clipped by the page footer and is not shipped.
-- Q6b: HELD. The printed limit has numerator x^4 (value 2, sympy) but the official solution works the limit with
-  numerator sin^2 x (value +oo); the official text is transcribed, the key is not trusted (see docs/ASK_ADIR.md).
+- Q6b: the printed limit has numerator x^4 (value 2, sympy) but the official solution works the limit with
+  numerator sin^2 x (value +oo). Arbiter ruling 2026-10-18: not a transcription error (p.6 prints x^4; the only copy of
+  the sitting, in both source trees). The printed question is solved (answer 2) under the "הפתרון הרשמי עם תיקון" label,
+  solutionSource solved, official False; the official sin^2 x working is kept below it as a marked note.
 - Q6a: the official line "f(0)=2^1+arctan(0)-5=-4" is printed with 2^1 where 2^0=1 is meant (the value -4 is
   correct); transcribed as 2^0.
 
@@ -130,6 +132,11 @@ $$f'(x)=\frac{1}{2\sqrt{x}}2^{\sqrt{x}}\ln2+\frac{2}{1+4x^2}.$$
 """
 
 SOL6B = r"""
+**הפתרון הרשמי עם תיקון:** השאלה המודפסת (עמ' 6) היא $\lim_{x\to0^+}\frac{x^4}{\int_0^{x^2}t\cos(t^2)\,dt}$, אבל הפתרון הרשמי (עמ' 7) פותר גבול אחר, עם המונה $\sin^2x$, ומקבל $\infty$. להלן פתרון השאלה כפי שהודפסה; התשובה היא $2$. התיקון נבדק (sympy).
+המונה והמכנה שואפים ל-$0$. לפי המשפט היסודי וכלל השרשרת, $\frac{d}{dx}\int_0^{x^2}t\cos(t^2)\,dt=x^2\cos(x^4)\cdot2x$. לפי כלל לופיטל:
+$$\lim_{x\to0^+}\frac{x^4}{\int_0^{x^2}t\cos(t^2)\,dt}\left[\frac{0}{0}\right]=\lim_{x\to0^+}\frac{4x^3}{2x\cdot x^2\cos(x^4)}=\lim_{x\to0^+}\frac{2}{\cos(x^4)}=2$$
+(בדיקה: $\int_0^{x^2}t\cos(t^2)\,dt=\frac{1}{2}\sin(t^2)\Big|_0^{x^2}=\frac{1}{2}\sin(x^4)$, ו-$\frac{x^4}{\frac{1}{2}\sin(x^4)}\to2$.)
+**הערה:** הפתרון הרשמי, שפותר את הגבול עם המונה $\sin^2x$, מובא להלן לשם השלמות; עבור הגבול ההוא התשובה $\infty$ נכונה, אך אין זו השאלה שהודפסה.
 יש לחשב את $\lim_{x\to0^+}\frac{\sin^2x}{\int_0^{x^2}t\cos(t^2)\,dt}$.
 $$\lim_{x\to0^+}\frac{\sin^2x}{\int_0^{x^2}t\cos(t^2)\,dt}=\frac{0}{0}\overset{\text{L'hopital}}{=}\lim_{x\to0^+}\frac{2\sin x\cos x}{2x\cdot x^2\cos(x^4)}=$$
 $$=\lim_{x\to0^+}\frac{\sin2x}{2x\cdot x^2\cos(x^4)}=\lim_{x\to0^+}\frac{\frac{\sin2x}{2x}}{x^2\cos(x^4)}=\frac{\lim_{x\to0^+}\frac{\sin2x}{2x}}{\lim_{x\to0^+}x^2\cos(x^4)}$$
@@ -182,8 +189,7 @@ questions = [
 
     Q(6, "computation", "lhopital_taylor",
       r"חשבו את הגבול הבא: $\lim_{x\to0^+}\frac{x^4}{\int_0^{x^2}t\cos(t^2)\,dt}$.",
-      SOL6B, part="ב", points=10,
-      hold="official-solution-mismatch: the official solution computes a different limit (numerator sin^2 x, answer infinity) than the printed one (numerator x^4); sympy gives 2 for the printed limit"),
+      SOL6B, part="ב", points=10, solutionSource="solved", official=False),
 ]
 
 # ---- steps / rubric / pitfalls (ai-draft); every value below is computed or asserted with sympy ----

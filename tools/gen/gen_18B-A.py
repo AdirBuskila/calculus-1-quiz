@@ -16,10 +16,12 @@ Transcription notes
   reasoning that there are infinitely many roots (written: sin x takes all values in [-1,1] while 0<e^x<1 for x<0).
   The "not unique" reading is checked numerically (>= 8 roots in [-30, 0.5]). Logged in ASK_ADIR.
 - Q4b: FINAL-ANSWER ERROR in the handwritten solution (-pi/3 instead of -pi/6); shipped corrected with the
-  "הפתרון הרשמי עם תיקון" label, solutionSource solved, official:false (sympy: pi^2/12 - pi/6 + (pi/6) ln 2).
+  "הפתרון שבמקור (לא רשמי) עם תיקון" label (the key is not official), solutionSource solved, official:false (sympy: pi^2/12 - pi/6 + (pi/6) ln 2).
 - Q6b: the handwritten L'Hopital line drops the factor x (x -> 1, so harmless); the factor is restored. Silent, logged.
 
 Checks: tools/verify/18B-A/check.py (sympy), 0 mismatches. No code in this sitting.
+Blind re-check (solver, 2026-10-18): tools/verify/18B-A/blind_recheck.py re-derives every final answer
+independently (sympy); all agree with the shipped answers (the labeled fix included), so confidence is high.
 """
 import json, pathlib
 
@@ -28,7 +30,7 @@ OUT = pathlib.Path(__file__).resolve().parents[1] / "raw" / "18B-A.json"
 
 def Q(num, kind, topic, question, solution, part=None, **kw):
     q = {"num": num, "kind": kind, "topic": topic, "question": question, "solution": solution.strip("\n"),
-         "solutionSource": "student-solution", "official": False, "confidence": "med"}
+         "solutionSource": "student-solution", "official": False, "confidence": "high"}
     if part:
         q["part"] = part
     q.update(kw)
@@ -91,7 +93,7 @@ $$\lim_{x\to\frac\pi2^+}f(x)=\lim_{x\to\frac\pi2^+}e=e$$
 """
 
 SOL4B = r"""
-הפתרון הרשמי עם תיקון: בפתרון הכתוב התוצאה הסופית היא $\frac{\pi^2}{12}-\frac\pi3+\frac\pi6\ln2$. בהצבת הגבולות בשורה האחרונה מתקבל $\frac12-\frac12\ln2$ ולא $1-\frac12\ln2$, ולכן המקדם של $\pi$ הוא $-\frac16$ ולא $-\frac13$. הפתרון המתוקן נבדק (sympy).
+**הפתרון שבמקור (לא רשמי) עם תיקון:** בפתרון הכתוב התוצאה הסופית היא $\frac{\pi^2}{12}-\frac\pi3+\frac\pi6\ln2$. בהצבת הגבולות בשורה האחרונה מתקבל $\frac12-\frac12\ln2$ ולא $1-\frac12\ln2$, ולכן המקדם של $\pi$ הוא $-\frac16$ ולא $-\frac13$. הפתרון המתוקן נבדק (sympy).
 $$V=\pi\int_0^1\left(x\sqrt{\arctan x}\right)^2dx=\pi\int_0^1x^2\arctan x\,dx=\left|\begin{matrix}u=\arctan x&du=\frac{dx}{1+x^2}\\dv=x^2dx&v=\frac{x^3}{3}\end{matrix}\right|=\pi\left(\frac{x^3}{3}\arctan x\Big|_0^1-\frac13\int_0^1\frac{x^3dx}{1+x^2}\right)=$$
 $$=\pi\left(\frac13\cdot\frac\pi4-\frac13\int_0^1\left(x-\frac{x}{1+x^2}\right)dx\right)=\pi\left(\frac{\pi}{12}-\frac13\left(\frac{x^2}{2}-\frac12\ln\left(1+x^2\right)\right)\Big|_0^1\right)=\pi\left(\frac\pi{12}-\frac13\left(\frac12-\frac12\ln2\right)\right)=$$
 $$=\frac{\pi^2}{12}-\frac\pi6+\frac\pi6\ln2$$
@@ -145,7 +147,7 @@ questions = [
       "מצאו את נפח הגוף הנוצר על ידי הסיבוב סביב ציר ה-$X$ של הצורה המישורית הכלואה בין הקווים הבאים: "
       r"$y=x\sqrt{\arctan x},\ y=0,\ x=1$.",
       SOL4B, part="ב", points=10,
-      solutionSource="solved", confidence="med"),
+      solutionSource="solved"),
 
     Q(5, "proof", "mean_value_theorems",
       r"הוכיחו את אי-השוויון $3e<\frac{be^{b^2}-ae^{a^2}}{b-a}<9e^4$ כאשר $1<a<b<2$.",
