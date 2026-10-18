@@ -16,7 +16,124 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 25
+   "points": 25,
+   "rubric": [
+    {
+     "text": "תחום הגדרה ($x\\neq2$) ונקודת החיתוך היחידה עם הצירים $(0,0)$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=e^{\\frac{1}{x-2}}\\frac{(x-1)(x-4)}{(x-2)^2}$, נקודות קריטיות $x=1,4$ ותחומי עליה וירידה",
+     "points": 6
+    },
+    {
+     "text": "סיווג הקיצון: מקסימום מקומי $\\left(1,\\frac{1}{e}\\right)$ ומינימום מקומי $\\left(4,4\\sqrt{e}\\right)$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת שנייה $f''(x)=e^{\\frac{1}{x-2}}\\frac{5x-8}{(x-2)^4}$, קמירות וקעירות ונקודת פיתול ב-$x=\\frac{8}{5}$",
+     "points": 5
+    },
+    {
+     "text": "אסימפטוטה אנכית $x=2$ (מימין) ואסימפטוטה משופעת $y=x+1$",
+     "points": 5
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שבנגזרת של מכפלה $x\\cdot e^{\\frac{1}{x-2}}$ יש גם נגזרת הפנים $-\\frac{1}{(x-2)^2}$ של המעריך.",
+    "לטעות בגבול החד-צדדי ב-$x=2$: משמאל $e^{\\frac{1}{x-2}}\\to0$ ולכן $f\\to0$ (אין אסימפטוטה), ורק מימין $f\\to+\\infty$.",
+    "לחשב את האסימפטוטה המשופעת בלי הגבול $\\lim_{u\\to0}\\frac{e^u-1}{u}=1$ ולהסיק בטעות $b=0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=x\\cdot e^{\\frac{1}{x-2}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 4\\right) \\left(x - 1\\right) e^{\\frac{1}{x - 2}}}{\\left(x - 2\\right)^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 1\\right) \\left(x + 4\\right) e^{\\frac{1}{x - 2}}}{\\left(x - 2\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 4\\right) \\left(x - 1\\right) e^{\\frac{1}{x - 2}}}{x - 2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 4\\right) \\left(x + 1\\right) e^{\\frac{1}{x - 2}}}{\\left(x - 2\\right)^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "גזירת מכפלה: $f'=e^{\\frac{1}{x-2}}\\left(1-\\frac{x}{(x-2)^2}\\right)=e^{\\frac{1}{x-2}}\\frac{(x-1)(x-4)}{(x-2)^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המקסימום המקומי $x=1$? (עשרוני)",
+     "answer": 0.3679,
+     "tol": 0.001,
+     "explain": "$f(1)=e^{-1}\\approx0.3679$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המינימום המקומי $x=4$? (עשרוני)",
+     "answer": 6.5949,
+     "tol": 0.001,
+     "explain": "$f(4)=4e^{\\frac{1}{2}}=4\\sqrt{e}\\approx6.5949$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה $x$ מתאפסת $f''(x)=e^{\\frac{1}{x-2}}\\frac{5x-8}{(x-2)^4}$ ומשנה סימן? (עשרוני)",
+     "answer": 1.6,
+     "tol": 0.001,
+     "explain": "$5x-8=0$ נותן $x=\\frac{8}{5}=1.6$; שם $f''$ משנה סימן משלילי לחיובי, ולכן זו נקודת פיתול."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=x+1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=x-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=x+2$"
+      },
+      {
+       "id": "e",
+       "type": "text",
+       "value": "אין אסימפטוטה משופעת"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$a=\\lim\\frac{f}{x}=\\lim e^{\\frac{1}{x-2}}=1$ ו-$b=\\lim x\\left(e^{\\frac{1}{x-2}}-1\\right)=1$, כי $\\frac{e^u-1}{u}\\to1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +145,112 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 13
+   "points": 13,
+   "rubric": [
+    {
+     "text": "הוכחת חסם עליון $a_n<5$ באינדוקציה (בסיס וצעד)",
+     "points": 4
+    },
+    {
+     "text": "הוכחת מונוטוניות: $a_{n+1}>a_n\\iff(a_n-5)(a_n+4)<0$ והסקה שהסדרה עולה",
+     "points": 4
+    },
+    {
+     "text": "הסקה שסדרה עולה וחסומה מתכנסת",
+     "points": 1
+    },
+    {
+     "text": "מעבר לגבול בנוסחת הנסיגה ופתרון $L^2-L-20=0$",
+     "points": 3
+    },
+    {
+     "text": "פסילת $L=-4$ ומסקנה $L=5$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפתור את משוואת הגבול $L=\\sqrt{20+L}$ בלי להוכיח קודם שהגבול קיים.",
+    "לשכוח לפסול את הפתרון $L=-4$ אף שכל איברי הסדרה חיוביים.",
+    "להוכיח מונוטוניות לפני החסימות: האי-שוויון $(a_n-5)(a_n+4)<0$ נשען על $0<a_n<5$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה חסם עליון, מבין האפשרויות, מתקיים לכל איברי הסדרה (והוא גם הגבול)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a_n<4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a_n<4.5$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a_n<5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a_n<4.9$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$a_1=\\sqrt{20}\\approx4.47$ כבר עובר את $4$; האיברים עוברים גם את $4.5$ ו-$4.9$, ורק $5$ נשמר לכל $n$ (נבדק ב-40 האיברים הראשונים)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הביטוי $P(a_n)$ שבו $a_{n+1}>a_n\\iff 20+a_n>a_n^2\\iff P(a_n)<0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(a_{n} - 4\\right) \\left(a_{n} + 5\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(a_{n} - 5\\right) \\left(a_{n} - 4\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(a_{n} + 4\\right) \\left(a_{n} + 5\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(a_{n} - 5\\right) \\left(a_{n} + 4\\right)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$20+a_n>a_n^2\\iff a_n^2-a_n-20<0$, ואת זה מפרקים ל-$(a_n-5)(a_n+4)$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "חסימות באינדוקציה: $a_1=\\sqrt{20}<5$, ואם $0<a_n<5$ אז $a_{n+1}=\\sqrt{20+a_n}<\\sqrt{25}=5$; לכן $0<a_n<5$ לכל $n$.",
+      "מונוטוניות: $a_{n+1}>a_n\\iff(a_n-5)(a_n+4)<0$, וזה מתקיים כי $0<a_n<5$; לכן הסדרה עולה.",
+      "הסדרה עולה וחסומה מלמעלה, ולכן מתכנסת לגבול $L$.",
+      "מנוסחת הנסיגה $L=\\sqrt{20+L}$, כלומר $(L-5)(L+4)=0$, ומכיוון ש-$L\\ge0$ מתקבל $L=5$."
+     ],
+     "explain": "קודם החסימות (הן נחוצות לאי-השוויון במונוטוניות), אחר כך המונוטוניות, אחריהן ההתכנסות, ולבסוף חישוב הגבול."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה? (הפתרון החיובי של $L^2-L-20=0$)",
+     "answer": 5,
+     "tol": 0.001,
+     "explain": "$(L-5)(L+4)=0$, ומכיוון שהאיברים חיוביים $L=5$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +262,125 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 12
+   "points": 12,
+   "rubric": [
+    {
+     "text": "בחירת $u=\\arctan x$ ו-$dv=(4x+6)\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "נוסחת האינטגרציה בחלקים עם $v=2x^2+6x+2$",
+     "points": 3
+    },
+    {
+     "text": "פישוט האינטגרנד הנותר ל-$2+\\frac{6x}{1+x^2}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה: $2x+3\\ln(1+x^2)$ ותשובה סופית עם $+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $u=4x+6$ ו-$dv=\\arctan x\\,dx$: אז צריך קודם לחשב קדומה של $\\arctan x$ והחישוב מסתבך.",
+    "לשכוח את הפירוק $2x^2+6x+2=2\\left(x^2+1\\right)+6x$ בפישוט, ולהשאיר אינטגרל מורכב יותר.",
+    "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל $\\int\\frac{6x}{1+x^2}dx=3\\ln(1+x^2)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו בחירה של $u$ ו-$dv$ משמש הפתרון הרשמי באינטגרציה בחלקים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=\\arctan x$, $dv=(4x+6)\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=4x+6$, $dv=\\arctan x\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$u=(4x+6)\\arctan x$, $dv=dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$u=\\arctan x$, $dv=\\frac{dx}{1+x^2}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "גוזרים את $\\arctan x$ (הנגזרת רציונלית) ומאנטגרלים את הפולינום; הבחירה ההפוכה דורשת קדומה של $\\arctan x$."
+    },
+    {
+     "type": "choice",
+     "prompt": "לאחר האינטגרציה בחלקים נשאר האינטגרל של $\\frac{2x^2+6x+2}{1+x^2}$. מהו פישוטו?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 + \\frac{6}{x^{2} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{6 x}{x^{2} + 1} + 2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{6 x}{x + 1} + 2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{6 x}{x^{2} + 1}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$2x^2+6x+2=2(x^2+1)+6x$, ולכן המנה היא $2+\\frac{6x}{1+x^2}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 6 \\log{\\left(x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} + 3 \\log{\\left(x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\int\\frac{6x}{1+x^2}dx=3\\ln(1+x^2)$; רק האפשרות הנכונה מזדהה עם האינטגרנד אחרי גזירה (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של האינטגרל המסוים $\\int_0^1(4x+6)\\arctan x\\,dx$? (עשרוני)",
+     "answer": 3.7745,
+     "tol": 0.001,
+     "explain": "$F(1)-F(0)=\\frac{5\\pi}{2}-2-3\\ln2\\approx3.7752$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +392,108 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 13
+   "points": 13,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $\\infty^0$ וכתיבה כ-$e^{\\tan2x\\cdot\\ln\\frac{1}{x}}$",
+     "points": 3
+    },
+    {
+     "text": "הפיכת $\\tan2x\\cdot\\ln x$ למנה $\\frac{\\ln x}{\\cot2x}$ מהצורה $\\frac{\\infty}{\\infty}$",
+     "points": 2
+    },
+    {
+     "text": "הפעלת לופיטל וקבלת $-\\frac{\\sin^22x}{2x}$",
+     "points": 4
+    },
+    {
+     "text": "חישוב גבול המעריך $0$",
+     "points": 2
+    },
+    {
+     "text": "תשובה סופית $e^0=1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח ש-$\\infty^0=\\infty$ או $\\infty^0=0$ במקום לפתור את הצורה הלא מוגדרת בעזרת $e^{\\ln}$.",
+    "לשכוח את סימן המינוס: $\\ln\\frac{1}{x}=-\\ln x$.",
+    "להפעיל לופיטל על $\\tan2x\\cdot\\ln x$ ישירות, בלי להפוך אותו קודם למנה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה הלא מוגדרת של $\\lim_{x\\to0^+}\\left(\\frac{1}{x}\\right)^{\\tan2x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\infty^0$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הבסיס $\\frac{1}{x}\\to+\\infty$ והמעריך $\\tan2x\\to0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אחרי הפיכת המעריך ל-$\\frac{\\ln x}{\\cot2x}$ והפעלת לופיטל, מהי המנה $\\frac{(\\ln x)'}{(\\cot2x)'}$ אחרי פישוט?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{\\sin^{2}{\\left(2 x \\right)}}{2 x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\sin^{2}{\\left(2 x \\right)}}{2 x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{\\sin^{2}{\\left(2 x \\right)}}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{\\sin{\\left(2 x \\right)}}{2 x}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(\\ln x)'=\\frac{1}{x}$ ו-$(\\cot2x)'=-\\frac{2}{\\sin^22x}$, ולכן המנה היא $-\\frac{\\sin^22x}{2x}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}\\tan2x\\cdot\\ln x$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$-\\frac{\\sin^22x}{2x}=-\\frac{\\sin2x}{2x}\\cdot\\sin2x\\to-1\\cdot0=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול $\\lim_{x\\to0^+}\\left(\\frac{1}{x}\\right)^{\\tan2x}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הגבול הוא $e^{-0}=e^0=1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +505,108 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 12
+   "points": 12,
+   "rubric": [
+    {
+     "text": "חישוב ערך הפונקציה בנקודה: $y\\left(\\frac{\\pi}{4}\\right)=1$",
+     "points": 1
+    },
+    {
+     "text": "גזירה לוגריתמית: $\\ln y=\\cos x\\ln(\\tan x)$",
+     "points": 3
+    },
+    {
+     "text": "$\\frac{y'}{y}=-\\sin x\\ln(\\tan x)+\\frac{1}{\\sin x}$ ופישוט האיבר השני",
+     "points": 3
+    },
+    {
+     "text": "חישוב $y'\\left(\\frac{\\pi}{4}\\right)=\\sqrt{2}$",
+     "points": 2
+    },
+    {
+     "text": "משוואת המשיק $y=\\sqrt{2}x+1-\\frac{\\sqrt{2}\\pi}{4}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור $(\\tan x)^{\\cos x}$ ככוח עם מעריך קבוע, או כמעריכית עם בסיס קבוע, במקום גזירה לוגריתמית.",
+    "לשכוח את גורם $y$: $\\frac{y'}{y}$ הוא הנגזרת של $\\ln y$, ולכן צריך להכפיל חזרה ב-$y$.",
+    "לשכוח ש-$\\ln\\tan\\frac{\\pi}{4}=0$, ולכן האיבר הראשון בנגזרת מתאפס בנקודה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה $y=(\\tan x)^{\\cos x}$ ב-$x=\\frac{\\pi}{4}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\tan\\frac{\\pi}{4}=1$ ולכן $y=1^{\\frac{\\sqrt{2}}{2}}=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $\\ln y=\\cos x\\cdot\\ln(\\tan x)$, כלומר $\\frac{y'}{y}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\cos{\\left(x \\right)}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\log{\\left(\\tan{\\left(x \\right)} \\right)} - \\frac{\\sin{\\left(x \\right)}}{\\tan{\\left(x \\right)}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\left(\\ln\\tan x\\right)'=\\frac{1}{\\tan x\\cos^2x}=\\frac{1}{\\sin x\\cos x}$, ולכן האיבר השני הוא $\\cos x\\cdot\\frac{1}{\\sin x\\cos x}=\\frac{1}{\\sin x}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השיפוע $y'\\left(\\frac{\\pi}{4}\\right)$? (עשרוני)",
+     "answer": 1.4142,
+     "tol": 0.001,
+     "explain": "$y'=1\\cdot\\left(\\frac{1}{\\sin\\frac{\\pi}{4}}-\\sin\\frac{\\pi}{4}\\cdot\\ln1\\right)=\\sqrt{2}\\approx1.4142$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק בנקודה $x=\\frac{\\pi}{4}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\sqrt{2} x}{2} - \\frac{\\sqrt{2} \\pi}{8} + 1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sqrt{2} x + 1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\sqrt{2} x - \\frac{\\sqrt{2} \\pi}{4} + 1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\sqrt{2} x - \\frac{\\sqrt{2} \\pi}{4}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "המשיק עובר דרך $\\left(\\frac{\\pi}{4},1\\right)$ בשיפוע $\\sqrt{2}$: $y-1=\\sqrt{2}\\left(x-\\frac{\\pi}{4}\\right)$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +618,129 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 13
+   "points": 13,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $\\frac{0}{0}$",
+     "points": 1
+    },
+    {
+     "text": "הכפלה בצמוד במונה: $\\frac{2(2-x)}{\\sqrt{x+2}+\\sqrt{3x-2}}$",
+     "points": 3
+    },
+    {
+     "text": "הכפלה בצמוד במכנה: $\\frac{2-x}{\\sqrt{4x+1}+\\sqrt{5x-1}}$",
+     "points": 3
+    },
+    {
+     "text": "צמצום הגורם $2-x\\neq0$",
+     "points": 3
+    },
+    {
+     "text": "הצבת $x=2$ ותשובה $3$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל לופיטל על ארבעה שורשים: אפשרי אבל מסורבל ופגיע לטעויות. הכפלה בצמוד קצרה יותר.",
+    "לחשב $(x+2)-(3x-2)$ בטעות: הנכון $4-2x=2(2-x)$.",
+    "לשכוח לצמצם את $2-x$ לפני ההצבה ולהישאר עם $\\frac{0}{0}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה הלא מוגדרת של הגבול ב-$x\\to2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\infty}{\\infty}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty-\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "המונה: $\\sqrt{4}-\\sqrt{4}=0$, המכנה: $\\sqrt{9}-\\sqrt{9}=0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו המונה $\\sqrt{x+2}-\\sqrt{3x-2}$ אחרי הכפלה בצמוד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{4 - 2 x}{\\sqrt{x + 2} + \\sqrt{3 x - 2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2 - x}{\\sqrt{x + 2} + \\sqrt{3 x - 2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{2 x - 4}{\\sqrt{x + 2} + \\sqrt{3 x - 2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{4 - 2 x}{\\sqrt{x + 2} - \\sqrt{3 x - 2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(x+2)-(3x-2)=4-2x=2(2-x)$, והמכנה הוא סכום השורשים (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו המכנה $\\sqrt{4x+1}-\\sqrt{5x-1}$ אחרי הכפלה בצמוד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{4 - 2 x}{\\sqrt{4 x + 1} + \\sqrt{5 x - 1}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2 - x}{\\sqrt{4 x + 1} + \\sqrt{5 x - 1}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x - 2}{\\sqrt{4 x + 1} + \\sqrt{5 x - 1}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2 - x}{\\sqrt{4 x + 1} - \\sqrt{5 x - 1}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$(4x+1)-(5x-1)=2-x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול? (אחרי צמצום $2-x$ מציבים $x=2$)",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$\\frac{2(3+3)}{2+2}=3$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +752,83 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 12
+   "points": 12,
+   "rubric": [
+    {
+     "text": "משוואת המשיק ב-$(2,4)$: $y=4x-4$",
+     "points": 3
+    },
+    {
+     "text": "נקודת החיתוך של המשיק עם ציר ה-$X$: $x=1$",
+     "points": 1
+    },
+    {
+     "text": "בניית השטח: $\\int_0^2x^2dx-\\int_1^2(4x-4)dx$ (או שטח המשולש)",
+     "points": 4
+    },
+    {
+     "text": "חישוב $S=\\frac{8}{3}-2=\\frac{2}{3}$",
+     "points": 4
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\int_0^2(x^2-(4x-4))dx$: בקטע $[0,1]$ המשיק מתחת לציר ה-$X$, והתחום נחסם שם בציר ולא במשיק.",
+    "לחבר במקום לחסר את שטח המשולש מתחת למשיק.",
+    "לשכוח שהמשיק חותך את ציר ה-$X$ ב-$x=1$ ולא בראשית."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו שיפוע המשיק לפרבולה $f(x)=x^2$ בנקודה $(2,4)$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$f'(x)=2x$, ולכן $f'(2)=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה $x$ חותך המשיק $y=4x-4$ את ציר ה-$X$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$4x-4=0$ נותן $x=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את שטח התחום?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$S=\\int_0^2x^2\\,dx+\\int_1^2(4x-4)\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$S=\\int_0^2\\left(x^2-(4x-4)\\right)dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$S=\\int_0^2x^2\\,dx-\\int_1^2(4x-4)\\,dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$S=\\int_1^2x^2\\,dx$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "מתחת לפרבולה בקטע $[0,2]$ נמצא שטח $\\frac{8}{3}$, ומתוכו מוציאים את המשולש מתחת למשיק. ערכי ארבע האפשרויות: $\\frac{2}{3}$, $\\frac{14}{3}$, $\\frac{8}{3}$, $\\frac{7}{3}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו שטח התחום? (עשרוני)",
+     "answer": 0.6667,
+     "tol": 0.001,
+     "explain": "$\\frac{8}{3}-2=\\frac{2}{3}\\approx0.6667$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -100,7 +840,124 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 13
+   "points": 13,
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=e^{\\sin^2x}$ ובדיקת רציפות וגזירות בכל קטע $[a,b]$",
+     "points": 3
+    },
+    {
+     "text": "חישוב הנגזרת $f'(x)=e^{\\sin^2x}\\sin2x$",
+     "points": 3
+    },
+    {
+     "text": "הפעלת משפט לגרנז' וקבלת $f(b)-f(a)=f'(c)(b-a)$",
+     "points": 3
+    },
+    {
+     "text": "חסם $f'(c)\\le e$ (מ-$\\sin2c\\le1$ ו-$e^{\\sin^2c}\\le e$)",
+     "points": 3
+    },
+    {
+     "text": "הכפלה ב-$b-a>0$ והמסקנה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור $e^{\\sin^2x}$ בלי כלל שרשרת מלא: הנגזרת היא $e^{\\sin^2x}\\cdot2\\sin x\\cos x$.",
+    "לחשוש מכך ש-$\\sin2c$ שלילי: החסם $\\sin2c\\le1$ נכון גם אז, והמכפלה פשוט קטנה מ-$e$.",
+    "להפעיל את המשפט בלי לציין ש-$f$ גזירה בכל הישר ולכן בכל קטע $[a,b]$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו פונקציה $f$ מקיימת $f(b)-f(a)=e^{\\sin^2b}-e^{\\sin^2a}$ לכל $a,b$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$e^{\\sin{\\left(x \\right)}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sin^{2}{\\left(x \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$e^{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$e^{\\sin^{2}{\\left(x \\right)}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפונקציה היא $f(x)=e^{\\sin^2x}$ (עד כדי קבוע); ההפרש שלה בין $b$ ל-$a$ הוא בדיוק אגף שמאל של האי-שוויון."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת $f'(x)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$e^{\\sin^{2}{\\left(x \\right)}} \\sin{\\left(2 x \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 e^{\\sin^{2}{\\left(x \\right)}} \\sin{\\left(x \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$e^{\\sin^{2}{\\left(x \\right)}} \\cos{\\left(2 x \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$e^{\\sin^{2}{\\left(x \\right)}} \\sin^{2}{\\left(x \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל שרשרת: $\\left(e^{\\sin^2x}\\right)'=e^{\\sin^2x}\\cdot2\\sin x\\cos x=e^{\\sin^2x}\\sin2x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך המקסימלי של $e^{\\sin^2c}$? (עשרוני)",
+     "answer": 2.7183,
+     "tol": 0.001,
+     "explain": "$\\sin^2c\\le1$, ולכן $e^{\\sin^2c}\\le e\\approx2.7183$, והערך מתקבל ב-$\\sin^2c=1$ (נבדק על רשת צפופה)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "הפונקציה $f(x)=e^{\\sin^2x}$ רציפה וגזירה ב-$\\mathbb{R}$, ו-$f'(x)=e^{\\sin^2x}\\sin2x$.",
+      "לפי משפט לגרנז' קיימת $c\\in(a,b)$ כך ש-$e^{\\sin^2b}-e^{\\sin^2a}=f'(c)(b-a)$.",
+      "מתקיים $f'(c)=e^{\\sin^2c}\\sin2c\\le e$, כי $\\sin2c\\le1$ ו-$e^{\\sin^2c}\\le e$.",
+      "מכיוון ש-$b-a>0$ מתקבל $e^{\\sin^2b}-e^{\\sin^2a}\\le e(b-a)$."
+     ],
+     "explain": "הגדרת הפונקציה והנגזרת, אחר כך משפט לגרנז' (שמגדיר את $c$), אחר כך חסם על $f'(c)$, ולבסוף כפל ב-$b-a$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "הפונקציה $f(x)=e^{\\sin^2x}$ רציפה וגזירה ב-$\\mathbb{R}$, ו-$f'(x)=e^{\\sin^2x}\\sin2x$.",
+      "לפי משפט לגרנז' קיימת $c\\in(a,b)$ כך ש-$e^{\\sin^2b}-e^{\\sin^2a}=\\frac{f'(c)}{b-a}$.",
+      "מתקיים $f'(c)=e^{\\sin^2c}\\sin2c\\le e$, כי $\\sin2c\\le1$ ו-$e^{\\sin^2c}\\le e$.",
+      "מכיוון ש-$b-a>0$ מתקבל $e^{\\sin^2b}-e^{\\sin^2a}\\le e(b-a)$."
+     ],
+     "bugIndex": 1,
+     "explain": "משפט לגרנז' נותן $f(b)-f(a)=f'(c)(b-a)$, לא $\\frac{f'(c)}{b-a}$ (שיפוע המיתר $\\frac{f(b)-f(a)}{b-a}$ הוא שווה ל-$f'(c)$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -112,7 +969,150 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 12
+   "points": 12,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\cos x$, $dt=-\\sin x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "העברת האינטגרל ל-$-\\int\\frac{dt}{t^2+2t+5}$",
+     "points": 2
+    },
+    {
+     "text": "השלמה לריבוע $t^2+2t+5=(t+1)^2+4$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרל מסוג $\\arctan$: $-\\frac{1}{2}\\arctan\\frac{t+1}{2}$",
+     "points": 3
+    },
+    {
+     "text": "הצבה חוזרת $t=\\cos x$ וקבוע האינטגרציה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את סימן המינוס שנובע מ-$dt=-\\sin x\\,dx$.",
+    "לאנטגרל $\\frac{1}{(t+1)^2+4}$ כ-$\\arctan(t+1)$ ולשכוח את הגורם $\\frac{1}{2}$ ואת החלוקה ב-$2$ בתוך הארקטנגנס.",
+    "לנסות הצבה אוניברסלית: מסובך הרבה יותר, כי $\\sin x\\,dx$ ו-$\\cos x$ מרמזים על $t=\\cos x$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\tan\\frac{x}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=5+2\\cos x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "המונה $\\sin x\\,dx$ הוא $-dt$, והמכנה כולו פולינום ב-$\\cos x$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד אחרי ההצבה $t=\\cos x$ (כלומר $e(t)\\,dt$ שווה לביטוי המקורי)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{t^{2} + 2 t + 5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{1}{t^{2} + 2 t + 4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{1}{t^{2} + 2 t + 5}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{t}{t^{2} + 2 t + 5}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\sin x\\,dx=-dt$ ו-$5+2\\cos x+\\cos^2x=t^2+2t+5$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה של $t^2+2t+5$ אחרי השלמה לריבוע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(t + 1\\right)^{2} + 5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(t + 1\\right)^{2} + 3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(t - 1\\right)^{2} + 4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(t + 1\\right)^{2} + 4$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$(t+1)^2=t^2+2t+1$, ולכן צריך להוסיף $4$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{\\operatorname{atan}{\\left(\\frac{\\cos{\\left(x \\right)}}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}{\\left(\\frac{\\cos{\\left(x \\right)}}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{\\operatorname{atan}{\\left(\\cos{\\left(x \\right)} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\operatorname{atan}{\\left(\\frac{\\cos{\\left(x \\right)}}{2} + \\frac{1}{2} \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\int\\frac{dt}{(t+1)^2+4}=\\frac{1}{2}\\arctan\\frac{t+1}{2}$, ועם המינוס מקבלים את התשובה (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -124,7 +1124,87 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 13
+   "points": 13,
+   "rubric": [
+    {
+     "text": "נקודות החיתוך של חצי המעגל עם הישר: $x=\\pm4$",
+     "points": 3
+    },
+    {
+     "text": "בחירת שיטת הטבעות: $\\pi\\int\\left(R^2-r^2\\right)dx$ עם $R=\\sqrt{25-x^2}$, $r=3$",
+     "points": 4
+    },
+    {
+     "text": "פישוט האינטגרנד ל-$16-x^2$",
+     "points": 2
+    },
+    {
+     "text": "חישוב האינטגרל $\\frac{256}{3}$",
+     "points": 2
+    },
+    {
+     "text": "תשובה סופית $V=\\frac{256\\pi}{3}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\pi\\int\\left(\\sqrt{25-x^2}-3\\right)^2dx$: זה לא נפח של טבעת, כי הפרש הרדיוסים אינו הפרש הריבועים.",
+    "לחשב נפח מ-$-5$ עד $5$ במקום בין נקודות החיתוך $\\pm4$.",
+    "לשכוח את הגורם $\\pi$ בתשובה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ החיובי שבו $\\sqrt{25-x^2}=3$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$25-x^2=9$ נותן $x^2=16$, ולכן $x=\\pm4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד של שיטת הטבעות, $R^2-r^2$ (עם $R=\\sqrt{25-x^2}$ ו-$r=3$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(\\sqrt{25 - x^{2}} - 3\\right)^{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$16 - x^{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$22 - x^{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$34 - x^{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$R^2-r^2=25-x^2-9=16-x^2$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_{-4}^{4}\\left(16-x^2\\right)dx$? (עשרוני)",
+     "answer": 85.3333,
+     "tol": 0.01,
+     "explain": "$2\\left(16x-\\frac{x^3}{3}\\right)\\Big|_0^4=2\\left(64-\\frac{64}{3}\\right)=\\frac{256}{3}\\approx85.333$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V$? (עשרוני)",
+     "answer": 268.083,
+     "tol": 0.05,
+     "explain": "$V=\\frac{256\\pi}{3}\\approx268.08$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -136,7 +1216,83 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 12
+   "points": 12,
+   "rubric": [
+    {
+     "text": "בדיקת רציפות ב-$x=0$: שלושה ערכים שווים $0$ לכל $a$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת שמאלית $f'_-(0)=\\lim\\frac{\\sin(ax)}{x}=a$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת ימנית $f'_+(0)=\\lim x\\ln x=0$",
+     "points": 3
+    },
+    {
+     "text": "השוואה: גזירות אם ורק אם $a=0$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק מרציפות שהפונקציה גזירה: כאן $f$ רציפה לכל $a$ אבל גזירה רק עבור $a=0$.",
+    "להשאיר את $\\lim x\\ln x$ כ-$0\\cdot\\infty$ בלי לבדוק שהוא $0$.",
+    "לגזור את שני הענפים ולהציב $x=0$ בנגזרת הימנית $2x\\ln x+x$ במקום לחשב לפי הגדרה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "עבור אילו ערכי $a$ הפונקציה רציפה ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "רק עבור $a=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רק עבור $a>0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לכל $a$ ממשי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לאף ערך של $a$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$f(0)=\\sin0=0$, $\\lim_{x\\to0^-}\\sin(ax)=0$ ו-$\\lim_{x\\to0^+}x^2\\ln x=0$, לכל $a$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנגזרת השמאלית $f'_-(0)=\\lim_{x\\to0^-}\\frac{\\sin(ax)}{x}$ עבור $a=3$?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$\\frac{\\sin3x}{x}=3\\cdot\\frac{\\sin3x}{3x}\\to3$; בכלל $f'_-(0)=a$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנגזרת הימנית $f'_+(0)=\\lim_{x\\to0^+}\\frac{x^2\\ln x}{x}=\\lim x\\ln x$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$x\\ln x=\\frac{\\ln x}{1/x}\\to0$ (לופיטל)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $a$ שעבורו $f$ גזירה ב-$0$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "גזירות דורשת $f'_-(0)=f'_+(0)$, כלומר $a=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
