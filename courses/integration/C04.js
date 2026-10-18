@@ -61,7 +61,7 @@ $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x
       }
     ],
     "correctId": "d",
-    "explanation": "‏$u=\\ln x$ ו-$dv=dx$: ‏$x\\ln x-\\int x\\cdot\\frac1x\\,dx=$ **$x\\ln x-x$**. ‏$\\frac1x$ היא הנגזרת של $\\ln x$ ולא האינטגרל. התשובה עם $+x$ שוכחת את המינוס של האינטגרל הנותר. התשובה $x\\ln x-x+C$ מחשבת את $\\int 1\\,dx$ כ-$1$.",
+    "explanation": "‏$u=\\ln x$ ו-$dv=dx$: ‏$x\\ln x-\\int x\\cdot\\frac1x\\,dx=$ **$x\\ln x-x$**. ‏$\\frac1x$ היא הנגזרת של $\\ln x$ ולא האינטגרל. התשובה עם $+x$ שוכחת את המינוס של האינטגרל הנותר. התשובה $x\\ln x-1+C$ מחשבת את $\\int 1\\,dx$ כ-$1$.",
     "recap": "ln x ← x ln x − x"
   },
   {
