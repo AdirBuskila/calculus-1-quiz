@@ -16,7 +16,161 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq-1$ ונקודת חיתוך עם הצירים $(0,0)$",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{x^2(x+3)}{2(x+1)^3}$, נקודות קריטיות $x=-3,0$ וטבלת סימנים",
+     "points": 5
+    },
+    {
+     "text": "סיווג הקיצון: מקסימום מקומי ב-$x=-3$ עם $f(-3)=-\\frac{27}{8}$, ללא קיצון ב-$x=0$",
+     "points": 3
+    },
+    {
+     "text": "$f''(x)=\\frac{3x}{(x+1)^4}$, קמירות וקעירות ונקודת פיתול $(0,0)$",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטה אנכית $x=-1$ ואסימפטוטה משופעת $y=\\frac{x}{2}-1$",
+     "points": 4
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להכריז על קיצון ב-$x=0$ רק כי $f'(0)=0$. הנגזרת חיובית משני הצדדים ולכן אין קיצון, ויש שם נקודת פיתול.",
+    "לשכוח שהאסימפטוטה האנכית $x=-1$ שואפת ל-$-\\infty$ משני הצדדים (המכנה ריבועי).",
+    "לחשב את האסימפטוטה המשופעת בלי חילוק פולינומים או בלי הגבול $\\lim(f(x)-\\frac{x}{2})$ ולקבל חותך שגוי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=\\frac{x^3}{2(x+1)^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\left(x + 3\\right)}{2 \\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\left(x + 3\\right)}{2 \\left(x + 1\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\left(x - 3\\right)}{2 \\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\left(x + 3\\right)}{\\left(x + 1\\right)^{3}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המנה נותן $f'(x)=\\frac{3x^2(x+1)-2x^3}{2(x+1)^3}=\\frac{x^2(x+3)}{2(x+1)^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $f(-3)$ בנקודת המקסימום המקומי?",
+     "answer": -3.375,
+     "tol": 0.001,
+     "explain": "$f(-3)=\\frac{-27}{2\\cdot4}=-\\frac{27}{8}=-3.375$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה קורה בנקודה $x=0$, שבה $f'(0)=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מינימום מקומי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אין קיצון (הנגזרת חיובית משני הצדדים), ו-$f''$ מחליפה סימן ולכן זו נקודת פיתול עם משיק אופקי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מקסימום מקומי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "נקודת אי-רציפות כי $x=0$ מחוץ לתחום ההגדרה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$f'>0$ משני צדי $0$ ולכן אין קיצון. $f''<0$ משמאל ו-$f''>0$ מימין, כלומר פיתול (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת השנייה של $f$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{3 x}{\\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{3}{\\left(x + 1\\right)^{4}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{3 x}{\\left(x + 1\\right)^{4}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{6 x}{\\left(x + 1\\right)^{4}}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הנגזרת השנייה היא $f''(x)=\\frac{3x}{(x+1)^4}$; היא מתאפסת רק ב-$x=0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=\\frac{x}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=\\frac{x}{2}+1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=x-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=\\frac{x}{2}-1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$a=\\lim\\frac{f(x)}{x}=\\frac{1}{2}$ ו-$b=\\lim\\left(f(x)-\\frac{x}{2}\\right)=-1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +182,75 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חלוקה בחזקה הדומיננטית והצגת הגבול כ-$\\frac{1}{1+\\left(\\frac{b}{3}\\right)^n}$",
+     "points": 3
+    },
+    {
+     "text": "המקרה $0<b<3$: הגבול $1$",
+     "points": 2
+    },
+    {
+     "text": "המקרה $b=3$: הגבול $\\frac{1}{2}$",
+     "points": 2
+    },
+    {
+     "text": "המקרה $b>3$: הגבול $0$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק ערך אחד של $b$ ולא לפצל לשלושה מקרים לפי היחס בין $b$ ל-$3$.",
+    "לשכוח את המקרה $b=3$, שבו המנה קבועה $\\frac{1}{2}$ ולא שואפת ל-$0$ או ל-$1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול כאשר $b=2$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{1+(2/3)^n}\\to\\frac{1}{1+0}=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול כאשר $b=3$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{3^n}{3^n+3^n}=\\frac{1}{2}$ לכל $n$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הגבול כאשר $b>3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\infty$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac{3^n}{3^n+b^n}=\\frac{(3/b)^n}{(3/b)^n+1}\\to\\frac{0}{0+1}=0$ כי $0<\\frac{3}{b}<1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +262,103 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חילוק פולינומים: מנה $x$ ושארית $3x+5$",
+     "points": 3
+    },
+    {
+     "text": "פירוק $\\frac{3x+5}{(x-1)(x+1)}=\\frac{A}{x-1}+\\frac{B}{x+1}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המקדמים $A=4$, $B=-1$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה וכתיבת התשובה $\\frac{x^2}{2}+4\\ln|x-1|-\\ln|x+1|+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה גבוהה מדרגת המכנה.",
+    "לשכוח ערך מוחלט בלוגריתמים או להחליף סימן ב-$B$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המנה בחילוק $x^3+2x+5$ ב-$x^2-1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x + 2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x^{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$3 x + 5$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x^3+2x+5=x(x^2-1)+(3x+5)$, כלומר מנה $x$ ושארית $3x+5$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$ בפירוק $\\frac{3x+5}{(x-1)(x+1)}=\\frac{A}{x-1}+\\frac{B}{x+1}$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "הצבת $x=1$ ב-$3x+5=A(x+1)+B(x-1)$ נותנת $8=2A$, כלומר $A=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $B$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "הצבת $x=-1$ נותנת $2=-2B$, כלומר $B=-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה (בתחום $x>1$, בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} + 4 \\log{\\left(x - 1 \\right)} + \\log{\\left(x + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} - 4 \\log{\\left(x - 1 \\right)} - \\log{\\left(x + 1 \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} + 4 \\log{\\left(x - 1 \\right)} - \\log{\\left(x + 1 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^{3}}{3} + x^{2} + 5 x$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\int\\left(x+\\frac{4}{x-1}-\\frac{1}{x+1}\\right)dx=\\frac{x^2}{2}+4\\ln(x-1)-\\ln(x+1)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +370,78 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול השמאלי $\\lim_{x\\to0^-}\\frac{e^x-1}{\\sin2x}=\\frac{1}{2}$",
+     "points": 3
+    },
+    {
+     "text": "$\\lim_{x\\to0^+}x\\ln x=0$ (לופיטל) ו-$\\lim\\frac{\\arcsin x}{2x}=\\frac{1}{2}$",
+     "points": 4
+    },
+    {
+     "text": "השוואה ל-$f(0)=\\frac{1}{2}$ ומסקנה שהפונקציה רציפה",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הגבול הימני כ-$0\\cdot\\infty=0$ בלי הצדקה, ולשכוח את האיבר $\\frac{\\arcsin x}{2x}$.",
+    "לבדוק רק גבול אחד ולא את שני הצדדים ואת ערך הפונקציה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^-}\\frac{e^x-1}{\\sin2x}$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{e^x-1}{x}\\to1$ ו-$\\frac{2x}{\\sin2x}\\to1$, לכן הגבול $\\frac{1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}x\\ln x$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$x\\ln x=\\frac{\\ln x}{1/x}\\to\\frac{1/x}{-1/x^2}=-x\\to0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}\\frac{\\arcsin x}{2x}$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{\\arcsin x}{x}\\to1$, לכן הגבול $\\frac{1}{2}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $f$ רציפה ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי הגבול הימני $0$ שונה מ-$f(0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי הגבול השמאלי אינו קיים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי $f(0)\\neq1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כן, כי שני הגבולות החד-צדדיים שווים ל-$f(0)=\\frac{1}{2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "שני הגבולות החד-צדדיים הם $\\frac{1}{2}=f(0)$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +453,110 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נימוק שהפונקציה רציפה בקטע סגור ולכן מקבלת מקסימום ומינימום",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{18-2x^2}{\\sqrt{18-x^2}}$ והנקודה החשודה $x=3$",
+     "points": 4
+    },
+    {
+     "text": "חישוב ערכי הפונקציה בנקודה החשודה ובקצוות",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: מקסימום $9$ ב-$x=3$ ומינימום $0$ ב-$x=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבדוק את קצות הקטע $x=0$ ו-$x=4$.",
+    "לכלול את הנקודה $x=-3$, שאינה בקטע $[0,4]$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=x\\sqrt{18-x^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{18 - 2 x^{2}}{\\sqrt{18 - x^{2}}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sqrt{18 - x^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{18 - 2 x}{\\sqrt{18 - x^{2}}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2 x^{2} + 18}{\\sqrt{18 - x^{2}}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המכפלה: $f'=\\sqrt{18-x^2}-\\frac{x^2}{\\sqrt{18-x^2}}=\\frac{18-2x^2}{\\sqrt{18-x^2}}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנקודה הקריטית בקטע $[0,4]$?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$18-2x^2=0$ נותן $x=\\pm3$, ובקטע רק $x=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(3)$?",
+     "answer": 9,
+     "tol": 0.001,
+     "explain": "$f(3)=3\\sqrt{9}=9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(4)$? (עשרוני)",
+     "answer": 5.6569,
+     "tol": 0.001,
+     "explain": "$f(4)=4\\sqrt{2}\\approx5.657$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם הערך המקסימלי והמינימלי בקטע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום $9$ ב-$x=3$, מינימום $4\\sqrt{2}$ ב-$x=4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מקסימום $9$ ב-$x=3$, מינימום $0$ ב-$x=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מקסימום $4\\sqrt{2}$ ב-$x=4$, מינימום $0$ ב-$x=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מקסימום $9$ ב-$x=3$, מינימום $-9$ ב-$x=-3$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "משווים $f(0)=0$, $f(3)=9$, $f(4)\\approx5.66$; הגדול הוא $9$ והקטן הוא $0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +568,71 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "אינטגרציה בחלקים ראשונה: $\\int\\ln^2x\\,dx=x\\ln^2x-2\\int\\ln x\\,dx$",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה בחלקים שנייה: $\\int\\ln x\\,dx=x\\ln x-x$",
+     "points": 4
+    },
+    {
+     "text": "הרכבה לתשובה $x\\ln^2x-2x\\ln x+2x+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $2$ ב-$\\int\\ln^2x\\,dx=x\\ln^2x-2\\int\\ln x\\,dx$ (נגזרת $\\ln^2x$ היא $\\frac{2\\ln x}{x}$).",
+    "לטעות בסימן בשלב השני ולקבל $-2x$ במקום $+2x$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_1^e\\ln x\\,dx$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הפונקציה הקדומה $x\\ln x-x$ נותנת $(e-e)-(0-1)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_1^e\\ln^2x\\,dx$? (עשרוני)",
+     "answer": 0.7183,
+     "tol": 0.001,
+     "explain": "$\\left[x\\ln^2x-2x\\ln x+2x\\right]_1^e=(e-2e+2e)-2=e-2\\approx0.7183$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה של $\\ln^2x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)} - 2 x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} + 2 x \\log{\\left(x \\right)} + 2 x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)} + 2 x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(x \\right)}^{3}}{3}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "מציבים $\\int\\ln x\\,dx=x\\ln x-x$ בנוסחה הראשונה; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +644,75 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $\\frac{0}{0}$ ובחירה בכפל בצמוד",
+     "points": 2
+    },
+    {
+     "text": "המונה אחרי הכפל: $(3x-2)-(x+2)=2(x-2)$",
+     "points": 3
+    },
+    {
+     "text": "צמצום הגורם $x-2$ והגעה לביטוי $\\frac{2}{(x+2)(\\sqrt{3x-2}+\\sqrt{x+2})}$",
+     "points": 3
+    },
+    {
+     "text": "הצבה וחישוב הגבול $\\frac{1}{8}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $x=2$ ישירות ולכתוב $\\frac{0}{0}=0$ בלי לפתור את אי-הוודאות.",
+    "לכפול רק את המונה בצמוד ולא את המכנה, או לטעות ב-$(3x-2)-(x+2)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו המונה אחרי הכפל בצמוד $\\sqrt{3x-2}+\\sqrt{x+2}$ (מעל אותו מכנה)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$4 x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$4 x - 4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 x - 4$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$(\\sqrt{3x-2})^2-(\\sqrt{x+2})^2=(3x-2)-(x+2)=2x-4=2(x-2)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי צמצום $x-2$ המכנה הוא $(x+2)\\left(\\sqrt{3x-2}+\\sqrt{x+2}\\right)$. מה ערכו ב-$x=2$?",
+     "answer": 16,
+     "tol": 0.001,
+     "explain": "$(2+2)\\left(\\sqrt4+\\sqrt4\\right)=4\\cdot4=16$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול?",
+     "answer": 0.125,
+     "tol": 0.001,
+     "explain": "$\\frac{2}{16}=\\frac{1}{8}=0.125$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -100,7 +724,68 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חסימת המכנה: $1\\le2x^4+1\\le3$ בקטע $[-1,1]$",
+     "points": 3
+    },
+    {
+     "text": "חסימת האינטגרנד: $\\frac{1}{3}\\le\\frac{1}{2x^4+1}\\le1$",
+     "points": 3
+    },
+    {
+     "text": "שימוש במונוטוניות האינטגרל ובאורך הקטע $2$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $\\frac{2}{3}\\le\\int\\le2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפוך את כיוון אי-השוויונות בעת מעבר להופכי ולכתוב $1\\le\\frac{1}{2x^4+1}\\le3$.",
+    "לשכוח להכפיל באורך הקטע $2$ בקבלת הגבולות של האינטגרל."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך המינימלי של $\\frac{1}{2x^4+1}$ בקטע $[-1,1]$? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.001,
+     "explain": "המכנה מקסימלי ב-$x=\\pm1$ ושווה $3$, לכן המינימום הוא $\\frac{1}{3}\\approx0.3333$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך הקטע $[-1,1]$, שבו מכפילים את הגבולות?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "האורך הוא $1-(-1)=2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "לכל $x\\in[-1,1]$ מתקיים $0\\le x^4\\le1$, ולכן $1\\le2x^4+1\\le3$.",
+      "מכאן $\\frac{1}{3}\\le\\frac{1}{2x^4+1}\\le1$ לכל $x\\in[-1,1]$.",
+      "לפי מונוטוניות האינטגרל על קטע באורך $2$: $\\frac{1}{3}\\cdot2\\le\\int_{-1}^{1}\\frac{dx}{2x^4+1}\\le1\\cdot2$, כלומר $\\frac{2}{3}\\le\\int_{-1}^{1}\\frac{dx}{2x^4+1}\\le2$."
+     ],
+     "explain": "קודם חוסמים את המכנה, אחר כך את האינטגרנד, ואז מפעילים מונוטוניות של האינטגרל. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "לכל $x\\in[-1,1]$ מתקיים $0\\le x^4\\le1$, ולכן $1\\le2x^4+1\\le3$.",
+      "מכאן $1\\le\\frac{1}{2x^4+1}\\le3$ לכל $x\\in[-1,1]$.",
+      "לפי מונוטוניות האינטגרל על קטע באורך $2$: $\\frac{1}{3}\\cdot2\\le\\int_{-1}^{1}\\frac{dx}{2x^4+1}\\le1\\cdot2$, כלומר $\\frac{2}{3}\\le\\int_{-1}^{1}\\frac{dx}{2x^4+1}\\le2$."
+     ],
+     "bugIndex": 1,
+     "explain": "כאשר $1\\le2x^4+1\\le3$ ההופכי מקיים $\\frac{1}{3}\\le\\frac{1}{2x^4+1}\\le1$ (ההפכים מחליפים סדר), לא $1\\le\\cdots\\le3$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -112,7 +797,64 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $\\frac{0}{0}$ והפעלת לופיטל",
+     "points": 3
+    },
+    {
+     "text": "גזירת המונה לפי המשפט היסודי: $\\frac{x^2}{1+x^4}$",
+     "points": 3
+    },
+    {
+     "text": "צמצום וחישוב הגבול $\\frac{1}{3}$",
+     "points": 4
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות לחשב את האינטגרל $\\int\\frac{t^2}{1+t^4}dt$ במפורש במקום להשתמש במשפט היסודי ובלופיטל.",
+    "לשכוח את המכנה $3x^2$ כשגוזרים את $x^3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי נגזרת המונה $\\int_0^x\\frac{t^2}{1+t^4}dt$ לפי $x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{x^{4} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^{3}}{x^{4} + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{t^{2}}{t^{4} + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2 x}{x^{4} + 1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לפי המשפט היסודי של החשבון האינטגרלי, גוזרים את האינטגרנד ומציבים את הגבול העליון: $\\frac{x^2}{1+x^4}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול?",
+     "answer": 0.3333,
+     "tol": 0.001,
+     "explain": "$\\frac{x^2/(1+x^4)}{3x^2}=\\frac{1}{3(1+x^4)}\\to\\frac{1}{3}\\approx0.3333$ (נבדק ב-sympy דרך טור)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -124,7 +866,54 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הנוסחה $\\tan(x_0+\\Delta x)\\approx\\tan x_0+\\frac{1}{\\cos^2x_0}\\Delta x$",
+     "points": 3
+    },
+    {
+     "text": "המרת $3^\\circ$ לרדיאנים: $\\Delta x=\\frac{\\pi}{60}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\tan\\frac{\\pi}{4}=1$ ו-$\\frac{1}{\\cos^2\\frac{\\pi}{4}}=2$",
+     "points": 2
+    },
+    {
+     "text": "הקירוב $1+\\frac{\\pi}{30}\\approx1.1047$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $\\Delta x=3$ במעלות במקום ברדיאנים ($\\frac{\\pi}{60}$).",
+    "לשכוח שהנגזרת של $\\tan x$ היא $\\frac{1}{\\cos^2x}$ ולהשתמש ב-$\\cos x$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\Delta x$ ברדיאנים ($3^\\circ$)? (עשרוני)",
+     "answer": 0.0524,
+     "tol": 0.001,
+     "explain": "$3\\cdot\\frac{\\pi}{180}=\\frac{\\pi}{60}\\approx0.05236$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $\\frac{1}{\\cos^2\\frac{\\pi}{4}}$ (הנגזרת של $\\tan x$ ב-$\\frac{\\pi}{4}$)?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\cos^2\\frac{\\pi}{4}=\\frac{1}{2}$ ולכן הנגזרת $2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הקירוב של $\\tan48^\\circ$? (עשרוני)",
+     "answer": 1.1047,
+     "tol": 0.001,
+     "explain": "$1+2\\cdot\\frac{\\pi}{60}=1+\\frac{\\pi}{30}\\approx1.1047$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -136,7 +925,82 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודות החיתוך: $x=\\frac{1}{\\sqrt2}$ (בין $y=2x$ ל-$y=\\frac{1}{x}$) ו-$x=\\sqrt2$ (בין $y=\\frac{x}{2}$ ל-$y=\\frac{1}{x}$)",
+     "points": 3
+    },
+    {
+     "text": "זיהוי הגבולות: למטה $y=\\frac{x}{2}$, למעלה $y=2x$ ואחר כך $y=\\frac{1}{x}$",
+     "points": 2
+    },
+    {
+     "text": "הצבת שני אינטגרלים מתאימים",
+     "points": 2
+    },
+    {
+     "text": "חישוב השטח $\\ln2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת אינטגרל יחיד בין $y=2x$ ל-$y=\\frac{x}{2}$ ולהתעלם מכך שהגבול העליון מתחלף ל-$y=\\frac{1}{x}$.",
+    "לטעות בנקודת החיתוך של $y=\\frac{x}{2}$ עם $y=\\frac{1}{x}$: היא ב-$x=\\sqrt2$ ולא ב-$x=2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ה-$x$ של נקודת החיתוך של $y=2x$ עם $y=\\frac{1}{x}$ ברביע הראשון? (עשרוני)",
+     "answer": 0.7071,
+     "tol": 0.001,
+     "explain": "$2x=\\frac{1}{x}$ נותן $x^2=\\frac{1}{2}$, כלומר $x=\\frac{1}{\\sqrt2}\\approx0.7071$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הגבול העליון של התחום עבור $\\frac{1}{\\sqrt2}\\le x\\le\\sqrt2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=2x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=\\frac{1}{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=\\frac{x}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=\\frac{1}{x}+2x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בנקודה $x=1$ מתקיים $\\frac{x}{2}=0.5<\\frac{1}{x}=1<2x=2$. התחום חסום על ידי הנמוך מבין $2x$ ו-$\\frac{1}{x}$, כלומר $\\frac{1}{x}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו האינטגרל על $0\\le x\\le\\frac{1}{\\sqrt2}$ של $2x-\\frac{x}{2}$?",
+     "answer": 0.375,
+     "tol": 0.001,
+     "explain": "$\\frac{3x^2}{4}\\Big|_0^{1/\\sqrt2}=\\frac{3}{8}=0.375$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח הכולל? (עשרוני)",
+     "answer": 0.6931,
+     "tol": 0.001,
+     "explain": "$\\frac{3}{8}+\\left(\\ln2-\\frac{3}{8}\\right)=\\ln2\\approx0.6931$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

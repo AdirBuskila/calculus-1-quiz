@@ -15,7 +15,157 @@
    "solution": "**תחום ההגדרה:** $x\\neq 0$. מיון אי-רציפות ב-$x=0$:\n$$\\lim_{x\\to0^+}xe^{\\frac1x}=\\lim_{x\\to0^+}\\frac{e^{\\frac1x}}{\\frac1x}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to0^+}\\frac{\\left(e^{\\frac1x}\\right)'}{\\left(\\frac1x\\right)'}=\\lim_{x\\to0^+}\\frac{-\\frac{1}{x^2}e^{\\frac1x}}{-\\frac{1}{x^2}}=\\lim_{x\\to0^+}e^{\\frac1x}=+\\infty$$\n$$\\lim_{x\\to0^-}xe^{\\frac1x}=\\lim_{x\\to0^-}\\frac{e^{\\frac1x}}{\\frac1x}=\\left[\\frac{0}{\\infty}\\right]=0$$\nאז $x=0$ היא נקודת אי-רציפות מסוג שני. לכן $x=0$ היא אסימפטוטה אנכית.\n**אסימפטוטות משופעות/אופקיות** $y=ax+b$:\n$$a=\\lim_{x\\to\\pm\\infty}\\frac{xe^{\\frac1x}}{x}=\\lim_{x\\to\\pm\\infty}e^{\\frac1x}=1,$$\n$$b=\\lim_{x\\to\\pm\\infty}\\left(xe^{\\frac1x}-x\\right)=\\{\\infty-\\infty\\}=\\lim_{t\\to0}\\left(\\frac1te^t-\\frac1t\\right)=\\lim_{t\\to0}\\frac{e^t-1}{t}=\\lim_{t\\to0}\\frac{e^t}{1}=1$$\nלכן $y=x+1$ היא אסימפטוטה משופעת.\n**חקירה עם הנגזרת הראשונה:** תחומי עלייה וירידה, נקודות קיצון.\n$$f'(x)=\\left(xe^{\\frac1x}\\right)'=e^{\\frac1x}-\\frac{x}{x^2}e^{\\frac1x}=e^{\\frac1x}\\frac{x-1}{x}$$\nטבלת סימנים של $f'$: חיובית ב-$x<0$ (עולה), שלילית ב-$0<x<1$ (יורדת), חיובית ב-$x>1$ (עולה).\nנקודת מינימום מקומי: $x=1$, $f(1)=e$.\n**תחומי קמירות, נקודות פיתול:**\n$$f''(x)=\\left(e^{\\frac1x}\\left(1-\\frac1x\\right)\\right)'=-\\frac{1}{x^2}e^{\\frac1x}\\left(1-\\frac1x\\right)+e^{\\frac1x}\\frac{1}{x^2}=e^{\\frac1x}\\frac{1}{x^2}\\left(-1+\\frac1x+1\\right)=e^{\\frac1x}\\frac{1}{x^3}$$\nטבלת סימנים של $f''$: שלילית ב-$x<0$ (קעורה), חיובית ב-$x>0$ (קמורה). אין נקודות פיתול כי $x=0$ אינה בתחום ההגדרה.\nסקיצה של הגרף:\n![סקיצה של הגרף y = x·e^(1/x) עם האסימפטוטה האנכית x=0, האסימפטוטה המשופעת y=x+1 והמינימום ב-x=1](images/exams/20A-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq0$ ומיון אי-רציפות ב-$x=0$: הגבול מימין $+\\infty$ ומשמאל $0$, ולכן מסוג שני עם אסימפטוטה אנכית",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטה משופעת $y=x+1$ ב-$\\pm\\infty$ (חישוב $a=1$, $b=1$)",
+     "points": 4
+    },
+    {
+     "text": "נגזרת $f'(x)=e^{1/x}\\frac{x-1}{x}$, טבלת סימנים ומינימום מקומי $f(1)=e$",
+     "points": 5
+    },
+    {
+     "text": "$f''(x)=\\frac{e^{1/x}}{x^3}$, קעירות ב-$x<0$ וקמירות ב-$x>0$, ללא נקודות פיתול",
+     "points": 4
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$x=0$ היא אסימפטוטה אנכית משני הצדדים. משמאל $f(x)\\to0$, ורק מימין $f\\to+\\infty$.",
+    "לחשב את חותך האסימפטוטה בטעות כ-$0$: $\\lim\\left(xe^{1/x}-x\\right)=\\lim\\frac{e^t-1}{t}=1$ בהצבה $t=\\frac1x$.",
+    "לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=xe^{1/x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 1\\right) e^{\\frac{1}{x}}}{x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(x + 1\\right) e^{\\frac{1}{x}}}{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 1\\right) e^{\\frac{1}{x}}}{x^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$e^{\\frac{1}{x}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המכפלה: $f'(x)=e^{1/x}-\\frac{1}{x}e^{1/x}=e^{1/x}\\frac{x-1}{x}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $f(1)$ בנקודת המינימום המקומי? (עשרוני)",
+     "answer": 2.7183,
+     "tol": 0.001,
+     "explain": "$f(1)=1\\cdot e^1=e\\approx2.7183$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת השנייה של $f$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{e^{\\frac{1}{x}}}{x^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{e^{\\frac{1}{x}}}{x^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{e^{\\frac{1}{x}}}{x^{3}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 1\\right) e^{\\frac{1}{x}}}{x^{3}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "גוזרים את $f'(x)=e^{1/x}\\left(1-\\frac{1}{x}\\right)$ ומקבלים $f''(x)=\\frac{e^{1/x}}{x^3}$, שסימנה כסימן $x$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "כיצד מתנהגת הפונקציה ליד $x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אי-רציפות סליקה, כי שני הגבולות החד-צדדיים שווים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אי-רציפות מסוג ראשון, כי שני הגבולות החד-צדדיים סופיים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אי-רציפות מסוג שני: מימין $f\\to+\\infty$ ומשמאל $f\\to0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אסימפטוטה אנכית משני הצדדים, כי $f\\to\\infty$ משני הצדדים"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to0^+}xe^{1/x}=+\\infty$ ו-$\\lim_{x\\to0^-}xe^{1/x}=0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=x-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=x+e$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=x+1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$a=\\lim e^{1/x}=1$ ו-$b=\\lim\\left(xe^{1/x}-x\\right)=\\lim_{t\\to0}\\frac{e^t-1}{t}=1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -27,7 +177,64 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "שימוש בחסימות $-1\\le\\cos2n\\le1$",
+     "points": 2
+    },
+    {
+     "text": "חישוב הגבול $\\lim\\frac{n+\\sqrt[3]{1-n^6}}{1+n^3}=0$ באמצעות חלוקה בחזקה הגבוהה",
+     "points": 5
+    },
+    {
+     "text": "מסקנה: מכפלה של סדרה חסומה בסדרה השואפת ל-$0$ שואפת ל-$0$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהגבול אינו קיים כי $\\cos2n$ אינה מתכנסת. מכפלה בסדרה שואפת ל-$0$ מבטלת את התנודה.",
+    "לחלק ב-$n^3$ ולטעות בפירוק $\\sqrt[3]{1-n^6}\\sim-n^2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה $\\frac{n+\\sqrt[3]{1-n^6}}{1+n^3}$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "המונה מסדר $n^2$ והמכנה מסדר $n^3$, לכן הגבול $0$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו גבול הסדרה $\\frac{n+\\sqrt[3]{1-n^6}}{1+n^3}\\cos(2n)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינו קיים, כי $\\cos2n$ אינה מתכנסת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "קיים ושווה לערך כלשהו בין $-1$ ל-$1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\left|a_n\\cos2n\\right|\\le|a_n|\\to0$, ולכן לפי כלל הסנדוויץ' הגבול הוא $0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -39,7 +246,91 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "תנאי משיק אופקי $y'=0$ ותנאי פיתול $y''=0$ בנקודה אחת",
+     "points": 3
+    },
+    {
+     "text": "פתרון $y''=0$: $x=-\\frac{b}{3a}$ (שימוש ב-$a\\neq0$)",
+     "points": 3
+    },
+    {
+     "text": "הצבה ב-$y'=0$ ופישוט עד $c=\\frac{b^2}{3a}$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה $b^2=3ac$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בתנאי $y'=0$ בלבד, בלי התנאי השני $y''=0$ שקובע את $x$.",
+    "לחלק ב-$a$ בלי לציין ש-$a\\neq0$, או לטעות במקדם ב-$x=-\\frac{b}{3a}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו ערך $x$ שבו $y''=6ax+2b$ מתאפסת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{b}{2 a}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{b}{3 a}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{b}{6 a}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{2 b}{3 a}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$6ax+2b=0$ נותן $x=-\\frac{2b}{6a}=-\\frac{b}{3a}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $a=2$ ו-$b=6$ מצאו את $c$ המקיים את התנאי של הנקודה.",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$c=\\frac{b^2}{3a}=\\frac{36}{6}=6$, כלומר $b^2=3ac$ ($36=3\\cdot2\\cdot6$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "משיק אופקי אומר $y'=3ax^2+2bx+c=0$, ופיתול אומר $y''=6ax+2b=0$, באותו ערך $x$.",
+      "מ-$6ax+2b=0$ ומ-$a\\neq0$ מקבלים $x=-\\frac{b}{3a}$.",
+      "מציבים ב-$y'=0$: $3a\\cdot\\frac{b^2}{9a^2}-\\frac{2b^2}{3a}+c=0$, כלומר $-\\frac{b^2}{3a}+c=0$.",
+      "מכאן $b^2=3ac$."
+     ],
+     "explain": "קודם שני התנאים, אחר כך חילוץ $x$ מהתנאי השני, הצבה בראשון ומסקנה. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "משיק אופקי אומר $y'=3ax^2+2bx+c=0$, ופיתול אומר $y''=6ax+2b=0$, באותו ערך $x$.",
+      "מ-$6ax+2b=0$ ומ-$a\\neq0$ מקבלים $x=-\\frac{b}{2a}$.",
+      "מציבים ב-$y'=0$: $3a\\cdot\\frac{b^2}{9a^2}-\\frac{2b^2}{3a}+c=0$, כלומר $-\\frac{b^2}{3a}+c=0$.",
+      "מכאן $b^2=3ac$."
+     ],
+     "bugIndex": 1,
+     "explain": "$6ax+2b=0$ נותן $x=-\\frac{2b}{6a}=-\\frac{b}{3a}$, לא $-\\frac{b}{2a}$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -51,7 +342,71 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $1^{\\infty}$ ובניית החזקה $\\frac{1}{\\cos x-1}\\cdot\\frac{\\cos x-1}{\\sin^2 2x}$",
+     "points": 4
+    },
+    {
+     "text": "חישוב $\\lim\\frac{\\cos x-1}{\\sin^22x}=-\\frac18$ (באמצעות $1-\\cos x=2\\sin^2\\frac x2$)",
+     "points": 4
+    },
+    {
+     "text": "מסקנה: הגבול $e^{-1/8}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $1^{\\infty}=1$.",
+    "לטעות בקירוב $\\sin^22x\\approx4x^2$ ולקבל $-\\frac{1}{4}$ או $-\\frac{1}{2}$ במקום $-\\frac18$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי צורת אי-הוודאות של $\\lim_{x\\to0}(\\cos x)^{\\frac{1}{\\sin^22x}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $\\cos x\\to1$ והחזקה $\\frac{1}{\\sin^22x}\\to\\infty$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\frac{\\cos x-1}{\\sin^22x}$? (עשרוני)",
+     "answer": -0.125,
+     "tol": 0.001,
+     "explain": "$\\cos x-1\\approx-\\frac{x^2}{2}$ ו-$\\sin^22x\\approx4x^2$, לכן הגבול $-\\frac{1}{8}=-0.125$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול המבוקש? (עשרוני)",
+     "answer": 0.8825,
+     "tol": 0.001,
+     "explain": "$e^{-1/8}\\approx0.8825$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -63,7 +418,99 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\ln x$, $dt=\\frac{dx}{x}$",
+     "points": 3
+    },
+    {
+     "text": "פירוק המכנה $t^2-5t+6=(t-2)(t-3)$ ושברים חלקיים: $A=-1$, $B=1$",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה וחזרה ל-$x$: $\\ln\\left|\\frac{\\ln x-3}{\\ln x-2}\\right|+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $\\frac{1}{x}$ שהופך ל-$dt$ ולהשאיר $x$ באינטגרל.",
+    "להחליף את סימני $A$ ו-$B$ ולקבל את ההופכי בתוך הלוגריתם."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\ln^2x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\frac{1}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\ln x$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפתרון הרשמי מציב $t=\\ln x$, ולכן $dt=\\frac{dx}{x}$ והאינטגרל נהיה $\\int\\frac{dt}{t^2-5t+6}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפירוק $\\frac{1}{(t-2)(t-3)}=\\frac{A}{t-2}+\\frac{B}{t-3}$, מהו $A$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "הצבת $t=2$ ב-$1=A(t-3)+B(t-2)$ נותנת $1=-A$, כלומר $A=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $B$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הצבת $t=3$ נותנת $1=B$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה (בתחום $\\ln x>3$, בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(\\frac{\\log{\\left(x \\right)} - 3}{\\log{\\left(x \\right)} - 2} \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\log{\\left(\\frac{\\log{\\left(x \\right)} - 2}{\\log{\\left(x \\right)} - 3} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\log{\\left(\\log{\\left(x \\right)} - 3 \\right)} + \\log{\\left(\\log{\\left(x \\right)} - 2 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\log{\\left(\\log{\\left(x \\right)}^{2} - 5 \\log{\\left(x \\right)} + 6 \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$-\\ln|t-2|+\\ln|t-3|=\\ln\\left|\\frac{t-3}{t-2}\\right|$ עם $t=\\ln x$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -75,7 +522,71 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול השמאלי: $\\frac{1}{\\sqrt2-1}-\\sqrt2=1$",
+     "points": 3
+    },
+    {
+     "text": "הגבול הימני: פיצול ל-$\\frac{\\sqrt{1+ax}-1}{x}+\\frac{1-\\cos x}{x}$ וחישוב $\\frac{a}{2}$",
+     "points": 4
+    },
+    {
+     "text": "השוואה: $\\frac{a}{2}=1$ ולכן $a=2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שההגדרה ב-$x=0$ היא מהענף $x\\le0$, ולכן גם $f(0)=1$ ולא רק הגבול השמאלי.",
+    "לחשב את $\\lim\\frac{\\sqrt{1+ax}-\\cos x}{x}$ בלי פיצול ולקבל $\\frac{0}{0}$ בלי לפתור."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול השמאלי $\\lim_{x\\to0^-}f(x)$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{\\sqrt2-1}-\\sqrt2=\\sqrt2+1-\\sqrt2=1$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הגבול הימני $\\lim_{x\\to0^+}\\frac{\\sqrt{1+ax}-\\cos x}{x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{a}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2a$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\frac{\\sqrt{1+ax}-1}{x}\\to\\frac{a}{2}$ ו-$\\frac{1-\\cos x}{x}\\to0$ (נבדק ב-sympy עבור $a$ סמלי)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a$ שעבורו $f$ רציפה ב-$x=0$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\frac{a}{2}=1$ נותן $a=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -87,7 +598,64 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת אורך הקשת $l=\\int_{-2}^{2}\\sqrt{1+(y')^2}\\,dx$ ונגזרת $y'=\\frac{e^x-e^{-x}}{2}$",
+     "points": 3
+    },
+    {
+     "text": "$1+(y')^2=\\left(\\frac{e^x+e^{-x}}{2}\\right)^2$ והוצאת שורש",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה וחישוב $l=e^2-e^{-2}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוציא שורש מ-$\\left(\\frac{e^x+e^{-x}}{2}\\right)^2$ בלי לשים לב שהביטוי חיובי, ולכתוב ערך מוחלט מיותר.",
+    "לשכוח שהקטע הוא $[-2,2]$ ולחשב רק מ-$0$ עד $2$ בלי להכפיל ב-$2$ (הפונקציה זוגית)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו $1+(y')^2$ עבור $y=\\frac{e^x+e^{-x}}{2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(\\frac{e^{x}}{2} - \\frac{e^{- x}}{2}\\right)^{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{e^{x}}{2} + \\frac{e^{- x}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(\\frac{e^{x}}{2} + \\frac{e^{- x}}{2}\\right)^{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{e^{x}}{2} + 1 - \\frac{e^{- x}}{2}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$1+\\frac{e^{2x}-2+e^{-2x}}{4}=\\frac{e^{2x}+2+e^{-2x}}{4}=\\left(\\frac{e^x+e^{-x}}{2}\\right)^2$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך הקשת? (עשרוני)",
+     "answer": 7.2537,
+     "tol": 0.001,
+     "explain": "$\\int_{-2}^{2}\\frac{e^x+e^{-x}}{2}dx=e^2-e^{-2}\\approx7.2537$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -99,7 +667,84 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "שימוש בהגדרת הנגזרת וחישוב $f(a)=0$",
+     "points": 2
+    },
+    {
+     "text": "פישוט מנת ההפרשים ל-$\\frac{|\\Delta x|}{\\Delta x}g(a+\\Delta x)$",
+     "points": 3
+    },
+    {
+     "text": "נימוק: הגורם הראשון חסום והשני שואף ל-$0$ (רציפות $g$ ו-$g(a)=0$)",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: $f$ גזירה ו-$f'(a)=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$|x-a|$ אינה גזירה ב-$a$ ולכן גם המכפלה אינה גזירה. כאן הגורם $g(x)$ מתאפס ב-$a$.",
+    "לחשב את הגבול של $\\frac{|\\Delta x|}{\\Delta x}$ בנפרד ולטעון שהוא לא קיים, בלי להשתמש בכך שהוא חסום."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה ידוע על $\\frac{|\\Delta x|}{\\Delta x}$ כאשר $\\Delta x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הגבול שלו הוא $1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הגבול שלו הוא $0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוא אינו חסום"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין לו גבול (הוא $1$ מימין ו-$-1$ משמאל), אך הוא חסום"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הביטוי שווה $1$ עבור $\\Delta x>0$ ו-$-1$ עבור $\\Delta x<0$ (נבדק ב-sympy), ולכן חסום ללא גבול."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "מההגדרה $f'(a)=\\lim_{\\Delta x\\to0}\\frac{f(a+\\Delta x)-f(a)}{\\Delta x}$, ומתקיים $f(a)=|0|\\cdot g(a)=0$.",
+      "לכן $\\frac{f(a+\\Delta x)-f(a)}{\\Delta x}=\\frac{|\\Delta x|}{\\Delta x}\\,g(a+\\Delta x)$.",
+      "הגורם $\\frac{|\\Delta x|}{\\Delta x}$ חסום בין $-1$ ל-$1$, ו-$g(a+\\Delta x)\\to g(a)=0$ כי $g$ רציפה ב-$a$.",
+      "מכפלה של חסום בשואף ל-$0$ שואפת ל-$0$, ולכן $f$ גזירה ב-$a$ ו-$f'(a)=0$."
+     ],
+     "explain": "קודם ההגדרה ו-$f(a)$, אחר כך פישוט מנת ההפרשים, אחר כך נימוק הגבול ולבסוף המסקנה. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "מההגדרה $f'(a)=\\lim_{\\Delta x\\to0}\\frac{f(a+\\Delta x)-f(a)}{\\Delta x}$, ומתקיים $f(a)=|0|\\cdot g(a)=0$.",
+      "לכן $\\frac{f(a+\\Delta x)-f(a)}{\\Delta x}=\\frac{|\\Delta x|}{\\Delta x}\\,g(a)$.",
+      "הגורם $\\frac{|\\Delta x|}{\\Delta x}$ חסום בין $-1$ ל-$1$, ו-$g(a+\\Delta x)\\to g(a)=0$ כי $g$ רציפה ב-$a$.",
+      "מכפלה של חסום בשואף ל-$0$ שואפת ל-$0$, ולכן $f$ גזירה ב-$a$ ו-$f'(a)=0$."
+     ],
+     "bugIndex": 1,
+     "explain": "$f(a+\\Delta x)=|\\Delta x|\\,g(a+\\Delta x)$ ולכן הגורם הוא $g(a+\\Delta x)$ ולא $g(a)$ (שהוא $0$ ומוחק את כל הביטוי בלי הצדקה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -111,7 +756,120 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $x=t^4$, $dx=4t^3dt$",
+     "points": 3
+    },
+    {
+     "text": "פישוט האינטגרנד ל-$\\frac{4}{t(t+2)}$ ופירוק לשברים חלקיים ($A=\\frac12$, $B=-\\frac12$)",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה וחזרה ל-$x$: $\\frac12\\ln x-2\\ln\\left(\\sqrt[4]{x}+2\\right)+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור הצבה שאינה מבטלת את כל השורשים בבת אחת (למשל $t=\\sqrt{x}$ בלבד); הדרוש הוא $x=t^4$.",
+    "לשכוח את הגורם $4t^3$ של $dx$ או את הגורם $4$ בפירוק."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x=t^4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x=t^2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\ln x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=t^3$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מציב $x=t^4$ כך שגם $\\sqrt{x}=t^2$ וגם $\\sqrt[4]{x}=t$ הופכים לחזקות שלמות."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד אחרי ההצבה $x=t^4$ (כולל $dx=4t^3dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{tp \\left(tp + 2\\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{4}{tp \\left(tp + 2\\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{4}{tp^{2} \\left(tp + 2\\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{4 tp}{tp + 2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\frac{4t^3}{t^3\\left(t^2+2t\\right)}=\\frac{4}{t(t+2)}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בפירוק $\\frac{1}{t(t+2)}=\\frac{A}{t}+\\frac{B}{t+2}$, מהו $A$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "הצבת $t=0$ ב-$1=A(t+2)+Bt$ נותנת $1=2A$, כלומר $A=\\frac12$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה (בתחום $x>0$, בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(xp \\right)} - 2 \\log{\\left(\\sqrt[4]{xp} + 2 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(xp \\right)}}{2} + 2 \\log{\\left(\\sqrt[4]{xp} + 2 \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(xp \\right)}}{2} - 2 \\log{\\left(\\sqrt[4]{xp} + 2 \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(xp \\right)}}{2} - 2 \\log{\\left(\\sqrt{xp} + 2 \\right)}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$2\\left(\\ln t-\\ln(t+2)\\right)=\\frac12\\ln x-2\\ln\\left(\\sqrt[4]{x}+2\\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -123,7 +881,103 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\ge2$",
+     "points": 1
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{3-x}{2\\sqrt{x-2}}e^{-x/2}$",
+     "points": 4
+    },
+    {
+     "text": "הנקודה הקריטית $x=3$ ובדיקת סימן הנגזרת משני צדיה",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: מקסימום מקומי ב-$x=3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את תחום ההגדרה $x\\ge2$ ולבדוק נקודות מחוץ אליו.",
+    "לטעות בכיוון החלפת הסימן: $f'>0$ לפני $x=3$ ו-$f'<0$ אחריה, כלומר מקסימום ולא מינימום."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=\\sqrt{x-2}\\,e^{-x/2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 3\\right) e^{- \\frac{x}{2}}}{2 \\sqrt{x - 2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(3 - x\\right) e^{\\frac{x}{2}}}{2 \\sqrt{x - 2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(3 - x\\right) e^{- \\frac{x}{2}}}{\\sqrt{x - 2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left(3 - x\\right) e^{- \\frac{x}{2}}}{2 \\sqrt{x - 2}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "כלל המכפלה: $\\frac{e^{-x/2}}{2\\sqrt{x-2}}-\\frac{\\sqrt{x-2}}{2}e^{-x/2}=\\frac{(3-x)e^{-x/2}}{2\\sqrt{x-2}}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנקודה הקריטית של $f$ בתחום $x>2$?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$3-x=0$ נותן $x=3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איך משתנה סימן $f'$ במעבר דרך $x=3$ ומה סוג הקיצון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מחיובי לשלילי, ולכן מקסימום מקומי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משלילי לחיובי, ולכן מינימום מקומי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מחיובי לשלילי, ולכן מינימום מקומי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינו משתנה, ולכן אין קיצון"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עבור $2<x<3$ נקבל $f'>0$ ועבור $x>3$ נקבל $f'<0$ (נבדק ב-sympy), כלומר מקסימום מקומי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך $f(3)$? (עשרוני)",
+     "answer": 0.2231,
+     "tol": 0.001,
+     "explain": "$f(3)=\\sqrt1\\cdot e^{-3/2}=e^{-1.5}\\approx0.2231$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -135,7 +989,99 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת הנפח $V=\\pi\\int_2^3f^2(x)\\,dx$ והגבולות $2\\le x\\le3$",
+     "points": 3
+    },
+    {
+     "text": "פישוט $f^2(x)=(x-2)e^{-x}$ ואינטגרציה בחלקים",
+     "points": 4
+    },
+    {
+     "text": "הצבת הגבולות: $V=\\pi\\left(e^{-2}-2e^{-3}\\right)$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את ההעלאה בריבוע ולחשב $\\pi\\int f\\,dx$.",
+    "להשתמש בגבולות לא נכונים: התחום מתחיל ב-$x=2$ (קצה תחום ההגדרה) ונגמר ב-$x=3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו $f^2(x)$ עבור $f(x)=\\sqrt{x-2}\\,e^{-x/2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\sqrt{x - 2} e^{- x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(x - 2\\right) e^{- x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(x - 2\\right) e^{- \\frac{x}{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(x - 2\\right)^{2} e^{- x}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$f^2=(x-2)e^{-x}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי פונקציה קדומה של $(x-2)e^{-x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(x - 1\\right) e^{- x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(2 - x\\right) e^{- x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(1 - x\\right) e^{- x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- x e^{- x}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "באינטגרציה בחלקים: $-(x-2)e^{-x}-e^{-x}=-(x-1)e^{-x}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_2^3(x-2)e^{-x}dx$? (עשרוני)",
+     "answer": 0.0358,
+     "tol": 0.001,
+     "explain": "$G(3)-G(2)=-2e^{-3}+e^{-2}\\approx0.0358$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V=\\pi\\int_2^3(x-2)e^{-x}dx$? (עשרוני)",
+     "answer": 0.1123,
+     "tol": 0.001,
+     "explain": "$V=\\pi\\left(e^{-2}-2e^{-3}\\right)\\approx0.1124$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

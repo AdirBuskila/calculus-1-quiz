@@ -15,7 +15,136 @@
    "solution": "נחקור את הפונקציה לפי הסעיפים הבאים:\n**תחום ההגדרה:** $x\\neq 0$, ונמצא את הגבולות החד-צדדיים ב-$0$:\n$$\\lim_{x\\to0^-}\\frac{e^{2x}}{x}=-\\infty,\\qquad \\lim_{x\\to0^+}\\frac{e^{2x}}{x}=+\\infty$$\nלכן הנקודה $x=0$ היא נקודת אי-רציפות מסוג שני, ואז $x=0$ היא אסימפטוטה אנכית לגרף הפונקציה.\n**אסימפטוטות:** נמצא אסימפטוטות משופעות/אופקיות עבור $x\\to+\\infty$ ו-$x\\to-\\infty$ כי התנהגות של $e^{2x}$ עבור השאיפות אלו שונה.\n$$k_1=\\lim_{x\\to+\\infty}\\frac{f(x)}{x}=\\lim_{x\\to+\\infty}\\frac{e^{2x}}{x^2}=\\left\\{\\frac{\\infty}{\\infty}\\right\\}=\\lim_{x\\to+\\infty}\\frac{2e^{2x}}{2x}=\\lim_{x\\to+\\infty}\\frac{e^{2x}}{x}=\\left\\{\\frac{\\infty}{\\infty}\\right\\}=\\lim_{x\\to+\\infty}\\frac{2e^{2x}}{1}=\\infty$$\n$$k_2=\\lim_{x\\to-\\infty}\\frac{f(x)}{x}=\\lim_{x\\to-\\infty}\\frac{e^{2x}}{x^2}=0,\\qquad b_2=\\lim_{x\\to-\\infty}\\left(f(x)-k_2x\\right)=\\lim_{x\\to-\\infty}\\frac{e^{2x}}{x}=0$$\nלגרף הפונקציה אין אסימפטוטות ימניות, אך יש אסימפטוטה אופקית שמאלית $y=0$.\n**זוגיות:** הפונקציה אינה בעלת זוגיות מוגדרת כי $f(-x)=-\\frac{e^{-2x}}{x}\\neq f(x)$ ו-$f(-x)=-\\frac{e^{-2x}}{x}\\neq -f(x)$.\n**מונוטוניות וקיצון מקומי:**\n$$f'(x)=\\frac{2e^{2x}x-e^{2x}}{x^2}=\\frac{e^{2x}(2x-1)}{x^2},\\qquad f'(x)=0\\ \\Rightarrow\\ x=\\frac{1}{2}$$\nטבלת סימנים של $f'$: שלילית ב-$x<0$ (ויורדת), שלילית ב-$0<x<\\frac12$ (ויורדת), חיובית ב-$x>\\frac12$ (עולה).\nהנקודה $x=\\frac{1}{2}$ היא נקודת מינימום מקומי ו-$f\\left(\\frac12\\right)=2e$.\n**קמירות/קעירות ונקודות פיתול:**\n$$f''(x)=\\frac{\\left(2e^{2x}(2x-1)+2e^{2x}\\right)x^2-e^{2x}(2x-1)2x}{x^4}=\\frac{2e^{2x}\\left(2x^2-2x+1\\right)}{x^3},\\qquad f''(x)\\neq0$$\nטבלת סימנים של $f''$: שלילית ב-$x<0$ (הפונקציה קעורה), חיובית ב-$x>0$ (הפונקציה קמורה).\nהנקודה $x=0$ אינה בתחום ההגדרה ולכן אין נקודות פיתול. נשרטט את הגרף:\n![שרטוט הגרף של y = e^(2x)/x עם האסימפטוטה האנכית x=0, האסימפטוטה השמאלית y=0 והמינימום ב-x=1/2](images/exams/20B-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq0$ וסיווג $x=0$ כאי-רציפות מסוג שני עם אסימפטוטה אנכית",
+     "points": 3
+    },
+    {
+     "text": "אסימפטוטות באינסוף: אין ב-$+\\infty$ ($k=\\infty$), ואופקית $y=0$ ב-$-\\infty$",
+     "points": 4
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{e^{2x}(2x-1)}{x^2}$, טבלת סימנים ומינימום מקומי $f\\left(\\frac12\\right)=2e$",
+     "points": 5
+    },
+    {
+     "text": "$f''(x)=\\frac{2e^{2x}(2x^2-2x+1)}{x^3}$, קמירות וקעירות ואין נקודות פיתול",
+     "points": 5
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שיש אסימפטוטה אופקית $y=0$ גם ב-$+\\infty$: שם $\\frac{e^{2x}}{x}\\to\\infty$ ואין אסימפטוטה בכלל.",
+    "לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה.",
+    "לשכוח שהמונה $2x^2-2x+1$ של $f''$ חיובי תמיד (דיסקרימיננטה שלילית), ולכן הסימן נקבע לפי $x^3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=\\frac{e^{2x}}{x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(2 x - 1\\right) e^{2 x}}{x^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(2 x + 1\\right) e^{2 x}}{x^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(2 x - 1\\right) e^{2 x}}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2 e^{2 x}}{x^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המנה: $f'(x)=\\frac{2e^{2x}x-e^{2x}}{x^2}=\\frac{e^{2x}(2x-1)}{x^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ה-$x$ של נקודת המינימום המקומי?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$f'(x)=0$ נותן $2x-1=0$, כלומר $x=\\frac{1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f\\left(\\frac{1}{2}\\right)$? (עשרוני)",
+     "answer": 5.4366,
+     "tol": 0.001,
+     "explain": "$f\\left(\\frac12\\right)=\\frac{e}{1/2}=2e\\approx5.4366$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת השנייה של $f$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{2 \\left(2 x^{2} + 2 x + 1\\right) e^{2 x}}{x^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2 \\left(2 x^{2} - 2 x + 1\\right) e^{2 x}}{x^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{2 \\left(2 x^{2} - 2 x + 1\\right) e^{2 x}}{x^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{4 e^{2 x}}{x^{3}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "גוזרים את $f'$ בכלל המנה ומקבלים $f''(x)=\\frac{2e^{2x}(2x^2-2x+1)}{x^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של הגרף?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנכית $x=0$ ואופקית $y=0$ גם ב-$+\\infty$ וגם ב-$-\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית $x=0$ ואסימפטוטה משופעת ב-$+\\infty$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית $x=0$ ואופקית $y=0$ רק ב-$-\\infty$; אין אסימפטוטה ב-$+\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אופקית $y=0$ בלבד"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to-\\infty}f=0$, $\\lim_{x\\to+\\infty}f=\\infty$ ו-$\\lim_{x\\to+\\infty}\\frac{f}{x}=\\infty$ (אין שיפוע סופי); בנוסף $\\lim_{x\\to0^\\pm}f=\\pm\\infty$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -27,7 +156,94 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחה באינדוקציה ש-$1<a_n<2$ (בסיס וצעד)",
+     "points": 3
+    },
+    {
+     "text": "חישוב $a_{n+1}-a_n=\\frac{(2-a_n)(a_n-1)}{a_n}>0$ ומסקנה שהסדרה עולה",
+     "points": 3
+    },
+    {
+     "text": "מסקנה מונוטוניות וחסימות: הסדרה מתכנסת",
+     "points": 1
+    },
+    {
+     "text": "מעבר לגבול בנוסחת הנסיגה: $L^2-3L+2=0$ ובחירה נכונה $L=2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $L=1$ בלי לשים לב שסדרה עולה המתחילה מ-$\\frac{3}{2}$ לא יכולה להתכנס לערך קטן ממנה.",
+    "לעבור לגבול בנוסחת הנסיגה לפני שהוכחנו שהסדרה מתכנסת.",
+    "להניח $a_n>0$ במקום להוכיח את החסימה $1<a_n<2$, שממנה נובע סימן הפרש."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$? (עשרוני)",
+     "answer": 1.6667,
+     "tol": 0.001,
+     "explain": "$a_2=3-\\frac{2}{3/2}=3-\\frac{4}{3}=\\frac{5}{3}\\approx1.6667$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $a_{n+1}-a_n$ בצורה מפורקת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(2 - a_{n}\\right) \\left(a_{n} + 1\\right)}{a_{n}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(a_{n} - 2\\right) \\left(a_{n} - 1\\right)}{a_{n}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(2 - a_{n}\\right) \\left(a_{n} - 1\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left(2 - a_{n}\\right) \\left(a_{n} - 1\\right)}{a_{n}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$3-\\frac{2}{a_n}-a_n=\\frac{-a_n^2+3a_n-2}{a_n}=\\frac{(2-a_n)(a_n-1)}{a_n}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$1<a_n<2$ לכל $n$: עבור $n=1$ מתקיים $a_1=\\frac{3}{2}$.",
+      "אם $1<a_k<2$ אז $1<\\frac{2}{a_k}<2$, ולכן $1<3-\\frac{2}{a_k}<2$, כלומר $1<a_{k+1}<2$.",
+      "לכן $a_{n+1}-a_n=\\frac{(2-a_n)(a_n-1)}{a_n}>0$, והסדרה עולה.",
+      "סדרה עולה וחסומה מתכנסת, ונסמן את גבולה ב-$L$.",
+      "מנוסחת הנסיגה $L=3-\\frac{2}{L}$, כלומר $L^2-3L+2=0$ ו-$L=1$ או $L=2$. הסדרה עולה מ-$a_1=\\frac{3}{2}$, ולכן $L=2$."
+     ],
+     "explain": "חסימה באינדוקציה, אחר כך מונוטוניות (שנשענת על החסימה), התכנסות, ולבסוף מציאת הגבול. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$1<a_n<2$ לכל $n$: עבור $n=1$ מתקיים $a_1=\\frac{3}{2}$.",
+      "אם $1<a_k<2$ אז $1<\\frac{2}{a_k}<2$, ולכן $1<3-\\frac{2}{a_k}<2$, כלומר $1<a_{k+1}<2$.",
+      "לכן $a_{n+1}-a_n=\\frac{(2-a_n)(a_n-1)}{a_n}>0$, והסדרה עולה.",
+      "סדרה עולה וחסומה מתכנסת, ונסמן את גבולה ב-$L$.",
+      "מנוסחת הנסיגה $L=3-\\frac{2}{L}$, כלומר $L^2-3L+2=0$ ו-$L=1$ או $L=2$. הסדרה עולה מ-$a_1=\\frac{3}{2}$, ולכן $L=1$."
+     ],
+     "bugIndex": 4,
+     "explain": "הסדרה עולה ו-$a_1=\\frac{3}{2}>1$, לכן $L\\ge\\frac{3}{2}$ ו-$L=1$ אינו אפשרי; נכון $L=2$ (הסדרה מתקרבת ל-$2$ בחישוב ישיר)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -39,7 +255,104 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודות ההשקה שונות: $x_1$ עבור $f$ ו-$x_2$ עבור $g$ (בגלל שהשיפועים ב-$(1,1)$ שונים)",
+     "points": 2
+    },
+    {
+     "text": "משוואות המשיקים: $y=-\\frac{1}{x_1^2}x+\\frac{2}{x_1}$ ו-$y=2x_2x-x_2^2$",
+     "points": 3
+    },
+    {
+     "text": "השוואת שיפועים ומשוואות חופשיים: $-\\frac{1}{x_1^2}=2x_2$ ו-$\\frac{2}{x_1}=-x_2^2$",
+     "points": 2
+    },
+    {
+     "text": "פתרון $x_1=-\\frac12$, $x_2=-2$ והמשיק $y=-4x-4$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שהמשיק עובר בנקודת החיתוך $(1,1)$ של הגרפים. שם השיפועים שונים ($-1$ ו-$2$), ולכן אין משיק משותף בה.",
+    "להשתמש באותו $x$ עבור שתי הפונקציות במקום $x_1$ ו-$x_2$ נפרדים.",
+    "לטעות בחותך של המשיק ל-$x^2$: הוא $-x_2^2$ ולא $+x_2^2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו שתי משוואות מבטאות שישר הוא משיק גם ל-$f(x)=\\frac{1}{x}$ בנקודה $x_1$ וגם ל-$g(x)=x^2$ בנקודה $x_2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$-\\frac{1}{x_1^2}=2x_2$ ו-$\\frac{2}{x_1}=-x_2^2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$-\\frac{1}{x_1^2}=2x_2$ ו-$\\frac{2}{x_1}=x_2^2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{x_1}=x_2^2$ ו-$-\\frac{1}{x_1^2}=2x_2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x_1=x_2$ ו-$-\\frac{1}{x_1^2}=2x_1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המשיקים הם $y=-\\frac{x}{x_1^2}+\\frac{2}{x_1}$ ו-$y=2x_2x-x_2^2$; ישר משותף דורש שיפוע שווה וחותך שווה. הפתרון $x_1=-\\frac12$, $x_2=-2$ מקיים רק את הזוג הראשון."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $x_1$?",
+     "answer": -0.5,
+     "tol": 0.001,
+     "explain": "מהמשוואות נקבל $\\frac{2}{x_1}=-\\frac{1}{4x_1^4}$, כלומר $x_1^3=-\\frac{1}{8}$ ו-$x_1=-\\frac{1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $x_2$?",
+     "answer": -2,
+     "tol": 0.001,
+     "explain": "$x_2=-\\frac{1}{2x_1^2}=-\\frac{1}{2\\cdot\\frac14}=-2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק המשותף?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=4x+4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=-4x-4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=-4x+4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=-4x-2$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "השיפוע הוא $-\\frac{1}{x_1^2}=-4$ והחותך $\\frac{2}{x_1}=-4$. רק הישר $y=-4x-4$ משיק גם ל-$\\frac1x$ וגם ל-$x^2$ (נבדק ב-sympy לפי דיסקרימיננטה אפס)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -51,7 +364,72 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי צורה $1^{\\infty}$ והעברה ללוגריתם: $\\ln A=\\lim\\frac{\\ln\\frac{\\sin x}{x}}{x^2}$",
+     "points": 3
+    },
+    {
+     "text": "הפעלת לופיטל מספר פעמים עד $\\ln A=-\\frac16$",
+     "points": 5
+    },
+    {
+     "text": "חזרה מהלוגריתם: $A=e^{-\\frac16}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $1^{\\infty}=1$. זו אי-ודאות ולא ערך.",
+    "לשכוח לחזור מ-$\\ln A$ ל-$A$ בסוף ולהשאיר $-\\frac16$ כתשובה.",
+    "לעצור אחרי לופיטל אחד כשעדיין מתקבלת צורה $\\frac{0}{0}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי צורת אי-הוודאות של $\\lim_{x\\to0}\\left(\\frac{\\sin x}{x}\\right)^{\\frac{1}{x^2}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $\\frac{\\sin x}{x}\\to1$ והחזקה $\\frac{1}{x^2}\\to\\infty$, כלומר $1^{\\infty}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\ln A=\\lim_{x\\to0}\\frac{\\ln\\frac{\\sin x}{x}}{x^2}$? (עשרוני)",
+     "answer": -0.1667,
+     "tol": 0.001,
+     "explain": "אחרי שלוש הפעלות של לופיטל מקבלים $\\frac{-\\cos x}{6\\cos x-2x\\sin x}\\to-\\frac{1}{6}\\approx-0.1667$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול $A=e^{\\ln A}$? (עשרוני)",
+     "answer": 0.8465,
+     "tol": 0.001,
+     "explain": "$A=e^{-1/6}\\approx0.8465$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -63,7 +441,106 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק לשברים חלקיים בצורה $\\frac{A}{x}+\\frac{Bx+C}{x^2+2x+5}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המקדמים $A=3$, $B=-1$, $C=-6$",
+     "points": 3
+    },
+    {
+     "text": "השלמה לריבוע והצבה $t=x+1$ באינטגרל $\\int\\frac{x+6}{x^2+2x+5}dx$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה: לוגריתם ו-$\\arctan\\frac{x+1}{2}$ ותשובה סופית עם $+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב מונה קבוע $B$ מעל הגורם הריבועי $x^2+2x+5$. כך אין פתרון למערכת המקדמים.",
+    "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל $\\int\\frac{dt}{t^2+4}=\\frac{1}{2}\\arctan\\frac{t}{2}$.",
+    "לשכוח סימן מינוס כשמוציאים את $-\\int\\frac{x+6}{x^2+2x+5}dx$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה פירוק מתאים ל-$\\frac{2x^2+15}{x(x^2+2x+5)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{B}{x^2+2x+5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{Bx+C}{x^2+2x+5}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x}+\\frac{Bx}{x^2+2x+5}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הגורם $x^2+2x+5$ אי-פריק (דיסקרימיננטה שלילית) ולכן מעליו מונה לינארי. בשתי האפשרויות האחרות למערכת המקדמים אין פתרון (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $A$?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "הצבת $x=0$ ב-$2x^2+15=A(x^2+2x+5)+(Bx+C)x$ נותנת $15=5A$, כלומר $A=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $B$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "מהשוואת מקדמי $x^2$: $A+B=2$, ולכן $B=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $C$?",
+     "answer": -6,
+     "tol": 0.001,
+     "explain": "מהשוואת מקדמי $x$: $2A+C=0$, ולכן $C=-6$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה (בתחום $x>0$, בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$3 \\log{\\left(x \\right)} - \\frac{\\log{\\left(x^{2} + 2 x + 5 \\right)}}{2} - \\frac{5 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$3 \\log{\\left(x \\right)} + \\frac{\\log{\\left(x^{2} + 2 x + 5 \\right)}}{2} - \\frac{5 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$3 \\log{\\left(x \\right)} - \\frac{\\log{\\left(x^{2} + 2 x + 5 \\right)}}{2} + \\frac{5 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$3 \\log{\\left(x \\right)} - \\frac{\\log{\\left(x^{2} + 2 x + 5 \\right)}}{2} - \\frac{5 \\operatorname{atan}{\\left(x + 1 \\right)}}{2}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$3\\ln x-\\frac{1}{2}\\ln(x^2+2x+5)-\\frac{5}{2}\\arctan\\frac{x+1}{2}$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -75,7 +552,75 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "כפל בצמוד והבאה לצורה $\\frac{(1+b)x^2+ax}{\\sqrt{x^2+x+a}+\\sqrt{x^2-bx}}$",
+     "points": 3
+    },
+    {
+     "text": "נימוק שהגבול סופי רק כאשר $b=-1$ (אחרת המונה מסדר $x^2$ והמכנה מסדר $x$)",
+     "points": 3
+    },
+    {
+     "text": "חישוב הגבול עבור $b=-1$: $\\frac{a}{2}$",
+     "points": 2
+    },
+    {
+     "text": "השוואה ל-$3$ ופתרון $a=6$, $b=-1$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הגבול כאילו $b=-1$ מראש, בלי להסביר למה אין פתרון עבור $b\\neq-1$.",
+    "לשכוח שבחילוק ב-$x$ מתחת לשורש מתקבל $|x|=x$ ב-$+\\infty$ (בלי שינוי סימן)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "לאיזה ערך של $b$ הגבול $\\lim_{x\\to+\\infty}x\\left(\\sqrt{x^2+x+a}-\\sqrt{x^2-bx}\\right)$ יכול להיות סופי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$b=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$b=-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$b=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לכל ערך של $b$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "אחרי הכפל בצמוד המונה הוא $(1+b)x^2+ax$ והמכנה מסדר $x$. אם $b\\neq-1$ הגבול אינסופי (נבדק ב-sympy עבור $b=0,1,-2$), ולכן $b=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $b=-1$ הגבול שווה ל-$\\frac{a}{2}$. מהו הגבול כאשר $a=4$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\frac{a}{2}=\\frac{4}{2}=2$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a$ שעבורו הגבול שווה ל-$3$?",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$\\frac{a}{2}=3$ נותן $a=6$; עבור $a=6$, $b=-1$ הגבול הוא $3$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -87,7 +632,97 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\sin x$, $dt=\\cos x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int\\frac{t}{1+t^2}dt=\\frac12\\ln(1+t^2)$",
+     "points": 4
+    },
+    {
+     "text": "חזרה למשתנה המקורי ותשובה $\\frac12\\ln(1+\\sin^2x)+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל של $\\frac{t}{1+t^2}$ (נגזרת המכנה היא $2t$).",
+    "לשכוח לחזור מ-$t$ ל-$\\sin x$ בסוף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=1+\\cos x$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפתרון הרשמי מציב $t=\\sin x$ ולכן $dt=\\cos x\\,dx$ והאינטגרל נהיה $\\int\\frac{t}{1+t^2}dt$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^1\\frac{t}{1+t^2}dt$? (עשרוני)",
+     "answer": 0.3466,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2}\\ln(1+t^2)\\Big|_0^1=\\frac{1}{2}\\ln2\\approx0.3466$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה של $\\frac{\\sin x\\cos x}{1+\\sin^2x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(\\sin^{2}{\\left(x \\right)} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\sin^{2}{\\left(x \\right)} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\sin{\\left(x \\right)} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}{\\left(\\sin{\\left(x \\right)} \\right)}}{2}$"
+      },
+      {
+       "id": "e",
+       "type": "text",
+       "value": "$- \\frac{\\log{\\left(\\sin^{2}{\\left(x \\right)} + 1 \\right)}}{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "אחרי ההצבה $\\frac12\\ln(1+t^2)$, ובחזרה ל-$x$: $\\frac12\\ln(1+\\sin^2x)$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -99,7 +734,78 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חישוב $f(1)=0$ ורישום הגבול המגדיר את $f'(1)$",
+     "points": 3
+    },
+    {
+     "text": "הצבה ופישוט: $\\frac{\\sqrt[3]{h^2}\\sin h}{h}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב הגבול $0$ משני הצדדים ומסקנה: גזירה עם $f'(1)=0$",
+     "points": 4
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$\\sqrt[3]{(x-1)^2}$ אינה גזירה ב-$1$ ולכן גם המכפלה אינה גזירה. הגורם $\\sin(x-1)$ מרסן את התנהגות הנגזרת.",
+    "לגזור בכלל המכפלה כרגיל ולקבל ביטוי לא מוגדר ב-$x=1$ במקום להשתמש בהגדרת הנגזרת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(1)$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$f(1)=\\sqrt[3]{0}\\cdot\\sin0=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{h\\to0}\\frac{\\sin h}{h}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "גבול יסודי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'(1)$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$\\frac{f(1+h)-f(1)}{h}=\\sqrt[3]{h^2}\\cdot\\frac{\\sin h}{h}\\to0\\cdot1=0$ משני הצדדים (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $f$ גזירה ב-$x=1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן, והנגזרת היא $0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי $\\sqrt[3]{(x-1)^2}$ אינה גזירה ב-$1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי הגבולות החד-צדדיים שונים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כן, והנגזרת היא $1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שני הגבולות החד-צדדיים של מנת ההפרשים שווים ל-$0$, ולכן $f$ גזירה ו-$f'(1)=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -111,7 +817,96 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת אורך הקשת $L=\\int_0^1\\sqrt{1+(y')^2}\\,dx$",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $y'=\\frac12\\left(x^{1/4}-x^{-1/4}\\right)$",
+     "points": 3
+    },
+    {
+     "text": "השלמה לריבוע מושלם: $1+(y')^2=\\left(\\frac{x^{1/4}+x^{-1/4}}{2}\\right)^2$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה וחישוב $L=\\frac{16}{15}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לא לזהות ש-$1+(y')^2$ הוא ריבוע מושלם ולהישאר עם שורש שאין לו פונקציה קדומה פשוטה.",
+    "טעות בחזקות בגזירה: $\\left(x^{5/4}\\right)'=\\frac54x^{1/4}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת $y'$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\sqrt[4]{x}}{2} + \\frac{1}{2 \\sqrt[4]{x}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\sqrt[4]{x}}{2} - \\frac{1}{2 \\sqrt[4]{x}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\sqrt[4]{x} - \\frac{1}{\\sqrt[4]{x}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^{\\frac{5}{4}}}{2} - \\frac{x^{\\frac{3}{4}}}{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$y'=\\frac25\\cdot\\frac54x^{1/4}-\\frac23\\cdot\\frac34x^{-1/4}=\\frac12\\left(x^{1/4}-x^{-1/4}\\right)$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $1+(y')^2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(\\frac{\\sqrt[4]{x}}{2} - \\frac{1}{2 \\sqrt[4]{x}}\\right)^{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\sqrt[4]{x}}{2} + \\frac{1}{2 \\sqrt[4]{x}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(\\frac{\\sqrt[4]{x}}{2} + \\frac{1}{2 \\sqrt[4]{x}}\\right)^{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\sqrt[4]{x} + 1 - \\frac{1}{\\sqrt[4]{x}}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$1+\\frac{x^{1/2}-2+x^{-1/2}}{4}=\\frac{x^{1/2}+2+x^{-1/2}}{4}=\\left(\\frac{x^{1/4}+x^{-1/4}}{2}\\right)^2$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך הקשת? (עשרוני)",
+     "answer": 1.0667,
+     "tol": 0.001,
+     "explain": "$\\frac12\\left(\\frac45x^{5/4}+\\frac43x^{3/4}\\right)\\Big|_0^1=\\frac25+\\frac23=\\frac{16}{15}\\approx1.0667$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -123,7 +918,103 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $g'(x)=\\frac{x^2-2bx-a}{(x-b)^2}$",
+     "points": 2
+    },
+    {
+     "text": "תנאי הקיצון $g'(2)=0$: $4-4b-a=0$",
+     "points": 2
+    },
+    {
+     "text": "שיפוע האסימפטוטה $k=1$ וחותך $m=b$",
+     "points": 3
+    },
+    {
+     "text": "מהתנאי $y=x+7$: $b=7$, ומכאן $a=-24$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $(x-b)^2$ במכנה של הנגזרת ולטעות בכלל המנה.",
+    "לחשב את חותך האסימפטוטה כ-$\\lim g(x)$ במקום $\\lim(g(x)-x)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $g(x)=\\frac{x^2+a}{x-b}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{- a + 2 b x + x^{2}}{\\left(- b + x\\right)^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{a - 2 b x + x^{2}}{\\left(- b + x\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{- a - 2 b x + x^{2}}{- b + x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{- a - 2 b x + x^{2}}{\\left(- b + x\\right)^{2}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "כלל המנה: $\\frac{2x(x-b)-(x^2+a)}{(x-b)^2}=\\frac{x^2-2bx-a}{(x-b)^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה נובעת מקיצון מקומי ב-$x=2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$4-4b-a=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$4+4b-a=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$4-4b+a=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2-2b-a=0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$g'(2)=0$ אומר שהמונה $x^2-2bx-a$ מתאפס ב-$x=2$: $4-4b-a=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "האסימפטוטה המשופעת היא $y=kx+m$ עם $m=\\lim\\left(g(x)-x\\right)$. מהו $b$ כאשר האסימפטוטה היא $y=x+7$?",
+     "answer": 7,
+     "tol": 0.001,
+     "explain": "$k=1$ ו-$m=\\lim\\left(g(x)-x\\right)=\\lim\\frac{bx+a}{x-b}=b$, לכן $b=7$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a$?",
+     "answer": -24,
+     "tol": 0.001,
+     "explain": "$a=4-4b=4-28=-24$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -135,7 +1026,96 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נימוק שהפונקציה אי-שלילית בקטע, ולכן השטח הוא $\\int_0^1\\frac{\\ln(x+1)}{\\sqrt{x+1}}dx$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה בחלקים עם $u=\\ln(x+1)$, $v=2\\sqrt{x+1}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב האינטגרל הנותר $\\int\\frac{dx}{\\sqrt{x+1}}=2\\sqrt{x+1}$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הגבולות: $S=2\\sqrt2\\ln2-4\\sqrt2+4$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהשטח הוא אינטגרל של פונקציה אי-שלילית. כאן $\\ln(x+1)\\ge0$ בקטע, ולכן אין צורך בערך מוחלט.",
+    "לטעות ב-$v$: הקדומה של $\\frac{1}{\\sqrt{x+1}}$ היא $2\\sqrt{x+1}$ ולא $\\sqrt{x+1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה של $\\frac{1}{\\sqrt{x+1}}$ ($v$ באינטגרציה בחלקים)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\sqrt{x + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{2 \\sqrt{x + 1}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x + 2 \\sqrt{x + 1}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\int(x+1)^{-1/2}dx=2(x+1)^{1/2}$ (נבדק בגזירה ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הפונקציה הקדומה של $\\frac{\\ln(x+1)}{\\sqrt{x+1}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} + 4 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 4 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 4 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 2 \\sqrt{x + 1}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$2\\sqrt{x+1}\\ln(x+1)-2\\int\\frac{dx}{\\sqrt{x+1}}=2\\sqrt{x+1}\\ln(x+1)-4\\sqrt{x+1}$; הנגזרת של כל אפשרות נבדקה ב-sympy."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח? (עשרוני)",
+     "answer": 0.3037,
+     "tol": 0.001,
+     "explain": "$S=2\\sqrt2\\ln2-4\\sqrt2+4\\approx0.3037$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

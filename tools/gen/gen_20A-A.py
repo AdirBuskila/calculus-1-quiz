@@ -164,6 +164,373 @@ questions = [
       SOL6B, part="ב", points=10),
 ]
 
+# ---- steps / rubric / pitfalls (ai-draft); every value below is computed or asserted with sympy ----
+import sympy as sp
+
+IDS = "abcdef"
+_rot = [0]
+x, t, a, b = sp.symbols('x t a b', real=True)
+n = sp.Symbol('n', positive=True)
+R = sp.Rational
+TOPSRC = {}
+
+
+def T(e):
+    """TeX of a sympy expression, wrapped in $...$."""
+    return "$" + sp.latex(e) + "$"
+
+
+def rub(*items):
+    return [{"text": s, "points": p} for s, p in items]
+
+
+def _opts(vals):
+    return [{"id": IDS[i], "type": "text", "value": v} for i, v in enumerate(vals)]
+
+
+def ch(prompt, good, bads, explain):
+    """choice step; the correct option rotates through the positions a, b, c, ..."""
+    k = _rot[0] % (len(bads) + 1)
+    _rot[0] += 1
+    vals = list(bads)
+    vals.insert(k, good)
+    assert len(set(vals)) == len(vals), "duplicate options"
+    return {"type": "choice", "prompt": prompt, "options": _opts(vals), "correctId": IDS[k], "explain": explain}
+
+
+def chx(prompt, good, bads, ok, explain):
+    """choice over sympy expressions: ok(e) must hold for the good one and fail for every distractor."""
+    assert ok(good), "good option fails its test"
+    for e in bads:
+        assert not ok(e), "distractor passes the test: %s" % e
+    return ch(prompt, T(good), [T(e) for e in bads], explain)
+
+
+def num(prompt, val, explain, tol=0.001):
+    v = sp.N(val, 15)
+    f = float(v)
+    ans = int(round(f)) if abs(f - round(f)) < 1e-12 else round(f, 4)
+    return {"type": "numeric", "prompt": prompt, "answer": ans, "tol": tol, "explain": explain}
+
+
+def order(prompt, lines, explain):
+    return {"type": "order", "prompt": prompt, "lines": lines, "explain": explain}
+
+
+def findbug(prompt, lines, idx, explain):
+    return {"type": "findbug", "prompt": prompt, "lines": lines, "bugIndex": idx, "explain": explain}
+
+
+def add(num_, part=None, **kw):
+    for q in questions:
+        if q["num"] == num_ and q.get("part") == part:
+            assert not q.get("hold"), "held item"
+            q.update(kw)
+            return
+    raise KeyError((num_, part))
+
+
+def same(e1, e2):
+    return sp.simplify(e1 - e2) == 0
+
+
+
+# ===== Q1: f = x e^(1/x) =====
+f1 = x*sp.exp(1/x)
+f1p = sp.diff(f1, x)
+f1pp = sp.diff(f1, x, 2)
+assert same(f1p, sp.exp(1/x)*(x - 1)/x) and same(f1pp, sp.exp(1/x)/x**3)
+assert sp.solve(f1p, x) == [1] and f1.subs(x, 1) == sp.E
+assert f1p.subs(x, -1) > 0 and f1p.subs(x, R(1, 2)) < 0 and f1p.subs(x, 2) > 0
+assert f1pp.subs(x, -1) < 0 and f1pp.subs(x, 1) > 0
+assert sp.limit(f1, x, 0, '+') == sp.oo and sp.limit(f1, x, 0, '-') == 0
+assert sp.limit(f1/x, x, sp.oo) == 1 and sp.limit(f1 - x, x, sp.oo) == 1 and sp.limit(f1 - x, x, -sp.oo) == 1
+
+add(1,
+    rubric=rub((r"תחום הגדרה $x\neq0$ ומיון אי-רציפות ב-$x=0$: הגבול מימין $+\infty$ ומשמאל $0$, ולכן מסוג שני עם אסימפטוטה אנכית", 4),
+               (r"אסימפטוטה משופעת $y=x+1$ ב-$\pm\infty$ (חישוב $a=1$, $b=1$)", 4),
+               (r"נגזרת $f'(x)=e^{1/x}\frac{x-1}{x}$, טבלת סימנים ומינימום מקומי $f(1)=e$", 5),
+               (r"$f''(x)=\frac{e^{1/x}}{x^3}$, קעירות ב-$x<0$ וקמירות ב-$x>0$, ללא נקודות פיתול", 4),
+               ("שרטוט הגרף בהתאם לכל הנתונים", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לטעון ש-$x=0$ היא אסימפטוטה אנכית משני הצדדים. משמאל $f(x)\to0$, ורק מימין $f\to+\infty$.",
+              r"לחשב את חותך האסימפטוטה בטעות כ-$0$: $\lim\left(xe^{1/x}-x\right)=\lim\frac{e^t-1}{t}=1$ בהצבה $t=\frac1x$.",
+              r"לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה."],
+    steps=[
+        chx(r"מהי הנגזרת של $f(x)=xe^{1/x}$?", sp.exp(1/x)*(x - 1)/x,
+            [sp.exp(1/x)*(x + 1)/x, sp.exp(1/x)*(x - 1)/x**2, sp.exp(1/x)],
+            lambda e: same(e, f1p), r"כלל המכפלה: $f'(x)=e^{1/x}-\frac{1}{x}e^{1/x}=e^{1/x}\frac{x-1}{x}$ (אומת ב-sympy)."),
+        num(r"מהו הערך $f(1)$ בנקודת המינימום המקומי? (עשרוני)", f1.subs(x, 1), r"$f(1)=1\cdot e^1=e\approx2.7183$."),
+        chx(r"מהי הנגזרת השנייה של $f$?", sp.exp(1/x)/x**3, [sp.exp(1/x)/x**2, -sp.exp(1/x)/x**3, sp.exp(1/x)*(x - 1)/x**3],
+            lambda e: same(e, f1pp), r"גוזרים את $f'(x)=e^{1/x}\left(1-\frac{1}{x}\right)$ ומקבלים $f''(x)=\frac{e^{1/x}}{x^3}$, שסימנה כסימן $x$ (אומת ב-sympy)."),
+        ch(r"כיצד מתנהגת הפונקציה ליד $x=0$?", r"אי-רציפות מסוג שני: מימין $f\to+\infty$ ומשמאל $f\to0$",
+           [r"אי-רציפות סליקה, כי שני הגבולות החד-צדדיים שווים", r"אי-רציפות מסוג ראשון, כי שני הגבולות החד-צדדיים סופיים",
+            r"אסימפטוטה אנכית משני הצדדים, כי $f\to\infty$ משני הצדדים"],
+           r"$\lim_{x\to0^+}xe^{1/x}=+\infty$ ו-$\lim_{x\to0^-}xe^{1/x}=0$ (אומת ב-sympy)."),
+        ch(r"מהי האסימפטוטה המשופעת של $f$ ב-$\pm\infty$?", "$y=x+1$", ["$y=x$", "$y=x-1$", "$y=x+e$"],
+           r"$a=\lim e^{1/x}=1$ ו-$b=\lim\left(xe^{1/x}-x\right)=\lim_{t\to0}\frac{e^t-1}{t}=1$ (אומת ב-sympy)."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q2a: limit of a sequence times cos(2n) =====
+n_ = sp.Symbol('n', positive=True)
+rat2 = (n_ - (n_**6 - 1)**R(1, 3))/(1 + n_**3)   # the real cube root of 1-n^6 is -(n^6-1)^(1/3)
+assert sp.limit(rat2, n_, sp.oo) == 0
+assert abs(float(rat2.subs(n_, 10**6))) < 1e-5
+
+add(2, "א",
+    rubric=rub((r"שימוש בחסימות $-1\le\cos2n\le1$", 2),
+               (r"חישוב הגבול $\lim\frac{n+\sqrt[3]{1-n^6}}{1+n^3}=0$ באמצעות חלוקה בחזקה הגבוהה", 5),
+               (r"מסקנה: מכפלה של סדרה חסומה בסדרה השואפת ל-$0$ שואפת ל-$0$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לטעון שהגבול אינו קיים כי $\cos2n$ אינה מתכנסת. מכפלה בסדרה שואפת ל-$0$ מבטלת את התנודה.",
+              r"לחלק ב-$n^3$ ולטעות בפירוק $\sqrt[3]{1-n^6}\sim-n^2$."],
+    steps=[
+        num(r"מהו גבול הסדרה $\frac{n+\sqrt[3]{1-n^6}}{1+n^3}$?", 0, r"המונה מסדר $n^2$ והמכנה מסדר $n^3$, לכן הגבול $0$ (נבדק ב-sympy)."),
+        ch(r"מהו גבול הסדרה $\frac{n+\sqrt[3]{1-n^6}}{1+n^3}\cos(2n)$?", "$0$",
+           [r"אינו קיים, כי $\cos2n$ אינה מתכנסת", "$1$", r"קיים ושווה לערך כלשהו בין $-1$ ל-$1$"],
+           r"$\left|a_n\cos2n\right|\le|a_n|\to0$, ולכן לפי כלל הסנדוויץ' הגבול הוא $0$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q2b: b^2 = 3ac =====
+a2, b2, c2 = sp.symbols('a b c')
+y2 = a2*x**3 + b2*x**2 + c2*x
+x0 = sp.solve(sp.diff(y2, x, 2), x)[0]
+assert x0 == -b2/(3*a2)
+assert same(sp.diff(y2, x).subs(x, x0), c2 - b2**2/(3*a2))
+assert sp.solve(sp.Eq(c2 - b2**2/(3*a2), 0), c2) == [b2**2/(3*a2)]
+P2 = [r"משיק אופקי אומר $y'=3ax^2+2bx+c=0$, ופיתול אומר $y''=6ax+2b=0$, באותו ערך $x$.",
+      r"מ-$6ax+2b=0$ ומ-$a\neq0$ מקבלים $x=-\frac{b}{3a}$.",
+      r"מציבים ב-$y'=0$: $3a\cdot\frac{b^2}{9a^2}-\frac{2b^2}{3a}+c=0$, כלומר $-\frac{b^2}{3a}+c=0$.",
+      r"מכאן $b^2=3ac$."]
+P2b = list(P2)
+P2b[1] = r"מ-$6ax+2b=0$ ומ-$a\neq0$ מקבלים $x=-\frac{b}{2a}$."
+assert sp.solve(6*a2*x + 2*b2, x) != [-b2/(2*a2)]
+
+add(2, "ב",
+    rubric=rub((r"תנאי משיק אופקי $y'=0$ ותנאי פיתול $y''=0$ בנקודה אחת", 3),
+               (r"פתרון $y''=0$: $x=-\frac{b}{3a}$ (שימוש ב-$a\neq0$)", 3),
+               (r"הצבה ב-$y'=0$ ופישוט עד $c=\frac{b^2}{3a}$", 3),
+               (r"מסקנה $b^2=3ac$", 1)),
+    rubricSource="ai-draft",
+    pitfalls=[r"להשתמש בתנאי $y'=0$ בלבד, בלי התנאי השני $y''=0$ שקובע את $x$.",
+              r"לחלק ב-$a$ בלי לציין ש-$a\neq0$, או לטעות במקדם ב-$x=-\frac{b}{3a}$."],
+    steps=[
+        chx(r"מהו ערך $x$ שבו $y''=6ax+2b$ מתאפסת?", -b2/(3*a2), [-b2/(2*a2), -b2/(6*a2), -2*b2/(3*a2)],
+            lambda e: same(e - x0, 0), r"$6ax+2b=0$ נותן $x=-\frac{2b}{6a}=-\frac{b}{3a}$ (אומת ב-sympy)."),
+        num(r"עבור $a=2$ ו-$b=6$ מצאו את $c$ המקיים את התנאי של הנקודה.", sp.Rational(6**2, 3*2),
+            r"$c=\frac{b^2}{3a}=\frac{36}{6}=6$, כלומר $b^2=3ac$ ($36=3\cdot2\cdot6$)."),
+        order("סדרו את שלבי ההוכחה.", P2, "קודם שני התנאים, אחר כך חילוץ $x$ מהתנאי השני, הצבה בראשון ומסקנה. כל שלב נשען על קודמו."),
+        findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", P2b, 1,
+                r"$6ax+2b=0$ נותן $x=-\frac{2b}{6a}=-\frac{b}{3a}$, לא $-\frac{b}{2a}$ (נבדק ב-sympy)."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q3a: lim (cos x)^(1/sin^2 2x) =====
+ex3 = sp.limit((sp.cos(x) - 1)/sp.sin(2*x)**2, x, 0)
+assert ex3 == R(-1, 8) and sp.limit(sp.log(sp.cos(x))/sp.sin(2*x)**2, x, 0) == R(-1, 8)
+assert abs(float(sp.N(((sp.cos(x))**(1/sp.sin(2*x)**2)).subs(x, R(1, 1000)))) - float(sp.exp(R(-1, 8)))) < 1e-5
+
+add(3, "א",
+    rubric=rub((r"זיהוי צורה $1^{\infty}$ ובניית החזקה $\frac{1}{\cos x-1}\cdot\frac{\cos x-1}{\sin^2 2x}$", 4),
+               (r"חישוב $\lim\frac{\cos x-1}{\sin^22x}=-\frac18$ (באמצעות $1-\cos x=2\sin^2\frac x2$)", 4),
+               (r"מסקנה: הגבול $e^{-1/8}$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לכתוב $1^{\infty}=1$.",
+              r"לטעות בקירוב $\sin^22x\approx4x^2$ ולקבל $-\frac{1}{4}$ או $-\frac{1}{2}$ במקום $-\frac18$."],
+    steps=[
+        ch(r"מהי צורת אי-הוודאות של $\lim_{x\to0}(\cos x)^{\frac{1}{\sin^22x}}$?", r"$1^{\infty}$", [r"$0^0$", r"$\infty^0$", r"$\frac{0}{0}$"],
+           r"הבסיס $\cos x\to1$ והחזקה $\frac{1}{\sin^22x}\to\infty$."),
+        num(r"מהו $\lim_{x\to0}\frac{\cos x-1}{\sin^22x}$? (עשרוני)", ex3, r"$\cos x-1\approx-\frac{x^2}{2}$ ו-$\sin^22x\approx4x^2$, לכן הגבול $-\frac{1}{8}=-0.125$."),
+        num(r"מהו הגבול המבוקש? (עשרוני)", sp.exp(ex3), r"$e^{-1/8}\approx0.8825$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q3b: int dx / (x (ln^2 x - 5 ln x + 6)) =====
+g3b = 1/(x*(sp.log(x)**2 - 5*sp.log(x) + 6))
+F3 = sp.log((sp.log(x) - 3)/(sp.log(x) - 2))
+assert same(sp.diff(F3, x), g3b)
+F3w = [sp.log((sp.log(x) - 2)/(sp.log(x) - 3)), sp.log(sp.log(x) - 3) + sp.log(sp.log(x) - 2), sp.log(sp.log(x)**2 - 5*sp.log(x) + 6)]
+A3, B3 = sp.symbols('A B')
+s3 = sp.solve(sp.Poly(sp.expand(A3*(t - 3) + B3*(t - 2) - 1), t).all_coeffs(), [A3, B3], dict=True)[0]
+assert s3 == {A3: -1, B3: 1}
+assert sp.factor(t**2 - 5*t + 6) == (t - 2)*(t - 3)
+
+add(3, "ב",
+    rubric=rub((r"הצבה $t=\ln x$, $dt=\frac{dx}{x}$", 3),
+               (r"פירוק המכנה $t^2-5t+6=(t-2)(t-3)$ ושברים חלקיים: $A=-1$, $B=1$", 4),
+               (r"אינטגרציה וחזרה ל-$x$: $\ln\left|\frac{\ln x-3}{\ln x-2}\right|+C$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לשכוח את $\frac{1}{x}$ שהופך ל-$dt$ ולהשאיר $x$ באינטגרל.",
+              r"להחליף את סימני $A$ ו-$B$ ולקבל את ההופכי בתוך הלוגריתם."],
+    steps=[
+        ch("איזו הצבה משתמש הפתרון הרשמי?", r"$t=\ln x$", [r"$t=x$", r"$t=\ln^2x$", r"$t=\frac{1}{x}$"],
+           r"הפתרון הרשמי מציב $t=\ln x$, ולכן $dt=\frac{dx}{x}$ והאינטגרל נהיה $\int\frac{dt}{t^2-5t+6}$."),
+        num(r"בפירוק $\frac{1}{(t-2)(t-3)}=\frac{A}{t-2}+\frac{B}{t-3}$, מהו $A$?", s3[A3], r"הצבת $t=2$ ב-$1=A(t-3)+B(t-2)$ נותנת $1=-A$, כלומר $A=-1$."),
+        num(r"מהו $B$?", s3[B3], r"הצבת $t=3$ נותנת $1=B$."),
+        chx(r"מהי הפונקציה הקדומה (בתחום $\ln x>3$, בלי הקבוע)?", F3, F3w, lambda e: same(sp.diff(e, x), g3b),
+            r"$-\ln|t-2|+\ln|t-3|=\ln\left|\frac{t-3}{t-2}\right|$ עם $t=\ln x$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q4a: continuity parameter =====
+ap = sp.Symbol('a', positive=True)
+Lft = sp.limit(1/(sp.sqrt(2 - x) - 1) - sp.sqrt(2 - x), x, 0, '-')
+Rgt = sp.limit((sp.sqrt(1 + ap*x) - sp.cos(x))/x, x, 0, '+')
+assert sp.simplify(Lft - 1) == 0 and sp.simplify(Rgt - ap/2) == 0 and sp.solve(sp.Eq(ap/2, 1), ap) == [2]
+
+add(4, "א",
+    rubric=rub((r"הגבול השמאלי: $\frac{1}{\sqrt2-1}-\sqrt2=1$", 3),
+               (r"הגבול הימני: פיצול ל-$\frac{\sqrt{1+ax}-1}{x}+\frac{1-\cos x}{x}$ וחישוב $\frac{a}{2}$", 4),
+               (r"השוואה: $\frac{a}{2}=1$ ולכן $a=2$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לשכוח שההגדרה ב-$x=0$ היא מהענף $x\le0$, ולכן גם $f(0)=1$ ולא רק הגבול השמאלי.",
+              r"לחשב את $\lim\frac{\sqrt{1+ax}-\cos x}{x}$ בלי פיצול ולקבל $\frac{0}{0}$ בלי לפתור."],
+    steps=[
+        num(r"מהו הגבול השמאלי $\lim_{x\to0^-}f(x)$?", Lft, r"$\frac{1}{\sqrt2-1}-\sqrt2=\sqrt2+1-\sqrt2=1$ (נבדק ב-sympy)."),
+        ch(r"מהו הגבול הימני $\lim_{x\to0^+}\frac{\sqrt{1+ax}-\cos x}{x}$?", r"$\frac{a}{2}$", ["$a$", "$0$", "$2a$"],
+           r"$\frac{\sqrt{1+ax}-1}{x}\to\frac{a}{2}$ ו-$\frac{1-\cos x}{x}\to0$ (נבדק ב-sympy עבור $a$ סמלי)."),
+        num(r"מהו $a$ שעבורו $f$ רציפה ב-$x=0$?", 2, r"$\frac{a}{2}=1$ נותן $a=2$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q4b: arc length of cosh =====
+ch_ = (sp.exp(x) + sp.exp(-x))/2
+sh_ = (sp.exp(x) - sp.exp(-x))/2
+assert same(sp.diff(ch_, x), sh_) and same(1 + sh_**2, ch_**2)
+len4 = sp.integrate(ch_, (x, -2, 2))
+assert sp.simplify(len4 - (sp.exp(2) - sp.exp(-2))) == 0
+
+add(4, "ב",
+    rubric=rub((r"נוסחת אורך הקשת $l=\int_{-2}^{2}\sqrt{1+(y')^2}\,dx$ ונגזרת $y'=\frac{e^x-e^{-x}}{2}$", 3),
+               (r"$1+(y')^2=\left(\frac{e^x+e^{-x}}{2}\right)^2$ והוצאת שורש", 4),
+               (r"אינטגרציה וחישוב $l=e^2-e^{-2}$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"להוציא שורש מ-$\left(\frac{e^x+e^{-x}}{2}\right)^2$ בלי לשים לב שהביטוי חיובי, ולכתוב ערך מוחלט מיותר.",
+              r"לשכוח שהקטע הוא $[-2,2]$ ולחשב רק מ-$0$ עד $2$ בלי להכפיל ב-$2$ (הפונקציה זוגית)."],
+    steps=[
+        chx(r"מהו $1+(y')^2$ עבור $y=\frac{e^x+e^{-x}}{2}$?", ch_**2, [sh_**2, ch_, 1 + sh_],
+            lambda e: same(e, 1 + sh_**2), r"$1+\frac{e^{2x}-2+e^{-2x}}{4}=\frac{e^{2x}+2+e^{-2x}}{4}=\left(\frac{e^x+e^{-x}}{2}\right)^2$ (אומת ב-sympy)."),
+        num(r"מהו אורך הקשת? (עשרוני)", len4, r"$\int_{-2}^{2}\frac{e^x+e^{-x}}{2}dx=e^2-e^{-2}\approx7.2537$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q5a: differentiability of |x-a| g(x) =====
+hh = sp.Symbol('h', real=True)
+assert sp.limit(sp.Abs(hh)/hh, hh, 0, '+') == 1 and sp.limit(sp.Abs(hh)/hh, hh, 0, '-') == -1
+assert sp.limit(sp.Abs(hh)*hh/hh, hh, 0) == 0
+Q5 = [r"מההגדרה $f'(a)=\lim_{\Delta x\to0}\frac{f(a+\Delta x)-f(a)}{\Delta x}$, ומתקיים $f(a)=|0|\cdot g(a)=0$.",
+      r"לכן $\frac{f(a+\Delta x)-f(a)}{\Delta x}=\frac{|\Delta x|}{\Delta x}\,g(a+\Delta x)$.",
+      r"הגורם $\frac{|\Delta x|}{\Delta x}$ חסום בין $-1$ ל-$1$, ו-$g(a+\Delta x)\to g(a)=0$ כי $g$ רציפה ב-$a$.",
+      r"מכפלה של חסום בשואף ל-$0$ שואפת ל-$0$, ולכן $f$ גזירה ב-$a$ ו-$f'(a)=0$."]
+Q5b = list(Q5)
+Q5b[1] = r"לכן $\frac{f(a+\Delta x)-f(a)}{\Delta x}=\frac{|\Delta x|}{\Delta x}\,g(a)$."
+
+add(5, "א",
+    rubric=rub((r"שימוש בהגדרת הנגזרת וחישוב $f(a)=0$", 2),
+               (r"פישוט מנת ההפרשים ל-$\frac{|\Delta x|}{\Delta x}g(a+\Delta x)$", 3),
+               (r"נימוק: הגורם הראשון חסום והשני שואף ל-$0$ (רציפות $g$ ו-$g(a)=0$)", 3),
+               (r"מסקנה: $f$ גזירה ו-$f'(a)=0$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לטעון ש-$|x-a|$ אינה גזירה ב-$a$ ולכן גם המכפלה אינה גזירה. כאן הגורם $g(x)$ מתאפס ב-$a$.",
+              r"לחשב את הגבול של $\frac{|\Delta x|}{\Delta x}$ בנפרד ולטעון שהוא לא קיים, בלי להשתמש בכך שהוא חסום."],
+    steps=[
+        ch(r"מה ידוע על $\frac{|\Delta x|}{\Delta x}$ כאשר $\Delta x\to0$?", r"אין לו גבול (הוא $1$ מימין ו-$-1$ משמאל), אך הוא חסום",
+           [r"הגבול שלו הוא $1$", r"הגבול שלו הוא $0$", r"הוא אינו חסום"],
+           r"הביטוי שווה $1$ עבור $\Delta x>0$ ו-$-1$ עבור $\Delta x<0$ (נבדק ב-sympy), ולכן חסום ללא גבול."),
+        order("סדרו את שלבי ההוכחה.", Q5, "קודם ההגדרה ו-$f(a)$, אחר כך פישוט מנת ההפרשים, אחר כך נימוק הגבול ולבסוף המסקנה. כל שלב נשען על קודמו."),
+        findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", Q5b, 1,
+                r"$f(a+\Delta x)=|\Delta x|\,g(a+\Delta x)$ ולכן הגורם הוא $g(a+\Delta x)$ ולא $g(a)$ (שהוא $0$ ומוחק את כל הביטוי בלי הצדקה)."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q5b: integral with fourth root =====
+tp = sp.Symbol('tp', positive=True)
+xp = sp.Symbol('xp', positive=True)
+integrand5 = 1/(xp**R(3, 4)*(sp.sqrt(xp) + 2*xp**R(1, 4)))
+sub5 = sp.simplify(integrand5.subs(xp, tp**4)*sp.diff(tp**4, tp))
+assert same(sub5, 4/(tp*(tp + 2)))
+A5, B5 = sp.symbols('A B')
+s5 = sp.solve(sp.Poly(sp.expand(A5*(tp + 2) + B5*tp - 1), tp).all_coeffs(), [A5, B5], dict=True)[0]
+assert s5 == {A5: R(1, 2), B5: R(-1, 2)}
+F5 = sp.log(xp)/2 - 2*sp.log(xp**R(1, 4) + 2)
+assert same(sp.diff(F5, xp), integrand5)
+F5w = [sp.log(xp) - 2*sp.log(xp**R(1, 4) + 2), sp.log(xp)/2 + 2*sp.log(xp**R(1, 4) + 2), sp.log(xp)/2 - 2*sp.log(sp.sqrt(xp) + 2)]
+
+add(5, "ב",
+    rubric=rub((r"הצבה $x=t^4$, $dx=4t^3dt$", 3),
+               (r"פישוט האינטגרנד ל-$\frac{4}{t(t+2)}$ ופירוק לשברים חלקיים ($A=\frac12$, $B=-\frac12$)", 4),
+               (r"אינטגרציה וחזרה ל-$x$: $\frac12\ln x-2\ln\left(\sqrt[4]{x}+2\right)+C$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לבחור הצבה שאינה מבטלת את כל השורשים בבת אחת (למשל $t=\sqrt{x}$ בלבד); הדרוש הוא $x=t^4$.",
+              r"לשכוח את הגורם $4t^3$ של $dx$ או את הגורם $4$ בפירוק."],
+    steps=[
+        ch("איזו הצבה משתמש הפתרון הרשמי?", r"$x=t^4$", [r"$x=t^2$", r"$t=\ln x$", r"$x=t^3$"],
+           r"הפתרון הרשמי מציב $x=t^4$ כך שגם $\sqrt{x}=t^2$ וגם $\sqrt[4]{x}=t$ הופכים לחזקות שלמות."),
+        chx(r"מהו האינטגרנד אחרי ההצבה $x=t^4$ (כולל $dx=4t^3dt$)?", 4/(tp*(tp + 2)), [1/(tp*(tp + 2)), 4/(tp**2*(tp + 2)), 4*tp/(tp + 2)],
+            lambda e: same(e, sub5), r"$\frac{4t^3}{t^3\left(t^2+2t\right)}=\frac{4}{t(t+2)}$ (אומת ב-sympy)."),
+        num(r"בפירוק $\frac{1}{t(t+2)}=\frac{A}{t}+\frac{B}{t+2}$, מהו $A$?", s5[A5], r"הצבת $t=0$ ב-$1=A(t+2)+Bt$ נותנת $1=2A$, כלומר $A=\frac12$."),
+        chx(r"מהי הפונקציה הקדומה (בתחום $x>0$, בלי הקבוע)?", F5, F5w, lambda e: same(sp.diff(e, xp), integrand5),
+            r"$2\left(\ln t-\ln(t+2)\right)=\frac12\ln x-2\ln\left(\sqrt[4]{x}+2\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q6a: local extremum of sqrt(x-2) e^(-x/2) =====
+f6 = sp.sqrt(x - 2)*sp.exp(-x/2)
+f6p = sp.diff(f6, x)
+assert same(f6p, (3 - x)/(2*sp.sqrt(x - 2))*sp.exp(-x/2))
+assert sp.solve(f6p, x) == [3]
+assert f6p.subs(x, R(5, 2)) > 0 and f6p.subs(x, 4) < 0
+assert abs(float(f6.subs(x, 3)) - float(sp.exp(R(-3, 2)))) < 1e-12
+
+add(6, "א",
+    rubric=rub((r"תחום הגדרה $x\ge2$", 1),
+               (r"נגזרת $f'(x)=\frac{3-x}{2\sqrt{x-2}}e^{-x/2}$", 4),
+               (r"הנקודה הקריטית $x=3$ ובדיקת סימן הנגזרת משני צדיה", 3),
+               (r"מסקנה: מקסימום מקומי ב-$x=3$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לשכוח את תחום ההגדרה $x\ge2$ ולבדוק נקודות מחוץ אליו.",
+              r"לטעות בכיוון החלפת הסימן: $f'>0$ לפני $x=3$ ו-$f'<0$ אחריה, כלומר מקסימום ולא מינימום."],
+    steps=[
+        chx(r"מהי הנגזרת של $f(x)=\sqrt{x-2}\,e^{-x/2}$?", (3 - x)/(2*sp.sqrt(x - 2))*sp.exp(-x/2),
+            [(x - 3)/(2*sp.sqrt(x - 2))*sp.exp(-x/2), (3 - x)/(2*sp.sqrt(x - 2))*sp.exp(x/2), (3 - x)/sp.sqrt(x - 2)*sp.exp(-x/2)],
+            lambda e: same(e, f6p), r"כלל המכפלה: $\frac{e^{-x/2}}{2\sqrt{x-2}}-\frac{\sqrt{x-2}}{2}e^{-x/2}=\frac{(3-x)e^{-x/2}}{2\sqrt{x-2}}$ (אומת ב-sympy)."),
+        num(r"מהי הנקודה הקריטית של $f$ בתחום $x>2$?", 3, r"$3-x=0$ נותן $x=3$."),
+        ch(r"איך משתנה סימן $f'$ במעבר דרך $x=3$ ומה סוג הקיצון?", r"מחיובי לשלילי, ולכן מקסימום מקומי",
+           [r"משלילי לחיובי, ולכן מינימום מקומי", r"מחיובי לשלילי, ולכן מינימום מקומי", r"אינו משתנה, ולכן אין קיצון"],
+           r"עבור $2<x<3$ נקבל $f'>0$ ועבור $x>3$ נקבל $f'<0$ (נבדק ב-sympy), כלומר מקסימום מקומי."),
+        num(r"מהו הערך $f(3)$? (עשרוני)", f6.subs(x, 3), r"$f(3)=\sqrt1\cdot e^{-3/2}=e^{-1.5}\approx0.2231$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q6b: solid of revolution =====
+sq6 = f6**2
+assert same(sq6, (x - 2)*sp.exp(-x))
+G6 = -(x - 1)*sp.exp(-x)
+assert same(sp.diff(G6, x), (x - 2)*sp.exp(-x))
+G6w = [(x - 1)*sp.exp(-x), -(x - 2)*sp.exp(-x), -x*sp.exp(-x)]
+V6int = sp.integrate((x - 2)*sp.exp(-x), (x, 2, 3))
+assert sp.simplify(V6int - (sp.exp(-2) - 2*sp.exp(-3))) == 0
+V6 = sp.pi*V6int
+
+add(6, "ב",
+    rubric=rub((r"נוסחת הנפח $V=\pi\int_2^3f^2(x)\,dx$ והגבולות $2\le x\le3$", 3),
+               (r"פישוט $f^2(x)=(x-2)e^{-x}$ ואינטגרציה בחלקים", 4),
+               (r"הצבת הגבולות: $V=\pi\left(e^{-2}-2e^{-3}\right)$", 3)),
+    rubricSource="ai-draft",
+    pitfalls=[r"לשכוח את ההעלאה בריבוע ולחשב $\pi\int f\,dx$.",
+              r"להשתמש בגבולות לא נכונים: התחום מתחיל ב-$x=2$ (קצה תחום ההגדרה) ונגמר ב-$x=3$."],
+    steps=[
+        chx(r"מהו $f^2(x)$ עבור $f(x)=\sqrt{x-2}\,e^{-x/2}$?", (x - 2)*sp.exp(-x), [sp.sqrt(x - 2)*sp.exp(-x), (x - 2)*sp.exp(-x/2), (x - 2)**2*sp.exp(-x)],
+            lambda e: same(e, sq6), r"$f^2=(x-2)e^{-x}$ (אומת ב-sympy)."),
+        chx(r"מהי פונקציה קדומה של $(x-2)e^{-x}$?", G6, G6w, lambda e: same(sp.diff(e, x), (x - 2)*sp.exp(-x)),
+            r"באינטגרציה בחלקים: $-(x-2)e^{-x}-e^{-x}=-(x-1)e^{-x}$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
+        num(r"מהו $\int_2^3(x-2)e^{-x}dx$? (עשרוני)", V6int, r"$G(3)-G(2)=-2e^{-3}+e^{-2}\approx0.0358$."),
+        num(r"מהו הנפח $V=\pi\int_2^3(x-2)e^{-x}dx$? (עשרוני)", V6, r"$V=\pi\left(e^{-2}-2e^{-3}\right)\approx0.1124$."),
+    ],
+    stepsSource="ai-draft")
+
 exam = {
     "examCode": "20A-A",
     "examLabel": "מבחן סוף סמסטר א' תש\"פ, מועד א'",
