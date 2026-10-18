@@ -98,7 +98,7 @@ $$\int\frac{dx}{5-3\cos x}=\int\frac{1}{5-3\frac{1-t^2}{1+t^2}}\cdot\frac{2}{1+t
 
 SOL6A = r"""
 $$V=2\pi\int_1^2xe^x\,dx=\left[\begin{matrix}u=x&dv=e^xdx\\du=dx&v=e^x\end{matrix}\right]=2\pi\left(xe^x\Big|_1^2-\int_1^2e^xdx\right)=2\pi\left(xe^x\Big|_1^2-e^x\Big|_1^2\right)=2\pi\left(2e^2-e-e^2+e\right)=2\pi e^2$$
-![גוף הסיבוב סביב ציר ה-y: כלי גלילי שדופנו מוגבלת על ידי העקומה y = e^x](images/exams/18A1-A-Q6a-fig.png)
+![גוף הסיבוב סביב ציר ה-y: כלי גלילי שדופנו מוגבלת על ידי העקומה y = eˣ](images/exams/18A1-A-Q6a-fig.png)
 """
 
 SOL6B = r"""

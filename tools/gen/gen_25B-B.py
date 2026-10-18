@@ -45,7 +45,7 @@ $$a=\lim_{x\to\pm\infty}\frac{f(x)}{x}=\lim_{x\to\pm\infty}e^{\frac{1}{x-2}}=e^0
 $$b=\lim_{x\to\pm\infty}\left(f(x)-x\right)=\lim_{x\to\pm\infty}x\left(e^{\frac{1}{x-2}}-1\right)=\lim_{x\to\pm\infty}\frac{e^{\frac{1}{x-2}}-1}{\frac{1}{x-2}}\cdot\frac{x}{x-2}=1\cdot1=1$$
 (השתמשנו בגבול $\lim_{u\to0}\frac{e^u-1}{u}=1$ עם $u=\frac{1}{x-2}\to0$.) לכן $y=x+1$ היא אסימפטוטה משופעת ב-$\pm\infty$.
 **ו. שרטוט:**
-![גרף הפונקציה f(x)=x e^(1/(x-2)): מקסימום ב-(1,1/e), מינימום ב-(4,4√e), פיתול ב-x=8/5, אסימפטוטות x=2 (מימין) ו-y=x+1](images/exams/25B-B-Q1-graph.png)
+![גרף הפונקציה f(x)=x·exp(1/(x−2)): מקסימום ב-(1,1/e), מינימום ב-(4,4√e), פיתול ב-x=8/5, אסימפטוטות x=2 (מימין) ו-y=x+1](images/exams/25B-B-Q1-graph.png)
 """
 
 SOL[(2, "א")] = r"""

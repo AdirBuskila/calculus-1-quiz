@@ -54,7 +54,7 @@ $$a=\lim_{x\to\pm\infty}\frac{f(x)}{x}=\lim_{x\to\pm\infty}\frac{xe^{1-2x^2}}{x}
 $$b=\lim_{x\to\pm\infty}xe^{1-2x^2}\,[\infty\cdot0]=\lim_{x\to\pm\infty}\frac{x}{e^{2x^2-1}}\left[\frac{\infty}{\infty}\right]=\lim_{x\to\pm\infty}\frac{1}{4xe^{2x^2-1}}\left[\frac{1}{\infty}\right]=0$$
 $y=0$ - אסימפטוטה אופקית של הפונקציה.
 **ו. שרטוט:**
-![גרף הפונקציה f(x)=x e^(1-2x^2): מקסימום ב-x=1/2, מינימום ב-x=-1/2, אסימפטוטה y=0](images/exams/22B-B-Q1-graph.png)
+![גרף הפונקציה f(x)=x·exp(1−2x²): מקסימום ב-x=1/2, מינימום ב-x=-1/2, אסימפטוטה y=0](images/exams/22B-B-Q1-graph.png)
 """
 
 SOL2A = r"""

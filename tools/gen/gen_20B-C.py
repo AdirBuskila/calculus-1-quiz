@@ -46,7 +46,7 @@ $$f(x)=\frac{1}{2}\left((x+1)-3+\frac{3}{x+1}-\frac{1}{(x+1)^2}\right)\ \Rightar
 $$a=\lim_{x\to\pm\infty}\frac{f(x)}{x}=\frac{1}{2},\qquad b=\lim_{x\to\pm\infty}\left(f(x)-\frac{x}{2}\right)=-1$$
 והישר $y=\frac{x}{2}-1$ הוא אסימפטוטה משופעת ב-$\pm\infty$.
 **שרטוט:**
-![גרף הפונקציה f(x)=x^3/(2(x+1)^2): מקסימום ב-(-3,-27/8), פיתול ב-(0,0), אסימפטוטות x=-1 ו-y=x/2-1](images/exams/20B-C-Q1-graph.png)
+![גרף הפונקציה f(x)=x³/(2(x+1)²): מקסימום ב-(-3,-27/8), פיתול ב-(0,0), אסימפטוטות x=-1 ו-y=x/2-1](images/exams/20B-C-Q1-graph.png)
 """
 
 SOL[(2, "א")] = r"""

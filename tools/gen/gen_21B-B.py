@@ -54,7 +54,7 @@ SOL1 = r"""
 1. $y''=\frac{-2(x+1)^3+2(x+2)3(x+1)^2}{(x+1)^6}=\frac{4x+10}{(x+1)^4}$.
 2. $x=-\frac{5}{2}$.
 3. $y''>0$ עבור $x>-\frac{5}{2}$, $y''<0$ עבור $x<-\frac{5}{2}$. נקודת פיתול: $\left(-\frac{5}{2},\frac{1}{9}\right)$.
-![שרטוט הגרף של y = ((x+2)/(x+1))^2 עם האסימפטוטות x=-1 ו-y=1 והמינימום ב-x=-2](images/exams/21B-B-Q1-graph.png)
+![שרטוט הגרף של y = ((x+2)/(x+1))² עם האסימפטוטות x=-1 ו-y=1 והמינימום ב-x=-2](images/exams/21B-B-Q1-graph.png)
 """
 
 SOL3A = r"""
@@ -79,7 +79,7 @@ $$=\frac{1}{4}\lim_{x\to0}\frac{\frac{1}{\cos^2x}}{\frac{4}{\cos^24x}}=\frac{1}{
 """
 
 SOL4B = r"""
-![שרטוט התחום הכלוא בין y=x^2, y=-2x+8 וציר ה-x, והישר X=4 שסביבו מסובבים](images/exams/21B-B-Q4b-region.png)
+![שרטוט התחום הכלוא בין y=x², y=-2x+8 וציר ה-x, והישר X=4 שסביבו מסובבים](images/exams/21B-B-Q4b-region.png)
 $$V=V_1+V_2=2\pi\int_0^2(4-x)x^2dx+2\pi\int_2^4(4-x)(-2x+8)dx=$$
 $$2\pi\int_0^2\left(4x^2-x^3\right)dx+4\pi\int_2^4(4-x)^2dx=$$
 $$=2\pi\left(\frac{4x^3}{3}-\frac{x^4}{4}\right)\Big|_0^2+4\pi\frac{(4-x)^3}{-3}\Big|_2^4=$$

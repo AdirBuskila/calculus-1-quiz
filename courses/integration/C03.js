@@ -1,6 +1,6 @@
-/* integration course, level 3: בחלקים: פולינום כפול e^x, sin, cos */
+/* integration course, level 3: בחלקים: פולינום כפול eˣ, sin, cos */
 COURSE_LEVEL("integration", {
-  id: "C03", order: 3, icon: "✂️", title: "בחלקים: פולינום כפול e^x, sin, cos",
+  id: "C03", order: 3, icon: "✂️", title: "בחלקים: פולינום כפול eˣ, sin, cos",
   goal: "לבחור u כפולינום ולפתור אינטגרל מכפלה בסיבוב אחד או בשניים.",
   source: "ai-verified",
   lesson: { html: String.raw`

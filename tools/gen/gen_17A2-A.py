@@ -39,7 +39,7 @@ SOL1 = r"""
 ב-$+\infty$: $a=\lim_{x\to+\infty}\frac{(x-1)e^x}{x}=\lim_{x\to+\infty}\frac{xe^x}{1}=+\infty$. אין אסימפטוטה.
 ב-$-\infty$: $a=\lim_{x\to-\infty}\frac{(x-1)e^x}{x}=\lim_{x\to-\infty}\frac{x-1}{x}e^x=0$, $b=\lim_{x\to-\infty}\left((x-1)e^x-0\cdot x\right)=\lim_{x\to-\infty}(x-1)e^x=0$, אסימפטוטה אופקית $y=0$.
 **5. שרטוט:**
-![שרטוט הגרף של y = (x−1)e^x בין x=−3 ל-x=2, עם אסימפטוטה אופקית y=0 משמאל](images/exams/17A2-A-Q1-graph.png)
+![שרטוט הגרף של y = (x−1)eˣ בין x=−3 ל-x=2, עם אסימפטוטה אופקית y=0 משמאל](images/exams/17A2-A-Q1-graph.png)
 """
 
 SOL2 = r"""

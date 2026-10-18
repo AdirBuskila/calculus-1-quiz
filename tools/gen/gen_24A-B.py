@@ -43,7 +43,7 @@ SOL1 = r"""
 $$\begin{cases}\lim\limits_{x\to+\infty}\dfrac{f(x)}{x}=\lim\limits_{x\to+\infty}\dfrac{x^2e^x}{x}=+\infty\\[2mm]\lim\limits_{x\to-\infty}f(x)=\lim\limits_{x\to-\infty}x^2e^x=\lim\limits_{x\to-\infty}\dfrac{x^2}{e^{-x}}=\lim\limits_{x\to-\infty}\dfrac{2x}{-e^{-x}}=\lim\limits_{x\to-\infty}\dfrac{2}{e^{-x}}=0\end{cases}$$
 ולכן קו ישר $y=0$ מהווה אסימפטוטה אופקית לגרף הפונקציה במינוס אינסוף.
 **ו.** שרטוט (בפתרון הרשמי מסומן "ה."):
-![הגרף של f(x)=x^2 e^x](images/exams/24A-B-Q1-graph.png)
+![הגרף של f(x)=x²eˣ](images/exams/24A-B-Q1-graph.png)
 """
 
 SOL2A = r"""

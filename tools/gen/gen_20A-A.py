@@ -45,7 +45,7 @@ $$f'(x)=\left(xe^{\frac1x}\right)'=e^{\frac1x}-\frac{x}{x^2}e^{\frac1x}=e^{\frac
 $$f''(x)=\left(e^{\frac1x}\left(1-\frac1x\right)\right)'=-\frac{1}{x^2}e^{\frac1x}\left(1-\frac1x\right)+e^{\frac1x}\frac{1}{x^2}=e^{\frac1x}\frac{1}{x^2}\left(-1+\frac1x+1\right)=e^{\frac1x}\frac{1}{x^3}$$
 טבלת סימנים של $f''$: שלילית ב-$x<0$ (קעורה, $\\cap$), חיובית ב-$x>0$ (קמורה, $\\cup$). אין נקודות פיתול כי $x=0$ אינה בתחום ההגדרה.
 סקיצה של הגרף:
-![סקיצה של הגרף y = x·e^(1/x) עם האסימפטוטה האנכית x=0, האסימפטוטה המשופעת y=x+1 והמינימום ב-x=1](images/exams/20A-A-Q1-graph.png)
+![סקיצה של הגרף y = x·exp(1/x) עם האסימפטוטה האנכית x=0, האסימפטוטה המשופעת y=x+1 והמינימום ב-x=1](images/exams/20A-A-Q1-graph.png)
 """
 
 SOL2A = r"""
