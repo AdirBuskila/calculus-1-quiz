@@ -204,7 +204,7 @@ PTS = (0.35, 0.8, 1.3, 1.9, 2.6, 3.4)
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, ln_notation=True) + "$"
 
 
 def rub(*items):
@@ -297,8 +297,7 @@ assert sp.limit(f1, x, sp.oo) == 0 and sp.limit(f1, x, -sp.oo) == 0
 
 add(1,
     rubric=rub(("תחום הגדרה $\\mathbb{R}$ וזיהוי שהפונקציה אי-זוגית (סימטריה לראשית)", 3),
-               ("נגזרת $f'(x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$, נקודות קריטיות $x=\\pm1$ ותחומי עליה וירידה", 4),
-               ("סיווג הקיצון: מקסימום $\\left(1,\\frac{2}{\\sqrt{e}}\\right)$ ומינימום $\\left(-1,-\\frac{2}{\\sqrt{e}}\\right)$", 3),
+               ("נגזרת $f'(x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$, נקודות קריטיות $x=\\pm1$, תחומי עליה וירידה וסיווג הקיצון: מקסימום $\\left(1,\\frac{2}{\\sqrt{e}}\\right)$ ומינימום $\\left(-1,-\\frac{2}{\\sqrt{e}}\\right)$", 7),
                ("נגזרת שנייה $f''(x)=-2xe^{-\\frac{x^2}{2}}\\left(3-x^2\\right)$, קמירות ונקודות פיתול $x=0,\\pm\\sqrt{3}$", 4),
                ("אסימפטוטה אופקית $y=0$ ב-$\\pm\\infty$ וללא אסימפטוטה אנכית", 3),
                ("שרטוט הגרף בהתאם לכל הנתונים", 3)),

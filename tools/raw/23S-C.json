@@ -23,12 +23,8 @@
      "points": 3
     },
     {
-     "text": "נגזרת $f'(x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$, נקודות קריטיות $x=\\pm1$ ותחומי עליה וירידה",
-     "points": 4
-    },
-    {
-     "text": "סיווג הקיצון: מקסימום $\\left(1,\\frac{2}{\\sqrt{e}}\\right)$ ומינימום $\\left(-1,-\\frac{2}{\\sqrt{e}}\\right)$",
-     "points": 3
+     "text": "נגזרת $f'(x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$, נקודות קריטיות $x=\\pm1$, תחומי עליה וירידה וסיווג הקיצון: מקסימום $\\left(1,\\frac{2}{\\sqrt{e}}\\right)$ ומינימום $\\left(-1,-\\frac{2}{\\sqrt{e}}\\right)$",
+     "points": 7
     },
     {
      "text": "נגזרת שנייה $f''(x)=-2xe^{-\\frac{x^2}{2}}\\left(3-x^2\\right)$, קמירות ונקודות פיתול $x=0,\\pm\\sqrt{3}$",
@@ -346,7 +342,7 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{x^{2}}{2} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+       "value": "$\\frac{x^{2}}{2} - 3 \\ln{\\left(x^{2} + 1 \\right)}$"
       },
       {
        "id": "b",
@@ -356,12 +352,12 @@
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{x^{2}}{2} - \\frac{3 \\log{\\left(x^{2} + 1 \\right)}}{2}$"
+       "value": "$\\frac{x^{2}}{2} - \\frac{3 \\ln{\\left(x^{2} + 1 \\right)}}{2}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{x^{2}}{2} + \\frac{3 \\log{\\left(x^{2} + 1 \\right)}}{2}$"
+       "value": "$\\frac{x^{2}}{2} + \\frac{3 \\ln{\\left(x^{2} + 1 \\right)}}{2}$"
       }
      ],
      "correctId": "c",
@@ -779,22 +775,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)}$"
+       "value": "$x \\ln{\\left(x \\right)}^{2} - 2 x \\ln{\\left(x \\right)}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$x \\log{\\left(x \\right)}^{2} + 2 x \\log{\\left(x \\right)} + 2 x$"
+       "value": "$x \\ln{\\left(x \\right)}^{2} + 2 x \\ln{\\left(x \\right)} + 2 x$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)} + 2 x$"
+       "value": "$x \\ln{\\left(x \\right)}^{2} - 2 x \\ln{\\left(x \\right)} + 2 x$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{\\log{\\left(x \\right)}^{3}}{3}$"
+       "value": "$\\frac{\\ln{\\left(x \\right)}^{3}}{3}$"
       }
      ],
      "correctId": "c",

@@ -23,12 +23,8 @@
      "points": 3
     },
     {
-     "text": "נגזרת $f'(x)=e^{\\frac{1}{x-2}}\\frac{(x-1)(x-4)}{(x-2)^2}$, נקודות קריטיות $x=1,4$ ותחומי עליה וירידה",
-     "points": 6
-    },
-    {
-     "text": "סיווג הקיצון: מקסימום מקומי $\\left(1,\\frac{1}{e}\\right)$ ומינימום מקומי $\\left(4,4\\sqrt{e}\\right)$",
-     "points": 3
+     "text": "נגזרת $f'(x)=e^{\\frac{1}{x-2}}\\frac{(x-1)(x-4)}{(x-2)^2}$, נקודות קריטיות $x=1,4$, תחומי עליה וירידה וסיווג הקיצון: מקסימום מקומי $\\left(1,\\frac{1}{e}\\right)$ ומינימום מקומי $\\left(4,4\\sqrt{e}\\right)$",
+     "points": 9
     },
     {
      "text": "נגזרת שנייה $f''(x)=e^{\\frac{1}{x-2}}\\frac{5x-8}{(x-2)^4}$, קמירות וקעירות ונקודת פיתול ב-$x=\\frac{8}{5}$",
@@ -351,22 +347,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 6 \\log{\\left(x^{2} + 1 \\right)}$"
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 6 \\ln{\\left(x^{2} + 1 \\right)}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} + 3 \\log{\\left(x^{2} + 1 \\right)}$"
+       "value": "$2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} + 3 \\ln{\\left(x^{2} + 1 \\right)}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x + 2\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\ln{\\left(x^{2} + 1 \\right)}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$- 2 x + \\left(2 x^{2} + 6 x\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+       "value": "$- 2 x + \\left(2 x^{2} + 6 x\\right) \\operatorname{atan}{\\left(x \\right)} - 3 \\ln{\\left(x^{2} + 1 \\right)}$"
       }
      ],
      "correctId": "c",
@@ -549,22 +545,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$- \\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\cos{\\left(x \\right)}}$"
+       "value": "$- \\ln{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\cos{\\left(x \\right)}}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$- \\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
+       "value": "$- \\ln{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\log{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
+       "value": "$\\ln{\\left(\\tan{\\left(x \\right)} \\right)} \\sin{\\left(x \\right)} + \\frac{1}{\\sin{\\left(x \\right)}}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\log{\\left(\\tan{\\left(x \\right)} \\right)} - \\frac{\\sin{\\left(x \\right)}}{\\tan{\\left(x \\right)}}$"
+       "value": "$\\ln{\\left(\\tan{\\left(x \\right)} \\right)} - \\frac{\\sin{\\left(x \\right)}}{\\tan{\\left(x \\right)}}$"
       }
      ],
      "correctId": "b",

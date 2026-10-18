@@ -16,7 +16,115 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $\\mathbb{R}$ ונקודת החיתוך היחידה $(0,0)$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=e^{1-2x^2}\\left(1-4x^2\\right)$, נקודות קריטיות $x=\\pm\\frac{1}{2}$, טבלת סימנים וסיווג הקיצון: מקסימום $\\left(\\frac{1}{2},\\frac{\\sqrt{e}}{2}\\right)$ ומינימום $\\left(-\\frac{1}{2},-\\frac{\\sqrt{e}}{2}\\right)$",
+     "points": 7
+    },
+    {
+     "text": "נגזרת שנייה $f''(x)=4xe^{1-2x^2}\\left(4x^2-3\\right)$, קמירות ונקודות פיתול $x=0,\\pm\\frac{\\sqrt{3}}{2}$",
+     "points": 5
+    },
+    {
+     "text": "אסימפטוטה אופקית $y=0$ ב-$\\pm\\infty$ וללא אסימפטוטה אנכית",
+     "points": 3
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את כלל השרשרת באקספוננט: $\\left(e^{1-2x^2}\\right)'=-4x\\cdot e^{1-2x^2}$.",
+    "לפספס את $x=0$ כנקודת פיתול: $f''$ מתאפסת שם ומשנה סימן.",
+    "להשאיר את $\\lim x\\,e^{1-2x^2}$ כ-$\\infty\\cdot0$ בלי להפוך למנה $\\frac{x}{e^{2x^2-1}}$ ולהפעיל לופיטל."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=x\\cdot e^{1-2x^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(1 - 4 x^{2}\\right) e^{1 - 2 x^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(4 x^{2} + 1\\right) e^{1 - 2 x^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(1 - 2 x^{2}\\right) e^{1 - 2 x^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(1 - 4 x\\right) e^{1 - 2 x^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "גזירת מכפלה: $f'=e^{1-2x^2}+x\\cdot e^{1-2x^2}(-4x)=e^{1-2x^2}\\left(1-4x^2\\right)$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה $x$ נמצא המקסימום המקומי? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$1-4x^2=0$ נותן $x=\\pm\\frac{1}{2}$; ה-$f'$ חיובית משמאל ל-$\\frac{1}{2}$ ושלילית מימין לו, ולכן שם המקסימום."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך המקסימום המקומי $f\\left(\\frac{1}{2}\\right)$? (עשרוני)",
+     "answer": 0.8244,
+     "tol": 0.001,
+     "explain": "$f\\left(\\frac{1}{2}\\right)=\\frac{1}{2}e^{\\frac{1}{2}}=\\frac{\\sqrt{e}}{2}\\approx0.8244$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך החיובי של $x$ שבו $f''(x)=4xe^{1-2x^2}\\left(4x^2-3\\right)$ מתאפסת? (עשרוני)",
+     "answer": 0.866,
+     "tol": 0.001,
+     "explain": "$x\\left(4x^2-3\\right)=0$ נותן $x=0,\\pm\\frac{\\sqrt{3}}{2}$, והערך החיובי הוא $\\frac{\\sqrt{3}}{2}\\approx0.8660$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "משופעת: $y=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אופקית: $y=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית: $x=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין אסימפטוטות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\lim_{x\\to\\pm\\infty}\\frac{x}{e^{2x^2-1}}=0$ (אומת ב-sympy), ולכן $y=0$ אופקית; אין נקודת אי-רציפות ולכן אין אנכית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +136,86 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חסם תחתון: $a_n>0$ לכל $n$ מהגדרת הסדרה",
+     "points": 2
+    },
+    {
+     "text": "אינדוקציה לירידה: בסיס $a_2=\\frac{1}{2}<a_1=1$ וצעד מ-$a_{k+1}<a_k$ ל-$a_{k+2}<a_{k+1}$",
+     "points": 4
+    },
+    {
+     "text": "הסקה שסדרה יורדת וחסומה מלמטה מתכנסת",
+     "points": 1
+    },
+    {
+     "text": "מעבר לגבול $L=\\frac{2L}{L+3}$, כלומר $L^2+L=0$, ופסילת $L=-1$ ומסקנה $L=0$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק מ-$a_2<a_1$ בלבד שהסדרה יורדת, בלי צעד אינדוקציה.",
+    "לשכוח לפסול את $L=-1$ אף שכל איברי הסדרה חיוביים.",
+    "בצעד האינדוקציה להפוך אי-שוויון בלי לוודא שהאיברים חיוביים; ההיפוך $\\frac{1}{u}$ הופך את כיוון האי-שוויון רק עבור $u>0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2=\\frac{2a_1}{a_1+3}$? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$a_2=\\frac{2}{4}=\\frac{1}{2}<1=a_1$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את צעד האינדוקציה (מההנחה $a_{k+1}<a_k$ למסקנה).",
+     "lines": [
+      "מההנחה $a_{k+1}<a_k$ ומכיוון שהאיברים חיוביים נובע $\\frac{3}{a_{k+1}}>\\frac{3}{a_k}$, ולכן $1+\\frac{3}{a_{k+1}}>1+\\frac{3}{a_k}$.",
+      "בהיפוך: $\\frac{2}{1+\\frac{3}{a_{k+1}}}<\\frac{2}{1+\\frac{3}{a_k}}$.",
+      "ומכיוון ש-$a_{k+2}=\\frac{2}{1+\\frac{3}{a_{k+1}}}$ ו-$a_{k+1}=\\frac{2}{1+\\frac{3}{a_k}}$ מתקבל $a_{k+2}<a_{k+1}$."
+     ],
+     "explain": "כל שורה נובעת מקודמתה: היפוך והכפלה ב-$3$, אחר כך היפוך נוסף והכפלה ב-$2$, ולבסוף הצבת הנוסחה הרקורסיבית."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו ערכים אפשריים לגבול $L$ לפי המשוואה $L=\\frac{2L}{L+3}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$L=0$ או $L=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$L=0$ או $L=3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$L=0$ או $L=-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$L=1$ או $L=-1$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$L(L+3)=2L$ נותן $L^2+L=0$, כלומר $L(L+1)=0$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "האיברים חיוביים, ולכן $L\\ge0$ ו-$L=0$ (נבדק גם מספרית: $a_{60}<10^{-8}$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +227,118 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה אוניברסלית $t=\\tan\\frac{x}{2}$ והנוסחאות ל-$\\sin x$, $\\cos x$, $dx$",
+     "points": 3
+    },
+    {
+     "text": "הצבה באינטגרל ופישוט למכנה $4-4t+t^2$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int\\frac{dt}{(t-2)^2}=-\\frac{1}{t-2}$",
+     "points": 2
+    },
+    {
+     "text": "הצבה חוזרת ותשובה $\\frac{1}{2-\\tan\\frac{x}{2}}+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $\\frac{2}{1+t^2}$ מ-$dx$, ולהישאר עם אינטגרל שאינו מצטמצם.",
+    "לטעות בסימן בפישוט המכנה: $5(1+t^2)-8t+3(1-t^2)=2t^2-8t+8=2(t-2)^2$.",
+    "לשכוח את הסימן ב-$\\int\\frac{dt}{(t-2)^2}=-\\frac{1}{t-2}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה מתאימה לאינטגרל רציונלי ב-$\\sin x$ וב-$\\cos x$ בפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\tan\\frac{x}{2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "ההצבה האוניברסלית נותנת $\\sin x=\\frac{2t}{1+t^2}$, $\\cos x=\\frac{1-t^2}{1+t^2}$ ו-$dx=\\frac{2\\,dt}{1+t^2}$, ולכן כל האינטגרנד הופך לרציונלי ב-$t$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד אחרי ההצבה והפישוט (הביטוי ב-$t$ שמוכפל ב-$dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{\\left(t - 2\\right)^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{\\left(t + 2\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{t^{2} - 4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2}{\\left(t - 2\\right)^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המכנה הוא $\\frac{5(1+t^2)-8t+3(1-t^2)}{1+t^2}=\\frac{2(t-2)^2}{1+t^2}$, וכפל ב-$\\frac{2}{1+t^2}$ נותן $\\frac{1}{(t-2)^2}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{1}{2 - \\tan{\\left(\\frac{x}{2} \\right)}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{2 - \\tan{\\left(\\frac{x}{2} \\right)}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{\\tan{\\left(\\frac{x}{2} \\right)} + 2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{\\left(\\tan{\\left(\\frac{x}{2} \\right)} - 2\\right)^{2}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\int\\frac{dt}{(t-2)^2}=-\\frac{1}{t-2}=\\frac{1}{2-t}$ ואז $t=\\tan\\frac{x}{2}$ (הנגזרת נבדקה ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +350,113 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת $f(x)=\\arcsin x$ ובדיקת תנאי משפט לגרנז' על $[a,b]$",
+     "points": 3
+    },
+    {
+     "text": "שוויון לגרנז': $\\frac{b-a}{\\sqrt{1-c^2}}=\\arcsin b-\\arcsin a$",
+     "points": 1
+    },
+    {
+     "text": "שרשרת אי-השוויונות על $c$ עד $\\frac{1}{\\sqrt{1-a^2}}<\\frac{1}{\\sqrt{1-c^2}}<\\frac{1}{\\sqrt{1-b^2}}$",
+     "points": 4
+    },
+    {
+     "text": "כפל ב-$b-a>0$ והצבה, והמסקנה הסופית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפוך את כיוון האי-שוויון בשלב ההיפוך $\\frac{1}{u}$ (אצל מספרים חיוביים ההיפוך הופך את הכיוון).",
+    "לשכוח שהאי-שוויון הוא אי-שוויון חזק בגלל $a<c<b$, אף שהמשימה מבקשת $\\le$.",
+    "לכפול ב-$b-a$ בלי לציין שהוא חיובי, ולכן הכיוון נשמר."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו פונקציה מגדיר הפתרון הרשמי כדי להפעיל את משפט לגרנז'?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f(x)=\\arccos x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f(x)=\\arctan x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f(x)=\\arcsin x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f(x)=\\frac{1}{\\sqrt{1-x^2}}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפרש $\\arcsin b-\\arcsin a$ הוא $f(b)-f(a)$ עבור $f=\\arcsin$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=\\arcsin x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{1 - x^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{1}{\\sqrt{1 - x^{2}}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{\\sqrt{x^{2} + 1}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{\\sqrt{1 - x^{2}}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "זו הנגזרת הידועה של $\\arcsin$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$f(x)=\\arcsin x$ רציפה ב-$[a,b]$ וגזירה ב-$(a,b)$; לפי לגרנז' קיימת $c\\in(a,b)$ כך ש-$\\frac{1}{\\sqrt{1-c^2}}=\\frac{\\arcsin b-\\arcsin a}{b-a}$.",
+      "מ-$0<a<c<b$ נובע $a^2<c^2<b^2$, ולכן $1-b^2<1-c^2<1-a^2$.",
+      "לכן $\\sqrt{1-b^2}<\\sqrt{1-c^2}<\\sqrt{1-a^2}$, ובהיפוך $\\frac{1}{\\sqrt{1-a^2}}<\\frac{1}{\\sqrt{1-c^2}}<\\frac{1}{\\sqrt{1-b^2}}$.",
+      "נכפיל ב-$b-a>0$ ונציב את שוויון לגרנז': $\\frac{b-a}{\\sqrt{1-a^2}}<\\arcsin b-\\arcsin a<\\frac{b-a}{\\sqrt{1-b^2}}$."
+     ],
+     "explain": "קודם לגרנז' (שמגדיר את $c$), אחר כך אי-שוויון על $c^2$, אחר כך שורש והיפוך, ולבסוף כפל ב-$b-a$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$f(x)=\\arcsin x$ רציפה ב-$[a,b]$ וגזירה ב-$(a,b)$; לפי לגרנז' קיימת $c\\in(a,b)$ כך ש-$\\frac{1}{\\sqrt{1-c^2}}=\\frac{\\arcsin b-\\arcsin a}{b-a}$.",
+      "מ-$0<a<c<b$ נובע $a^2<c^2<b^2$, ולכן $1-b^2>1-c^2>1-a^2$.",
+      "לכן $\\sqrt{1-b^2}<\\sqrt{1-c^2}<\\sqrt{1-a^2}$, ובהיפוך $\\frac{1}{\\sqrt{1-a^2}}<\\frac{1}{\\sqrt{1-c^2}}<\\frac{1}{\\sqrt{1-b^2}}$.",
+      "נכפיל ב-$b-a>0$ ונציב את שוויון לגרנז': $\\frac{b-a}{\\sqrt{1-a^2}}<\\arcsin b-\\arcsin a<\\frac{b-a}{\\sqrt{1-b^2}}$."
+     ],
+     "bugIndex": 1,
+     "explain": "מ-$a^2<c^2<b^2$ נובע (אחרי הכפלה ב-$-1$ והוספת $1$) $1-b^2<1-c^2<1-a^2$; הכיוון בשורה השגויה הפוך."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +468,104 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת הדיסקות $V=\\pi\\int_1^ef^2(x)\\,dx=\\pi\\int_1^ex\\ln x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה בחלקים עם $u=\\ln x$, $dv=x\\,dx$",
+     "points": 2
+    },
+    {
+     "text": "קדומה $\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$ והצבת הגבולות",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית $V=\\frac{\\pi}{4}\\left(e^2+1\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לרבע את הפונקציה: $\\left(\\sqrt{x\\ln x}\\right)^2=x\\ln x$, בלי שורש.",
+    "לבחור $u=x$ ו-$dv=\\ln x\\,dx$: זה מסבך את החישוב ללא צורך.",
+    "לטעות בהצבת הגבול התחתון: ב-$x=1$ מתקבל $\\frac{1}{2}\\ln1-\\frac{1}{4}=-\\frac{1}{4}$ ולא $0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את נפח הסיבוב סביב ציר ה-$X$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$V=\\pi\\int_1^ex\\ln x\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$V=\\pi\\int_1^e\\sqrt{x\\ln x}\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$V=2\\pi\\int_1^ex\\ln x\\,dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$V=\\pi\\int_1^e\\left(x\\ln x\\right)^2dx$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שיטת הדיסקות: $V=\\pi\\int y^2dx$ ו-$y^2=x\\ln x$. ערכי האפשרויות שונים זה מזה (נבדק מספרית)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקדומה של $x\\ln x$ (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\ln{\\left(x \\right)}}{2} - \\frac{x^{2}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\ln{\\left(x \\right)}}{2} - \\frac{x^{2}}{4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\ln{\\left(x \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x \\ln{\\left(x \\right)} - x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בחלקים: $\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_1^ex\\ln x\\,dx$? (עשרוני)",
+     "answer": 2.0973,
+     "tol": 0.001,
+     "explain": "$\\frac{e^2+1}{4}\\approx2.0973$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V=\\frac{\\pi}{4}\\left(e^2+1\\right)$? (עשרוני)",
+     "answer": 6.589,
+     "tol": 0.001,
+     "explain": "$V\\approx6.589$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +577,97 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $\\frac{0}{0}$ והפעלת לופיטל",
+     "points": 2
+    },
+    {
+     "text": "גזירת המונה לפי המשפט היסודי וכלל השרשרת: $1-2x\\cos\\left(x^4\\right)$",
+     "points": 4
+    },
+    {
+     "text": "גזירת המכנה $3x^2-6$",
+     "points": 1
+    },
+    {
+     "text": "הצבת $x=0$ ותשובה $-\\frac{1}{6}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את כלל השרשרת: הגבול העליון $x^2$ מוסיף גורם $2x$, ובאינטגרנד $t=x^2$ נותן $\\cos\\left(x^4\\right)$.",
+    "להציב $t=x^2$ באינטגרנד $\\cos\\left(t^2\\right)$ ולכתוב $\\cos\\left(x^2\\right)$ במקום $\\cos\\left(x^4\\right)$.",
+    "להפעיל לופיטל כשהמכנה אינו מתאפס: כאן המכנה $x^3-6x\\to0$, ולכן זה חוקי, אך בדקו תמיד את הצורה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה הלא מוגדרת של הגבול ב-$x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\infty}{\\infty}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{0}{0}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\infty-\\infty$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "המונה $0-\\int_0^0\\ldots=0$ והמכנה $0^3-0=0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של המונה $x-\\int_0^{x^2}\\cos\\left(t^2\\right)dt$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1 - \\cos{\\left(x^{4} \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- 2 x \\cos{\\left(x^{2} \\right)} + 1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- 2 x^{3} \\cos{\\left(x^{4} \\right)} + 1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- 2 x \\cos{\\left(x^{4} \\right)} + 1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "משפט יסודי וכלל שרשרת: $\\cos\\left((x^2)^2\\right)\\cdot2x=2x\\cos\\left(x^4\\right)$ (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול? (עשרוני)",
+     "answer": -0.1667,
+     "tol": 0.001,
+     "explain": "$\\frac{1-2x\\cos(x^4)}{3x^2-6}\\to\\frac{1}{-6}=-\\frac{1}{6}\\approx-0.1667$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +679,125 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת אורך קשת $L=\\int_0^1\\sqrt{1+\\left(f'(x)\\right)^2}\\,dx$",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{3}{2}\\sqrt{x}$ ו-$1+\\left(f'\\right)^2=1+\\frac{9}{4}x$",
+     "points": 3
+    },
+    {
+     "text": "קדומה $\\frac{8}{27}\\left(1+\\frac{9}{4}x\\right)^{\\frac{3}{2}}$",
+     "points": 3
+    },
+    {
+     "text": "הצבת הגבולות ותשובה $\\frac{8}{27}\\left(\\left(\\frac{13}{4}\\right)^{\\frac{3}{2}}-1\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לרבע את הנגזרת: $\\left(f'\\right)^2=\\frac{9}{4}x$ ולא $\\frac{3}{2}\\sqrt{x}$.",
+    "לשכוח את הגורם $\\frac{4}{9}$ בהצבה $u=1+\\frac{9}{4}x$ (מהנגזרת הפנימית $\\frac{9}{4}$).",
+    "להשתמש בנוסחת האורך $\\int\\sqrt{1+f^2}$ במקום $\\int\\sqrt{1+\\left(f'\\right)^2}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את אורך העקום $y=x\\sqrt{x}$ בקטע $[0,1]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$L=\\int_0^1\\sqrt{1+\\left(f'(x)\\right)^2}\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$L=\\int_0^1\\sqrt{1+f^2(x)}\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$L=\\int_0^1\\left(1+\\left(f'(x)\\right)^2\\right)dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$L=\\int_0^1\\sqrt{1+f'(x)}\\,dx$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "זו נוסחת אורך הקשת. ערכי האפשרויות שונים זה מזה (נבדק מספרית): רק הראשונה נותנת $\\approx1.4397$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $1+\\left(f'(x)\\right)^2$ עבור $f(x)=x^{\\frac{3}{2}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{3 x}{2} + 1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{9 x}{4} + 1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{9 x^{2}}{4} + 1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{3 \\sqrt{x}}{2} + 1$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$f'=\\frac{3}{2}x^{\\frac{1}{2}}$ ולכן $\\left(f'\\right)^2=\\frac{9}{4}x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקדומה של $\\sqrt{1+\\frac{9}{4}x}$ (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{2 \\left(\\frac{9 x}{4} + 1\\right)^{\\frac{3}{2}}}{3}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{8 \\sqrt{\\frac{9 x}{4} + 1}}{27}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{8 \\left(\\frac{9 x}{4} + 1\\right)^{\\frac{3}{2}}}{27}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{4 \\left(\\frac{9 x}{4} + 1\\right)^{\\frac{3}{2}}}{9}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\int u^{\\frac{1}{2}}du=\\frac{2}{3}u^{\\frac{3}{2}}$ והגורם $\\frac{4}{9}$ מהנגזרת הפנימית נותן $\\frac{8}{27}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך העקום? (עשרוני)",
+     "answer": 1.4397,
+     "tol": 0.001,
+     "explain": "$\\frac{8}{27}\\left(\\left(\\frac{13}{4}\\right)^{\\frac{3}{2}}-1\\right)=\\frac{13\\sqrt{13}-8}{27}\\approx1.4397$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -99,7 +808,108 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=2x^3+3\\arctan x+e^x+1$ והמעבר למשוואה $f(x)=0$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f(0)=2>0$ ו-$f(-1)<0$ ורציפות $f$ על $[-1,0]$",
+     "points": 3
+    },
+    {
+     "text": "משפט ערך הביניים: קיים פתרון $c\\in(-1,0)$",
+     "points": 2
+    },
+    {
+     "text": "נגזרת $f'(x)=6x^2+\\frac{3}{1+x^2}+e^x>0$ לכל $x$",
+     "points": 2
+    },
+    {
+     "text": "מונוטוניות עולה ממש, ולכן הפתרון יחיד",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בקיום פתרון (ערך הביניים) ולא להוכיח יחידות.",
+    "לטעון ש-$f'>0$ בלי להצדיק: כל שלושת המחוברים $6x^2$, $\\frac{3}{1+x^2}$, $e^x$ אי-שליליים והשני והשלישי חיוביים ממש.",
+    "לבדוק סימנים בקצוות קטע שבו $f$ אינה רציפה, או לבחור קטע ששני קצותיו נותנים אותו סימן."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=2x^3+3\\arctan x+e^x+1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$6 x^{2} - e^{x} + \\frac{3}{x^{2} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$6 x^{2} + e^{x} + 3 \\operatorname{atan}{\\left(x \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 x^{2} + e^{x} + \\frac{3}{x^{2} + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$6 x^{2} + e^{x} + \\frac{3}{x^{2} + 1}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\left(2x^3\\right)'=6x^2$, $(3\\arctan x)'=\\frac{3}{1+x^2}$, $\\left(e^x\\right)'=e^x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$f(0)=0+3\\cdot0+e^0+1=2>0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(-1)=-2-\\frac{3\\pi}{4}+\\frac{1}{e}+1$? (עשרוני)",
+     "answer": -2.9883,
+     "tol": 0.001,
+     "explain": "$-2-2.3562+0.3679+1\\approx-2.9883<0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מבטיח את הקיום ומה את היחידות של הפתרון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קיום: משפט ערך הביניים על $[-1,0]$ (סימנים מנוגדים). יחידות: $f'>0$, ולכן $f$ עולה ממש"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "קיום: משפט רול. יחידות: משפט ערך הביניים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קיום: $f'>0$. יחידות: סימנים מנוגדים בקצוות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "קיום: משפט ערך הביניים. יחידות: $f'$ מתאפסת בנקודה אחת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רול דורש $f(-1)=f(0)$, אבל $f(-1)<0<2=f(0)$. מונוטוניות אינה מבטיחה קיום, וסימנים מנוגדים אינם מבטיחים יחידות. כאן $f'$ חיובית תמיד."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -110,7 +920,90 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "נקודת ההשקה $A\\left(a,\\sqrt{a-1}\\right)$ ותנאי השוויון בין שיפוע המיתר $\\frac{\\sqrt{a-1}}{a}$ לשיפוע המשיק $\\frac{1}{2\\sqrt{a-1}}$",
+     "points": 3
+    },
+    {
+     "text": "פתרון $a=2$ ומשוואת המשיק $y=\\frac{1}{2}x$",
+     "points": 2
+    },
+    {
+     "text": "שטח המשולש $OAB$: $1$",
+     "points": 2
+    },
+    {
+     "text": "שטח מתחת לגרף $\\int_1^2\\sqrt{x-1}\\,dx=\\frac{2}{3}$ וההפרש $S=\\frac{1}{3}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שהמשיק נוגע ב-$x=1$ (שם הנגזרת לא מוגדרת) במקום לפתור את תנאי ההשקה.",
+    "לחבר את שטח המשולש ושטח מתחת לגרף במקום לחסר.",
+    "לשכוח שהגרף מתחיל ב-$x=1$ ולכן השטח מתחת לגרף נמדד מ-$1$ עד $2$ ולא מ-$0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו שיעור ה-$x$ של נקודת ההשקה? (פתרון $\\frac{1}{2\\sqrt{a-1}}=\\frac{\\sqrt{a-1}}{a}$)",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$a=2(a-1)$ נותן $a=2$, ולכן $A(2,1)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק לגרף $y=\\sqrt{x-1}$ העובר דרך הראשית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x - 1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x}{2} + 0.5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "השיפוע ב-$a=2$ הוא $\\frac{1}{2\\sqrt{1}}=\\frac{1}{2}$ והמשיק עובר דרך $(0,0)$ ו-$(2,1)$: $y=\\frac{1}{2}x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו שטח המשולש שקודקודיו $(0,0)$, $(2,1)$ ו-$(2,0)$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\frac{2\\cdot1}{2}=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_1^2\\sqrt{x-1}\\,dx$? (עשרוני)",
+     "answer": 0.6667,
+     "tol": 0.001,
+     "explain": "$\\frac{2}{3}(x-1)^{\\frac{3}{2}}\\Big|_1^2=\\frac{2}{3}\\approx0.6667$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח המבוקש? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.001,
+     "explain": "$1-\\frac{2}{3}=\\frac{1}{3}\\approx0.3333$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -122,7 +1015,87 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק לשברים חלקיים בצורה $\\frac{A}{x+1}+\\frac{Bx+C}{x^2+4x+5}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המקדמים $A=\\frac{1}{2}$, $B=-\\frac{1}{2}$, $C=-\\frac{3}{2}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה של $\\frac{1}{x+1}$ ושל $\\frac{2x+4}{x^2+4x+5}$ כלוגריתמים",
+     "points": 2
+    },
+    {
+     "text": "השלמה לריבוע $(x+2)^2+1$ ואינטגרל $\\arctan(x+2)$",
+     "points": 2
+    },
+    {
+     "text": "תשובה סופית עם $+C$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $\\frac{B}{x^2+4x+5}$ במקום מונה לינארי $Bx+C$.",
+    "לפצל את המונה $x$ ל-$\\frac{1}{2}(2x+4)-2$ ולשכוח את החלק $-2$, שנותן את ה-$\\arctan$.",
+    "לשכוח שהמכנה $x^2+4x+5=(x+2)^2+1$ אי-פריק, ולכן החלק הלינארי נשאר מעל הריבועי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.0005,
+     "explain": "הצבת $x=-1$ ב-$1=A\\left(x^2+4x+5\\right)+(Bx+C)(x+1)$ נותנת $1=2A$, כלומר $A=\\frac{1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $B$? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.0005,
+     "explain": "משווים מקדמי $x^2$: $A+B=0$, ולכן $B=-\\frac{1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $C$? (עשרוני)",
+     "answer": -1.5,
+     "tol": 0.0005,
+     "explain": "משווים מקדמי $x$: $4A+B+C=0$, ולכן $C=-2+\\frac{1}{2}=-\\frac{3}{2}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה (בלי הקבוע, בתחום $x>-1$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\ln{\\left(x + 1 \\right)}}{2} - \\frac{\\ln{\\left(x^{2} + 4 x + 5 \\right)}}{4} + \\frac{\\operatorname{atan}{\\left(x + 2 \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\ln{\\left(x + 1 \\right)}}{2} - \\frac{\\ln{\\left(x^{2} + 4 x + 5 \\right)}}{2} - \\frac{\\operatorname{atan}{\\left(x + 2 \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\ln{\\left(x + 1 \\right)}}{2} - \\frac{\\ln{\\left(x^{2} + 4 x + 5 \\right)}}{4} - \\frac{\\operatorname{atan}{\\left(x + 2 \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\ln{\\left(x + 1 \\right)}}{2} - \\frac{\\ln{\\left(x^{2} + 4 x + 5 \\right)}}{4} - \\operatorname{atan}{\\left(x + 2 \\right)}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "החלק הלוגריתמי הוא $\\frac{1}{2}\\ln|x+1|-\\frac{1}{4}\\ln\\left(x^2+4x+5\\right)$ והחלק הנוסף הוא $-\\frac{1}{2}\\arctan(x+2)$ (הנגזרת של כל אפשרות נבדקה ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -134,7 +1107,87 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חישוב הנגזרות $y'(0)=1$ ו-$y''(0)=-1$",
+     "points": 2
+    },
+    {
+     "text": "פולינום מקלורן $T_2(x)=x-\\frac{x^2}{2}$",
+     "points": 2
+    },
+    {
+     "text": "שארית לגרנז' $R_2(x)=\\frac{1}{3(1+z)^3}x^3$",
+     "points": 2
+    },
+    {
+     "text": "חסם $|x|\\le0.1$ ו-$1+z\\ge0.9$ על הקטע",
+     "points": 2
+    },
+    {
+     "text": "הערכה $|R_2|\\le\\frac{(0.1)^3}{3\\cdot0.9^3}\\approx4.57\\cdot10^{-4}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $(0.01)^3$ בחסם במקום $(0.1)^3$ (טעות בפתרון הרשמי המודפס): $|x|\\le0.1$ ולכן $|x|^3\\le0.001$.",
+    "לחסום את המכנה $(1+z)^3$ בעזרת $z=0.1$ במקום $z=-0.1$: החסם הגרוע ביותר מתקבל ב-$1+z=0.9$.",
+    "לשכוח את החלוקה ב-$3!$ בשארית, או את הגורם $2$ בנגזרת $y'''=\\frac{2}{(1+x)^3}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $y''(0)$ עבור $y=\\ln(1+x)$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "$y'=\\frac{1}{1+x}$ ו-$y''=-\\frac{1}{(1+x)^2}$, ולכן $y''(0)=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $T_2(0.1)=0.1-\\frac{(0.1)^2}{2}$? (עשרוני)",
+     "answer": 0.095,
+     "tol": 0.0005,
+     "explain": "$0.1-0.005=0.095$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו מקדם השארית $\\frac{y'''(z)}{3!}$ עבור $y=\\ln(1+x)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{6 \\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2}{\\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{3 \\left(x + 1\\right)^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{3 \\left(x + 1\\right)^{3}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$y'''=\\frac{2}{(1+x)^3}$ ולכן $\\frac{y'''}{3!}=\\frac{1}{3(1+x)^3}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו החסם $\\frac{(0.1)^3}{3\\cdot0.9^3}$ על השארית בקטע? (עשרוני)",
+     "answer": 0.000457,
+     "tol": 1e-05,
+     "explain": "$\\frac{0.001}{3\\cdot0.729}\\approx4.57\\cdot10^{-4}$ (לא $4.57\\cdot10^{-7}$ כפי שמודפס בפתרון הרשמי; נבדק גם על רשת צפופה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
