@@ -38,7 +38,7 @@ $$\lim_{x\to\pm\infty}\frac{2x^2}{x^2-1}=\lim_{x\to\pm\infty}\left(2+\frac{2}{x^
 $$f'(x)=\left(2+\frac{2}{x^2-1}\right)'=\frac{-4x}{\left(x^2-1\right)^2}$$
 תחומי עלייה: $(-\infty,-1),(-1,0)$. תחומי ירידה: $(0,1),(1,+\infty)$. נקודת מקסימום מקומי: $x=0$, $f(0)=0$.
 $$f''(x)=\left(\frac{-4x}{\left(x^2-1\right)^2}\right)'=\frac{-4\left(x^2-1\right)^2+4x\cdot2\left(x^2-1\right)2x}{\left(x^2-1\right)^4}=\frac{4\left(-x^2+1+4x^2\right)}{\left(x^2-1\right)^3}=\frac{4\left(3x^2+1\right)}{\left(x^2-1\right)^3}$$
-קמורה ב: $(-\infty,-1),(1,+\infty)$. קעורה ב: $(-1,1)$. אין נקודת פיתול.
+קמורה ($\\cup$) ב: $(-\infty,-1),(1,+\infty)$. קעורה ($\\cap$) ב: $(-1,1)$. אין נקודת פיתול.
 ![גרף הפונקציה y = 2x²/(x²−1) עם האסימפטוטות x=1, x=−1, y=2 והמקסימום ב-(0,0)](images/exams/19B-A-Q1-graph.png)
 """
 

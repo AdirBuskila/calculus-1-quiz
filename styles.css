@@ -912,3 +912,6 @@ pre.code-block code{font:inherit;white-space:pre;direction:ltr;text-align:left;b
   .learn-content{padding:1.2rem 1.1rem}
   .learn-content h2.learn-h{font-size:1.3rem}
 }
+
+/* narrow phones: display math slightly smaller so long lines (y_max/y_min, derivatives) clip less */
+@media(max-width:480px){.math-block math{font-size:1em}}

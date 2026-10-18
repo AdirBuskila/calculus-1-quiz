@@ -105,7 +105,7 @@ $b=\lim\left(xe^{1/x}-x\right)=\lim x\left(e^{1/x}-1\right)$. עם $u=\frac1x\to
     ],
     "correctId": "a",
     "explanation": "$a=\\lim e^{2/x}=1$. אז $b=\\lim x\\left(e^{2/x}-1\\right)$. עם $u=\\frac2x$ מקבלים $x=\\frac2u$ ולכן $b=2\\lim\\frac{e^u-1}{u}=2$. התשובה **$y=x+2$**. ‏$y=x+1$ שוכחת את הגורם 2. ‏$y=x$ מניחה $b=0$. ‏$y=x+e^2$ מציבה את $x=1$ במקום לשאוף לאינסוף.",
-    "recap": "x(e^{c/x} − 1) → c"
+    "recap": "$x\\left(e^{c/x}-1\\right)\\to c$"
   },
   {
     "id": "C06-Q5",

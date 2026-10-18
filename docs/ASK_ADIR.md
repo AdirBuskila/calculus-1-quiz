@@ -4,6 +4,14 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 
 ## Open
 
+## Open (short list)
+1. **21B-B Q2, Q6a, Q6b held** - the only file lacks Q2 and the Q6 stems. Needed: the original exam pages (details below).
+2. **19A-C skipped** (course 20027, not calculus) - confirm skipping.
+3. **Solution figures with English labels** (20B-C Q1, 25B-B Q1 graphs were generated; labels "max", "inflection", "x = 2" are English). Optional: regenerate with Hebrew labels.
+4. **23A-B Q1 graph** carries a red pen mark and arrow from the source scan. Optional: clean the crop.
+5. **Gate 2 and Gate 3** (try the app; OK to go public) plus the deck redesign.
+
+
 <!-- Entry format:
 ### <exam code> Q<number> - <short title>
 - Path: <absolute file path>

@@ -39,7 +39,7 @@ COURSE_LEVEL("integration", {
     ],
     "correctId": "d",
     "explanation": "עם $t=e^x$: ‏$\\int\\frac{dt}{t(t+1)}=\\int\\left(\\frac1t-\\frac1{t+1}\\right)dt=\\ln t-\\ln(t+1)$. מחזירים $\\ln t=x$ ומקבלים **$x-\\ln(e^x+1)$**. ‏$\\ln(e^x+1)$ לבדו נותן $\\frac{e^x}{e^x+1}$, שהוא האינטגרנד של $\\frac{e^x}{e^x+1}$ ולא של השאלה.",
-    "recap": "רציונלי ב-e^x: t = e^x ← שברים חלקיים"
+    "recap": "רציונלי ב-$e^x$: $t=e^x$, ואז שברים חלקיים"
   },
   {
     "id": "C08-Q2",

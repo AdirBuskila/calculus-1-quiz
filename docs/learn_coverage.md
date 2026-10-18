@@ -1,6 +1,6 @@
 # Learn coverage - calculus-1
 
-Source of truth: every question text in `tools/raw/*.json` (92 items across 11 sittings: 22A-A, 22B-A, 23A-B, 23B-B, 23S-C, 24A-A, 24A-B, 24B-A, 24B-B, 25B-B). Ids use the bank's scheme (sitting-Qn, with a/b/... when a number holds several topics, in raw order). Only 24B-B is built into `questions.json` so far (those ids are live links in the briefs); every other id is provisional until the bank is rebuilt.
+Re-passed 2026-10-18 against the full bank (240 items, 22 sittings): four concepts of the 2017-2022 sittings were missing and now have sections (last four rows). First pass: 92 items across 11 sittings: 22A-A, 22B-A, 23A-B, 23B-B, 23S-C, 24A-A, 24A-B, 24B-A, 24B-B, 25B-B). Ids use the bank's scheme (sitting-Qn, with a/b/... when a number holds several topics, in raw order). Only 24B-B is built into `questions.json` so far (those ids are live links in the briefs); every other id is provisional until the bank is rebuilt.
 
 Briefs (docs/briefs): 01 sequences_limits, 02 function_limits, 03 continuity, 04 derivatives_tangents, 05 mean_value_theorems, 06 lhopital_taylor, 07 function_investigation, 08 extrema_optimization, 09 indefinite_integrals, 10 definite_integrals, 11 cheat_sheet (formula and theorem sheet for the whole course).
 
@@ -41,13 +41,17 @@ Briefs (docs/briefs): 01 sequences_limits, 02 function_limits, 03 continuity, 04
 | volume by discs/washers about x | 10 מתכון: נפח | 23A-B-Q4b, 23S-C-Q4b, 24A-A-Q4b, 24A-B-Q3b, 25B-B-Q6a |
 | volume by shells about y | 10 מתכון: נפח | 23B-B-Q4b, 24B-B-Q3b, 22A-A-Q6b, 22B-A-Q6b |
 | arc length | 10 נוסחאות | 23B-B-Q6a, 22B-A-Q5b |
+| differential approximation (degrees to radians) | 04 קירוב בעזרת דיפרנציאל | 17A-A-Q3b, 20B-C-Q6a |
+| odd powers of sin/cos; t = tan x for cos^2 expressions | 09 חזקות של sin ו-cos, ו-tan | 17B-A-Q5b, 18B-A-Q5b, 17A-A-Q2b |
+| volume about a vertical line x = c (shell radius |x-c|) | 10 סיבוב סביב ישר אנכי | 21A-B-Q4b, 21B-B-Q4b |
+| sequence limit with a parameter: case analysis | 01 סדרה עם פרמטר | 20B-C-Q2a |
+| older sittings 17A-A to 22B-B: all other concepts | same sections as the rows above (recursive sequences, 1^inf, parameters, IVT uniqueness, Lagrange inequalities, partial fractions, area, volume, arc length, investigation) | 17A-A-Q1 to 22B-B-Q6b |
 
 ## Gaps
 
-None of the concepts used by the 92 transcribed items is missing from the briefs. Open items:
-- Sittings 22A-B and 22B-B (page renders exist under `tools/raw/`) are not transcribed yet. Their question texts were not read, so their concepts are unchecked. Rerun this coverage pass after they land. Their image names suggest function investigation, volume and area questions, which the briefs cover.
+None of the concepts used by the full bank (240 items) is missing from the briefs. Open items:
+- Held items (21B-B Q2, Q6a, Q6b) have no question text, so their concepts are unchecked.
 - The older sittings (2013-2016, outside the current cutoff) are not in the bank.
-- 25B-B has no key, so its method rows are matched from the question text alone.
 - Improper integrals and numeric series were never seen in the in-scope exams, so the briefs do not teach them. If the syllabus examines them, add a brief section (Gate 1 flagged this as unconfirmed).
 - Peano-form Taylor expansions and little-o notation are not in the briefs; none of the questions needed them.
 - Thin topics: mean_value_theorems (no Rolle-style question appeared, Rolle is only stated) and extrema_optimization (word-problem optimization has no exam instance, only a recipe).

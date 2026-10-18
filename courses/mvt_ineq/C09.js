@@ -17,15 +17,15 @@ COURSE_LEVEL("mvt_ineq", {
   questions: [
   {
     "bankId": "24B-A-Q2b",
-    "recap": "פונקציית עזר x − ln(1+x): f(0)=0 ו-f' = x/(1+x) > 0"
+    "recap": "פונקציית עזר $x-\\ln(1+x)$: $f(0)=0$ ו-$f'=\\frac{x}{1+x}>0$"
   },
   {
     "bankId": "22B-A-Q2a",
-    "recap": "פונקציית עזר x − arctan x ו-arctan x − x/(1+x²): f(0)=0 ו-f' > 0"
+    "recap": "פונקציית עזר $x-\\arctan x$ ו-$\\arctan x-\\frac{x}{1+x^2}$: $f(0)=0$ ו-$f'>0$"
   },
   {
     "bankId": "24A-A-Q6a",
-    "recap": "לגרנז' על tan ב-[0,x]: 1/cos²c > 1"
+    "recap": "לגרנז' על $\\tan$ ב-$[0,x]$: $\\frac{1}{\\cos^2c}>1$"
   },
   {
     "bankId": "23B-B-Q4a",
