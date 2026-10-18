@@ -23,7 +23,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $f'(x)=\\frac{4}{5}\\cdot\\frac{\\sqrt[5]{x-1}-1}{\\sqrt[5]{x-1}}$",
+     "points": 3
+    },
+    {
+     "text": "נקודות חשודות: $x=2$ (הנגזרת מתאפסת), $x=1$ (הנגזרת אינה קיימת) וקצות הקטע $0,3$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f$ בארבע הנקודות: $1,\\frac{14}{5},\\frac{13}{5},\\approx2.66$",
+     "points": 3
+    },
+    {
+     "text": "מקסימום $\\frac{14}{5}$ ב-$x=1$ ומינימום $1$ ב-$x=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $x=1$, שבה הנגזרת אינה קיימת, כנקודה חשודה לקיצון מוחלט.",
+    "לשכוח את קצות הקטע $0$ ו-$3$ בהשוואה הסופית.",
+    "לחשב $\\sqrt[5]{(x-1)^4}$ בצורה לא נכונה כשהבסיס שלילי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $f'(x)=\\frac{4}{5}-\\frac{4}{5\\sqrt[5]{x-1}}$ בנקודה $x=33$? (עשרוני)",
+     "answer": 0.4,
+     "tol": 0.001,
+     "explain": "$\\sqrt[5]{32}=2$ ולכן $f'(33)=\\frac{4}{5}-\\frac{4}{10}=0.4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ בקטע $[0,3]$ מתאפסת הנגזרת?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\sqrt[5]{x-1}=1$ ולכן $x=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(1)$? (עשרוני)",
+     "answer": 2.8,
+     "tol": 0.001,
+     "explain": "$f(1)=\\frac{4}{5}-0+2=\\frac{14}{5}=2.8$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם הערך הגדול ביותר והקטן ביותר של $f$ בקטע $[0,3]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הגדול $\\frac{14}{5}$ (ב-$x=1$) והקטן $1$ (ב-$x=0$)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הגדול $\\frac{22}{5}-\\sqrt[5]{16}$ (ב-$x=3$) והקטן $1$ (ב-$x=0$)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הגדול $\\frac{14}{5}$ והקטן $\\frac{13}{5}$ (ב-$x=2$)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הגדול $\\frac{14}{5}$ והקטן $0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הערכים $f(0)=1$, $f(1)=2.8$, $f(2)=2.6$, $f(3)\\approx2.66$; המקסימום $2.8$ והמינימום $1$ (נבדק על רשת צפופה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -36,7 +112,66 @@
    "confidence": "high",
    "part": "ב",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "חסימה מלמטה $a_n\\ge\\sqrt{A+1}$ בעזרת אי-שוויון הממוצעים",
+     "points": 3
+    },
+    {
+     "text": "מונוטוניות: $a_{n+1}-a_n\\le0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנת ההתכנסות",
+     "points": 1
+    },
+    {
+     "text": "משוואת הגבול $L^2=A+1$ ובחירת השורש החיובי",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהסדרה מתכנסת רק כי היא נראית יורדת מהאיברים הראשונים.",
+    "לשכוח לפסול את $L=-\\sqrt{A+1}$ כי האיברים חיוביים.",
+    "להשתמש בגבול בנוסחת הנסיגה לפני שהוכחה התכנסות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=3$, מהו החסם התחתון $\\sqrt{A+1}$ מאי-שוויון הממוצעים?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\sqrt{3+1}=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=3$ ו-$B=0$ (כלומר $a_1=5$), מהו $a_2$? (עשרוני)",
+     "answer": 2.9,
+     "tol": 0.001,
+     "explain": "$a_2=\\frac{1}{2}\\left(5+\\frac{4}{5}\\right)=2.9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=8$, מהו גבול הסדרה?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "$L=\\sqrt{A+1}=\\sqrt{9}=3$ (נבדק באיטרציה נומרית לכל $A=0..9$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "לפי אי-שוויון הממוצעים $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{A+1}{a_n}\\right)\\ge\\sqrt{A+1}$, לכן הסדרה חסומה מלמטה.",
+      "$a_{n+1}-a_n=\\frac{(A+1)-a_n^2}{2a_n}\\le0$ כי $a_n\\ge\\sqrt{A+1}$, ולכן הסדרה יורדת.",
+      "סדרה יורדת וחסומה מלמטה מתכנסת, נסמן את גבולה $L$.",
+      "מנוסחת הנסיגה $L^2=A+1$, ומכיוון ש-$a_n\\ge0$ מתקבל $L=\\sqrt{A+1}$."
+     ],
+     "explain": "החסימה קודמת למונוטוניות (הסימן תלוי בה), שתיהן קודמות להתכנסות, וההתכנסות קודמת למעבר לגבול."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -49,7 +184,76 @@
    "confidence": "high",
    "part": "א",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "כפל בצמוד: $\\sqrt{n^2+C+1}-n=\\frac{C+1}{\\sqrt{n^2+C+1}+n}$",
+     "points": 4
+    },
+    {
+     "text": "הוכחה שהגורם הראשון שואף ל-$0$",
+     "points": 2
+    },
+    {
+     "text": "חסימות הסינוס $-1\\le\\sin(\\cdot)\\le1$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: שואפת ל-$0$ כפול חסומה, ולכן הגבול $0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון ש-$\\sin\\left(2^{(B+1)n}\\right)$ שואף לגבול כלשהו. הוא חסום ואינו מתכנס, ואין בכך צורך.",
+    "לא להכפיל בצמוד ולהישאר עם $\\infty-\\infty$.",
+    "לכתוב $\\infty\\cdot0=0$ בלי הנמקה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $C=3$ ו-$n=3$, מהו $\\sqrt{n^2+C+1}-n=\\frac{C+1}{\\sqrt{n^2+C+1}+n}$? (עשרוני)",
+     "answer": 0.6056,
+     "tol": 0.001,
+     "explain": "$\\frac{4}{\\sqrt{13}+3}\\approx0.6056$; שני הביטויים שווים (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{n\\to\\infty}\\frac{C+1}{\\sqrt{n^2+C+1}+n}$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "המכנה שואף ל-$\\infty$ והמונה קבוע."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע הגבול של המכפלה הוא $0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $\\sin\\left(2^{(B+1)n}\\right)$ שואף ל-$0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מכפלה של סדרה שואפת ל-$0$ בסדרה חסומה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $\\sin\\left(2^{(B+1)n}\\right)$ שואף ל-$1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין גבול כי הסינוס מתנדנד"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הסינוס חסום בין $-1$ ל-$1$ והגורם השני שואף ל-$0$, ולכן המכפלה שואפת ל-$0$ (נבדק מספרית עם $n=10^9$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -61,7 +265,104 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=x^2$ ו-$x\\,dx=\\frac{dt}{2}$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה בחלקים של $\\int\\arctan t\\,dt$ עם $u=\\arctan t$, $v=t$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $\\int\\frac{t}{1+t^2}dt=\\frac{1}{2}\\ln(1+t^2)$",
+     "points": 3
+    },
+    {
+     "text": "הצבה חזרה וקבוע האינטגרציה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $\\frac{1}{2}$ מההצבה $t=x^2$.",
+    "לבחור $u=t$ ו-$dv=\\arctan t\\,dt$: האינטגרל של $\\arctan$ אינו ידוע מראש.",
+    "לשכוח את החזרה ל-$x$ ולהשאיר $\\ln(1+t^2)$ במקום $\\ln(1+x^4)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה פותחת את החישוב בפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\arctan x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=x^4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=x^2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\arctan\\left(x^2\\right)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$dt=2x\\,dx$ ולכן $\\int x\\arctan\\left(x^2\\right)dx=\\frac{1}{2}\\int\\arctan t\\,dt$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $c$ ב-$\\int x\\arctan\\left(x^2\\right)dx=c\\int\\arctan t\\,dt$? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$x\\,dx=\\frac{dt}{2}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קדומה נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\operatorname{atan}{\\left(x^{2} \\right)}}{2} + \\frac{\\log{\\left(x^{4} + 1 \\right)}}{4}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^{2} \\operatorname{atan}{\\left(x^{2} \\right)} - \\frac{\\log{\\left(x^{4} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\operatorname{atan}{\\left(x^{2} \\right)}}{2} - \\frac{\\log{\\left(x^{2} + 1 \\right)}}{4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^{2} \\operatorname{atan}{\\left(x^{2} \\right)}}{2} - \\frac{\\log{\\left(x^{4} + 1 \\right)}}{4}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הנגזרת של $\\frac{1}{2}\\left(x^2\\arctan\\left(x^2\\right)-\\frac{1}{2}\\ln\\left(1+x^4\\right)\\right)$ שווה לאינטגרנד; לשאר האפשרויות לא (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $\\int_0^1x\\arctan\\left(x^2\\right)dx$? (עשרוני)",
+     "answer": 0.2194,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2}\\left(\\frac{\\pi}{4}-\\frac{\\ln2}{2}\\right)\\approx0.2193$ (נבדק באינטגרציה נומרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -74,7 +375,104 @@
    "confidence": "high",
    "part": "א",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "פירוק המכנה $2x^2-(2B+3)x+B+1=(2x-1)(x-B-1)$ וזיהוי נקודות החשד $0,\\frac12,B+1$",
+     "points": 2
+    },
+    {
+     "text": "$x=0$: הגבול $\\frac{A+2}{C+3}$ קיים, אי-רציפות סליקה",
+     "points": 3
+    },
+    {
+     "text": "$x=\\frac12$: הגבול אינסופי, אי-רציפות ממין שני",
+     "points": 2
+    },
+    {
+     "text": "$x=B+1$: גבולות חד-צדדיים סופיים ושונים, אי-רציפות ממין ראשון",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $x=0$ כי הפונקציה נראית מוגדרת שם: המכנה $\\arctan\\left((C+3)x\\right)$ מתאפס בו.",
+    "לא לפצל את $|x-B-1|$ לשני צדדים בעת בדיקת $x=B+1$.",
+    "לסווג את $x=\\frac12$ כסליקה בלי לבדוק שהמונה אינו מתאפס שם."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=3$, מהו השורש הגדול של $2x^2-(2B+3)x+B+1$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "הפירוק $(2x-1)(x-B-1)$ נותן שורשים $\\frac12$ ו-$B+1=4$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=1$ ו-$C=2$, מהו $\\lim_{x\\to0}f(x)=\\frac{A+2}{C+3}$? (עשרוני)",
+     "answer": 0.6,
+     "tol": 0.001,
+     "explain": "$\\frac{x}{\\arctan((C+3)x)}\\to\\frac{1}{C+3}$ ו-$\\frac{(A+2)|x-B-1|}{(2x-1)(x-B-1)}\\to A+2$ (נבדק מספרית משני הצדדים)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו סוג אי-הרציפות ב-$x=\\frac12$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מסוג שני (גבול אינסופי)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "סליקה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מסוג ראשון (גבולות חד-צדדיים סופיים ושונים)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין שם אי-רציפות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המכנה מתאפס והמונה אינו, ולכן $|f|\\to\\infty$ משני הצדדים (נבדק מספרית)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו סוג אי-הרציפות ב-$x=B+1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "סליקה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מסוג ראשון (הגבולות החד-צדדיים סופיים ושווים בערכם המוחלט בסימנים הפוכים)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מסוג שני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין שם אי-רציפות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בגלל $\\frac{|x-B-1|}{x-B-1}=\\pm1$ מתקבלים שני גבולות סופיים שונים (נבדק מספרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -86,7 +484,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה בהגדרת הנגזרת $\\lim\\frac{f(h)-f(0)}{h}$ ומעבר לגבולות חד-צדדיים",
+     "points": 2
+    },
+    {
+     "text": "הגבול הימני $\\frac{p^2}{2}$ (לופיטל פעמיים)",
+     "points": 3
+    },
+    {
+     "text": "הגבול השמאלי $\\frac{1}{6}$ (לופיטל פעמיים)",
+     "points": 3
+    },
+    {
+     "text": "השוואה $\\frac{p^2}{2}=\\frac{1}{6}$ ופתרון $p=\\pm\\frac{1}{\\sqrt3}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב רק את הנגזרת החד-צדדית מצד אחד.",
+    "לשכוח את הפתרון השלילי $p=-\\frac{1}{\\sqrt3}$.",
+    "להפעיל לופיטל פעם אחת בלבד כשהמונה והמכנה עדיין מתאפסים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול הימני $\\lim_{h\\to0^+}\\frac{e^{ph}-ph-1}{h^2}$ עבור $p=2$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "התוצאה $\\frac{p^2}{2}=2$ (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול השמאלי $\\lim_{h\\to0^-}\\frac{h-\\sin h}{h^3}$? (עשרוני)",
+     "answer": 0.1667,
+     "tol": 0.001,
+     "explain": "לופיטל פעמיים נותן $\\frac{1}{6}\\approx0.1667$ (sympy ומספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $p>0$, מהו $p$ המקיים $\\frac{p^2}{2}=\\frac{1}{6}$? (עשרוני)",
+     "answer": 0.5774,
+     "tol": 0.001,
+     "explain": "$p^2=\\frac{1}{3}$ ולכן $p=\\frac{1}{\\sqrt3}\\approx0.5774$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם כל הערכים של $p$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=\\frac{1}{\\sqrt3}$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=\\pm\\sqrt3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=\\pm\\frac{1}{\\sqrt3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=\\pm\\frac13$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "המשוואה $\\frac{p^2}{2}=\\frac16$ מתקיימת בשני הסימנים (שני הערכים נבדקו מספרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -99,7 +573,83 @@
    "confidence": "high",
    "part": "א",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "נגזרות $y_1'=\\frac{2(A+1)}{x}$ ו-$y_2'=2(A+1)x$",
+     "points": 2
+    },
+    {
+     "text": "השוואת שיפועים $x^2=1$ ובחירת $x=1$ (תחום $\\ln x$)",
+     "points": 2
+    },
+    {
+     "text": "בדיקה ששני הגרפים עוברים דרך $(1,C)$",
+     "points": 3
+    },
+    {
+     "text": "משוואת המשיק $y=2(A+1)x-2A+C-2$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשוות את הפונקציות במקום את הנגזרות ולשכוח שיש להשוות גם ערך וגם שיפוע.",
+    "לכלול את $x=-1$, שאינה בתחום ההגדרה של $\\ln x$.",
+    "טעות אלגברית בשלב $y-C=2(A+1)(x-1)$ לצורה $y=mx+n$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=2$, מהו השיפוע של $y=2(A+1)\\ln x+C$ בנקודה $x=1$?",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$y'=\\frac{2(A+1)}{x}=6$ ב-$x=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזה $x$ יש לשני הגרפים אותו שיפוע (בתחום ההגדרה)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x=-1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x=2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\frac{2(A+1)}{x}=2(A+1)x$ נותן $x^2=1$; $x=-1$ מחוץ לתחום של $\\ln x$, ובשאר הערכים השיפועים שונים (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=2$ ו-$C=4$, מהו ערך המשיק $y=2(A+1)x-2A+C-2$ בנקודה $x=1$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$6-4+4-2=4=C$, כלומר המשיק עובר דרך נקודת ההשקה $(1,C)$ (נבדק לכמה $A,C$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=2$ ו-$C=4$, מהו ערך המשיק בנקודה $x=2$?",
+     "answer": 10,
+     "tol": 0.001,
+     "explain": "$y=6x-2$ ולכן $y(2)=10$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -111,7 +661,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "צורת הפירוק $\\frac{A}{x^2}+\\frac{B}{x}+\\frac{Cx+D}{x^2+4}$",
+     "points": 2
+    },
+    {
+     "text": "השוואת מקדמים: $A=2$, $B=1$, $C=2$, $D=-1$",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה של $\\frac{2}{x^2}$ ו-$\\frac{1}{x}$ ו-$\\frac{2x}{x^2+4}$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה של $\\frac{1}{x^2+4}$ ל-$\\frac12\\arctan\\frac{x}{2}$ והתוצאה הסופית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב רק $\\frac{A}{x^2}$ בלי האיבר $\\frac{B}{x}$ עבור הגורם הכפול $x^2$.",
+    "לשכוח את הגורם $\\frac12$ באינטגרל $\\int\\frac{dx}{x^2+4}=\\frac12\\arctan\\frac{x}{2}$.",
+    "בלבול בין מקדמי הפירוק $A,B,C,D$ לבין הפרמטרים $A,B,C$ של המבחן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו מקדם $A$ (של $\\frac{1}{x^2}$) בפירוק? קבוע המקיים $4A=8$.",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "השוואת המקדם החופשי: $4A=8$ ולכן $A=2$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו מקדם $B$ (של $\\frac{1}{x}$) בפירוק?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "השוואת מקדם $x$: $4B=4$ ולכן $B=1$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קדומה נכונה? (בתחום $x>0$)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)} + \\log{\\left(x^{2} + 4 \\right)} - \\frac{\\operatorname{atan}{\\left(\\frac{x}{2} \\right)}}{2} - \\frac{2}{x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)} + \\log{\\left(x^{2} + 4 \\right)} + \\frac{\\operatorname{atan}{\\left(\\frac{x}{2} \\right)}}{2} - \\frac{2}{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)} + \\log{\\left(x^{2} + 4 \\right)} - \\frac{\\operatorname{atan}{\\left(\\frac{x}{2} \\right)}}{2} + \\frac{2}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)} + \\log{\\left(x^{2} + 4 \\right)} - \\operatorname{atan}{\\left(\\frac{x}{2} \\right)} - \\frac{2}{x}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפירוק הוא $\\frac{2}{x^2}+\\frac{1}{x}+\\frac{2x-1}{x^2+4}$; הנגזרת של כל אפשרות נבדקה מספרית מול האינטגרנד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $c$ ב-$\\int\\frac{dx}{x^2+4}=c\\arctan\\frac{x}{2}$? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\int\\frac{dx}{x^2+a^2}=\\frac{1}{a}\\arctan\\frac{x}{a}$ עם $a=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -123,7 +749,75 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=\\arcsin x-\\frac{x}{\\sqrt{1-x^2}}$",
+     "points": 1
+    },
+    {
+     "text": "חישוב הנגזרת $f'(x)=-\\frac{x^2}{(1-x^2)^{3/2}}$",
+     "points": 4
+    },
+    {
+     "text": "$f'\\le0$ ולכן $f$ יורדת",
+     "points": 2
+    },
+    {
+     "text": "$f(0)=0$ ולכן $f(x)\\le0$",
+     "points": 2
+    },
+    {
+     "text": "העברת אגפים והמסקנה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "טעות בנגזרת של $\\frac{x}{\\sqrt{1-x^2}}$: צריך כלל מנה, והתוצאה $\\frac{1}{(1-x^2)^{3/2}}$.",
+    "להסיק $f\\ge0$ מכך ש-$f$ יורדת ו-$f(0)=0$ (הכיוון הפוך).",
+    "לבדוק את אי-השוויון רק בנקודות בודדות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'(x)=-\\frac{x^2}{(1-x^2)^{3/2}}$ בנקודה $x=0.6$? (עשרוני)",
+     "answer": -0.7031,
+     "tol": 0.001,
+     "explain": "$-\\frac{0.36}{0.64^{1.5}}=-\\frac{0.36}{0.512}=-0.703125$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0.5)=\\arcsin0.5-\\frac{0.5}{\\sqrt{0.75}}$? (עשרוני)",
+     "answer": -0.0538,
+     "tol": 0.001,
+     "explain": "$\\frac{\\pi}{6}-\\frac{1}{\\sqrt3}\\approx-0.0537<0$, בהתאם ל-$f(x)\\le0$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נגדיר $f(x)=\\arcsin x-\\frac{x}{\\sqrt{1-x^2}}$ ונחשב $f'(x)=-\\frac{x^2}{\\left(1-x^2\\right)^{3/2}}$.",
+      "לכל $x\\in[0,1)$ מתקיים $f'(x)\\le0$, ולכן $f$ יורדת.",
+      "מכיוון ש-$f(0)=0$ ו-$f$ יורדת, מתקיים $f(x)\\le0$ לכל $x\\in[0,1)$.",
+      "כלומר $\\arcsin x\\le\\frac{x}{\\sqrt{1-x^2}}$."
+     ],
+     "explain": "כל שלב נשען על קודמו: נגזרת, ירידה, השוואה ל-$f(0)$, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(x)=\\arcsin x-\\frac{x}{\\sqrt{1-x^2}}$ ונחשב $f'(x)=-\\frac{x^2}{\\left(1-x^2\\right)^{3/2}}$.",
+      "לכל $x\\in[0,1)$ מתקיים $f'(x)\\le0$, ולכן $f$ יורדת.",
+      "מכיוון ש-$f(0)=0$ ו-$f$ יורדת, מתקיים $f(x)\\ge0$ לכל $x\\in[0,1)$.",
+      "כלומר $\\arcsin x\\le\\frac{x}{\\sqrt{1-x^2}}$."
+     ],
+     "bugIndex": 2,
+     "explain": "פונקציה יורדת עם $f(0)=0$ נותנת $f(x)\\le0$, לא $\\ge0$ (למשל $f(0.5)\\approx-0.054$, נבדק)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -136,7 +830,83 @@
    "confidence": "high",
    "part": "ב",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "השוואת הפונקציות ופתרון $x^4+x^2-2=0$ עם $t=x^2$",
+     "points": 3
+    },
+    {
+     "text": "קביעת הקטע $[-1,1]$ וסימטריה, כלומר $S=2\\int_0^1$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\arctan x-\\frac{x^3}{6}$",
+     "points": 2
+    },
+    {
+     "text": "תוצאה $2(A+2)\\left(\\frac{\\pi}{4}-\\frac16\\right)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את השורש $x=-1$ ולחשב רק את הצד החיובי בלי להכפיל ב-$2$.",
+    "להשאיר את $t=-2$ כאפשרות. $t=x^2\\ge0$ ולכן נפסל.",
+    "לחשב את ההפרש בכיוון ההפוך ולקבל שטח שלילי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הפתרון החיובי של $t^2+t-2=0$ (כאשר $t=x^2$)?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$(t+2)(t-1)=0$ ו-$t\\ge0$, ולכן $t=1$ ו-$x=\\pm1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע אפשר לחשב $S=2\\int_0^1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שתי הפונקציות אי-זוגיות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שתי הפונקציות זוגיות, ולכן התחום סימטרי ביחס לציר $y$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הקטע $[-1,0]$ אינו חלק מהתחום"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $A$ ו-$B$ מבטלים זה את זה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$f(-x)=f(x)$ לשתי הפונקציות (נבדק מספרית), והחיתוך ב-$x=\\pm1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^1\\left(\\frac{1}{1+x^2}-\\frac{x^2}{2}\\right)dx$? (עשרוני)",
+     "answer": 0.6187,
+     "tol": 0.001,
+     "explain": "$\\left(\\arctan x-\\frac{x^3}{6}\\right)\\Big|_0^1=\\frac{\\pi}{4}-\\frac16\\approx0.6187$ (נבדק באינטגרציה נומרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=0$, מהו השטח $2(A+2)\\left(\\frac{\\pi}{4}-\\frac16\\right)$? (עשרוני)",
+     "answer": 2.4749,
+     "tol": 0.001,
+     "explain": "$4\\cdot0.6187\\approx2.4748$ (נבדק באינטגרציה נומרית על $[-1,1]$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -148,7 +918,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$ והפעלת לופיטל",
+     "points": 2
+    },
+    {
+     "text": "גזירת המכנה לפי המשפט היסודי: $\\ln(1+x^2)$, וגזירת המונה $1-\\frac{1}{\\sqrt{1-x^2}}$",
+     "points": 3
+    },
+    {
+     "text": "כפל בצמוד והגעה ל-$-\\frac{x^2}{\\ln(1+x^2)}\\cdot\\frac{1}{\\sqrt{1-x^2}\\left(\\sqrt{1-x^2}+1\\right)}$",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $-\\frac12$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור את האינטגרל במכנה כאילו הגבול התחתון תלוי ב-$x$.",
+    "לא להשתמש בגבול המפורסם $\\lim\\frac{x^2}{\\ln(1+x^2)}=1$.",
+    "טעות סימן ב-$\\sqrt{1-x^2}-1$ ולהגיע ל-$+\\frac12$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של המכנה $\\int_0^x\\ln\\left(1+t^2\\right)dt$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{2x}{1+x^2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x\\ln\\left(1+x^2\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln\\left(1+x^2\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln\\left(1+x^2\\right)-\\ln1$ כפול $x$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "לפי המשפט היסודי של החשבון האינטגרלי, $\\frac{d}{dx}\\int_0^xg(t)\\,dt=g(x)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הנגזרת של המונה $x-\\arcsin x$ בנקודה $x=0.6$? (עשרוני)",
+     "answer": -0.25,
+     "tol": 0.001,
+     "explain": "$1-\\frac{1}{\\sqrt{1-0.36}}=1-1.25=-0.25$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\frac{x^2}{\\ln\\left(1+x^2\\right)}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "גבול מפורסם $\\frac{u}{\\ln(1+u)}\\to1$ עם $u=x^2$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.001,
+     "explain": "$-1\\cdot\\frac{1}{1\\cdot(1+1)}=-\\frac12$ (נבדק נומרית ב-$x=10^{-3}$ ובעזרת sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -161,7 +1007,71 @@
    "confidence": "high",
    "part": "ב",
    "points": 10,
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "שיטת הקליפות: $V=2\\pi\\int_0^{C+1}x\\sqrt[5]{x^2+B+1}\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "הצבה $t=x^2+B+1$ ושינוי הגבולות ל-$B+1$ ו-$(C+1)^2+B+1$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int\\sqrt[5]{t}\\,dt=\\frac{5}{6}t^{6/5}$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הגבולות והתוצאה הסופית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בטבעות סביב ציר $y$: דורש להפוך את הפונקציה.",
+    "לשכוח לשנות את גבולות האינטגרציה בהצבה.",
+    "לשכוח את הגורם $\\frac12$ מ-$dt=2x\\,dx$ (הוא מצטמצם עם $2\\pi$ ל-$\\pi$)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי לחישוב הנפח?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שיטת הטבעות (חתכים) סביב ציר $y$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט פפוס בלבד, בלי אינטגרל"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שיטת הקליפות הגליליות"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הסיבוב סביב ציר $y$ של תחום מתחת לגרף של $y(x)$ נותן קליפות: $V=2\\pi\\int x\\,y\\,dx$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=1$ ו-$C=2$, מהו הגבול העליון החדש $t=(C+1)^2+B+1$ אחרי ההצבה?",
+     "answer": 11,
+     "tol": 0.001,
+     "explain": "$x=C+1=3$ נותן $t=9+2=11$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=1$ ו-$C=2$, מהו הנפח? (עשרוני)",
+     "answer": 40.5054,
+     "tol": 0.001,
+     "explain": "$\\frac{5\\pi}{6}\\left(11^{6/5}-2^{6/5}\\right)\\approx40.51$ (נבדק באינטגרציה נומרית של הקליפות, לכל $B,C$ שנבדקו)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

@@ -23,7 +23,78 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "תחום הגדרה ונגזרת $f'(x)=2+\\frac{2}{\\sqrt[3]{x}}$ לכל $x\\neq0$",
+     "points": 3
+    },
+    {
+     "text": "נקודות חשודות: $x=-1$ (הנגזרת מתאפסת) ו-$x=0$ (הנגזרת אינה קיימת)",
+     "points": 2
+    },
+    {
+     "text": "טבלת סימן של $f'$ (עולה, יורדת, עולה)",
+     "points": 3
+    },
+    {
+     "text": "סיווג: מקסימום מקומי ב-$x=-1$ עם $f=1$ ומינימום מקומי ב-$x=0$ עם $f=0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $x=0$ כנקודה חשודה: הנגזרת אינה קיימת שם, אבל הפונקציה רציפה ויש בה קיצון.",
+    "לחשב את $\\sqrt[3]{x}$ לא נכון עבור $x<0$ (שורש שלישי של שלילי הוא שלילי).",
+    "לקבוע שאין קיצון ב-$x=0$ רק כי $f'(0)$ לא מוגדרת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $f'(x)=2+\\frac{2}{\\sqrt[3]{x}}$ בנקודה $x=-\\frac{1}{8}$?",
+     "answer": -2,
+     "tol": 0.001,
+     "explain": "$\\sqrt[3]{-\\frac{1}{8}}=-\\frac{1}{2}$ ולכן $f'=2+\\frac{2}{-1/2}=-2$. הנגזרת שלילית ב-$(-1,0)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך שלילי של $x$ מתאפסת הנגזרת $f'(x)=2+\\frac{2}{\\sqrt[3]{x}}$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "$\\sqrt[3]{x}=-1$ ולכן $x=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(-1)$ עבור $f(x)=2x+3\\sqrt[3]{x^2}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$f(-1)=-2+3=1$ (נבדק מספרית)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו סוג הנקודה $x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מינימום מקומי (הנגזרת אינה קיימת שם)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מקסימום מקומי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינה נקודת קיצון כי $f'(0)$ אינה קיימת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$f(0)=0$ קטנה מ-$f(\\pm0.01)$ (נבדק מספרית), ו-$f'$ משנה סימן משלילית לחיובית ב-$0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -36,7 +107,76 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "פישוט עצרות: $(n+2)!=(n+2)(n+1)!$ ו-$(n+1)!=(n+1)\\cdot n!$",
+     "points": 3
+    },
+    {
+     "text": "קבלת הצורה $(n+1)\\left((A+2)n+2\\right)$ לאחר צמצום",
+     "points": 3
+    },
+    {
+     "text": "שימוש ב-$\\sin u_n\\sim u_n$ כאשר $u_n\\to0$",
+     "points": 2
+    },
+    {
+     "text": "חישוב הגבול $(A+2)(C+1)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לצמצם עצרות בלי להוציא גורם משותף: $(n+2)!-(n+1)!$ אינו $1!$.",
+    "להשאיר את הביטוי כ-$\\infty\\cdot0$ בלי להחליף את $\\sin u_n$ ב-$u_n$ (גבול מפורסם).",
+    "לשכוח את הגורם $C+1$ שמגיע מהארגומנט של הסינוס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=3$ ו-$n=4$, מהו ערך השבר $\\frac{(n+2)!+(A+1)\\,n\\,(n+1)!}{(n+1)!-n\\cdot n!}$?",
+     "answer": 110,
+     "tol": 0.001,
+     "explain": "מתקבל $(n+1)\\left((A+2)n+2\\right)=5\\cdot22=110$ (נבדק ישירות עם עצרות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "לאיזו צורה מצטמצם השבר אחרי הוצאת $(n+1)!$ מהמונה ו-$n!$ מהמכנה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(n+1)\\left((A+1)n+2\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(n+1)\\left((A+2)n+2\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left((A+2)n+2\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(n+2)(A+2)n$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "המונה $(n+1)!\\left[(n+2)+(A+1)n\\right]=(n+1)!\\left[(A+2)n+2\\right]$ והמכנה $n!$, ולכן השבר $(n+1)\\left((A+2)n+2\\right)$ (נבדק לכמה ערכי $A,n$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=3$ ו-$C=1$, מהו הגבול? (עשרוני)",
+     "answer": 10,
+     "tol": 0.001,
+     "explain": "$(n+1)(5n+2)\\cdot\\frac{2}{(n+1)^2}\\to5\\cdot2=10$, בכלליות: $(A+2)(C+1)$ (נבדק מספרית עם $n=10^6$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -48,7 +188,92 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "הפעלת משפט לגרנז' על $\\arctan t$ בקטע $[0,x]$ ובדיקת התנאים",
+     "points": 3
+    },
+    {
+     "text": "קבלת $\\arctan x=\\frac{x}{1+c^2}$ עם $c\\in(0,x)$",
+     "points": 2
+    },
+    {
+     "text": "חסימת $1+c^2$ בין $1$ ל-$1+x^2$ והיפוך לשברים",
+     "points": 3
+    },
+    {
+     "text": "כפל ב-$x>0$ ומסקנת אי-השוויון",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח להפוך את כיוון האי-שוויון בעת מעבר להופכי $\\frac{1}{1+c^2}$.",
+    "להפעיל את המשפט על $[0,1]$ במקום על $[0,x]$, ואז לא מתקבל אי-שוויון התלוי ב-$x$.",
+    "לכפול ב-$x$ בלי לציין ש-$x>0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "לאיזו פונקציה ולאיזה קטע מפעיל הפתרון הרשמי את משפט לגרנז'?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$g(t)=\\frac{t}{1+t^2}$ בקטע $[0,x]$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$g(t)=\\arctan t$ בקטע $[0,1]$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$g(t)=\\arctan t$ בקטע $[0,x]$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$g(t)=\\arctan t-t$ בקטע $[0,x]$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפתרון מציב $\\arctan x-\\arctan0=g'(c)\\cdot x$ כאשר $g=\\arctan$ והקטע $[0,x]$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $g'(1)$ עבור $g(t)=\\arctan t$?",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$g'(t)=\\frac{1}{1+t^2}$ ולכן $g'(1)=\\frac{1}{2}$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "לפי משפט לגרנז' על $\\arctan t$ בקטע $[0,x]$ קיימת $c\\in(0,x)$ כך ש-$\\arctan x=\\frac{x}{1+c^2}$.",
+      "מכיוון ש-$0<c<x$ מתקיים $1<1+c^2<1+x^2$.",
+      "לכן $\\frac{1}{1+x^2}<\\frac{1}{1+c^2}<1$.",
+      "נכפול ב-$x>0$ ונקבל $\\frac{x}{1+x^2}<\\arctan x<x$."
+     ],
+     "explain": "כל שלב נשען על קודמו: משפט לגרנז', חסימת $c$, הופכי, כפל ב-$x$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "לפי משפט לגרנז' על $\\arctan t$ בקטע $[0,x]$ קיימת $c\\in(0,x)$ כך ש-$\\arctan x=\\frac{x}{1+c^2}$.",
+      "מכיוון ש-$0<c<x$ מתקיים $1<1+c^2<1+x^2$.",
+      "לכן $1<\\frac{1}{1+c^2}<\\frac{1}{1+x^2}$.",
+      "נכפול ב-$x>0$ ונקבל $\\frac{x}{1+x^2}<\\arctan x<x$."
+     ],
+     "bugIndex": 2,
+     "explain": "ההופכי של $1<1+c^2<1+x^2$ הוא $\\frac{1}{1+x^2}<\\frac{1}{1+c^2}<1$, לא $1<\\frac{1}{1+c^2}$ (למשל $c=0.5$ נותן $0.8<1$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -61,7 +286,87 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "חסימה מלמטה $a_n>1$ באינדוקציה (בסיס וצעד)",
+     "points": 3
+    },
+    {
+     "text": "מונוטוניות: $a_{n+1}-a_n<0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנת ההתכנסות (יורדת וחסומה)",
+     "points": 1
+    },
+    {
+     "text": "משוואת הגבול $kL(L-1)=0$ ובחירת $L=1$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $L=0$ מבלי לבדוק שהסדרה חסומה מלמטה על ידי $1$.",
+    "להוכיח מונוטוניות לפני שהוכחה החסימה: הסימן של $a_{n+1}-a_n$ תלוי ב-$a_n>1$.",
+    "להשתמש בגבול הסדרה בנוסחת הנסיגה לפני שהוכחה התכנסות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=0$ (כלומר $k=2$) ו-$a_1=2$, מהו $a_2$? (עשרוני)",
+     "answer": 1.2,
+     "tol": 0.001,
+     "explain": "$a_2=\\frac{3\\cdot2}{2\\cdot2+1}=\\frac{6}{5}=1.2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $k=2$ ו-$a_n=3$, מהו $a_{n+1}-1=\\frac{a_n-1}{ka_n+1}$? (עשרוני)",
+     "answer": 0.2857,
+     "tol": 0.001,
+     "explain": "$\\frac{3-1}{2\\cdot3+1}=\\frac{2}{7}\\approx0.2857>0$, בהתאם לכך ש-$a_n>1$ נשמר."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו גבול הסדרה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$k$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a_1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "נקודות השבת הן $L=0$ ו-$L=1$; מכיוון ש-$a_n>1$ לכל $n$, $L\\ge1$ ולכן $L=1$ (נבדק מספרית עם $k=3$, $a_1=3$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נוכיח באינדוקציה ש-$a_n>1$: $a_1\\ge2>1$, ואם $a_n>1$ אז $a_{n+1}-1=\\frac{a_n-1}{ka_n+1}>0$.",
+      "לכל $n$ מתקיים $a_{n+1}-a_n=\\frac{ka_n\\left(1-a_n\\right)}{ka_n+1}<0$, ולכן הסדרה יורדת.",
+      "סדרה יורדת וחסומה מלמטה מתכנסת, נסמן את גבולה $L$.",
+      "מנוסחת הנסיגה $kL(L-1)=0$, ומכיוון ש-$a_n>1$ מתקבל $L=1$."
+     ],
+     "explain": "חסימה קודמת למונוטוניות, שתיהן קודמות להתכנסות, וההתכנסות קודמת למעבר לגבול."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -74,7 +379,104 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq-A$ ובדיקת $x\\to-A$: הגבול הוא $0$, ללא אסימפטוטה אנכית",
+     "points": 3
+    },
+    {
+     "text": "שיפוע האסימפטוטה המשופעת $a=3$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $b=3A$ בעזרת $1-\\cos u=2\\sin^2\\frac{u}{2}$",
+     "points": 4
+    },
+    {
+     "text": "מסקנה: $y=3x+3A$ ב-$\\pm\\infty$, ואין אסימפטוטות נוספות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להכריז על $x=-A$ כאסימפטוטה אנכית רק כי הפונקציה אינה מוגדרת שם. צריך לבדוק שהגבול אינו סופי.",
+    "לטעות בגבול $\\cos u\\to1$ ולכתוב $a=2$ במקום $a=3$.",
+    "לשכוח את $3A$ בחישוב $b$, אחרי הוצאת $(x+A)$ כגורם משותף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה קורה ל-$f$ כאשר $x\\to-A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f\\to0$ ולכן אין אסימפטוטה אנכית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f\\to\\infty$ ולכן $x=-A$ אסימפטוטה אנכית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אין גבול כי הקוסינוס מתנדנד, ולכן $x=-A$ אסימפטוטה אנכית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f\\to3$ ולכן יש שם אסימפטוטה אופקית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגורם $x+A\\to0$ והסוגריים בין $1$ ל-$3$, ולכן המכפלה שואפת ל-$0$ (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השיפוע $a=\\lim\\frac{f(x)}{x}$ של האסימפטוטה המשופעת?",
+     "answer": 3,
+     "tol": 0.001,
+     "explain": "כאשר $x\\to\\pm\\infty$, $\\cos\\frac{B+1}{x+A}\\to1$ ולכן $a=2+1=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=2$, מהו $b$ באסימפטוטה $y=3x+b$?",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$b=3A=6$ (נבדק מספרית עבור כמה ערכי $A,B$)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=3x+A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=3x+3A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=3x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=2x+3A$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$a=3$, $b=\\lim\\left[(x+A)(\\cos u-1)\\right]+3A=0+3A$ (נבדק מספרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -86,7 +488,97 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "הצבה $t=\\tan\\frac{x}{2}$ והצגת $\\sin x$, $\\cos x$, $dx$",
+     "points": 2
+    },
+    {
+     "text": "פישוט המכנה ל-$\\frac{2(2-t)(1+t)}{1+t^2}$ וצמצום ל-$\\int\\frac{dt}{(2-t)(1+t)}$",
+     "points": 3
+    },
+    {
+     "text": "פירוק לשברים חלקיים ואינטגרציה",
+     "points": 3
+    },
+    {
+     "text": "הצבה חזרה והתוצאה הסופית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בנוסחאות ההצבה האוניברסלית, כגון $dx=\\frac{2\\,dt}{1+t^2}$.",
+    "לשכוח את הגורם $\\frac{1}{3}$ בפירוק $\\frac{1}{(2-t)(1+t)}=\\frac{1}{3}\\left(\\frac{1}{2-t}+\\frac{1}{1+t}\\right)$.",
+    "לשכוח לחזור למשתנה $x$ בסוף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש הפתרון הרשמי כדי לחשב את האינטגרל?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\tan\\frac{x}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "האינטגרנד רציונלי ב-$\\sin x,\\cos x$ ולכן ההצבה האוניברסלית $t=\\tan\\frac{x}{2}$ מורידה אותו לשבר רציונלי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $c$ בפירוק $\\frac{1}{(2-t)(1+t)}=c\\left(\\frac{1}{2-t}+\\frac{1}{1+t}\\right)$? (עשרוני)",
+     "answer": 0.3333,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2-t}+\\frac{1}{1+t}=\\frac{3}{(2-t)(1+t)}$ ולכן $c=\\frac{1}{3}$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קדומה נכונה? (בתחום שבו הביטוי בתוך הלוגריתם חיובי)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\frac{2 - \\tan{\\left(\\frac{x}{2} \\right)}}{\\tan{\\left(\\frac{x}{2} \\right)} + 1} \\right)}}{3}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\frac{\\tan{\\left(\\frac{x}{2} \\right)} + 1}{2 - \\tan{\\left(\\frac{x}{2} \\right)}} \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\left(2 - \\tan{\\left(\\frac{x}{2} \\right)}\\right) \\left(\\tan{\\left(\\frac{x}{2} \\right)} + 1\\right) \\right)}}{3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\frac{\\tan{\\left(\\frac{x}{2} \\right)} + 1}{2 - \\tan{\\left(\\frac{x}{2} \\right)}} \\right)}}{3}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הנגזרת של $\\frac{1}{3}\\ln\\frac{1+\\tan\\frac{x}{2}}{2-\\tan\\frac{x}{2}}$ שווה לאינטגרנד; לשלוש האפשרויות האחרות הנגזרת שונה (נבדק מספרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -99,7 +591,92 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "הגדרת $g$ ורציפותה",
+     "points": 1
+    },
+    {
+     "text": "קיום שורש: גבולות $\\pm\\infty$ ומשפט ערך הביניים",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $g'(x)=3x^2+(C+1)\\left(1-\\sin((C+1)x)\\right)$",
+     "points": 2
+    },
+    {
+     "text": "הוכחת $g'>0$ (שוויון דורש $x=0$ ו-$\\sin=1$ בו-זמנית)",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: עלייה ממש, ולכן שורש יחיד",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בכך ש-$g'\\ge0$ בלי להראות שהשוויון אינו מתקיים אף פעם, כדי לקבל עלייה ממש.",
+    "טעות סימן בנגזרת של $\\cos\\left((C+1)x\\right)$: היא $-(C+1)\\sin\\left((C+1)x\\right)$.",
+    "לא להראות קיום: מונוטוניות לבדה לא מבטיחה שורש."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=1$ ו-$C=0$ מתקבל $g(x)=x^3+x+\\cos x-2$. מהו $g(1)$? (עשרוני)",
+     "answer": 0.5403,
+     "tol": 0.001,
+     "explain": "$g(1)=1+1+\\cos1-2=\\cos1\\approx0.5403>0$ ו-$g(0)=-1<0$, ולכן יש שורש בקטע $(0,1)$ (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $C=1$, מהו $g'(0)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$g'(0)=0+2\\left(1-\\sin0\\right)=2$ (נבדק מספרית)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו סימן $g'(x)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חיובי ממש לכל $x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אי-שלילי, ומתאפס בנקודה אחת לפחות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משנה סימן, ולכן יש כמה שורשים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שלילי לכל $x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$g'=3x^2+(C+1)(1-\\sin(\\cdot))\\ge0$, והשוויון דורש $x=0$ וגם $\\sin0=1$, בלתי אפשרי. המינימום על רשת צפופה חיובי לכל $C=0..9$ (נבדק מספרית)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בפתרון הבא שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $g(x)=x^3+(C+1)x+\\cos\\left((C+1)x\\right)-(B+1)$; הפונקציה רציפה בכל $\\mathbb{R}$.",
+      "$g'(x)=3x^2+(C+1)+(C+1)\\sin\\left((C+1)x\\right)$.",
+      "$g'(x)=3x^2+(C+1)\\left(1-\\sin\\left((C+1)x\\right)\\right)>0$ לכל $x$, ולכן $g$ עולה ממש.",
+      "$g\\to\\pm\\infty$ כאשר $x\\to\\pm\\infty$, ולפי ערך הביניים יש שורש, ועלייה ממש נותנת שורש יחיד."
+     ],
+     "bugIndex": 1,
+     "explain": "הנגזרת של $\\cos\\left((C+1)x\\right)$ היא $-(C+1)\\sin\\left((C+1)x\\right)$, לא $+$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -111,7 +688,104 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "הצבה $t=\\arctan\\sqrt{x}$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $dt$ והמעבר $\\frac{dx}{(x+1)\\sqrt{x}}=2\\,dt$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int2t^3dt=\\frac{t^4}{2}$",
+     "points": 2
+    },
+    {
+     "text": "הצבה חזרה בתוצאה",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור את $\\arctan\\sqrt{x}$ בלי כלל השרשרת: $\\frac{1}{1+x}\\cdot\\frac{1}{2\\sqrt{x}}$.",
+    "לשכוח את הגורם $2$ שמגיע מ-$dx=2(x+1)\\sqrt{x}\\,dt$.",
+    "לכתוב $\\frac{t^4}{4}$ במקום $\\frac{t^4}{2}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sqrt{x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\arctan\\sqrt{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=x+1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\arctan x$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הנגזרת של $\\arctan\\sqrt{x}$ היא $\\frac{1}{2(x+1)\\sqrt{x}}$, כלומר בדיוק הגורם שנשאר באינטגרנד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $dt=\\frac{dx}{2(x+1)\\sqrt{x}}$, מהו המקדם $c$ ב-$\\frac{dx}{(x+1)\\sqrt{x}}=c\\,dt$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$dx=2(x+1)\\sqrt{x}\\,dt$ ולכן $c=2$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קדומה נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}^{4}{\\left(\\sqrt{x} \\right)}}{4}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\operatorname{atan}^{4}{\\left(\\sqrt{x} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}^{4}{\\left(\\sqrt{x} \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\operatorname{atan}^{3}{\\left(\\sqrt{x} \\right)}}{3}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\int2t^3dt=\\frac{t^4}{2}$; הנגזרת של כל אחת מהאפשרויות האחרות שונה מהאינטגרנד (נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $\\int_0^1\\frac{\\arctan^3\\sqrt{x}}{(x+1)\\sqrt{x}}dx$? (עשרוני)",
+     "answer": 0.1903,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2}\\left(\\frac{\\pi}{4}\\right)^4\\approx0.1903$ (נבדק באינטגרציה נומרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -124,7 +798,93 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "הכפלה בצמוד ראשונה והמונה $\\sqrt{x^4+D}-x^2$",
+     "points": 2
+    },
+    {
+     "text": "הכפלה בצמוד שנייה והמונה $D=C+1$",
+     "points": 3
+    },
+    {
+     "text": "חלוקה ב-$x^3$ ושליפת גבולות הגורמים",
+     "points": 2
+    },
+    {
+     "text": "ערך הגבול $\\frac{C+1}{4\\sqrt{2}}=\\frac{\\sqrt{2}(C+1)}{8}$ ואי-התלות ב-$A$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשאיר צורה לא מוגדרת $\\infty\\cdot0$ בלי להכפיל בצמוד.",
+    "להכפיל בצמוד פעם אחת בלבד: נשאר הפרש $\\sqrt{x^4+D}-x^2$ מסוג $\\infty-\\infty$.",
+    "לחשוב שהגבול תלוי ב-$A$; $A$ משפיע רק על סדר גודל נמוך ושואף לאפס אחרי החלוקה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו שיטה משתמש הפתרון הרשמי לחישוב הגבול?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לופיטל על $x^3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבת $x=\\frac{1}{u}$ ופיתוח טיילור מסדר ראשון בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קריטריון השוואה (סנדוויץ')"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הכפלה בצמוד פעמיים ואז חלוקה ב-$x^3$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הביטוי הוא $\\infty\\cdot0$ עם שני שורשים מקוננים, והפתרון מכפיל בצמוד פעמיים (השוויון נבדק מספרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $C=3$ (כלומר $D=4$), מהו המונה שמתקבל אחרי שתי ההכפלות בצמוד?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "המונה הוא $D=C+1=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול של גורם המכנה $\\left(\\sqrt{1+\\frac{D}{x^4}}+1\\right)\\left(\\sqrt{1+\\sqrt{1+\\frac{D}{x^4}}}+\\sqrt{2}\\right)$ כאשר $x\\to\\infty$? (עשרוני)",
+     "answer": 5.6569,
+     "tol": 0.001,
+     "explain": "$2\\cdot2\\sqrt{2}=4\\sqrt{2}\\approx5.657$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $C=3$, מהו ערך הגבול? (עשרוני)",
+     "answer": 0.7071,
+     "tol": 0.001,
+     "explain": "$\\frac{\\sqrt{2}(C+1)}{8}=\\frac{4\\sqrt{2}}{8}\\approx0.7071$ (נבדק מספרית ב-$x=10^8$, לכמה ערכי $A$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החישוב.",
+     "lines": [
+      "נכפול ונחלק בצמוד של $\\sqrt{x^2+\\sqrt{x^4+D}}-x\\sqrt{2}$ ונקבל מונה $\\sqrt{x^4+D}-x^2$.",
+      "נכפול ונחלק בצמוד פעם שנייה: המונה הופך ל-$D$ והמכנה למכפלה $\\left(\\sqrt{x^4+D}+x^2\\right)\\left(\\sqrt{x^2+\\sqrt{x^4+D}}+x\\sqrt{2}\\right)$.",
+      "נחלק מונה ומכנה ב-$x^3$ ונעבור לגבול: $\\frac{D}{2\\cdot2\\sqrt{2}}=\\frac{\\sqrt{2}\\,(C+1)}{8}$."
+     ],
+     "explain": "כל שלב משתמש בביטוי שהתקבל בקודם."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -136,7 +896,83 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "נוסחת אורך קשת $\\int\\sqrt{1+(y')^2}dx$ והנגזרת $y'=\\cot x$",
+     "points": 2
+    },
+    {
+     "text": "פישוט $1+\\cot^2x=\\frac{1}{\\sin^2x}$ והוצאת שורש",
+     "points": 3
+    },
+    {
+     "text": "האינטגרל $\\int\\frac{dx}{\\sin x}=\\ln\\left|\\tan\\frac{x}{2}\\right|$",
+     "points": 3
+    },
+    {
+     "text": "הצבת הגבולות והתוצאה $\\frac{1}{2}\\ln3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהשורש של $\\frac{1}{\\sin^2x}$ הוא $\\frac{1}{|\\sin x|}$ (כאן $\\sin x>0$).",
+    "לטעות בקדומה של $\\frac{1}{\\sin x}$: היא $\\ln\\left|\\tan\\frac{x}{2}\\right|$ ולא $-\\ln|\\cos x|$.",
+    "להציב $\\tan\\frac{\\pi}{3}$ במקום $\\tan\\frac{\\pi}{6}$ בגבול התחתון."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $y'\\left(\\frac{\\pi}{3}\\right)$ עבור $y=\\ln(\\sin x)$? (עשרוני)",
+     "answer": 0.5774,
+     "tol": 0.001,
+     "explain": "$y'=\\cot x$ ו-$\\cot\\frac{\\pi}{3}=\\frac{1}{\\sqrt{3}}\\approx0.5774$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $1+(y')^2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{\\sin^2x}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{\\cos^2x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1+\\sin^2x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\cot^2x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$1+\\cot^2x=\\frac{1}{\\sin^2x}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\ln\\tan\\frac{\\pi}{6}$? (עשרוני)",
+     "answer": -0.5493,
+     "tol": 0.001,
+     "explain": "$\\tan\\frac{\\pi}{6}=\\frac{1}{\\sqrt{3}}$ ולכן $\\ln\\tan\\frac{\\pi}{6}=-\\frac{1}{2}\\ln3\\approx-0.5493$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו אורך הקשת? (עשרוני)",
+     "answer": 0.5493,
+     "tol": 0.001,
+     "explain": "$0-\\left(-\\frac{1}{2}\\ln3\\right)=\\frac{1}{2}\\ln3\\approx0.5493$ (נבדק באינטגרציה נומרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -148,7 +984,83 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "תנאי הכרחי: רציפות ב-$0$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\lim_{x\\to0}\\left(\\frac{1}{\\sin x}-\\frac{1}{x}\\right)=0$ ולכן $p=0$",
+     "points": 3
+    },
+    {
+     "text": "הצבה בהגדרת הנגזרת $\\lim\\frac{f(x)-f(0)}{x}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\lim\\frac{x-\\sin x}{x^3}=\\frac{1}{6}$ ו-$f'(0)=\\frac{1}{6}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדלג על בדיקת הרציפות ולהניח ש-$p$ חופשי.",
+    "להפעיל לופיטל על הפרש $\\frac{1}{\\sin x}-\\frac{1}{x}$ לפני שהופכים אותו למנה.",
+    "לשכוח את הגורם $\\frac{x}{\\sin x}\\to1$ בעת הצבה בהגדרת הנגזרת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\left(\\frac{1}{\\sin x}-\\frac{1}{x}\\right)$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$\\frac{x-\\sin x}{x\\sin x}\\to\\frac{0}{0}$ ועם לופיטל פעמיים מתקבל $0$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע חייב להתקיים $p=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $f'(0)=p$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "גזירות ב-$0$ מחייבת רציפות, והגבול של $f$ כש-$x\\to0$ הוא $0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי הגבול של $f$ כש-$x\\to0$ הוא $\\frac{1}{6}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $f$ זוגית"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הגבול הוא $0$ (לא $\\frac{1}{6}$), ורציפות מחייבת $p=f(0)=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\frac{x-\\sin x}{x^3}$? (עשרוני)",
+     "answer": 0.1667,
+     "tol": 0.001,
+     "explain": "לופיטל פעמיים או פיתוח טיילור: $\\frac{1}{6}\\approx0.1667$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'(0)$? (עשרוני)",
+     "answer": 0.1667,
+     "tol": 0.001,
+     "explain": "$f'(0)=\\lim\\frac{x-\\sin x}{x^3}\\cdot\\frac{x}{\\sin x}=\\frac{1}{6}\\cdot1$ (נבדק מספרית)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -161,7 +1073,71 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "contextId": "c0"
+   "contextId": "c0",
+   "rubric": [
+    {
+     "text": "זיהוי שיטת הקליפות הגליליות: $V=2\\pi\\int x\\,y\\,dx$",
+     "points": 2
+    },
+    {
+     "text": "קביעת גבולות האינטגרציה $\\left[0,\\frac{\\pi}{B+1}\\right]$ ואינטגרנד $x\\sin^2\\left((B+1)x\\right)$",
+     "points": 2
+    },
+    {
+     "text": "הצבה $u=(B+1)x$ ואינטגרציה בחלקים: $\\int_0^\\pi u\\sin^2u\\,du=\\frac{\\pi^2}{4}$",
+     "points": 4
+    },
+    {
+     "text": "נפח סופי $V=\\frac{\\pi^3}{2(B+1)^2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בשיטת הטבעות סביב ציר $y$: התחום אינו מתואר בנוחות כפונקציה של $y$.",
+    "לשכוח את הגורם $\\frac{1}{k^2}$ מההצבה $u=kx$ (גם $x=\\frac{u}{k}$ וגם $dx=\\frac{du}{k}$).",
+    "לשכוח את $2\\pi$ בנוסחת הקליפות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי לחישוב הנפח?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שיטת הטבעות (חתכים) סביב ציר $y$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט פפוס בלבד, בלי אינטגרל"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שיטת הקליפות הגליליות"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הסיבוב סביב ציר $y$ של תחום מתחת לגרף של $y(x)$ נותן קליפות: $V=2\\pi\\int_0^{\\pi/k}x\\sin^2(kx)\\,dx$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^{\\pi}u\\sin^2u\\,du$? (עשרוני)",
+     "answer": 2.4674,
+     "tol": 0.001,
+     "explain": "$\\frac{\\pi^2}{4}\\approx2.4674$ (נבדק באינטגרציה נומרית)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $B=1$ (כלומר $k=2$), מהו הנפח $V=\\frac{2\\pi}{k^2}\\cdot\\frac{\\pi^2}{4}$? (עשרוני)",
+     "answer": 3.8758,
+     "tol": 0.001,
+     "explain": "$V=\\frac{\\pi^3}{2(B+1)^2}=\\frac{\\pi^3}{8}\\approx3.8758$ (נבדק באינטגרציה נומרית של הקליפות לכל $B=0..9$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
