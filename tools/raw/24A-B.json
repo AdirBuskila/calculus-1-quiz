@@ -893,7 +893,97 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$: המונה והמכנה שואפים ל-$0$",
+     "points": 2
+    },
+    {
+     "text": "גזירת המכנה לפי המשפט היסודי וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x$",
+     "points": 3
+    },
+    {
+     "text": "הפעלת לופיטל ופישוט ל-$\\frac{2}{\\cos\\left(x^4\\right)}$",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את גורם השרשרת $2x$ (נגזרת הגבול העליון $x^2$) בגזירת האינטגרל.",
+    "להציב $t=x^2$ בתוך האינטגרנד במקום בגבול העליון בלבד: האינטגרנד הוא $t\\cos\\left(t^2\\right)$.",
+    "להתבלבל עם הגבול שבעמוד הפתרון הרשמי (מונה $\\sin^2x$), שערכו $\\infty$ ואינו הגבול שהודפס."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של הגבול כאשר $x\\to0^+$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac\\infty\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\infty-\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$x^4\\to0$ והאינטגרל מ-$0$ עד $x^2\\to0$ שואף ל-$0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של המכנה $\\int_0^{x^2}t\\cos\\left(t^2\\right)dt$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 x^{3} \\cos{\\left(x^{4} \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^{2} \\cos{\\left(x^{4} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 x \\cos{\\left(x^{2} \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x^{4} \\cos{\\left(x^{4} \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "משפט היסוד וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x=2x^3\\cos\\left(x^4\\right)$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "לופיטל: $\\frac{4x^3}{2x^3\\cos\\left(x^4\\right)}=\\frac{2}{\\cos\\left(x^4\\right)}\\to2$ (sympy; גם דרך $\\frac12\\sin\\left(x^4\\right)$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

@@ -15,7 +15,124 @@
    "solution": "**תחום הגדרה:** $x\\in(-\\infty,1)\\cup(1,\\infty)$.\n**אסימפטוטה אנכית:** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^+}=+\\infty$$\n$$\\lim_{x\\to1^-}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^-}=-\\infty$$\n**אסימפטוטה משופעת:**\n$$a_\\pm=\\lim_{x\\to\\pm\\infty}\\frac{4x^2-2x-1}{x(x-1)}=4$$\n$$b_\\pm=\\lim_{x\\to\\pm\\infty}\\left(\\frac{4x^2-2x-1}{x-1}-4x\\right)=\\lim_{x\\to\\pm\\infty}\\frac{2x-1}{x-1}=2$$\n$$y=4x+2$$\n**תחומי עלייה וירידה, נקודות קיצון:**\n$$y'=\\frac{(8x-2)(x-1)-\\left(4x^2-2x-1\\right)}{(x-1)^2}=\\frac{4x^2-8x+3}{(x-1)^2}=0$$\n$$x_1=\\frac12,\\quad x_2=\\frac32$$\nסימני נגזרת: חיובית ב-$x<\\frac12$ (עולה), שלילית ב-$\\frac12<x<1$ וב-$1<x<\\frac32$ (יורדת), חיובית ב-$x>\\frac32$ (עולה).\n$$y_{max}=y(0.5)=2,\\quad y_{min}=y(1.5)=10$$\n**תחומי קמירות וקעירות, נקודות פיתול:**\n$$y''=\\frac{2}{(x-1)^3}$$\nסימני נגזרת שנייה: שלילית ב-$x<1$ (קעורה), חיובית ב-$x>1$ (קמורה). אין נקודת פיתול.\nנקודות חיתוך עם צירים: $(0,1)$, $\\left(\\frac{1+\\sqrt5}{4},0\\right)$, $\\left(\\frac{1-\\sqrt5}{4},0\\right)$.\n![שרטוט הגרף של y = (4x² − 2x − 1)/(x − 1) עם האסימפטוטה האנכית x = 1 והאסימפטוטה המשופעת y = 4x + 2](images/exams/17A-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq1$ ואסימפטוטה אנכית $x=1$ עם הגבולות החד-צדדיים $\\pm\\infty$",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטה משופעת $y=4x+2$ (שיפוע $4$ ופרמטר חופשי $2$)",
+     "points": 4
+    },
+    {
+     "text": "נגזרת $y'=\\frac{4x^2-8x+3}{(x-1)^2}$, נקודות קריטיות $\\frac12,\\frac32$ ותחומי עליה וירידה",
+     "points": 5
+    },
+    {
+     "text": "ערכי הקיצון: מקסימום מקומי $2$ ומינימום מקומי $10$",
+     "points": 3
+    },
+    {
+     "text": "$y''=\\frac{2}{(x-1)^3}$: קעירות עבור $x<1$, קמירות עבור $x>1$, ללא נקודות פיתול",
+     "points": 3
+    },
+    {
+     "text": "חיתוכים עם הצירים ושרטוט",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להתייחס ל-$x=1$ כאל נקודת קיצון או חלק מתחום העליה והירידה, למרות שהיא מחוץ לתחום ההגדרה.",
+    "לחשב את האסימפטוטה המשופעת בלי הפרמטר החופשי: הוא $\\lim\\left(f(x)-4x\\right)=2$ ולא $0$.",
+    "לטעון לנקודת פיתול ב-$x=1$: $y''$ אמנם משנה שם סימן, אבל $x=1$ אינה בתחום ההגדרה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=\\frac{4x^2-2x-1}{x-1}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{4 x^{2} - 8 x + 3}{\\left(x - 1\\right)^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{4 x^{2} - 8 x - 3}{\\left(x - 1\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{4 x^{2} - 8 x + 3}{x - 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{8 x - 2}{\\left(x - 1\\right)^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המנה: $\\frac{(8x-2)(x-1)-(4x^2-2x-1)}{(x-1)^2}=\\frac{4x^2-8x+3}{(x-1)^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ הקטן מבין שתי הנקודות הקריטיות? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$4x^2-8x+3=0$ נותן $x=\\frac12$ או $x=\\frac32$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $y$ בנקודת המקסימום המקומי $x=\\frac12$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$y\\left(\\frac12\\right)=\\frac{1-1-1}{-\\frac12}=2$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $y$ בנקודת המינימום המקומי $x=\\frac32$?",
+     "answer": 10,
+     "tol": 0.001,
+     "explain": "$y\\left(\\frac32\\right)=\\frac{9-3-1}{\\frac12}=10$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה המשופעת של $y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=4x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y=4x+2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=4x-2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y=4x+1$"
+      },
+      {
+       "id": "e",
+       "type": "text",
+       "value": "אין אסימפטוטה משופעת"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\lim\\frac{y}{x}=4$ ו-$\\lim(y-4x)=\\lim\\frac{2x-1}{x-1}=2$ (אומת ב-sympy, ב-$+\\infty$ וב-$-\\infty$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -27,7 +144,98 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחה באינדוקציה שהסדרה חסומה מלמעלה: $a_n\\le4.5$",
+     "points": 3
+    },
+    {
+     "text": "הוכחה באינדוקציה שהסדרה עולה: $a_{n+1}\\ge a_n$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: סדרה עולה וחסומה מתכנסת (ווירשטראס)",
+     "points": 1
+    },
+    {
+     "text": "מעבר לגבול במשוואת הנסיגה: $L=\\frac{L}{3}+3$ ו-$L=4.5$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את הגבול מהמשוואה $L=\\frac{L}{3}+3$ בלי להוכיח קודם שהגבול קיים.",
+    "להוכיח רק חסימות או רק מונוטוניות: שתיהן נדרשות כדי להפעיל את משפט ווירשטראס.",
+    "בצעד האינדוקציה של המונוטוניות להניח את מה שצריך להוכיח במקום להניח $a_{n+1}\\ge a_n$ ולהסיק $a_{n+2}\\ge a_{n+1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "על איזה משפט נשען הפתרון הרשמי כדי להוכיח שהסדרה מתכנסת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "סדרה שאיבריה חיוביים מתכנסת"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל סדרה חסומה מתכנסת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סדרה עולה וחסומה מלמעלה מתכנסת (ווירשטראס)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $a_{n+1}-a_n\\to0$ הסדרה מתכנסת"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפתרון מוכיח חסימות מלמעלה ומונוטוניות עולה. שלוש האפשרויות האחרות שגויות: הסדרה $(-1)^n$ חסומה ולא מתכנסת, ו-$\\sqrt n$ חיובית ו-$a_{n+1}-a_n\\to0$ אך אינה מתכנסת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$? (עשרוני)",
+     "answer": 3.3333,
+     "tol": 0.001,
+     "explain": "$a_2=\\frac13+3=\\frac{10}{3}\\approx3.3333$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה?",
+     "answer": 4.5,
+     "tol": 0.001,
+     "explain": "$L=\\frac{L}{3}+3$ נותן $\\frac23L=3$, כלומר $L=4.5$ (sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת החסימות באינדוקציה.",
+     "lines": [
+      "בסיס: $a_1=1\\le4.5$. הנחה: $a_n\\le4.5$.",
+      "מכאן $\\frac{a_n}{3}\\le1.5$, ולכן $a_{n+1}=\\frac{a_n}{3}+3\\le4.5$.",
+      "לפי עיקרון האינדוקציה $a_n\\le4.5$ לכל $n$."
+     ],
+     "explain": "בסיס והנחה, צעד האינדוקציה, מסקנה. הצעד נשען על ההנחה והמסקנה על הצעד."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת המונוטוניות שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "בסיס: $a_2=\\frac{10}{3}\\ge1=a_1$.",
+      "הנחת האינדוקציה: $a_{n+1}\\ge a_n$.",
+      "מכאן $\\frac{a_{n+1}}{3}+3\\ge\\frac{a_n}{3}+3$, כלומר $a_{n+2}\\le a_{n+1}$.",
+      "לפי עיקרון האינדוקציה $a_{n+1}\\ge a_n$ לכל $n$."
+     ],
+     "bugIndex": 2,
+     "explain": "מהאי-שוויון $\\frac{a_{n+1}}{3}+3\\ge\\frac{a_n}{3}+3$ מקבלים $a_{n+2}\\ge a_{n+1}$ ולא $\\le$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -39,7 +247,118 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת ההצבה $t=\\tan x$ וחישוב $dx$ ו-$\\cos^2x$ באמצעותה",
+     "points": 3
+    },
+    {
+     "text": "העברה לאינטגרל רציונלי $\\int\\frac{1+t^2}{5+t^2}dt$",
+     "points": 3
+    },
+    {
+     "text": "פירוק $1-\\frac{4}{5+t^2}$ ואינטגרציה (פולינום ו-$\\arctan$)",
+     "points": 2
+    },
+    {
+     "text": "חזרה למשתנה המקורי ותשובה סופית עם $+c$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $dx=\\frac{dt}{1+t^2}$ בהצבה.",
+    "לשכוח לחלק ב-$\\sqrt5$ בתוך ה-$\\arctan$, או לכתוב $\\frac{4}{5}$ במקום $\\frac{4}{\\sqrt5}$ כמקדם.",
+    "לא לפרק את המנה: $\\frac{1+t^2}{5+t^2}$ מדרגה שווה ויש לפרק לפני האינטגרציה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה משתמש בה הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\tan\\frac{x}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפתרון מציב $t=\\tan x$ כך ש-$\\cos^2x=\\frac{1}{1+t^2}$ ו-$dx=\\frac{dt}{1+t^2}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "לאיזה אינטגרל מגיעים אחרי ההצבה? (מהי הפונקציה בתוך האינטגרל ב-$dt$)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{tt^{2} + 1}{tt^{2} + 5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{tt^{2} + 1}{4 tt^{2} + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{tt^{2} + 5}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{tt^{2} + 1}{tt^{2} + 4}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac{\\frac{1}{1+t^2}}{\\frac{1}{1+t^2}+\\frac{4}{(1+t^2)^2}}=\\frac{1+t^2}{5+t^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\tan{\\left(x \\right)} - \\frac{4 \\sqrt{5} \\operatorname{atan}{\\left(\\tan{\\left(x \\right)} \\right)}}{5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\tan{\\left(x \\right)} - \\frac{4 \\sqrt{5} \\operatorname{atan}{\\left(\\frac{\\sqrt{5} \\tan{\\left(x \\right)}}{5} \\right)}}{5}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\tan{\\left(x \\right)} + \\frac{4 \\sqrt{5} \\operatorname{atan}{\\left(\\frac{\\sqrt{5} \\tan{\\left(x \\right)}}{5} \\right)}}{5}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\tan{\\left(x \\right)} - \\frac{4 \\operatorname{atan}{\\left(\\frac{\\sqrt{5} \\tan{\\left(x \\right)}}{5} \\right)}}{5}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\int\\left(1-\\frac{4}{5+t^2}\\right)dt=t-\\frac{4}{\\sqrt5}\\arctan\\frac{t}{\\sqrt5}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -51,7 +370,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "לוגריתם והפיכה למנה: $\\ln p=\\frac{\\ln\\cos x}{x\\sin x}$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי $\\frac{0}{0}$ והפעלת לופיטל נכונה",
+     "points": 3
+    },
+    {
+     "text": "פישוט וחישוב $\\lim\\ln p=-\\frac12$",
+     "points": 2
+    },
+    {
+     "text": "חזרה לגבול המקורי $e^{-1/2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהגבול הוא $1$ בגלל $\\cos x\\to1$. הצורה $1^{\\infty}$ אינה מסוימת.",
+    "לשכוח להעלות את הגבול של $\\ln p$ בחזקת $e$ בסוף.",
+    "טעות בנגזרת המכנה: $(x\\sin x)'=\\sin x+x\\cos x$ (כלל מכפלה)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $(\\cos x)^{\\frac{1}{x\\sin x}}$ כאשר $x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $\\cos x\\to1$ והמעריך $\\frac{1}{x\\sin x}\\to\\infty$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\ln p$ כאשר $\\ln p=\\frac{\\ln\\cos x}{x\\sin x}$? (עשרוני)",
+     "answer": -0.5,
+     "tol": 0.001,
+     "explain": "לופיטל: $\\frac{-\\tan x}{\\sin x+x\\cos x}\\to\\frac{-1}{1+1}=-\\frac12$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול המבוקש $\\lim_{x\\to0}(\\cos x)^{\\frac{1}{x\\sin x}}$? (עשרוני)",
+     "answer": 0.6065,
+     "tol": 0.001,
+     "explain": "$p=e^{\\ln p}\\to e^{-1/2}\\approx0.6065$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -63,7 +451,55 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת הפונקציה $y=\\cos\\frac{\\pi e^x}{6}$ והנקודה $x_0=0$, $\\Delta x=0.1$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $y(0)=\\frac{\\sqrt3}{2}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב הנגזרת $y'(0)=-\\frac{\\pi}{12}$ (כלל שרשרת)",
+     "points": 3
+    },
+    {
+     "text": "הצבה בנוסחת הדיפרנציאל וערך מקורב $\\approx0.84$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את גורם השרשרת $\\frac{\\pi}{6}e^x$ בגזירה.",
+    "לחשב $\\Delta y$ בלבד ולשכוח להוסיף את $y(x_0)$.",
+    "לשכוח את סימן המינוס בנגזרת הקוסינוס."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(0)=\\cos\\frac{\\pi}{6}$? (עשרוני)",
+     "answer": 0.866,
+     "tol": 0.001,
+     "explain": "$\\frac{\\sqrt3}{2}\\approx0.8660$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y'(0)$? (עשרוני)",
+     "answer": -0.2618,
+     "tol": 0.001,
+     "explain": "$y'(x)=-\\frac{\\pi}{6}e^x\\sin\\frac{\\pi e^x}{6}$ ולכן $y'(0)=-\\frac{\\pi}{6}\\cdot\\frac12=-\\frac{\\pi}{12}\\approx-0.2618$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך המקורב $y(0.1)\\approx y(0)+y'(0)\\Delta x$? (עשרוני)",
+     "answer": 0.8398,
+     "tol": 0.001,
+     "explain": "$0.8660-0.02618\\approx0.8398$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -75,7 +511,97 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "כפל בצמוד ופישוט המונה $2x-a-x=x-a$",
+     "points": 3
+    },
+    {
+     "text": "צמצום $x-a$ וחישוב הגבול $\\frac{1}{4a\\sqrt a}$",
+     "points": 3
+    },
+    {
+     "text": "דרישת רציפות: הגבול שווה ל-$\\sqrt a$",
+     "points": 2
+    },
+    {
+     "text": "פתרון המשוואה: $a=\\frac12$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל הצבה ישירה ולהישאר עם $\\frac00$ בלי לכפול בצמוד.",
+    "לשכוח שיש לפרק גם את המכנה: $x^2-a^2=(x-a)(x+a)$.",
+    "לבדוק רציפות רק לפי קיום הגבול, בלי להשוות אותו לערך $f(a)=\\sqrt a$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך מתמודדים עם הצורה $\\frac00$ בגבול $\\frac{\\sqrt{2x-a}-\\sqrt x}{x^2-a^2}$ כאשר $x\\to a$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הצבה $x=a$ ישירות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "העלאה בריבוע של שני האגפים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כפל בצמוד $\\sqrt{2x-a}-\\sqrt x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כפל המונה והמכנה בצמוד $\\sqrt{2x-a}+\\sqrt x$ ופירוק $x^2-a^2$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "כפל בצמוד $\\sqrt{2x-a}+\\sqrt x$ נותן מונה $2x-a-x=x-a$ שמצטמצם עם גורם המכנה $(x-a)$. הצבה ישירה נותנת $\\frac00$, וכפל בצמוד השני רק מחזיר את הביטוי המקורי בריבוע."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הגבול כאשר $x\\to a$? (עבור $a>0$)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{4 a^{\\frac{3}{2}}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{2 a^{\\frac{3}{2}}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{4 a^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{8 a^{\\frac{3}{2}}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "אחרי הצמצום $\\frac{1}{(x+a)\\left(\\sqrt{2x-a}+\\sqrt x\\right)}\\to\\frac{1}{2a\\cdot2\\sqrt a}=\\frac{1}{4a\\sqrt a}$ (נבדק ב-sympy ל-$a=1,2,5$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $a$ שעבורו הפונקציה רציפה? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{4a\\sqrt a}=\\sqrt a$ נותן $4a^2=1$ ולכן $a=0.5$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -87,7 +613,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "אינטגרציה בחלקים ראשונה ($u=\\sin\\pi x$, $dv=e^xdx$), האיבר החוצץ מתאפס",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה בחלקים שנייה ($u=\\cos\\pi x$) וחזרה לאינטגרל המקורי",
+     "points": 3
+    },
+    {
+     "text": "משוואה ב-$Q$: $Q=\\pi(e+1)-\\pi^2Q$",
+     "points": 2
+    },
+    {
+     "text": "פתרון: $Q=\\frac{\\pi(e+1)}{1+\\pi^2}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "באינטגרציה בחלקים השנייה להחליף את התפקידים ($u=e^x$) ולחזור בדיוק לאינטגרל המקורי בלי להתקדם.",
+    "טעות סימן ב-$\\left(e^x\\cos\\pi x\\right)\\Big|_0^1=-e-1$.",
+    "לשכוח להעביר את $\\pi^2Q$ לאגף השני ולחלק ב-$1+\\pi^2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $\\left(e^x\\sin\\pi x\\right)\\Big|_0^1$ באינטגרציה בחלקים הראשונה?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$e\\sin\\pi-e^0\\sin0=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $\\left(e^x\\cos\\pi x\\right)\\Big|_0^1$? (עשרוני)",
+     "answer": -3.7183,
+     "tol": 0.001,
+     "explain": "$e\\cos\\pi-\\cos0=-e-1\\approx-3.7183$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה מקבלים ל-$Q=\\int_0^1e^x\\sin\\pi x\\,dx$ אחרי שתי האינטגרציות בחלקים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$Q=\\pi(e-1)-\\pi^2Q$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$Q=\\pi(e+1)-\\pi^2Q$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$Q=\\pi(e+1)+\\pi^2Q$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$Q=-\\pi(e+1)-\\pi^2Q$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$Q=0-\\pi\\left\\{(-e-1)+\\pi Q\\right\\}=\\pi(e+1)-\\pi^2Q$. הערך המספרי של $Q$ מקיים את המשוואה הזו ולא את האחרות (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $Q$? (עשרוני)",
+     "answer": 1.0747,
+     "tol": 0.001,
+     "explain": "$Q=\\frac{\\pi(e+1)}{1+\\pi^2}\\approx1.0747$ (בדיקה נומרית ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -99,7 +701,90 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $y'=\\frac{5x-12}{\\sqrt[3]{3x-12}}$",
+     "points": 3
+    },
+    {
+     "text": "נקודות חשודות: $x=2.4$ ($y'=0$) ו-$x=4$ (הנגזרת לא מוגדרת והפונקציה מוגדרת)",
+     "points": 3
+    },
+    {
+     "text": "ערכי הפונקציה בנקודות החשודות ובקצוות הקטע",
+     "points": 2
+    },
+    {
+     "text": "מקסימום מוחלט $6\\sqrt[3]{36}\\approx19.81$ ומינימום מוחלט $0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לא לכלול את $x=4$ כנקודה חשודה: שם הנגזרת לא מוגדרת אבל הפונקציה כן.",
+    "לשכוח לבדוק את קצוות הקטע $x=0$ ו-$x=6$.",
+    "להסיק שהמינימום המוחלט הוא ב-$x=2.4$, שם יש מקסימום מקומי, ולא בנקודות שבהן הפונקציה מתאפסת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ שבו $y'=0$? (עשרוני)",
+     "answer": 2.4,
+     "tol": 0.001,
+     "explain": "$5x-12=0$ נותן $x=2.4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $x=4$ נבדקת כנקודה חשודה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הנגזרת מתאפסת שם"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "זו נקודת קצה של הקטע"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הנגזרת לא מוגדרת שם אבל הפונקציה מוגדרת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הפונקציה לא מוגדרת שם"
+      }
+     ],
+     "correctId": "c",
+     "explain": "ב-$x=4$ המכנה $\\sqrt[3]{3x-12}$ מתאפס, אבל $y(4)=0$ מוגדרת. הנגזרת מתאפסת רק ב-$x=2.4$, ו-$4$ אינה קצה של הקטע $[0,6]$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(2.4)$? (עשרוני)",
+     "answer": 6.8292,
+     "tol": 0.001,
+     "explain": "$y(2.4)=2.4\\cdot\\sqrt[3]{4.8^2}\\approx6.829$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקסימום המוחלט של הפונקציה בקטע? (עשרוני)",
+     "answer": 19.8116,
+     "tol": 0.001,
+     "explain": "הערך בקצה $x=6$: $6\\sqrt[3]{36}\\approx19.81$, הגדול מבין $0,\\,6.829,\\,0,\\,19.81$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המינימום המוחלט של הפונקציה בקטע?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$y(0)=y(4)=0$ והערכים האחרים חיוביים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -111,7 +796,103 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חילוק פולינומים (דרגות שוות): $1+\\frac{x^2-5x+5}{x(x^2+2x+5)}$",
+     "points": 2
+    },
+    {
+     "text": "פירוק לשברים חלקיים $\\frac{A}{x}+\\frac{Bx+C}{x^2+2x+5}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המקדמים $A=1$, $B=0$, $C=-7$",
+     "points": 3
+    },
+    {
+     "text": "השלמה לריבוע, $\\arctan$ ותשובה סופית עם $+c$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה שווה לדרגת המכנה.",
+    "ברכיב $\\frac{7}{(x+1)^2+4}$ לשכוח ש-$\\int\\frac{du}{u^2+4}=\\frac12\\arctan\\frac u2$, ולכן המקדם הסופי $\\frac72$ ולא $7$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה הצעד הראשון בפתרון $\\int\\frac{x^3+3x^2+5}{x(x^2+2x+5)}dx$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הצבה $t=x^2+2x+5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינטגרציה בחלקים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "פירוק ישיר לשברים חלקיים בלי חילוק"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "חילוק פולינומים, כי דרגת המונה שווה לדרגת המכנה"
+      }
+     ],
+     "correctId": "d",
+     "explain": "המכנה $x^3+2x^2+5x$ והמונה מאותה דרגה, ולכן מפרידים חלק שלם: $1+\\frac{x^2-5x+5}{x(x^2+2x+5)}$ (sympy). לפירוק ישיר אין פתרון, וההצבה אינה מפשטת את המונה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$ בפירוק $\\frac{A}{x}+\\frac{Bx+C}{x^2+2x+5}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "הצבת $x=0$ נותנת $5=5A$ ולכן $A=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $C$?",
+     "answer": -7,
+     "tol": 0.001,
+     "explain": "מהמקדם של $x$: $-5=2A+C$ ולכן $C=-7$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (עבור $x>0$, בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x + \\log{\\left(x \\right)} - \\frac{7 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x + \\log{\\left(x \\right)} - 7 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x + \\log{\\left(x \\right)} - \\frac{7 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x + \\log{\\left(x \\right)} + \\frac{7 \\operatorname{atan}{\\left(\\frac{x}{2} + \\frac{1}{2} \\right)}}{2}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\int\\left(1+\\frac1x-\\frac{7}{(x+1)^2+4}\\right)dx=x+\\ln x-\\frac72\\arctan\\frac{x+1}{2}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -123,7 +904,76 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרות $f'(1)=\\frac12$, $f''(1)=-\\frac14$ וערך $f(1)=1$",
+     "points": 3
+    },
+    {
+     "text": "פולינום טיילור $P_2(x)=1+\\frac12(x-1)-\\frac18(x-1)^2$",
+     "points": 2
+    },
+    {
+     "text": "הערך המקורב $P_2(1.05)=1.0246875$",
+     "points": 2
+    },
+    {
+     "text": "שארית לגרנז' עם $f'''$ וחסם $\\frac{0.05^3}{16}<10^{-5}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחלק ב-$2$ במקום ב-$2!$ במקדם הריבועי: המקדם הוא $\\frac{f''(1)}{2}=-\\frac18$.",
+    "לחשב את החסם בעזרת $f''$ במקום $f'''$: שארית של פולינום מסדר שני דורשת את הנגזרת השלישית.",
+    "להעריך את $f'''(c)$ בנקודה כלשהי במקום לחסום אותה מלמעלה בקטע ($c\\ge1$ נותן $f'''(c)\\le\\frac38$)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם של $(x-1)^2$ בפולינום טיילור $P_2$? (עשרוני)",
+     "answer": -0.125,
+     "tol": 0.001,
+     "explain": "$\\frac{f''(1)}{2!}=\\frac{-1/4}{2}=-\\frac18=-0.125$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך המקורב $P_2(1.05)$? (דיוק של שבע ספרות אחרי הנקודה)",
+     "answer": 1.0246875,
+     "tol": 5e-07,
+     "explain": "$1+0.5\\cdot0.05-\\frac18\\cdot0.05^2=1.0246875$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו חסם השגיאה לפי שארית לגרנז' עבור $x=1.05$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{48000}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{128000}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{64000}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{6400}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\frac{f'''(c)}{3!}(0.05)^3\\le\\frac{3/8}{6}(0.05)^3=\\frac{0.05^3}{16}\\approx7.81\\cdot10^{-6}$. שאר האפשרויות מתקבלות ממקדם או מחזקה שגויים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -135,7 +985,82 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודות החיתוך $x=0$ ו-$x=2$",
+     "points": 2
+    },
+    {
+     "text": "קביעת הפונקציה העליונה בקטע ($\\sqrt{32x}$) והצבת האינטגרל",
+     "points": 3
+    },
+    {
+     "text": "מציאת הפונקציה הקדומה $\\sqrt{32}\\cdot\\frac{2\\sqrt{x^3}}{3}-\\frac{x^4}{4}$",
+     "points": 3
+    },
+    {
+     "text": "הצבת הגבולות והשטח $\\frac{20}{3}\\approx6.67$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להחסיר בסדר הפוך (התחתונה פחות העליונה) ולקבל שטח שלילי.",
+    "לשכוח את נקודת החיתוך $x=0$, או לטעות בצמצום $x^6=32x$ ל-$x^5=32$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ החיובי שבו מתחתכים הגרפים?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$x^3=\\sqrt{32x}$ נותן $x^6=32x$, כלומר $x^5=32$ ו-$x=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה גרף נמצא למעלה בקטע $(0,2)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y=x^3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הגרפים מתחלפים בקטע"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y=\\sqrt{32x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שני הגרפים זהים בקטע"
+      }
+     ],
+     "correctId": "c",
+     "explain": "לדוגמה ב-$x=1$: $\\sqrt{32}\\approx5.66>1=x^3$, ואין נקודת חיתוך נוספת בקטע."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^2\\sqrt{32x}\\,dx$? (עשרוני)",
+     "answer": 10.6667,
+     "tol": 0.001,
+     "explain": "$\\sqrt{32}\\cdot\\frac{2}{3}\\cdot2^{3/2}=\\frac{32}{3}\\approx10.667$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח הכלוא? (עשרוני)",
+     "answer": 6.6667,
+     "tol": 0.001,
+     "explain": "$\\frac{32}{3}-\\frac{2^4}{4}=\\frac{32}{3}-4=\\frac{20}{3}\\approx6.667$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

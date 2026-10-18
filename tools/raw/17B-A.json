@@ -15,7 +15,140 @@
    "solution": "**תחום ההגדרה:** $D(f)=\\{x\\in\\mathbb R,\\ x\\neq1\\}$. חיתוך עם הצירים: $(2,0)$ ו-$(0,4)$.\n**אסימפטוטה אנכית** $x=1$: $\\lim_{x\\to1^+}f(x)=\\lim_{x\\to1^-}f(x)=+\\infty$.\n**אסימפטוטה משופעת / אופקית:**\n$$a=\\lim_{x\\to\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\infty}\\frac{(x-2)^2}{x(x-1)^2}=0,\\qquad b=\\lim_{x\\to\\infty}f(x)=\\lim_{x\\to\\infty}\\frac{(x-2)^2}{(x-1)^2}=1$$\nלכן $y=1$ היא אסימפטוטה אופקית (משני הצדדים, $\\pm\\infty$).\n**עלייה וירידה:**\n$$f'(x)=2\\cdot\\frac{x-2}{x-1}\\cdot\\frac{x-1-(x-2)}{(x-1)^2}=2\\cdot\\frac{x-2}{(x-1)^3}$$\nטבלת סימנים של $f'$: חיובית ב-$x<1$ (עולה), שלילית ב-$1<x<2$ (יורדת), חיובית ב-$x>2$ (עולה). מינימום ב-$x=2$, $f(2)=0$.\n**קמירות ונקודות פיתול:**\n$$f''(x)=2\\cdot\\frac{(x-1)^3-(x-2)\\cdot3(x-1)^2}{(x-1)^6}=2\\cdot\\frac{x-1-3(x-2)}{(x-1)^4}=2\\cdot\\frac{-2x+5}{(x-1)^4}$$\nטבלת סימנים של $f''$: חיובית ב-$x<1$ (קמורה), חיובית ב-$1<x<\\frac52$ (קמורה), שלילית ב-$x>\\frac52$ (קעורה). נקודת פיתול ב-$x=\\frac52$, $f\\left(\\frac52\\right)=\\frac19$.\n**שרטוט:**\n![סקיצה של הגרף של y = ((x−2)/(x−1))² עם האסימפטוטה האנכית x=1, האסימפטוטה האופקית y=1 והמינימום ב-x=2](images/exams/17B-A-Q1-sketch.png)",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq1$, חיתוכים עם הצירים, אסימפטוטה אנכית $x=1$ ($+\\infty$ משני הצדדים)",
+     "points": 5
+    },
+    {
+     "text": "אסימפטוטה אופקית $y=1$ משני הכיוונים (ובדיקה שאין משופעת)",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{2(x-2)}{(x-1)^3}$, תחומי עליה וירידה ומינימום ב-$x=2$",
+     "points": 5
+    },
+    {
+     "text": "$f''(x)=\\frac{2(5-2x)}{(x-1)^4}$ ותחומי קמירות וקעירות",
+     "points": 4
+    },
+    {
+     "text": "נקודת פיתול $\\left(\\frac52,\\frac19\\right)$",
+     "points": 2
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכלול את $x=1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
+    "לשכוח שהאסימפטוטה האופקית $y=1$ מתקבלת בשני הכיוונים $x\\to\\pm\\infty$.",
+    "לטעון שגם $x=1$ היא נקודת פיתול רק כי $f''$ לא מוגדרת שם: נקודת הפיתול היחידה היא $x=\\frac52$, שם $f''$ משנה סימן."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=\\left(\\frac{x-2}{x-1}\\right)^2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{2 x - 4}{\\left(x - 1\\right)^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2 x - 4}{\\left(x - 1\\right)^{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{2 x - 4}{x - 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{4 - 2 x}{\\left(x - 1\\right)^{3}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל השרשרת: $2\\cdot\\frac{x-2}{x-1}\\cdot\\frac{1}{(x-1)^2}=\\frac{2(x-2)}{(x-1)^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סוג הנקודה $x=2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום מקומי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מינימום מקומי (ומוחלט) שערכו $0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "נקודת פיתול"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "נקודה שאינה קיצון"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$f'$ חיובית אחרי $x=2$ ושלילית לפניה (בין $1$ ל-$2$), ו-$f(2)=0$, והפונקציה אי-שלילית (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ משנה $f''$ סימן (נקודת הפיתול)? (עשרוני)",
+     "answer": 2.5,
+     "tol": 0.001,
+     "explain": "$f''=0$ כאשר $5-2x=0$, כלומר $x=\\frac52$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת הפיתול? (עשרוני)",
+     "answer": 0.1111,
+     "tol": 0.001,
+     "explain": "$f\\left(\\frac52\\right)=\\left(\\frac{1/2}{3/2}\\right)^2=\\frac19\\approx0.1111$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של $y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנכית $x=1$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית $x=1$ ומשופעת $y=x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית $x=1$ ואופקית $y=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אנכית $x=2$ ואופקית $y=1$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to1}f=+\\infty$ משני הצדדים, ו-$\\lim_{x\\to\\pm\\infty}f=1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -26,7 +159,129 @@
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "חסימות באינדוקציה: $\\sqrt3\\le a_n\\le2$ לכל $n\\ge2$",
+     "points": 6
+    },
+    {
+     "text": "מונוטוניות: $a_{n+1}-a_n=\\frac{3-a_n^2}{2+a_n}\\le0$, הסדרה יורדת",
+     "points": 6
+    },
+    {
+     "text": "מסקנה: סדרה יורדת וחסומה מלרע מתכנסת",
+     "points": 2
+    },
+    {
+     "text": "משוואת הגבול $L^2=3$ ופסילת $-\\sqrt3$ לפי החסם, גבול $\\sqrt3$",
+     "points": 6
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון חסימות כבר מ-$n=1$: $a_1=5>2$, ולכן החסם מתחיל רק מ-$a_2$.",
+    "לחשב את הגבול מהמשוואה בלי להוכיח התכנסות, או להשאיר את שני הפתרונות $\\pm\\sqrt3$ בלי לפסול את $-\\sqrt3$.",
+    "לבדוק מונוטוניות לפי הדוגמאות $a_1>a_2>a_3$ בלבד, בלי להוכיח את הסימן של $a_{n+1}-a_n$ לכל $n$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$? (עשרוני)",
+     "answer": 1.8571,
+     "tol": 0.001,
+     "explain": "$a_2=2-\\frac{1}{7}=\\frac{13}{7}\\approx1.8571$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו ההפרש $a_{n+1}-a_n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{aa^{2} - 3}{aa + 2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{3 - aa^{2}}{2 - aa}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1 - aa^{2}}{aa + 2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{3 - aa^{2}}{aa + 2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$2-a_n-\\frac{1}{2+a_n}=\\frac{(2-a_n)(2+a_n)-1}{2+a_n}=\\frac{3-a_n^2}{2+a_n}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע ההפרש $a_{n+1}-a_n$ אי-חיובי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $a_n\\ge\\sqrt3$ ולכן $3-a_n^2\\le0$ והמכנה חיובי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $a_n\\le2$ ולכן $3-a_n^2\\ge0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $a_1>a_2$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי הסדרה חסומה מלעיל"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מהחסם התחתון $a_n\\ge\\sqrt3$ מקבלים $3-a_n^2\\le0$, והמכנה $2+a_n>0$. בדיקה של איבר אחד אינה מוכיחה לכל $n$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נראה באינדוקציה ש-$\\sqrt3\\le a_n\\le2$ לכל $n\\ge2$.",
+      "מכאן $a_{n+1}-a_n=\\frac{3-a_n^2}{2+a_n}\\le0$, כלומר הסדרה יורדת.",
+      "סדרה יורדת וחסומה מלרע מתכנסת; נסמן את גבולה $L$.",
+      "במעבר לגבול $L=2-\\frac{1}{2+L}$, כלומר $L^2=3$.",
+      "מכיוון ש-$a_n\\ge\\sqrt3$ מתקבל $L=\\sqrt3$."
+     ],
+     "explain": "החסימות באה ראשונה כי המונוטוניות נשענת על $a_n\\ge\\sqrt3$; ההתכנסות נובעת משתיהן; ורק אחריה מחשבים את הגבול ופוסלים את $-\\sqrt3$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נראה באינדוקציה ש-$\\sqrt3\\le a_n\\le2$ לכל $n\\ge2$.",
+      "מכאן $a_{n+1}-a_n=\\frac{a_n^2-3}{2+a_n}\\le0$, כלומר הסדרה יורדת.",
+      "סדרה יורדת וחסומה מלרע מתכנסת; נסמן את גבולה $L$.",
+      "במעבר לגבול $L=2-\\frac{1}{2+L}$, כלומר $L^2=3$.",
+      "מכיוון ש-$a_n\\ge\\sqrt3$ מתקבל $L=\\sqrt3$."
+     ],
+     "bugIndex": 1,
+     "explain": "ההפרש הוא $\\frac{3-a_n^2}{2+a_n}$ ולא $\\frac{a_n^2-3}{2+a_n}$; עם הסימן ההפוך האי-שוויון $\\le0$ אינו נובע מ-$a_n\\ge\\sqrt3$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה? (עשרוני)",
+     "answer": 1.7321,
+     "tol": 0.001,
+     "explain": "$L^2=3$ ו-$L\\ge\\sqrt3>0$ ולכן $L=\\sqrt3\\approx1.7321$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -38,7 +293,75 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $\\infty-\\infty$",
+     "points": 2
+    },
+    {
+     "text": "כתיבה $x=\\ln e^x$ ואיחוד ללוגריתם אחד $\\ln\\frac{e^x}{1+2e^x}$",
+     "points": 4
+    },
+    {
+     "text": "חישוב הגבול הפנימי $\\frac12$ (רציפות הלוגריתם)",
+     "points": 2
+    },
+    {
+     "text": "הערך הסופי $\\ln\\frac12=-\\ln2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהגבול הוא $0$ או $-\\infty$ כי \"$\\infty-\\infty$\". זו צורה לא מסוימת.",
+    "לשכוח שאחרי האיחוד הגבול הפנימי הוא $\\frac12$ ולא $\\frac{1}{2e^x}$ או $1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך הפתרון הרשמי מתמודד עם הצורה $\\infty-\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כופל בצמוד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כותב $x=\\ln e^x$ ומאחד לוגריתם אחד של מנה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מפעיל לופיטל ישירות על הפרש"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מציב $x=\\infty$ ישירות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x-\\ln(1+2e^x)=\\ln\\frac{e^x}{1+2e^x}$. הצבה ישירה נותנת צורה לא מסוימת, ואין כאן שורשים לכפל בצמוד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to\\infty}\\frac{e^x}{1+2e^x}$? (עשרוני)",
+     "answer": 0.5,
+     "tol": 0.001,
+     "explain": "מחלקים ב-$e^x$: $\\frac{1}{e^{-x}+2}\\to\\frac12$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול המבוקש? (עשרוני)",
+     "answer": -0.6931,
+     "tol": 0.001,
+     "explain": "$\\ln\\frac12=-\\ln2\\approx-0.6931$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -50,7 +373,83 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודת החיתוך של $y=1+x^3$ עם $y=9$: $x=2$ (גבולות האינטגרציה $1$ ו-$2$)",
+     "points": 2
+    },
+    {
+     "text": "בחירת שיטת הקונכיות הגליליות ורדיוס $x$",
+     "points": 2
+    },
+    {
+     "text": "הצבת האינטגרל $2\\pi\\int_1^2x\\left(9-1-x^3\\right)dx$ (או הפרש $V_1-V_2$)",
+     "points": 3
+    },
+    {
+     "text": "חישוב ותשובה $V=\\frac{58\\pi}{5}$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחבר את הנפחים $V_1+V_2$ במקום להפחית: התחום נמצא בין העקומה לישר $y=9$.",
+    "לשכוח את הגורם $x$ (רדיוס הקונכייה) באינטגרנד.",
+    "לקחת גבולות אינטגרציה $0$ עד $2$ במקום $1$ עד $2$ (הישר $x=1$ חוסם את התחום)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ שבו $y=1+x^3$ פוגש את $y=9$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$x^3=8$ ולכן $x=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד בשיטת הקונכיות (האינטגרציה על $x$ מ-$1$ עד $2$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 \\pi x \\left(x^{3} + 10\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\pi x^{2} \\left(8 - x^{3}\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 \\pi x \\left(8 - x^{3}\\right)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 \\pi \\left(8 - x^{3}\\right)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "רדיוס הקונכייה $x$, גובהה $9-(1+x^3)$ והיקפה $2\\pi x$. רק האינטגרנד הנכון נותן את $V$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $V_1=2\\pi\\int_1^2x\\cdot9\\,dx$, מחולק ב-$\\pi$?",
+     "answer": 27,
+     "tol": 0.001,
+     "explain": "$9\\pi x^2\\Big|_1^2=27\\pi$, כלומר $27$ ב-$\\pi$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו נפח הגוף? (עשרוני)",
+     "answer": 36.4425,
+     "tol": 0.001,
+     "explain": "$V=27\\pi-\\frac{77\\pi}{5}=\\frac{58\\pi}{5}\\approx36.44$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -62,7 +461,87 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $f(t)=\\ln t$ על $[1,x]$ ובדיקת רציפות וגזירות",
+     "points": 3
+    },
+    {
+     "text": "הפעלת משפט לגרנז': $\\ln x=\\frac{x-1}{c}$ עבור $c\\in(1,x)$",
+     "points": 3
+    },
+    {
+     "text": "חסימת $\\frac1c$ בין $\\frac1x$ ל-$1$",
+     "points": 2
+    },
+    {
+     "text": "הכפלה ב-$(x-1)>0$ ומסקנת אי-השוויון",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל את משפט לגרנז' על קטע $[0,x]$: $\\ln t$ לא מוגדרת ולא רציפה ב-$0$.",
+    "להפוך את כיוון אי-השוויון כשעוברים ל-$\\frac1c$ (היפוך מתקבל ב-$c\\mapsto\\frac1c$).",
+    "לבדוק את אי-השוויון בכמה ערכים של $x$ ולהסיק ממנו הוכחה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "על איזה קטע מפעיל הפתרון הרשמי את משפט לגרנז' עבור $f(t)=\\ln t$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$[0,x]$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$[-1,x]$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$[x,2x]$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$[1,x]$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפתרון משתמש ב-$\\ln1=0$ ולכן הקטע $[1,x]$. הפונקציה $\\ln t$ לא מוגדרת ב-$0$ ולכן אינה רציפה ב-$[0,x]$ או ב-$[-1,x]$, וב-$[x,2x]$ לא מתקבלת $\\ln x$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נגדיר $f(t)=\\ln t$ על הקטע $[1,x]$, כאשר $x>1$.",
+      "הפונקציה רציפה ב-$[1,x]$ וגזירה ב-$(1,x)$ עם $f'(t)=\\frac1t$.",
+      "לפי משפט לגרנז' קיים $c\\in(1,x)$ המקיים $\\ln x-\\ln1=\\frac1c(x-1)$.",
+      "מכיוון ש-$1<c<x$ מתקיים $\\frac1x<\\frac1c<1$.",
+      "לכן $\\frac{x-1}{x}<\\ln x<x-1$."
+     ],
+     "explain": "הגדרה, בדיקת התנאים, הפעלת משפט לגרנז', חסימת $\\frac1c$ ומסקנה. כל שלב מסתמך על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(t)=\\ln t$ על הקטע $[1,x]$, כאשר $x>1$.",
+      "הפונקציה רציפה ב-$[1,x]$ וגזירה ב-$(1,x)$ עם $f'(t)=\\frac1t$.",
+      "לפי משפט לגרנז' קיים $c\\in(1,x)$ המקיים $\\ln x-\\ln1=\\frac1c(x-1)$.",
+      "מכיוון ש-$1<c<x$ מתקיים $1<\\frac1c<\\frac1x$.",
+      "לכן $\\frac{x-1}{x}<\\ln x<x-1$."
+     ],
+     "bugIndex": 3,
+     "explain": "מ-$1<c<x$ מקבלים (בהיפוך) $\\frac1x<\\frac1c<1$ ולא $1<\\frac1c<\\frac1x$; למשל $c=2$, $x=3$ נותן $\\frac12$ שאינו גדול מ-$1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -74,7 +553,83 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "שיפוע המשיק $y'(4)=\\frac14$ ומשוואת המשיק $y=\\frac{x}{4}+1$ (או $x=4y-4$)",
+     "points": 3
+    },
+    {
+     "text": "זיהוי התחום וקביעת גבולות האינטגרציה (ב-$y$ מ-$0$ עד $2$)",
+     "points": 3
+    },
+    {
+     "text": "אינטגרל $\\int_0^2\\left(y^2-(4y-4)\\right)dy$ והפונקציה הקדומה",
+     "points": 2
+    },
+    {
+     "text": "ערך השטח $\\frac83$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את השיפוע כ-$\\frac{1}{\\sqrt4}$ במקום $\\frac{1}{2\\sqrt4}$.",
+    "להחסיר בסדר הפוך בין הגרף למשיק (אינטגרציה על $y$: הגרף $x=y^2$ מימין למשיק $x=4y-4$).",
+    "לשכוח שהמשיק פוגש את ציר ה-$x$ ב-$x=-4$ ולא ב-$x=0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו שיפוע המשיק לגרף $y=\\sqrt x$ בנקודה $(4,2)$? (עשרוני)",
+     "answer": 0.25,
+     "tol": 0.001,
+     "explain": "$y'(4)=\\frac{1}{2\\sqrt4}=\\frac14$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ פוגש המשיק את ציר ה-$x$?",
+     "answer": -4,
+     "tol": 0.001,
+     "explain": "המשיק $y=\\frac{x}{4}+1$ מתאפס ב-$x=-4$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה אינטגרנד מחשב את השטח כאשר מבצעים אינטגרציה על $y$ מ-$0$ עד $2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$yy^{2} - 4 yy + 4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- yy^{2} + 4 yy - 4$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$yy^{2} - 4 yy$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$yy^{2} - 4 yy - 4$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בגובה $y$ הגרף ב-$x=y^2$ והמשיק ב-$x=4y-4$, והגרף מימין. רק האינטגרנד הנכון נותן שטח חיובי $\\frac83$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח? (עשרוני)",
+     "answer": 2.6667,
+     "tol": 0.001,
+     "explain": "$\\left(\\frac{y^3}{3}-2y^2+4y\\right)\\Big|_0^2=\\frac83\\approx2.6667$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -86,7 +641,83 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $f'(x)=\\frac{1}{2\\sqrt x}-\\frac{4}{x^2}$ ומציאת הנקודה הקריטית",
+     "points": 3
+    },
+    {
+     "text": "הנקודה $x=4$ בתוך הקטע; ערך $f(4)=3$",
+     "points": 2
+    },
+    {
+     "text": "ערכי הקצוות $f\\left(\\frac14\\right)=\\frac{33}{2}$ ו-$f(100)=\\frac{251}{25}$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: מקסימום מוחלט $\\frac{33}{2}$, מינימום מוחלט $3$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב את $f\\left(\\frac14\\right)$ כ-$\\frac{17}{2}$ ולקבוע בטעות שהמקסימום בקצה הימני: $f\\left(\\frac14\\right)=\\frac12+16=\\frac{33}{2}$.",
+    "לשכוח לבדוק את קצות הקטע ולהסתפק בנקודה הקריטית.",
+    "לפתור $x^{3/2}=8$ בטעות: $x=8^{2/3}=4$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ שבו $f'(x)=0$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{2\\sqrt x}=\\frac{4}{x^2}$ נותן $x^{3/2}=8$ ולכן $x=4$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f\\left(\\frac14\\right)$? (עשרוני)",
+     "answer": 16.5,
+     "tol": 0.001,
+     "explain": "$\\sqrt{\\frac14}+16=\\frac12+16=16.5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(100)$? (עשרוני)",
+     "answer": 10.04,
+     "tol": 0.001,
+     "explain": "$10+\\frac{4}{100}=10.04$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המינימום והמקסימום המוחלטים בקטע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מינימום $3$ ומקסימום $\\frac{251}{25}$ ב-$x=100$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מינימום $3$ ב-$x=4$ ומקסימום $\\frac{33}{2}$ ב-$x=\\frac14$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מינימום $\\frac{251}{25}$ ומקסימום $\\frac{33}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מינימום $3$ ומקסימום $3$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הערכים הם $\\frac{33}{2}=16.5$, $3$, $10.04$; הקטן ביותר $3$ והגדול ביותר $16.5$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -98,7 +729,118 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי חזקה אי-זוגית והצבה $t=\\cos x$ עם $dt=-\\sin x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "$\\sin^4x=\\left(1-\\cos^2x\\right)^2$ והמעבר ל-$-\\int\\left(1-t^2\\right)^2dt$",
+     "points": 3
+    },
+    {
+     "text": "פתיחת הסוגריים ואינטגרציה איבר איבר",
+     "points": 2
+    },
+    {
+     "text": "חזרה ל-$x$ ותשובה עם $+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את סימן המינוס הנובע מ-$dt=-\\sin x\\,dx$.",
+    "לכתוב $\\sin^4x=1-\\cos^4x$ במקום $\\left(1-\\cos^2x\\right)^2$.",
+    "לשכוח לחזור למשתנה $x$ בסוף."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה מתאימה לאינטגרל $\\int\\sin^5x\\,dx$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\cos x$, כי החזקה של הסינוס אי-זוגית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\tan\\frac x2$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "מפרידים גורם $\\sin x\\,dx=-dt$ ושאר הסינוסים הופכים לפולינום ב-$\\cos x$. ההצבה $t=\\sin x$ אינה עובדת: אין גורם $\\cos x\\,dx$ באינטגרל."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד אחרי ההצבה $t=\\cos x$ (האינטגרל ב-$dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(1 - t_{5}^{2}\\right)^{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\left(t_{5}^{2} + 1\\right)^{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t_{5}^{2} - 1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\left(1 - t_{5}^{2}\\right)^{2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\sin^5x\\,dx=\\left(1-\\cos^2x\\right)^2\\sin x\\,dx=-(1-t^2)^2dt$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{\\cos^{5}{\\left(x \\right)}}{5} + \\frac{2 \\cos^{3}{\\left(x \\right)}}{3} - \\cos{\\left(x \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\cos^{5}{\\left(x \\right)}}{5} + \\frac{2 \\cos^{3}{\\left(x \\right)}}{3} - \\cos{\\left(x \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\cos^{5}{\\left(x \\right)}}{5} - \\frac{2 \\cos^{3}{\\left(x \\right)}}{3} + \\cos{\\left(x \\right)}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{\\cos^{5}{\\left(x \\right)}}{5} + \\cos^{3}{\\left(x \\right)} - \\cos{\\left(x \\right)}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$-t+\\frac{2t^3}{3}-\\frac{t^5}{5}$ עם $t=\\cos x$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -110,7 +852,76 @@
    "official": false,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגבול השמאלי $\\lim_{x\\to0^-}\\left(\\frac{e^{ax}-1}{x}\\right)^2=a^2$",
+     "points": 3
+    },
+    {
+     "text": "הגבול הימני $4+\\lim e^{-a^2/x}=4$",
+     "points": 3
+    },
+    {
+     "text": "תנאי הרציפות $a^2=b=4$",
+     "points": 2
+    },
+    {
+     "text": "פתרון: $b=4$ ו-$a=\\pm2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הפתרון $a=-2$: $a^2=4$ נותן שני ערכים.",
+    "לטעות בגבול הימני: עבור $a\\neq0$ המעריך $-\\frac{a^2}{x}\\to-\\infty$ כאשר $x\\to0^+$, ולכן $e^{-a^2/x}\\to0$.",
+    "לא להשוות את הגבולות גם לערך $f(0)=b$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול השמאלי $\\lim_{x\\to0^-}f(x)$ עבור $a=3$?",
+     "answer": 9,
+     "tol": 0.001,
+     "explain": "$\\left(\\frac{e^{3x}-1}{x}\\right)^2\\to3^2=9$ (בכלל: $a^2$; sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול הימני $\\lim_{x\\to0^+}f(x)$ עבור $a=3$?",
+     "answer": 4,
+     "tol": 0.001,
+     "explain": "$e^{-9/x}\\to0$ כאשר $x\\to0^+$ ולכן הגבול $4$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו ערכים מבטיחים רציפות ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$b=4$ ו-$a=2$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$b=4$ ו-$a=2$ או $a=-2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$b=2$ ו-$a=2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$b=0$ ו-$a=0$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הרציפות דורשת $a^2=4=b$. עבור $a=0$ הגבול השמאלי $0$ והימני $5$, ולכן אין רציפות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -122,7 +933,90 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת אינטגרציה בחלקים: $u=\\ln(x+1)$, $dv=\\frac{dx}{\\sqrt{x+1}}$",
+     "points": 3
+    },
+    {
+     "text": "$du=\\frac{dx}{x+1}$ ו-$v=2\\sqrt{x+1}$",
+     "points": 2
+    },
+    {
+     "text": "האינטגרל הנותר $-2\\int\\frac{dx}{\\sqrt{x+1}}=-4\\sqrt{x+1}$",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית עם $+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $u=\\frac{1}{\\sqrt{x+1}}$: אז האינטגרל הנותר מסובך יותר.",
+    "לכתוב $v=\\sqrt{x+1}$ בלי הגורם $2$.",
+    "לשכוח את האיבר השני $-4\\sqrt{x+1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך בוחרים את $u$ ו-$dv$ באינטגרל $\\int\\frac{\\ln(x+1)}{\\sqrt{x+1}}dx$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=\\frac{1}{\\sqrt{x+1}}$ ו-$dv=\\ln(x+1)\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=\\sqrt{x+1}$ ו-$dv=\\ln(x+1)\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$u=\\ln(x+1)$ ו-$dv=\\frac{dx}{\\sqrt{x+1}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$u=x+1$ ו-$dv=\\frac{\\ln(x+1)}{\\sqrt{x+1}}dx$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "בבחירת הפתרון הרשמי $du=\\frac{dx}{x+1}$ ו-$v=2\\sqrt{x+1}$, והאינטגרל הנותר פשוט. בבחירות האחרות צריך את הפונקציה הקדומה של $\\ln(x+1)$ או של הביטוי כולו, ואין בהן פישוט."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 2 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} + 4 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 4 \\sqrt{x + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 \\sqrt{x + 1} \\log{\\left(x + 1 \\right)} - 4 \\sqrt{x + 1}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$2\\sqrt{x+1}\\ln(x+1)-2\\int\\frac{dx}{\\sqrt{x+1}}=2\\sqrt{x+1}\\ln(x+1)-4\\sqrt{x+1}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

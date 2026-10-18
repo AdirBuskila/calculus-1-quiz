@@ -166,6 +166,297 @@ questions = [
      "hold": "stem-not-printed", "solution": SOL6B_HELD.strip("\n"), "solutionSource": "official-pdf"},
 ]
 
+# ---- steps / rubric / pitfalls (ai-draft); every value below is computed or asserted with sympy ----
+import sympy as sp
+
+IDS = "abcdef"
+_rot = [0]
+x, t, a, b = sp.symbols('x t a b', real=True)
+n = sp.Symbol('n', positive=True)
+R = sp.Rational
+TOPSRC = {}
+
+
+def T(e):
+    """TeX of a sympy expression, wrapped in $...$."""
+    return "$" + sp.latex(e) + "$"
+
+
+def rub(*items):
+    return [{"text": s, "points": p} for s, p in items]
+
+
+def _opts(vals):
+    return [{"id": IDS[i], "type": "text", "value": v} for i, v in enumerate(vals)]
+
+
+def ch(prompt, good, bads, explain):
+    """choice step; the correct option rotates through the positions a, b, c, ..."""
+    k = _rot[0] % (len(bads) + 1)
+    _rot[0] += 1
+    vals = list(bads)
+    vals.insert(k, good)
+    assert len(set(vals)) == len(vals), "duplicate options"
+    return {"type": "choice", "prompt": prompt, "options": _opts(vals), "correctId": IDS[k], "explain": explain}
+
+
+def chx(prompt, good, bads, ok, explain):
+    """choice over sympy expressions: ok(e) must hold for the good one and fail for every distractor."""
+    assert ok(good), "good option fails its test"
+    for e in bads:
+        assert not ok(e), "distractor passes the test: %s" % e
+    return ch(prompt, T(good), [T(e) for e in bads], explain)
+
+
+def num(prompt, val, explain, tol=0.001):
+    v = sp.N(val, 15)
+    f = float(v)
+    ans = int(round(f)) if abs(f - round(f)) < 1e-12 else round(f, 4)
+    return {"type": "numeric", "prompt": prompt, "answer": ans, "tol": tol, "explain": explain}
+
+
+def order(prompt, lines, explain):
+    return {"type": "order", "prompt": prompt, "lines": lines, "explain": explain}
+
+
+def findbug(prompt, lines, idx, explain):
+    return {"type": "findbug", "prompt": prompt, "lines": lines, "bugIndex": idx, "explain": explain}
+
+
+def add(num_, part=None, **kw):
+    for q in questions:
+        if q["num"] == num_ and q.get("part") == part:
+            assert not q.get("hold"), "held item"
+            q.update(kw)
+            return
+    raise KeyError((num_, part))
+
+
+def same(e1, e2):
+    return sp.simplify(e1 - e2) == 0
+
+# (Q2, Q6a and Q6b are held in this sitting: no rubric or steps are written for them.)
+
+# ===== Q1: y = ((x+2)/(x+1))^2 =====
+f1 = ((x + 2)/(x + 1))**2
+f1p = sp.diff(f1, x)
+f1pp = sp.diff(f1, x, 2)
+assert same(f1p, -2*(x + 2)/(x + 1)**3) and same(f1pp, (4*x + 10)/(x + 1)**4)
+assert sp.solve(sp.numer(sp.together(f1p)), x) == [-2] and sp.solve(sp.numer(sp.together(f1pp)), x) == [R(-5, 2)]
+assert f1.subs(x, -2) == 0 and f1.subs(x, R(-5, 2)) == R(1, 9)
+assert f1p.subs(x, -3) < 0 and f1p.subs(x, R(-3, 2)) > 0 and f1p.subs(x, 0) < 0
+assert f1pp.subs(x, -3) < 0 and f1pp.subs(x, 0) > 0 and f1pp.subs(x, -2) > 0
+assert sp.limit(f1, x, -1, '+') == sp.oo and sp.limit(f1, x, -1, '-') == sp.oo
+assert sp.limit(f1, x, sp.oo) == 1 and sp.limit(f1, x, -sp.oo) == 1
+
+add(1,
+    rubric=rub(("תחום הגדרה $x\\neq-1$ ואסימפטוטה אנכית $x=-1$ ($+\\infty$ משני הצדדים)", 5),
+               ("אסימפטוטה אופקית $y=1$ ב-$\\pm\\infty$ (שיפוע $0$)", 3),
+               ("נגזרת $y'=\\frac{-2(x+2)}{(x+1)^3}$, תחומי עליה וירידה ומינימום ב-$x=-2$ שערכו $0$", 5),
+               ("$y''=\\frac{4x+10}{(x+1)^4}$ ותחומי קמירות וקעירות", 4),
+               ("נקודת פיתול $\\left(-\\frac52,\\frac19\\right)$", 2),
+               ("שרטוט הגרף בהתאם לכל הנתונים", 1)),
+    rubricSource="ai-draft",
+    pitfalls=["לכלול את $x=-1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
+              "לבלבל בין תחומי העליה והירידה: $y$ עולה ב-$(-2,-1)$ ויורדת ב-$(-\\infty,-2)$ וב-$(-1,\\infty)$.",
+              "לטעות בערך בנקודת הפיתול: $y\\left(-\\frac52\\right)=\\left(\\frac{-1/2}{-3/2}\\right)^2=\\frac19$."],
+    steps=[
+        chx("מהי הנגזרת של $y=\\left(\\frac{x+2}{x+1}\\right)^2$?", -2*(x + 2)/(x + 1)**3,
+            [2*(x + 2)/(x + 1)**3, -2*(x + 2)/(x + 1)**2, 2*(x + 2)/(x + 1)], lambda e: same(e, f1p),
+            "כלל השרשרת: $2\\cdot\\frac{x+2}{x+1}\\cdot\\frac{-1}{(x+1)^2}=\\frac{-2(x+2)}{(x+1)^3}$ (אומת ב-sympy)."),
+        ch("מה סוג הנקודה $x=-2$?", "מינימום מקומי (ומוחלט) שערכו $0$",
+           ["מקסימום מקומי", "נקודת פיתול", "נקודה שאינה בתחום ההגדרה"],
+           "$y'$ שלילית משמאל ל-$-2$ וחיובית מימין לה, ו-$y(-2)=0$ כשהפונקציה אי-שלילית (sympy)."),
+        num("באיזה ערך $x$ משנה $y''$ סימן? (עשרוני)", R(-5, 2), "$4x+10=0$ נותן $x=-\\frac52=-2.5$."),
+        num("מהו ערך הפונקציה בנקודת הפיתול? (עשרוני)", R(1, 9), "$y\\left(-\\frac52\\right)=\\frac19\\approx0.1111$ (sympy)."),
+        ch("מהן האסימפטוטות של $y$?", "אנכית $x=-1$ ואופקית $y=1$",
+           ["אנכית $x=-1$ בלבד", "אנכית $x=-1$ ומשופעת $y=x$", "אנכית $x=-2$ ואופקית $y=1$"],
+           "$\\lim_{x\\to-1}y=+\\infty$ משני הצדדים ו-$\\lim_{x\\to\\pm\\infty}y=1$ (אומת ב-sympy)."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q3a: a root of 2 sin^2(3x) + 5 cbrt(1-x^2) - 4x^5 =====
+f3 = lambda v: 2*sp.sin(3*v)**2 + 5*sp.real_root(1 - v**2, 3) - 4*v**5
+assert f3(0) == 5 and abs(float(sp.N(f3(1))) - (-3.96)) < 5e-3 and float(sp.N(f3(-1))) > 4
+assert float(sp.N(f3(1))) < 0
+lo, hi = 0.0, 1.0
+for _ in range(60):
+    mid = (lo + hi)/2
+    if float(sp.N(f3(mid))) > 0:
+        lo = mid
+    else:
+        hi = mid
+assert 0 < lo < 1 and abs(float(sp.N(f3(lo)))) < 1e-6
+L3 = ["הפונקציה $f(x)=2\\sin^2(3x)+5\\sqrt[3]{1-x^2}-4x^5$ רציפה לכל $x$.",
+      "$f(0)=5>0$ ו-$f(1)=2\\sin^2 3-4\\approx-3.96<0$.",
+      "לפי משפט ערך הביניים קיים $c\\in(0,1)$ עם $f(c)=0$, כלומר שורש ממשי."]
+L3b = list(L3)
+L3b[1] = "$f(0)=5>0$ ו-$f(1)=2\\sin^2 3-4\\approx3.96>0$."
+
+add(3, "א",
+    rubric=rub(("הגדרת $f$ ונימוק לרציפות על כל הממשיים", 2),
+               ("חישוב $f(0)=5>0$", 2),
+               ("חישוב $f(1)=2\\sin^23-4<0$", 3),
+               ("הפעלת משפט ערך הביניים והמסקנה שקיים שורש ממשי", 3)),
+    rubricSource="ai-draft",
+    pitfalls=["לבחור קטע שבו אין החלפת סימן: $f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן הקטע $[-1,0]$ אינו מתאים.",
+              "לא לנמק רציפות לפני הפעלת משפט ערך הביניים (השורש $\\sqrt[3]{1-x^2}$ רציף לכל $x$).",
+              "לחשב את $f(1)$ בלי לשים לב ש-$\\sin^23<1$ ולכן $2\\sin^23-4<0$."],
+    steps=[
+        num("מהו $f(0)$?", 5, "$2\\sin^20+5\\sqrt[3]{1}-0=5$."),
+        num("מהו $f(1)=2\\sin^23-4$? (עשרוני)", f3(1), "$\\sin^23\\approx0.0199$ ולכן $f(1)\\approx-3.96$ (sympy).", tol=0.01),
+        ch("באיזה קטע מבטיח משפט ערך הביניים שורש?", "$(0,1)$, כי $f(0)>0>f(1)$",
+           ["$(-1,0)$, כי $f(-1)<0<f(0)$", "$(-1,1)$ בלבד, בלי בדיקת הסימנים", "$(1,2)$, כי $f(1)<0$"],
+           "$f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן אין החלפת סימן ב-$[-1,0]$. ההחלפה היא ב-$[0,1]$ (sympy)."),
+        findbug("בנימוק שורה אחת שגויה. מצאו אותה.", L3b, 1,
+                "$f(1)=2\\sin^23-4\\approx-3.96<0$, לא חיובי; בלי הסימן השלילי אין החלפת סימן."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q3b: int dx / (x (ln x - 1)(ln x - 3)) =====
+g3b = 1/(x*(sp.log(x) - 1)*(sp.log(x) - 3))
+F3b = sp.log(sp.Abs((sp.log(x) - 3)/(sp.log(x) - 1)))/2
+Fpos = sp.log((sp.log(x) - 3)/(sp.log(x) - 1))/2
+assert same(sp.diff(Fpos, x), g3b)
+tq = sp.Symbol('tq', real=True)
+pf_ok = lambda e: same(e, 1/((tq - 1)*(tq - 3)))
+pf_good = R(1, 2)/(tq - 3) - R(1, 2)/(tq - 1)
+assert pf_ok(pf_good)
+F3w = [sp.log((sp.log(x) - 3)*(sp.log(x) - 1))/2, sp.log((sp.log(x) - 3)/(sp.log(x) - 1)), sp.log((sp.log(x) - 1)/(sp.log(x) - 3))/2]
+
+add(3, "ב",
+    rubric=rub(("הצבה $t=\\ln x$ עם $dt=\\frac{dx}{x}$", 3),
+               ("פירוק לשברים חלקיים $\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$", 3),
+               ("אינטגרציה לוגריתמית", 2),
+               ("חזרה ל-$x$: $0.5\\ln\\left|\\frac{\\ln x-3}{\\ln x-1}\\right|+c$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=["לשכוח את $\\frac{dx}{x}$ ולא להבחין שהוא $dt$.",
+              "טעות בסימן הפירוק: $\\frac{1}{(t-1)(t-3)}=\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$ ולא עם הסימנים ההפוכים.",
+              "לשכוח ערכים מוחלטים בתוך הלוגריתם."],
+    steps=[
+        ch("איזו הצבה מתאימה לאינטגרל $\\int\\frac{dx}{x(\\ln x-1)(\\ln x-3)}$?", "$t=\\ln x$", ["$t=x$", "$t=e^x$", "$t=\\frac1x$"],
+           "הגורם $\\frac{dx}{x}$ מופיע באינטגרל ושאר הביטוי תלוי ב-$\\ln x$ בלבד, ולכן $t=\\ln x$."),
+        chx("מהו הפירוק לשברים חלקיים של $\\frac{1}{(t-1)(t-3)}$?", pf_good,
+            [R(1, 2)/(tq - 1) - R(1, 2)/(tq - 3), 1/(tq - 3) - 1/(tq - 1), R(1, 2)/(tq - 3) + R(1, 2)/(tq - 1)], pf_ok,
+            "$\\frac{A}{t-3}+\\frac{B}{t-1}$ עם $A=\\frac12$, $B=-\\frac12$ (אומת ב-sympy)."),
+        chx("מהו האינטגרל? (עבור התחום $\\ln x>3$, בלי הקבוע)", Fpos, F3w, lambda e: same(sp.diff(e, x), g3b),
+            "$\\frac12\\ln|t-3|-\\frac12\\ln|t-1|=\\frac12\\ln\\left|\\frac{t-3}{t-1}\\right|$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q4a: lim ln cos x / ln cos 4x =====
+assert sp.limit(sp.log(sp.cos(x))/sp.log(sp.cos(4*x)), x, 0) == R(1, 16)
+assert sp.limit(sp.tan(x)/sp.tan(4*x), x, 0) == R(1, 4)
+assert same(sp.diff(sp.log(sp.cos(x)), x), -sp.tan(x))
+assert sp.limit(sp.log(sp.cos(x)), x, 0) == 0 and sp.limit(sp.log(sp.cos(4*x)), x, 0) == 0
+
+add(4, "א",
+    rubric=rub(("זיהוי $\\frac00$ והפעלת לופיטל", 3),
+               ("נגזרות $\\left(\\ln\\cos x\\right)'=-\\tan x$ ו-$\\left(\\ln\\cos4x\\right)'=-4\\tan4x$", 2),
+               ("שוב $\\frac00$ והפעלת לופיטל שנייה על $\\frac{\\tan x}{\\tan4x}$", 3),
+               ("ערך הגבול $\\frac1{16}$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=["לשכוח את גורם השרשרת $4$ בנגזרת של $\\ln\\cos4x$.",
+              "לעצור אחרי לופיטל אחד: $\\frac{\\tan x}{\\tan4x}$ עדיין $\\frac00$.",
+              "לשכוח את הגורם $\\frac14$ שמוצא החוצה: הגבול הוא $\\frac14\\cdot\\frac14$."],
+    steps=[
+        ch("מה סוג הצורה הלא מסוימת של $\\frac{\\ln\\cos x}{\\ln\\cos4x}$ כאשר $x\\to0$?", "$\\frac00$",
+           ["$\\frac\\infty\\infty$", "$1^{\\infty}$", "$0\\cdot\\infty$"],
+           "$\\cos x\\to1$ ולכן $\\ln\\cos x\\to0$, וכנ\"ל במכנה (אומת ב-sympy)."),
+        num("מהו $\\lim_{x\\to0}\\frac{\\tan x}{\\tan4x}$? (עשרוני)", R(1, 4), "לופיטל: $\\frac{1/\\cos^2x}{4/\\cos^24x}\\to\\frac14$ (sympy)."),
+        num("מהו ערך הגבול המבוקש? (עשרוני)", R(1, 16), "$\\frac14\\cdot\\frac14=\\frac1{16}=0.0625$ (sympy).", tol=0.0005),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q4b: shells about x = 4 =====
+V1 = 2*sp.pi*sp.integrate((4 - x)*x**2, (x, 0, 2))
+V2 = 2*sp.pi*sp.integrate((4 - x)*(-2*x + 8), (x, 2, 4))
+V4 = V1 + V2
+assert sp.solve(sp.Eq(x**2, -2*x + 8), x) == [-4, 2] or sorted(sp.solve(sp.Eq(x**2, -2*x + 8), x)) == [-4, 2]
+assert V1 == 2*sp.pi*R(20, 3) and V2 == R(32, 3)*sp.pi and V4 == 24*sp.pi
+assert sp.solve(sp.Eq(-2*x + 8, 0), x) == [4]
+# cross-check by washers in y (inner radius 4-sqrt(y), outer radius 4-(8-y)/2 = y/2)
+yw = sp.Symbol('yw', positive=True)
+Vwash = sp.pi*sp.integrate((4 - sp.sqrt(yw))**2 - (yw/2)**2, (yw, 0, 4))
+assert sp.simplify(Vwash - V4) == 0
+
+add(4, "ב",
+    rubric=rub(("נקודת החיתוך של $y=x^2$ עם $y=-2x+8$: $x=2$, וחיתוך הישר עם ציר $x$ ב-$x=4$", 2),
+               ("בחירת קונכיות וקביעת רדיוס $4-x$", 3),
+               ("חישוב $V_1=\\frac{40\\pi}{3}$ עבור $0\\le x\\le2$", 2),
+               ("חישוב $V_2=\\frac{32\\pi}{3}$ עבור $2\\le x\\le4$", 2),
+               ("סכום: $V=24\\pi$", 1)),
+    rubricSource="ai-draft",
+    pitfalls=["לקחת רדיוס $x$ במקום $4-x$: הסיבוב הוא סביב הישר $X=4$ ולא סביב ציר ה-$y$.",
+              "לשכוח לפצל לשני קטעים: הגבול העליון משתנה ב-$x=2$ מהפרבולה לישר.",
+              "לשכוח את הגורם $2\\pi$ של הקונכייה."],
+    steps=[
+        num("מהו ערך $x$ החיובי שבו הפרבולה פוגשת את הישר $y=-2x+8$?", 2, "$x^2+2x-8=0$ נותן $x=2$ או $x=-4$; רק $x=2\\ge0$ (sympy)."),
+        ch("מהו רדיוס הקונכייה במרחק $x$ מהציר $y$ כשמסובבים סביב $X=4$?", "$4-x$",
+           ["$x$", "$x-4$ (שלילי בתחום)", "$4+x$"],
+           "המרחק של הנקודה $x$ מהישר $X=4$ הוא $4-x\\ge0$ בתחום $0\\le x\\le4$."),
+        num("מהו $\\frac{V_1}{\\pi}$ עבור $V_1=2\\pi\\int_0^2(4-x)x^2dx$? (עשרוני)", R(40, 3), "$2\\left(\\frac{32}{3}-4\\right)=\\frac{40}{3}\\approx13.333$ (sympy)."),
+        num("מהו $\\frac{V_2}{\\pi}$ עבור $V_2=2\\pi\\int_2^4(4-x)(-2x+8)dx$? (עשרוני)", R(32, 3), "$4\\int_2^4(4-x)^2dx=4\\cdot\\frac83=\\frac{32}{3}\\approx10.667$ (sympy)."),
+        num("מהו נפח הגוף? (עשרוני)", V4, "$V=\\frac{40\\pi}{3}+\\frac{32\\pi}{3}=24\\pi\\approx75.398$ (sympy, ובדיקה בשיטת הדסקיות).", tol=0.01),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q5a: extrema of ln(1+x^2) on [-1, sqrt(e-1)] =====
+f5 = sp.log(1 + x**2)
+assert sp.solve(sp.diff(f5, x), x) == [0]
+assert (f5.subs(x, 0), f5.subs(x, -1), sp.simplify(f5.subs(x, sp.sqrt(sp.E - 1)))) == (0, sp.log(2), 1)
+assert sp.log(2) < 1
+
+add(5, "א",
+    rubric=rub(("נגזרת $f'(x)=\\frac{2x}{1+x^2}$ והנקודה הקריטית $x=0$", 3),
+               ("ערכי הפונקציה: $f(0)=0$, $f(-1)=\\ln2$", 2),
+               ("$f\\left(\\sqrt{e-1}\\right)=\\ln e=1$", 3),
+               ("מסקנה: מקסימום $1$ ומינימום $0$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=["לשכוח לבדוק את שני הקצוות של הקטע.",
+              "להסיק שהמקסימום הוא $\\ln2$ (הקצה השמאלי) בלי לחשב את הקצה הימני: $\\ln2\\approx0.693<1$.",
+              "לחשב $f\\left(\\sqrt{e-1}\\right)=\\ln\\left(1+(e-1)\\right)=\\ln e=1$ בצורה שגויה."],
+    steps=[
+        num("מהו ערך $x$ שבו $f'(x)=0$?", 0, "$\\frac{2x}{1+x^2}=0$ נותן $x=0$."),
+        num("מהו $f(-1)=\\ln2$? (עשרוני)", sp.log(2), "$\\ln2\\approx0.6931$."),
+        num("מהו $f\\left(\\sqrt{e-1}\\right)$?", 1, "$\\ln\\left(1+e-1\\right)=\\ln e=1$ (sympy)."),
+        ch("מהם המינימום והמקסימום המוחלטים בקטע?", "מינימום $0$ ב-$x=0$ ומקסימום $1$ ב-$x=\\sqrt{e-1}$",
+           ["מינימום $0$ ומקסימום $\\ln2$", "מינימום $\\ln2$ ומקסימום $1$", "מינימום $0$ ומקסימום $e$"],
+           "הערכים הם $0,\\,0.693,\\,1$; הקטן ביותר $0$ והגדול ביותר $1$."),
+    ],
+    stepsSource="ai-draft")
+
+# ===== Q5b: differentiability with parameters =====
+def diffable(av, bv, cv):
+    return av == cv and av == 2*bv
+
+
+assert diffable(2, 1, 2) and not diffable(1, 1, 1) and not diffable(2, 1, 1) and not diffable(1, 2, 1)
+# sympy cross-check of the one-sided derivatives: right = 2b, left = a
+bs, as_ = sp.symbols('bs as_')
+assert sp.diff(x**2 + bs*sp.sin(2*x), x).subs(x, 0) == 2*bs and sp.diff(as_*sp.exp(x), x).subs(x, 0) == as_
+
+add(5, "ב",
+    rubric=rub(("דרישת רציפות ב-$x=0$: $a=c$", 3),
+               ("נגזרת ימנית $f'_+(0)=2b$ (עם $\\frac{\\sin2\\Delta x}{\\Delta x}\\to2$)", 3),
+               ("נגזרת שמאלית $f'_-(0)=a$", 2),
+               ("השוואה: $a=2b=c$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=["לבדוק רק את הנגזרות החד-צדדיות ולשכוח את דרישת הרציפות $a=c$.",
+              "לשכוח את הגורם $2$ בגבול $\\lim\\frac{\\sin2\\Delta x}{\\Delta x}=2$.",
+              "לטעות בנגזרת השמאלית: $\\lim\\frac{ae^{\\Delta x}-a}{\\Delta x}=a$."],
+    steps=[
+        ch("מה תנאי הרציפות ב-$x=0$?", "$a=c$", ["$a=b$", "$c=0$", "$a=2b$"],
+           "הגבול משמאל $a\\cdot e^0=a$ והגבול מימין $0+b\\sin0+c=c$, לכן $a=c$."),
+        num("מהי הנגזרת הימנית $f'_+(0)$ עבור $b=3$?", 6, "$\\lim\\left(\\Delta x+\\frac{b\\sin2\\Delta x}{\\Delta x}\\right)=2b=6$ (sympy)."),
+        num("מהי הנגזרת השמאלית $f'_-(0)$ עבור $a=5$?", 5, "$a\\cdot\\lim\\frac{e^{\\Delta x}-1}{\\Delta x}=a=5$."),
+        ch("אילו תנאים על $a,b,c$ מבטיחים גזירות ב-$x=0$?", "$a=2b=c$",
+           ["$a=b=c$", "$a=c$ בלבד", "$a=2b$ בלבד"],
+           "דרושות רציפות ($a=c$) ושוויון נגזרות חד-צדדיות ($a=2b$). למשל $(a,b,c)=(1,1,1)$ רציפה אבל $f'_-=1\\neq2=f'_+$ (נבדק)."),
+    ],
+    stepsSource="ai-draft")
+
+
 exam = {
     "examCode": "21B-B",
     "examLabel": "מבחן סוף סמסטר ב' תשפ\"א, מועד ב'",

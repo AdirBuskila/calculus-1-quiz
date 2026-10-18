@@ -15,7 +15,129 @@
    "solution": "$$f(x)=\\frac{e^{-x}}{1-x}=-\\frac{1}{e^x(x-1)}$$\n**תחום ההגדרה:** $(-\\infty,1)\\cup(1,+\\infty)$.\n**אסימפטוטה אנכית** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^+}\\right]=-\\infty,\\qquad\\lim_{x\\to1^-}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^-}\\right]=+\\infty$$\n**אסימפטוטה אופקית** ב-$+\\infty$: $y=0$:\n$$\\lim_{x\\to+\\infty}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{+\\infty}\\right]=0$$\n**אין אסימפטוטה משופעת ב-$-\\infty$:**\n$$\\lim_{x\\to-\\infty}\\frac{f(x)}{x}=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{1-x}\\cdot\\frac1x=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{x(x-1)}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(-e^{-x}\\right)'}{\\left(x^2-x\\right)'}=$$\n$$=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{2x-1}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(e^{-x}\\right)'}{(2x-1)'}=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{2}=-\\infty$$\n$$f'(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)'=\\frac{e^xx}{e^{2x}(x-1)^2}$$\nתחומי עלייה: $(0,1),(1,+\\infty)$. תחומי ירידה: $(-\\infty,0)$. נקודת מינימום מקומי: $x=0$, $f(0)=1$.\n$$f''(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)''=\\left(\\frac{x}{e^x(x-1)^2}\\right)'=\\frac{e^x(x-1)^2-xe^x(x-1)^2-xe^x2(x-1)}{e^{2x}(x-1)^4}=$$\n$$=\\frac{(x-1)-x(x-1)-2x}{e^x(x-1)^3}=-\\frac{x^2+1}{e^x(x-1)^3}$$\nקמורה ב: $(-\\infty,1)$. קעורה ב: $(1,+\\infty)$. אין נקודת פיתול.\n![גרף הפונקציה y = e^(−x)/(1−x) עם האסימפטוטה האנכית x=1, האסימפטוטה y=0 מימין והמינימום ב-(0,1)](images/exams/19A-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq1$ ואסימפטוטה אנכית $x=1$ עם הגבולות החד-צדדיים ($-\\infty$ מימין, $+\\infty$ משמאל)",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטה אופקית $y=0$ ב-$+\\infty$ ובדיקה שאין אסימפטוטה משופעת ב-$-\\infty$",
+     "points": 4
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{xe^{-x}}{(x-1)^2}$, תחומי עליה וירידה ומינימום מקומי $(0,1)$",
+     "points": 5
+    },
+    {
+     "text": "$f''(x)=-\\frac{x^2+1}{e^x(x-1)^3}$, קמירות ב-$(-\\infty,1)$, קעירות ב-$(1,\\infty)$ וללא נקודות פיתול",
+     "points": 5
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון לאסימפטוטה אופקית ב-$-\\infty$: שם $f\\to+\\infty$ מהר מכל ישר, ולכן אין אסימפטוטה בכלל.",
+    "לכלול את $x=1$ בתחומי הקמירות או העליה.",
+    "לטעון לנקודת פיתול ב-$x=1$: $f''$ משנה שם סימן, אבל $x=1$ אינה בתחום ההגדרה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=\\frac{e^{-x}}{1-x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x e^{- x}}{\\left(x - 1\\right)^{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x e^{- x}}{x - 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 2\\right) e^{- x}}{\\left(x - 1\\right)^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{x e^{- x}}{\\left(x - 1\\right)^{2}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המנה: $\\frac{-e^{-x}(1-x)+e^{-x}}{(1-x)^2}=\\frac{xe^{-x}}{(x-1)^2}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המינימום המקומי $x=0$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$f(0)=\\frac{e^0}{1}=1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סימן $f''(x)=-\\frac{x^2+1}{e^x(x-1)^3}$ בכל אחד מתחומי ההגדרה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שלילית עבור $x<1$ וחיובית עבור $x>1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "חיובית עבור $x<1$ (קמורה) ושלילית עבור $x>1$ (קעורה), ללא נקודות פיתול"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חיובית בכל תחום ההגדרה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מתאפסת ב-$x=0$ ולכן ב-$0$ יש נקודת פיתול"
+      }
+     ],
+     "correctId": "b",
+     "explain": "המונה $x^2+1>0$ ו-$e^x>0$, לכן הסימן נקבע לפי $-(x-1)^3$; ואין אפסים (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של $y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנכית $x=1$ ואופקית $y=0$ בשני הכיוונים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית $x=1$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית $x=1$ ואופקית $y=0$ ב-$+\\infty$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אנכית $x=1$ ומשופעת ב-$-\\infty$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "ב-$-\\infty$: $f\\to+\\infty$ ו-$\\frac{f(x)}{x}\\to-\\infty$, ולכן אין שם אסימפטוטה (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -27,7 +149,104 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חסם תחתון: $\\sqrt[2n]{7^{2n}}=7$",
+     "points": 2
+    },
+    {
+     "text": "חסם עליון: החלפת כל אחד משלושת המחוברים ב-$7^{2n}$ והוצאת שורש, כלומר $7\\sqrt[2n]{3}$",
+     "points": 3
+    },
+    {
+     "text": "$\\lim_{n\\to\\infty}\\sqrt[2n]{3}=1$",
+     "points": 2
+    },
+    {
+     "text": "משפט הסנדוויץ' וערך הגבול $7$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $n\\to\\infty$ בכל מחובר בנפרד: $7^{2n}$ שולט, אבל צריך סנדוויץ' כדי להצדיק זאת.",
+    "לכתוב חסם עליון שאינו גדול מהביטוי המקורי: $\\frac{n}{n+1}<1\\le7^{2n}$ ו-$3^n\\le7^{2n}$ נדרשים.",
+    "להוציא שורש $2n$ מהמכפלה $3\\cdot7^{2n}$ ולקבל $\\sqrt[2n]{3}\\cdot7$ ולא $3\\cdot7$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה פותר הפתרון הרשמי את הגבול?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לופיטל על הביטוי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבה ישירה של $n=\\infty$ בכל מחובר"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מבחן המנה לסדרות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "משפט הסנדוויץ' עם חסם תחתון $7$ וחסם עליון $7\\sqrt[2n]{3}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "השורש ממעלה $2n$ של סכום אינו נגזר בקלות, ולכן חוסמים בין שני ביטויים בעלי אותו גבול."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו החסם העליון $\\sqrt[2n]{7^{2n}+7^{2n}+7^{2n}}$ כפונקציה של $n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$7 \\cdot 3^{\\frac{1}{2 nn}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$7 \\cdot 3^{\\frac{1}{nn}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$3 \\cdot 7^{\\frac{1}{2 nn}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$7 \\cdot 3^{2 nn}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\sqrt[2n]{3\\cdot7^{2n}}=7\\cdot3^{\\frac{1}{2n}}$ (נבדק נומרית ב-sympy עבור $n=1,2,3$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{n\\to\\infty}\\sqrt[2n]{3}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$3^{\\frac{1}{2n}}\\to3^0=1$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול?",
+     "answer": 7,
+     "tol": 0.001,
+     "explain": "משפט הסנדוויץ': $7\\le a_n\\le7\\cdot3^{\\frac1{2n}}\\to7$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -39,7 +258,96 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הגדרת $f(x)=x\\ln x$ ובדיקת רציפות וגזירות על $[a,b]$",
+     "points": 2
+    },
+    {
+     "text": "הפעלת משפט לגרנז': $f'(c)=\\frac{f(b)-f(a)}{b-a}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f'(x)=\\ln x+1$",
+     "points": 2
+    },
+    {
+     "text": "מונוטוניות $\\ln x+1$ וחסימה בין $f'(1)=1$ ל-$f'(e)=2$",
+     "points": 3
+    },
+    {
+     "text": "המסקנה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את כלל המכפלה: $(x\\ln x)'=\\ln x+x\\cdot\\frac1x=\\ln x+1$.",
+    "לשכוח לנמק ש-$\\ln x+1$ עולה, ולכן $c\\in(a,b)\\subseteq[1,e]$ נותן $1\\le\\ln c+1\\le2$.",
+    "טעות בערך הקצה: $\\ln e+1=2$ ולא $1$ או $3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f(x)=x\\ln x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\log{\\left(x \\right)} + 1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)} + 1$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "כלל המכפלה: $1\\cdot\\ln x+x\\cdot\\frac1x=\\ln x+1$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f'(e)=\\ln e+1$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$\\ln e=1$ ולכן $f'(e)=2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נגדיר $f(x)=x\\ln x$, רציפה ב-$[a,b]$ וגזירה ב-$(a,b)$; לפי משפט לגרנז' קיימת $c\\in(a,b)$ עם $f'(c)=\\frac{f(b)-f(a)}{b-a}$.",
+      "$f'(x)=\\ln x+1$, ולכן $\\ln c+1=\\frac{b\\ln b-a\\ln a}{b-a}$.",
+      "$\\ln x+1$ עולה ממש ב-$[1,e]$, ולכן $1=\\ln1+1\\le\\ln c+1\\le\\ln e+1=2$.",
+      "מכאן $1\\le\\frac{b\\ln b-a\\ln a}{b-a}\\le2$."
+     ],
+     "explain": "לגרנז', חישוב הנגזרת, חסימה באמצעות מונוטוניות, מסקנה. כל שלב נשען על קודמו."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נגדיר $f(x)=x\\ln x$, רציפה ב-$[a,b]$ וגזירה ב-$(a,b)$; לפי משפט לגרנז' קיימת $c\\in(a,b)$ עם $f'(c)=\\frac{f(b)-f(a)}{b-a}$.",
+      "$f'(x)=\\ln x+1$, ולכן $\\ln c+1=\\frac{b\\ln b-a\\ln a}{b-a}$.",
+      "$\\ln x+1$ עולה ממש ב-$[1,e]$, ולכן $1=\\ln1+1\\le\\ln c+1\\le\\ln e+1=3$.",
+      "מכאן $1\\le\\frac{b\\ln b-a\\ln a}{b-a}\\le2$."
+     ],
+     "bugIndex": 2,
+     "explain": "$\\ln e+1=1+1=2$ ולא $3$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -51,7 +359,76 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי $1^{\\infty}$ והצגת הבסיס כ-$1+\\frac{3-\\sqrt{9+x}}{1+\\sqrt{9+x}}$",
+     "points": 3
+    },
+    {
+     "text": "הגבול המפורסם $\\left(1+u\\right)^{1/u}\\to e$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המעריך $\\lim\\frac{3-\\sqrt{9+x}}{(1+\\sqrt{9+x})\\sin x}=-\\frac1{24}$ (כפל בצמוד ו-$\\frac{x}{\\sin x}\\to1$)",
+     "points": 3
+    },
+    {
+     "text": "הערך הסופי $e^{-1/24}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהגבול הוא $1$ כי הבסיס שואף ל-$1$.",
+    "לשכוח את הסימן במונה $3-\\sqrt{9+x}=\\frac{-x}{3+\\sqrt{9+x}}$ ולקבל $+\\frac1{24}$.",
+    "לשכוח את הגורם $\\frac{x}{\\sin x}\\to1$ בחישוב המעריך."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\left(\\frac{4}{1+\\sqrt{9+x}}\\right)^{1/\\sin x}$ כאשר $x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $\\frac{4}{1+3}=1$ והמעריך $\\frac1{\\sin x}\\to\\pm\\infty$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הגבול של המעריך החדש $\\frac{3-\\sqrt{9+x}}{(1+\\sqrt{9+x})\\sin x}$ כאשר $x\\to0$? (עשרוני)",
+     "answer": -0.0417,
+     "tol": 0.001,
+     "explain": "$3-\\sqrt{9+x}=\\frac{-x}{3+\\sqrt{9+x}}$ ולכן הגבול $-\\frac{1}{4\\cdot6}=-\\frac1{24}\\approx-0.04167$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול המבוקש? (עשרוני)",
+     "answer": 0.9592,
+     "tol": 0.0005,
+     "explain": "$L=e^{-1/24}\\approx0.9592$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -63,7 +440,118 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הצבה $t=\\tan x$ עם $dt=\\frac{dx}{\\cos^2x}$",
+     "points": 3
+    },
+    {
+     "text": "מעבר ל-$\\int te^{-2t}dt$",
+     "points": 1
+    },
+    {
+     "text": "אינטגרציה בחלקים: $u=t$, $dv=e^{-2t}dt$",
+     "points": 4
+    },
+    {
+     "text": "חזרה ל-$x$: $-\\frac{2\\tan x+1}{4e^{2\\tan x}}+C$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לזהות את $\\frac{dx}{\\cos^2x}$ כ-$dt$.",
+    "בבחירת $v$ לשכוח את המקדם: $\\int e^{-2t}dt=-\\frac12e^{-2t}$.",
+    "טעות סימן באינטגרל הנותר: $+\\frac12\\int e^{-2t}dt=-\\frac14e^{-2t}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה מתאימה לאינטגרל $\\int\\frac{\\tan x}{\\cos^2x\\cdot e^{2\\tan x}}dx$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=e^{2\\tan x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\cos^2x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\tan x$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$dt=\\frac{dx}{\\cos^2x}$ מופיע באינטגרל, וכל השאר ביטוי ב-$\\tan x$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד אחרי ההצבה (האינטגרל ב-$dt$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$tq e^{- 2 tq}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$tq e^{2 tq}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$tq^{2} e^{- 2 tq}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$e^{- 2 tq}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac{\\tan x}{e^{2\\tan x}}\\cdot\\frac{dx}{\\cos^2x}=te^{-2t}dt$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(1 - 2 \\tan{\\left(x \\right)}\\right) e^{- 2 \\tan{\\left(x \\right)}}}{4}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(- 2 \\tan{\\left(x \\right)} - 1\\right) e^{- 2 \\tan{\\left(x \\right)}}}{4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(2 \\tan{\\left(x \\right)} + 1\\right) e^{- 2 \\tan{\\left(x \\right)}}}{4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\left(- 2 \\tan{\\left(x \\right)} - 1\\right) e^{- 2 \\tan{\\left(x \\right)}}}{2}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$-\\frac12te^{-2t}-\\frac14e^{-2t}$ עם $t=\\tan x$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -75,7 +563,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $f'(x)=\\frac{5x^2-3}{3\\left(x^2-1\\right)^{2/3}}$",
+     "points": 3
+    },
+    {
+     "text": "נקודות חשודות: $x=\\sqrt{\\frac35}$ ($f'=0$) ו-$x=1$ (הנגזרת לא מוגדרת, הפונקציה מוגדרת)",
+     "points": 3
+    },
+    {
+     "text": "ערכי הפונקציה בנקודות החשודות ובקצוות: $0,\\,-\\frac15\\sqrt[6]{540},\\,0,\\,6$",
+     "points": 2
+    },
+    {
+     "text": "מקסימום $6$ ומינימום $-\\frac15\\sqrt[6]{540}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $x=1$ כנקודה חשודה: שם המכנה מתאפס אבל $f(1)=0$ מוגדרת.",
+    "לחשב $\\sqrt[3]{\\frac35-1}$ כשורש של מספר שלילי בצורה שגויה; השורש הממשי הוא $-\\sqrt[3]{\\frac25}$.",
+    "לשכוח לבדוק את הקצוות $x=0$ ו-$x=3$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ בקטע $(0,3)$ שבו $f'(x)=0$? (עשרוני)",
+     "answer": 0.7746,
+     "tol": 0.001,
+     "explain": "$5x^2-3=0$ נותן $x=\\sqrt{\\frac35}\\approx0.7746$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $x=1$ נבדקת כנקודה חשודה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הנגזרת מתאפסת שם"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפונקציה לא מוגדרת שם"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הנגזרת לא מוגדרת שם אבל הפונקציה מוגדרת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "זו נקודת קצה של הקטע"
+      }
+     ],
+     "correctId": "c",
+     "explain": "ב-$x=1$ המכנה $\\left(x^2-1\\right)^{2/3}$ מתאפס, אבל $f(1)=0$ מוגדרת. הנגזרת מתאפסת ב-$\\sqrt{\\frac35}$ בלבד, ו-$1$ אינה קצה של $[0,3]$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f\\left(\\sqrt{\\frac35}\\right)$? (עשרוני)",
+     "answer": -0.5707,
+     "tol": 0.001,
+     "explain": "$-\\frac15\\sqrt[6]{540}\\approx-0.5707$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך הגדול ביותר של הפונקציה בקטע?",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$f(3)=3\\sqrt[3]{8}=6$, הגדול מבין $0,\\,-0.5707,\\,0,\\,6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -87,7 +651,104 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "כתיבה כ-$e^{\\sqrt x\\ln(x-3)}$ (או גזירה לוגריתמית)",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=(x-3)^{\\sqrt x}\\left(\\frac{\\ln(x-3)}{2\\sqrt x}+\\frac{\\sqrt x}{x-3}\\right)$",
+     "points": 3
+    },
+    {
+     "text": "ערכים $f(4)=1$ ו-$f'(4)=2$",
+     "points": 2
+    },
+    {
+     "text": "משוואת המשיק $y=1+2(x-4)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור כאילו המעריך קבוע (כלל חזקה) או כאילו הבסיס קבוע (כלל מעריכית).",
+    "לשכוח את הנגזרת של $\\sqrt x\\ln(x-3)$ כמכפלה.",
+    "לשכוח ש-$\\ln(4-3)=0$ ולכן האיבר הראשון מתאפס."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה גוזר הפתרון הרשמי את $(x-3)^{\\sqrt x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כלל החזקה: $\\sqrt x\\,(x-3)^{\\sqrt x-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כלל המעריכית: $(x-3)^{\\sqrt x}\\ln(x-3)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "גוזר את הבסיס בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כותב $e^{\\sqrt x\\ln(x-3)}$ וגוזר עם כלל השרשרת והמכפלה"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפתרון הרשמי כותב $e^{\\sqrt x\\ln(x-3)}$. כלל החזקה תקף רק כשהמעריך קבוע וכלל המעריכית רק כשהבסיס קבוע, וכאן שניהם תלויים ב-$x$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(4)$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$(4-3)^{\\sqrt4}=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו שיפוע המשיק $f'(4)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$1\\cdot\\left(\\frac{\\ln1}{4}+\\frac{2}{1}\\right)=2$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק בנקודה $x=4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 x - 7$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x - 3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 x - 6$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$9 - 2 x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המשיק עובר דרך $(4,1)$ עם שיפוע $2$: $y=1+2(x-4)$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -99,7 +760,104 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "כפל בצמוד $\\sqrt{2x-1}+\\sqrt{2x-3}$",
+     "points": 3
+    },
+    {
+     "text": "פישוט המכנה $(2x-1)-(2x-3)=2$",
+     "points": 2
+    },
+    {
+     "text": "הוצאת $\\sqrt x$ מהמונה והמכנה וצמצום",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $\\sqrt2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בחישוב $(2x-1)-(2x-3)$: התוצאה $2$ ולא $-4$.",
+    "להציב $\\infty$ ישירות במכנה $\\sqrt{2x-1}-\\sqrt{2x-3}$ (צורה $\\infty-\\infty$) בלי כפל בצמוד.",
+    "לשכוח שמוציאים $\\sqrt x$ גם מהמכנה $\\sqrt{x+1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך מתמודדים עם $\\sqrt{2x-1}-\\sqrt{2x-3}$ במכנה כאשר $x\\to\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לופיטל ישירות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כפל בצמוד $\\sqrt{2x-1}+\\sqrt{2x-3}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כפל ב-$\\sqrt{2x-1}-\\sqrt{2x-3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "העלאה בריבוע של הביטוי כולו"
+      }
+     ],
+     "correctId": "b",
+     "explain": "כפל בצמוד נותן הפרש ריבועים $(2x-1)-(2x-3)=2$. כפל בביטוי עצמו או הריבוע לא מבטלים את השורשים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $(2x-1)-(2x-3)$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$2x-1-2x+3=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הביטוי אחרי הכפל בצמוד והפישוט?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\sqrt{2 x - 3} + \\sqrt{2 x - 1}}{\\sqrt{x + 1}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{- \\sqrt{2 x - 3} + \\sqrt{2 x - 1}}{2 \\sqrt{x + 1}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\sqrt{2 x - 3} + \\sqrt{2 x - 1}}{2 \\sqrt{x + 1}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\sqrt{2 x - 3} + \\sqrt{2 x - 1}}{2 x + 2}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\frac{\\sqrt{2x-1}+\\sqrt{2x-3}}{2\\sqrt{x+1}}$ (נבדק נומרית ב-sympy מול הביטוי המקורי ב-$x=3,10,50$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול? (עשרוני)",
+     "answer": 1.4142,
+     "tol": 0.001,
+     "explain": "$\\frac{2\\sqrt2}{2}=\\sqrt2\\approx1.4142$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -111,7 +869,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "פירוק $\\frac{A}{x-1}+\\frac{Bx+C}{x^2+1}$",
+     "points": 2
+    },
+    {
+     "text": "השוואת מקדמים: $A+B=2$, $-B+C=-1$, $A-C=1$",
+     "points": 3
+    },
+    {
+     "text": "הפתרון $A=1$, $B=1$, $C=0$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרציה: $\\ln|x-1|+\\frac12\\ln\\left(x^2+1\\right)+C$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב מונה קבוע $\\frac{B}{x^2+1}$ במקום מונה לינארי $Bx+C$.",
+    "לשכוח את הגורם $\\frac12$ באינטגרל $\\int\\frac{x}{x^2+1}dx=\\frac12\\ln\\left(x^2+1\\right)$.",
+    "לכתוב $\\ln(x-1)$ בלי ערך מוחלט כשהתחום כולל גם $x<1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$ בפירוק? (הצבת $x=1$)",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$2-1+1=A\\cdot2$ ולכן $A=1$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $B$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "מהמקדם של $x^2$: $A+B=2$ ולכן $B=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $C$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "מהמקדם החופשי: $A-C=1$ ולכן $C=0$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (עבור $x>1$, בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\log{\\left(x - 1 \\right)} + \\log{\\left(x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\log{\\left(x - 1 \\right)} + \\operatorname{atan}{\\left(x \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 \\log{\\left(x - 1 \\right)} + \\frac{\\log{\\left(x^{2} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\log{\\left(x - 1 \\right)} + \\frac{\\log{\\left(x^{2} + 1 \\right)}}{2}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\int\\left(\\frac{1}{x-1}+\\frac{x}{x^2+1}\\right)dx=\\ln(x-1)+\\frac12\\ln\\left(x^2+1\\right)$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -123,7 +957,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "גבולות התחום: $x=0$ עד $x=\\ln2$ (חיתוך $e^x-1=1$)",
+     "points": 2
+    },
+    {
+     "text": "הצבת נפח בשיטת הקונכיות או כהפרש גליל פחות קונכיות",
+     "points": 4
+    },
+    {
+     "text": "אינטגרציה בחלקים של $\\int xe^xdx$",
+     "points": 2
+    },
+    {
+     "text": "הערך $V=2\\pi(1-\\ln2)^2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הגורם $x$ (רדיוס הקונכייה) באינטגרנד.",
+    "לקחת גובה קונכייה $e^x-1$ במקום $1-\\left(e^x-1\\right)$: התחום נמצא בין העקומה לישר $y=1$.",
+    "לחשב את הנפח של הגליל $\\pi(\\ln2)^2$ בלבד, בלי להחסיר את מה שמתחת לעקומה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ שבו $y=e^x-1$ פוגש את $y=1$? (עשרוני)",
+     "answer": 0.6931,
+     "tol": 0.001,
+     "explain": "$e^x=2$ ולכן $x=\\ln2\\approx0.6931$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרנד בשיטת הקונכיות (אינטגרציה על $x$ מ-$0$ עד $\\ln2$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 \\pi x \\left(2 - e^{x}\\right)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 \\pi x \\left(e^{x} - 1\\right)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 \\pi x e^{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\pi x^{2} \\left(2 - e^{x}\\right)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רדיוס $x$, גובה $1-\\left(e^x-1\\right)=2-e^x$. רק האינטגרנד הנכון נותן את הנפח הרשמי (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^{\\ln2}xe^x\\,dx$? (עשרוני)",
+     "answer": 0.3863,
+     "tol": 0.001,
+     "explain": "$\\left(xe^x-e^x\\right)\\Big|_0^{\\ln2}=2\\ln2-2+1=2\\ln2-1\\approx0.3863$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח? (עשרוני)",
+     "answer": 0.5916,
+     "tol": 0.001,
+     "explain": "$V=2\\pi(1-\\ln2)^2\\approx0.5916$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -135,7 +1045,62 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נקודות החיתוך: $x=1$ (בין $y=x$ ל-$y=\\frac1x$) ו-$x=\\sqrt2$ (בין $y=\\frac x2$ ל-$y=\\frac1x$)",
+     "points": 3
+    },
+    {
+     "text": "פיצול התחום ב-$x=1$ וקביעת הגבול העליון בכל קטע",
+     "points": 2
+    },
+    {
+     "text": "חישוב שני האינטגרלים: $\\frac14$ ו-$\\ln\\sqrt2-\\frac14$",
+     "points": 3
+    },
+    {
+     "text": "הערך $S=\\frac12\\ln2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לא לפצל את התחום: הגבול העליון משתנה מ-$y=x$ ל-$y=\\frac1x$ ב-$x=1$.",
+    "להשתמש בגבול העליון $x=2$ בטעות: ההיפרבולה פוגשת את $y=\\frac x2$ ב-$x=\\sqrt2$.",
+    "לשכוח ש-$\\int\\frac{dx}{x}=\\ln x$ ו-$\\ln\\sqrt2=\\frac12\\ln2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ חיובי מתחתכים $y=x$ ו-$y=\\frac1x$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$x=\\frac1x$ נותן $x^2=1$ ולכן $x=1$ (בתחום $x>0$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ מתחתכים $y=\\frac x2$ ו-$y=\\frac1x$? (עשרוני)",
+     "answer": 1.4142,
+     "tol": 0.001,
+     "explain": "$\\frac x2=\\frac1x$ נותן $x^2=2$ ולכן $x=\\sqrt2\\approx1.4142$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_0^1\\left(x-\\frac x2\\right)dx$? (עשרוני)",
+     "answer": 0.25,
+     "tol": 0.001,
+     "explain": "$\\frac14x^2\\Big|_0^1=\\frac14$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השטח הכלוא? (עשרוני)",
+     "answer": 0.3466,
+     "tol": 0.0005,
+     "explain": "$\\frac14+\\left(\\ln\\sqrt2-\\frac12+\\frac14\\right)=\\frac12\\ln2\\approx0.3466$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

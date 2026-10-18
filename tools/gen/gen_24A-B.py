@@ -560,6 +560,35 @@ add(6, "א",
     ],
     stepsSource="ai-verified")
 
+# ===== Q6b: lim x^4 / int_0^{x^2} t cos(t^2) dt  (released from hold: the solution now solves the printed limit) =====
+tq = sp.Symbol('tq', positive=True)
+Iq = sp.integrate(tq*sp.cos(tq**2), (tq, 0, x**2))
+assert same(Iq, sp.sin(x**4)/2)
+dI = sp.diff(Iq, x)
+assert same(dI, 2*x**3*sp.cos(x**4))
+xp_ = sp.Symbol('xp_', positive=True)
+assert sp.limit(x**4/Iq, x, 0, '+') == 2 and sp.limit(x**4, x, 0) == 0 and sp.limit(Iq, x, 0) == 0
+assert same(sp.diff(x**4, x)/dI, 2/sp.cos(x**4))
+
+add(6, "ב",
+    rubric=rub(("זיהוי $\\frac00$: המונה והמכנה שואפים ל-$0$", 2),
+               ("גזירת המכנה לפי המשפט היסודי וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x$", 3),
+               ("הפעלת לופיטל ופישוט ל-$\\frac{2}{\\cos\\left(x^4\\right)}$", 3),
+               ("ערך הגבול $2$", 2)),
+    rubricSource="ai-draft",
+    pitfalls=["לשכוח את גורם השרשרת $2x$ (נגזרת הגבול העליון $x^2$) בגזירת האינטגרל.",
+              "להציב $t=x^2$ בתוך האינטגרנד במקום בגבול העליון בלבד: האינטגרנד הוא $t\\cos\\left(t^2\\right)$.",
+              "להתבלבל עם הגבול שבעמוד הפתרון הרשמי (מונה $\\sin^2x$), שערכו $\\infty$ ואינו הגבול שהודפס."],
+    steps=[
+        ch("מה סוג הצורה הלא מסוימת של הגבול כאשר $x\\to0^+$?", "$\\frac00$",
+           ["$\\frac\\infty\\infty$", "$1^{\\infty}$", "$\\infty-\\infty$"],
+           "$x^4\\to0$ והאינטגרל מ-$0$ עד $x^2\\to0$ שואף ל-$0$ (אומת ב-sympy)."),
+        chx("מהי הנגזרת של המכנה $\\int_0^{x^2}t\\cos\\left(t^2\\right)dt$?", 2*x**3*sp.cos(x**4),
+            [x**2*sp.cos(x**4), 2*x*sp.cos(x**2), x**2*sp.cos(x**4)*x**2], lambda e: same(e, dI),
+            "משפט היסוד וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x=2x^3\\cos\\left(x^4\\right)$ (אומת ב-sympy)."),
+        num("מהו ערך הגבול?", 2, "לופיטל: $\\frac{4x^3}{2x^3\\cos\\left(x^4\\right)}=\\frac{2}{\\cos\\left(x^4\\right)}\\to2$ (sympy; גם דרך $\\frac12\\sin\\left(x^4\\right)$)."),
+    ],
+    stepsSource="ai-draft")
 
 exam = {
     "examCode": "24A-B",

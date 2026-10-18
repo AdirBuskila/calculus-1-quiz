@@ -1,4 +1,4 @@
-# Independent mpmath re-check of the numeric guided steps of 24A-A (Q1 is held: no steps).
+# Independent mpmath re-check of the numeric guided steps of 24A-A (Q1 released from hold: one numeric step).
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from mpmath import mp, mpf, exp, log, sqrt, sin, tan, atan, quad, diff, lu_solve, matrix, findroot, pi, cbrt
@@ -21,6 +21,7 @@ xl = mpf('-1e-7'); xr = mpf('1e-3')
 f6 = lambda x: sqrt(2*x - 5)
 S6 = quad(lambda x: x - 2, [2, 3]) - quad(f6, [mpf(5)/2, 3])
 expected = [
+    exp(2)/4,
     ABC[0], ABC[1], ABC[2],
     s[1], s[2],
     ex, exp(-mpf(1)/2),

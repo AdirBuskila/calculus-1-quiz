@@ -243,7 +243,45 @@ def add(num_, part=None, **kw):
 def same(e1, e2):
     return sp.simplify(e1 - e2) == 0
 
-# (Q1 is held: official convexity claim contradicts sympy; no rubric/steps written for it.)
+# ===== Q1: y = e^x / x^2 (released from hold: the solution now carries the corrected convexity) =====
+_rot_before_q1 = _rot[0]  # Q1's choice steps must not shift the rotation of the items that already had steps
+f1 = sp.exp(x)/x**2
+f1p = sp.diff(f1, x)
+f1pp = sp.diff(f1, x, 2)
+assert same(f1p, sp.exp(x)*(x - 2)/x**3) and same(f1pp, sp.exp(x)*(x**2 - 4*x + 6)/x**4)
+assert sp.solve(sp.numer(sp.together(f1p)), x) == [2] and f1.subs(x, 2) == sp.exp(2)/4
+assert f1p.subs(x, -1) > 0 and f1p.subs(x, 1) < 0 and f1p.subs(x, 3) > 0
+assert sp.discriminant(x**2 - 4*x + 6, x) == -8 and sp.expand((x - 2)**2 + 2) == x**2 - 4*x + 6
+assert all(f1pp.subs(x, v) > 0 for v in (-5, -1, R(1, 2), 1, 2, 10)) and sp.solve(f1pp, x) == []
+assert sp.limit(f1, x, 0, '+') == sp.oo and sp.limit(f1, x, 0, '-') == sp.oo
+assert sp.limit(f1, x, -sp.oo) == 0 and sp.limit(f1, x, sp.oo) == sp.oo and sp.limit(f1/x, x, sp.oo) == sp.oo
+
+add(1,
+    rubric=rub(("תחום הגדרה $x\\neq0$, ללא חיתוכים עם הצירים ($e^x>0$)", 2),
+               ("אסימפטוטה אנכית $x=0$ ($+\\infty$ משני הצדדים)", 3),
+               ("התנהגות באינסוף: אסימפטוטה אופקית $y=0$ ב-$-\\infty$, וללא אסימפטוטה ב-$+\\infty$", 3),
+               ("נגזרת $f'(x)=\\frac{e^x(x-2)}{x^3}$, תחומי עליה וירידה", 5),
+               ("מינימום מקומי $\\left(2,\\frac{e^2}{4}\\right)$", 2),
+               ("$f''(x)=\\frac{e^x\\left(x^2-4x+6\\right)}{x^4}>0$: קעורה כלפי מעלה בשני הענפים וללא נקודות פיתול", 4),
+               ("שרטוט הגרף בהתאם לכל הנתונים", 1)),
+    rubricSource="ai-draft",
+    pitfalls=["לטעון שהגרף קעור כלפי מטה עבור $x<0$: $x^2-4x+6=(x-2)^2+2>0$ ולכן $f''>0$ בכל תחום ההגדרה.",
+              "לכלול את $x=0$ בתחומי העליה והירידה.",
+              "לטעון לאסימפטוטה אופקית ב-$+\\infty$: שם $f(x)=\\frac{e^x}{x^2}\\to+\\infty$."],
+    steps=[
+        chx("מהי הנגזרת של $y=\\frac{e^x}{x^2}$?", sp.exp(x)*(x - 2)/x**3,
+            [sp.exp(x)*(x + 2)/x**3, sp.exp(x)*(x - 2)/x**2, sp.exp(x)/x**3], lambda e: same(e, f1p),
+            "כלל המנה: $\\frac{e^xx^2-2xe^x}{x^4}=\\frac{e^x(x-2)}{x^3}$ (אומת ב-sympy)."),
+        num("מהו ערך הפונקציה בנקודת המינימום המקומי $x=2$? (עשרוני)", f1.subs(x, 2), "$f(2)=\\frac{e^2}{4}\\approx1.8473$ (sympy).", tol=0.001),
+        ch("מה סימן $f''(x)=\\frac{e^x\\left(x^2-4x+6\\right)}{x^4}$?", "חיובי בכל תחום ההגדרה, ולכן אין נקודות פיתול",
+           ["שלילי עבור $x<0$ וחיובי עבור $x>0$", "שלילי בכל תחום ההגדרה", "מתאפס ב-$x=2$ ולכן שם נקודת פיתול"],
+           "$x^2-4x+6=(x-2)^2+2>0$ (דיסקרימיננטה שלילית), ו-$e^x>0$, $x^4>0$ (אומת ב-sympy)."),
+        ch("מהן האסימפטוטות של $y$?", "אנכית $x=0$ ואופקית $y=0$ ב-$-\\infty$ בלבד",
+           ["אנכית $x=0$ ואופקית $y=0$ בשני הכיוונים", "אנכית $x=0$ בלבד", "אנכית $x=0$ ומשופעת ב-$+\\infty$"],
+           "ב-$+\\infty$: $\\frac{e^x}{x^2}\\to\\infty$ ו-$\\frac{f(x)}{x}\\to\\infty$, ולכן אין אסימפטוטה; ב-$-\\infty$: $f\\to0$ (sympy)."),
+    ],
+    stepsSource="ai-draft")
+_rot[0] = _rot_before_q1
 
 # ===== Q2a: x^2/((x+2)(x^2+1)) =====
 g2 = x**2/((x + 2)*(x**2 + 1))

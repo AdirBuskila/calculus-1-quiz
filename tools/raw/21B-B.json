@@ -16,7 +16,140 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq-1$ ואסימפטוטה אנכית $x=-1$ ($+\\infty$ משני הצדדים)",
+     "points": 5
+    },
+    {
+     "text": "אסימפטוטה אופקית $y=1$ ב-$\\pm\\infty$ (שיפוע $0$)",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $y'=\\frac{-2(x+2)}{(x+1)^3}$, תחומי עליה וירידה ומינימום ב-$x=-2$ שערכו $0$",
+     "points": 5
+    },
+    {
+     "text": "$y''=\\frac{4x+10}{(x+1)^4}$ ותחומי קמירות וקעירות",
+     "points": 4
+    },
+    {
+     "text": "נקודת פיתול $\\left(-\\frac52,\\frac19\\right)$",
+     "points": 2
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכלול את $x=-1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
+    "לבלבל בין תחומי העליה והירידה: $y$ עולה ב-$(-2,-1)$ ויורדת ב-$(-\\infty,-2)$ וב-$(-1,\\infty)$.",
+    "לטעות בערך בנקודת הפיתול: $y\\left(-\\frac52\\right)=\\left(\\frac{-1/2}{-3/2}\\right)^2=\\frac19$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=\\left(\\frac{x+2}{x+1}\\right)^2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{- 2 x - 4}{\\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{2 x + 4}{\\left(x + 1\\right)^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{- 2 x - 4}{\\left(x + 1\\right)^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2 x + 4}{x + 1}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל השרשרת: $2\\cdot\\frac{x+2}{x+1}\\cdot\\frac{-1}{(x+1)^2}=\\frac{-2(x+2)}{(x+1)^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סוג הנקודה $x=-2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום מקומי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מינימום מקומי (ומוחלט) שערכו $0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "נקודת פיתול"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "נקודה שאינה בתחום ההגדרה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$y'$ שלילית משמאל ל-$-2$ וחיובית מימין לה, ו-$y(-2)=0$ כשהפונקציה אי-שלילית (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה ערך $x$ משנה $y''$ סימן? (עשרוני)",
+     "answer": -2.5,
+     "tol": 0.001,
+     "explain": "$4x+10=0$ נותן $x=-\\frac52=-2.5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת הפיתול? (עשרוני)",
+     "answer": 0.1111,
+     "tol": 0.001,
+     "explain": "$y\\left(-\\frac52\\right)=\\frac19\\approx0.1111$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של $y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנכית $x=-1$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית $x=-1$ ומשופעת $y=x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית $x=-1$ ואופקית $y=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אנכית $x=-2$ ואופקית $y=1$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to-1}y=+\\infty$ משני הצדדים ו-$\\lim_{x\\to\\pm\\infty}y=1$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -32,7 +165,87 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "הגדרת $f$ ונימוק לרציפות על כל הממשיים",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f(0)=5>0$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $f(1)=2\\sin^23-4<0$",
+     "points": 3
+    },
+    {
+     "text": "הפעלת משפט ערך הביניים והמסקנה שקיים שורש ממשי",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור קטע שבו אין החלפת סימן: $f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן הקטע $[-1,0]$ אינו מתאים.",
+    "לא לנמק רציפות לפני הפעלת משפט ערך הביניים (השורש $\\sqrt[3]{1-x^2}$ רציף לכל $x$).",
+    "לחשב את $f(1)$ בלי לשים לב ש-$\\sin^23<1$ ולכן $2\\sin^23-4<0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$?",
+     "answer": 5,
+     "tol": 0.001,
+     "explain": "$2\\sin^20+5\\sqrt[3]{1}-0=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(1)=2\\sin^23-4$? (עשרוני)",
+     "answer": -3.9602,
+     "tol": 0.01,
+     "explain": "$\\sin^23\\approx0.0199$ ולכן $f(1)\\approx-3.96$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזה קטע מבטיח משפט ערך הביניים שורש?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(-1,0)$, כי $f(-1)<0<f(0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(-1,1)$ בלבד, בלי בדיקת הסימנים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,2)$, כי $f(1)<0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(0,1)$, כי $f(0)>0>f(1)$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן אין החלפת סימן ב-$[-1,0]$. ההחלפה היא ב-$[0,1]$ (sympy)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בנימוק שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "הפונקציה $f(x)=2\\sin^2(3x)+5\\sqrt[3]{1-x^2}-4x^5$ רציפה לכל $x$.",
+      "$f(0)=5>0$ ו-$f(1)=2\\sin^2 3-4\\approx3.96>0$.",
+      "לפי משפט ערך הביניים קיים $c\\in(0,1)$ עם $f(c)=0$, כלומר שורש ממשי."
+     ],
+     "bugIndex": 1,
+     "explain": "$f(1)=2\\sin^23-4\\approx-3.96<0$, לא חיובי; בלי הסימן השלילי אין החלפת סימן."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -43,7 +256,118 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "הצבה $t=\\ln x$ עם $dt=\\frac{dx}{x}$",
+     "points": 3
+    },
+    {
+     "text": "פירוק לשברים חלקיים $\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה לוגריתמית",
+     "points": 2
+    },
+    {
+     "text": "חזרה ל-$x$: $0.5\\ln\\left|\\frac{\\ln x-3}{\\ln x-1}\\right|+c$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את $\\frac{dx}{x}$ ולא להבחין שהוא $dt$.",
+    "טעות בסימן הפירוק: $\\frac{1}{(t-1)(t-3)}=\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$ ולא עם הסימנים ההפוכים.",
+    "לשכוח ערכים מוחלטים בתוך הלוגריתם."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו הצבה מתאימה לאינטגרל $\\int\\frac{dx}{x(\\ln x-1)(\\ln x-3)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\ln x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=e^x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\frac1x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגורם $\\frac{dx}{x}$ מופיע באינטגרל ושאר הביטוי תלוי ב-$\\ln x$ בלבד, ולכן $t=\\ln x$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הפירוק לשברים חלקיים של $\\frac{1}{(t-1)(t-3)}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{2 \\left(tq - 1\\right)} - \\frac{1}{2 \\left(tq - 3\\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{1}{2 \\left(tq - 1\\right)} + \\frac{1}{2 \\left(tq - 3\\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$- \\frac{1}{tq - 1} + \\frac{1}{tq - 3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{2 \\left(tq - 1\\right)} + \\frac{1}{2 \\left(tq - 3\\right)}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$\\frac{A}{t-3}+\\frac{B}{t-1}$ עם $A=\\frac12$, $B=-\\frac12$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו האינטגרל? (עבור התחום $\\ln x>3$, בלי הקבוע)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\left(\\log{\\left(x \\right)} - 3\\right) \\left(\\log{\\left(x \\right)} - 1\\right) \\right)}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\log{\\left(\\frac{\\log{\\left(x \\right)} - 3}{\\log{\\left(x \\right)} - 1} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\frac{\\log{\\left(x \\right)} - 3}{\\log{\\left(x \\right)} - 1} \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(\\frac{\\log{\\left(x \\right)} - 1}{\\log{\\left(x \\right)} - 3} \\right)}}{2}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\frac12\\ln|t-3|-\\frac12\\ln|t-1|=\\frac12\\ln\\left|\\frac{t-3}{t-1}\\right|$. הנגזרת של כל אפשרות נבדקה ב-sympy."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -54,7 +378,76 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "part": "א"
+   "part": "א",
+   "rubric": [
+    {
+     "text": "זיהוי $\\frac00$ והפעלת לופיטל",
+     "points": 3
+    },
+    {
+     "text": "נגזרות $\\left(\\ln\\cos x\\right)'=-\\tan x$ ו-$\\left(\\ln\\cos4x\\right)'=-4\\tan4x$",
+     "points": 2
+    },
+    {
+     "text": "שוב $\\frac00$ והפעלת לופיטל שנייה על $\\frac{\\tan x}{\\tan4x}$",
+     "points": 3
+    },
+    {
+     "text": "ערך הגבול $\\frac1{16}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את גורם השרשרת $4$ בנגזרת של $\\ln\\cos4x$.",
+    "לעצור אחרי לופיטל אחד: $\\frac{\\tan x}{\\tan4x}$ עדיין $\\frac00$.",
+    "לשכוח את הגורם $\\frac14$ שמוצא החוצה: הגבול הוא $\\frac14\\cdot\\frac14$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה סוג הצורה הלא מסוימת של $\\frac{\\ln\\cos x}{\\ln\\cos4x}$ כאשר $x\\to0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac\\infty\\infty$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1^{\\infty}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac00$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\cos x\\to1$ ולכן $\\ln\\cos x\\to0$, וכנ\"ל במכנה (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0}\\frac{\\tan x}{\\tan4x}$? (עשרוני)",
+     "answer": 0.25,
+     "tol": 0.001,
+     "explain": "לופיטל: $\\frac{1/\\cos^2x}{4/\\cos^24x}\\to\\frac14$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול המבוקש? (עשרוני)",
+     "answer": 0.0625,
+     "tol": 0.0005,
+     "explain": "$\\frac14\\cdot\\frac14=\\frac1{16}=0.0625$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -65,7 +458,94 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "part": "ב"
+   "part": "ב",
+   "rubric": [
+    {
+     "text": "נקודת החיתוך של $y=x^2$ עם $y=-2x+8$: $x=2$, וחיתוך הישר עם ציר $x$ ב-$x=4$",
+     "points": 2
+    },
+    {
+     "text": "בחירת קונכיות וקביעת רדיוס $4-x$",
+     "points": 3
+    },
+    {
+     "text": "חישוב $V_1=\\frac{40\\pi}{3}$ עבור $0\\le x\\le2$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $V_2=\\frac{32\\pi}{3}$ עבור $2\\le x\\le4$",
+     "points": 2
+    },
+    {
+     "text": "סכום: $V=24\\pi$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לקחת רדיוס $x$ במקום $4-x$: הסיבוב הוא סביב הישר $X=4$ ולא סביב ציר ה-$y$.",
+    "לשכוח לפצל לשני קטעים: הגבול העליון משתנה ב-$x=2$ מהפרבולה לישר.",
+    "לשכוח את הגורם $2\\pi$ של הקונכייה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ החיובי שבו הפרבולה פוגשת את הישר $y=-2x+8$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$x^2+2x-8=0$ נותן $x=2$ או $x=-4$; רק $x=2\\ge0$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו רדיוס הקונכייה במרחק $x$ מהציר $y$ כשמסובבים סביב $X=4$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$4-x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x-4$ (שלילי בתחום)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$4+x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המרחק של הנקודה $x$ מהישר $X=4$ הוא $4-x\\ge0$ בתחום $0\\le x\\le4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\frac{V_1}{\\pi}$ עבור $V_1=2\\pi\\int_0^2(4-x)x^2dx$? (עשרוני)",
+     "answer": 13.3333,
+     "tol": 0.001,
+     "explain": "$2\\left(\\frac{32}{3}-4\\right)=\\frac{40}{3}\\approx13.333$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\frac{V_2}{\\pi}$ עבור $V_2=2\\pi\\int_2^4(4-x)(-2x+8)dx$? (עשרוני)",
+     "answer": 10.6667,
+     "tol": 0.001,
+     "explain": "$4\\int_2^4(4-x)^2dx=4\\cdot\\frac83=\\frac{32}{3}\\approx10.667$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו נפח הגוף? (עשרוני)",
+     "answer": 75.3982,
+     "tol": 0.01,
+     "explain": "$V=\\frac{40\\pi}{3}+\\frac{32\\pi}{3}=24\\pi\\approx75.398$ (sympy, ובדיקה בשיטת הדסקיות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -77,7 +557,83 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $f'(x)=\\frac{2x}{1+x^2}$ והנקודה הקריטית $x=0$",
+     "points": 3
+    },
+    {
+     "text": "ערכי הפונקציה: $f(0)=0$, $f(-1)=\\ln2$",
+     "points": 2
+    },
+    {
+     "text": "$f\\left(\\sqrt{e-1}\\right)=\\ln e=1$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: מקסימום $1$ ומינימום $0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבדוק את שני הקצוות של הקטע.",
+    "להסיק שהמקסימום הוא $\\ln2$ (הקצה השמאלי) בלי לחשב את הקצה הימני: $\\ln2\\approx0.693<1$.",
+    "לחשב $f\\left(\\sqrt{e-1}\\right)=\\ln\\left(1+(e-1)\\right)=\\ln e=1$ בצורה שגויה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך $x$ שבו $f'(x)=0$?",
+     "answer": 0,
+     "tol": 0.001,
+     "explain": "$\\frac{2x}{1+x^2}=0$ נותן $x=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(-1)=\\ln2$? (עשרוני)",
+     "answer": 0.6931,
+     "tol": 0.001,
+     "explain": "$\\ln2\\approx0.6931$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f\\left(\\sqrt{e-1}\\right)$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\ln\\left(1+e-1\\right)=\\ln e=1$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המינימום והמקסימום המוחלטים בקטע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מינימום $0$ ומקסימום $\\ln2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מינימום $0$ ב-$x=0$ ומקסימום $1$ ב-$x=\\sqrt{e-1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מינימום $\\ln2$ ומקסימום $1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מינימום $0$ ומקסימום $e$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הערכים הם $0,\\,0.693,\\,1$; הקטן ביותר $0$ והגדול ביותר $1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -89,7 +645,104 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "דרישת רציפות ב-$x=0$: $a=c$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת ימנית $f'_+(0)=2b$ (עם $\\frac{\\sin2\\Delta x}{\\Delta x}\\to2$)",
+     "points": 3
+    },
+    {
+     "text": "נגזרת שמאלית $f'_-(0)=a$",
+     "points": 2
+    },
+    {
+     "text": "השוואה: $a=2b=c$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק את הנגזרות החד-צדדיות ולשכוח את דרישת הרציפות $a=c$.",
+    "לשכוח את הגורם $2$ בגבול $\\lim\\frac{\\sin2\\Delta x}{\\Delta x}=2$.",
+    "לטעות בנגזרת השמאלית: $\\lim\\frac{ae^{\\Delta x}-a}{\\Delta x}=a$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה תנאי הרציפות ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=b$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$c=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=c$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=2b$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הגבול משמאל $a\\cdot e^0=a$ והגבול מימין $0+b\\sin0+c=c$, לכן $a=c$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנגזרת הימנית $f'_+(0)$ עבור $b=3$?",
+     "answer": 6,
+     "tol": 0.001,
+     "explain": "$\\lim\\left(\\Delta x+\\frac{b\\sin2\\Delta x}{\\Delta x}\\right)=2b=6$ (sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי הנגזרת השמאלית $f'_-(0)$ עבור $a=5$?",
+     "answer": 5,
+     "tol": 0.001,
+     "explain": "$a\\cdot\\lim\\frac{e^{\\Delta x}-1}{\\Delta x}=a=5$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו תנאים על $a,b,c$ מבטיחים גזירות ב-$x=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=b=c$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=c$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=2b$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=2b=c$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "דרושות רציפות ($a=c$) ושוויון נגזרות חד-צדדיות ($a=2b$). למשל $(a,b,c)=(1,1,1)$ רציפה אבל $f'_-=1\\neq2=f'_+$ (נבדק)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,

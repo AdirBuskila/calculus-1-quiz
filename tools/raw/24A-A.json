@@ -16,7 +16,137 @@
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $x\\neq0$, ללא חיתוכים עם הצירים ($e^x>0$)",
+     "points": 2
+    },
+    {
+     "text": "אסימפטוטה אנכית $x=0$ ($+\\infty$ משני הצדדים)",
+     "points": 3
+    },
+    {
+     "text": "התנהגות באינסוף: אסימפטוטה אופקית $y=0$ ב-$-\\infty$, וללא אסימפטוטה ב-$+\\infty$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=\\frac{e^x(x-2)}{x^3}$, תחומי עליה וירידה",
+     "points": 5
+    },
+    {
+     "text": "מינימום מקומי $\\left(2,\\frac{e^2}{4}\\right)$",
+     "points": 2
+    },
+    {
+     "text": "$f''(x)=\\frac{e^x\\left(x^2-4x+6\\right)}{x^4}>0$: קעורה כלפי מעלה בשני הענפים וללא נקודות פיתול",
+     "points": 4
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעון שהגרף קעור כלפי מטה עבור $x<0$: $x^2-4x+6=(x-2)^2+2>0$ ולכן $f''>0$ בכל תחום ההגדרה.",
+    "לכלול את $x=0$ בתחומי העליה והירידה.",
+    "לטעון לאסימפטוטה אופקית ב-$+\\infty$: שם $f(x)=\\frac{e^x}{x^2}\\to+\\infty$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=\\frac{e^x}{x^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 2\\right) e^{x}}{x^{3}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{\\left(x + 2\\right) e^{x}}{x^{3}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(x - 2\\right) e^{x}}{x^{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{e^{x}}{x^{3}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כלל המנה: $\\frac{e^xx^2-2xe^x}{x^4}=\\frac{e^x(x-2)}{x^3}$ (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הפונקציה בנקודת המינימום המקומי $x=2$? (עשרוני)",
+     "answer": 1.8473,
+     "tol": 0.001,
+     "explain": "$f(2)=\\frac{e^2}{4}\\approx1.8473$ (sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה סימן $f''(x)=\\frac{e^x\\left(x^2-4x+6\\right)}{x^4}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שלילי עבור $x<0$ וחיובי עבור $x>0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "חיובי בכל תחום ההגדרה, ולכן אין נקודות פיתול"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שלילי בכל תחום ההגדרה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מתאפס ב-$x=2$ ולכן שם נקודת פיתול"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x^2-4x+6=(x-2)^2+2>0$ (דיסקרימיננטה שלילית), ו-$e^x>0$, $x^4>0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהן האסימפטוטות של $y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנכית $x=0$ ואופקית $y=0$ בשני הכיוונים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית $x=0$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אנכית $x=0$ ואופקית $y=0$ ב-$-\\infty$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אנכית $x=0$ ומשופעת ב-$+\\infty$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "ב-$+\\infty$: $\\frac{e^x}{x^2}\\to\\infty$ ו-$\\frac{f(x)}{x}\\to\\infty$, ולכן אין אסימפטוטה; ב-$-\\infty$: $f\\to0$ (sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,

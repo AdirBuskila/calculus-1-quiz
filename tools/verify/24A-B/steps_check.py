@@ -21,6 +21,8 @@ v5 = quad(lambda x: log(x)/(x*(log(x)**2 + 1)), [1, e])
 l0 = atan(2*mpf('-1e-9'))/mpf('-1e-9')
 x2 = 2 + mpf('1e-12'); r2 = 4*(x2 - sqrt(3*x2 - 2))/(x2 - 2)
 f6 = lambda x: 2**sqrt(x) + atan(2*x) - 5
+xs6 = mpf('1e-3')
+limit6b = round(xs6**4/quad(lambda t: t*mp.cos(t**2), [0, xs6**2]), 3)
 expected = [
     f(-2), infl,
     ABC[0], ABC[1], ABC[2],
@@ -32,5 +34,6 @@ expected = [
     v5,
     l0, r2, (1 - l0)/2,
     f6(0), f6(16),
+    limit6b,
 ]
 run("24A-B", expected)
