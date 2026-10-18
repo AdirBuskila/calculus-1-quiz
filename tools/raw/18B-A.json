@@ -12,7 +12,7 @@
    "kind": "computation",
    "topic": "function_investigation",
    "question": "חקרו את הפונקציה הבאה $y=\\frac{x^3}{x^2-3}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
-   "solution": "**תחום ההגדרה:** $D=(-\\infty,-\\sqrt3)\\cup(-\\sqrt3,\\sqrt3)\\cup(\\sqrt3,\\infty)$.\n**חיתוך עם הצירים:** $y=0\\Leftrightarrow x=0$, ולכן החיתוך היחיד הוא $(0,0)$. הפונקציה אי-זוגית: $y(-x)=-y(x)$.\n**אסימפטוטות אנכיות** $x=\\pm\\sqrt3$:\n$$\\lim_{x\\to\\sqrt3^+}y=+\\infty,\\quad\\lim_{x\\to\\sqrt3^-}y=-\\infty,\\qquad\\lim_{x\\to-\\sqrt3^+}y=+\\infty,\\quad\\lim_{x\\to-\\sqrt3^-}y=-\\infty$$\n**אסימפטוטה משופעת** $y=kx+b$ ב-$\\pm\\infty$:\n$$k=\\lim_{x\\to\\pm\\infty}\\frac{y}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^2}{x^2-3}=1,\\qquad b=\\lim_{x\\to\\pm\\infty}(y-kx)=\\lim_{x\\to\\pm\\infty}\\left(\\frac{x^3}{x^2-3}-x\\right)=\\lim_{x\\to\\pm\\infty}\\frac{3x}{x^2-3}=0$$\nלכן $y=x$ היא אסימפטוטה משופעת (משני הצדדים).\n**מונוטוניות וקיצון:**\n$$y'=\\frac{3x^2\\left(x^2-3\\right)-x^3\\cdot2x}{\\left(x^2-3\\right)^2}=\\frac{x^4-9x^2}{\\left(x^2-3\\right)^2}=\\frac{x^2(x-3)(x+3)}{\\left(x^2-3\\right)^2}$$\nטבלת סימנים של $y'$: חיובית ב-$x<-3$ (עולה), שלילית ב-$-3<x<-\\sqrt3$, ב-$-\\sqrt3<x<\\sqrt3$ (גם סביב $x=0$) וב-$\\sqrt3<x<3$ (יורדת), חיובית ב-$x>3$ (עולה).\nמקסימום מקומי ב-$x=-3$: $y(-3)=-\\frac92$. מינימום מקומי ב-$x=3$: $y(3)=\\frac92$.\n**קמירות ונקודות פיתול:**\n$$y''=\\frac{\\left(4x^3-18x\\right)\\left(x^2-3\\right)^2-\\left(x^4-9x^2\\right)\\cdot2\\left(x^2-3\\right)\\cdot2x}{\\left(x^2-3\\right)^4}=\\frac{\\left(4x^3-18x\\right)\\left(x^2-3\\right)-4x\\left(x^4-9x^2\\right)}{\\left(x^2-3\\right)^3}=$$\n$$=\\frac{4x^5-30x^3+54x-4x^5+36x^3}{\\left(x^2-3\\right)^3}=\\frac{6x^3+54x}{\\left(x^2-3\\right)^3}=\\frac{6x\\left(x^2+9\\right)}{\\left(x-\\sqrt3\\right)^3\\left(x+\\sqrt3\\right)^3}$$\nטבלת סימנים של $y''$: שלילית ב-$x<-\\sqrt3$ (קעורה), חיובית ב-$-\\sqrt3<x<0$ (קמורה), שלילית ב-$0<x<\\sqrt3$ (קעורה), חיובית ב-$x>\\sqrt3$ (קמורה). נקודת הפיתול היחידה: $(0,0)$.\n![שרטוט הגרף של y = x³/(x²−3) עם האסימפטוטות x=±√3 ו-y=x, המקסימום ב-x=−3 והמינימום ב-x=3](images/exams/18B-A-Q1-graph.png)",
+   "solution": "**תחום ההגדרה:** $D=(-\\infty,-\\sqrt3)\\cup(-\\sqrt3,\\sqrt3)\\cup(\\sqrt3,\\infty)$.\n**חיתוך עם הצירים:** $y=0\\Leftrightarrow x=0$, ולכן החיתוך היחיד הוא $(0,0)$. הפונקציה אי-זוגית: $y(-x)=-y(x)$.\n**אסימפטוטות אנכיות** $x=\\pm\\sqrt3$:\n$$\\lim_{x\\to\\sqrt3^+}y=+\\infty,\\quad\\lim_{x\\to\\sqrt3^-}y=-\\infty,\\qquad\\lim_{x\\to-\\sqrt3^+}y=+\\infty,\\quad\\lim_{x\\to-\\sqrt3^-}y=-\\infty$$\n**אסימפטוטה משופעת** $y=kx+b$ ב-$\\pm\\infty$:\n$$k=\\lim_{x\\to\\pm\\infty}\\frac{y}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^2}{x^2-3}=1,\\qquad b=\\lim_{x\\to\\pm\\infty}(y-kx)=\\lim_{x\\to\\pm\\infty}\\left(\\frac{x^3}{x^2-3}-x\\right)=\\lim_{x\\to\\pm\\infty}\\frac{3x}{x^2-3}=0$$\nלכן $y=x$ היא אסימפטוטה משופעת (משני הצדדים).\n**מונוטוניות וקיצון:**\n$$y'=\\frac{3x^2\\left(x^2-3\\right)-x^3\\cdot2x}{\\left(x^2-3\\right)^2}=\\frac{x^4-9x^2}{\\left(x^2-3\\right)^2}=\\frac{x^2(x-3)(x+3)}{\\left(x^2-3\\right)^2}$$\nטבלת סימנים של $y'$: חיובית ב-$x<-3$ (עולה), שלילית ב-$-3<x<-\\sqrt3$, ב-$-\\sqrt3<x<\\sqrt3$ (גם סביב $x=0$) וב-$\\sqrt3<x<3$ (יורדת), חיובית ב-$x>3$ (עולה).\nמקסימום מקומי ב-$x=-3$: $y(-3)=-\\frac92$. מינימום מקומי ב-$x=3$: $y(3)=\\frac92$.\n**קמירות ונקודות פיתול:**\n$$y''=\\frac{\\left(4x^3-18x\\right)\\left(x^2-3\\right)^2-\\left(x^4-9x^2\\right)\\cdot2\\left(x^2-3\\right)\\cdot2x}{\\left(x^2-3\\right)^4}=\\frac{\\left(4x^3-18x\\right)\\left(x^2-3\\right)-4x\\left(x^4-9x^2\\right)}{\\left(x^2-3\\right)^3}=$$\n$$=\\frac{4x^5-30x^3+54x-4x^5+36x^3}{\\left(x^2-3\\right)^3}=\\frac{6x^3+54x}{\\left(x^2-3\\right)^3}=\\frac{6x\\left(x^2+9\\right)}{\\left(x-\\sqrt3\\right)^3\\left(x+\\sqrt3\\right)^3}$$\nטבלת סימנים של $y''$: שלילית ב-$x<-\\sqrt3$ (קעורה, $\\cap$), חיובית ב-$-\\sqrt3<x<0$ (קמורה, $\\cup$), שלילית ב-$0<x<\\sqrt3$ (קעורה, $\\cap$), חיובית ב-$x>\\sqrt3$ (קמורה, $\\cup$). נקודת הפיתול היחידה: $(0,0)$.\n![שרטוט הגרף של y = x³/(x²−3) עם האסימפטוטות x=±√3 ו-y=x, המקסימום ב-x=−3 והמינימום ב-x=3](images/exams/18B-A-Q1-graph.png)",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "high",
@@ -42,10 +42,10 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$x=0$ היא נקודת קיצון כי $y'(0)=0$: $y'$ אינה משנה סימן ב-$0$ (גורם $x^2$), והנקודה היא נקודת פיתול.",
-    "לבלבל את סימני הגבולות החד-צדדיים באסימפטוטות האנכיות; הסימן נקבע לפי סימן המכנה $x^2-3$ משני צדי $\\pm\\sqrt3$.",
+    "לבלבל את סימני הגבולות החד-צדדיים באסימפטוטות האנכיות; הסימן נקבע לפי הסימנים של $x^3$ ושל $x^2-3$ יחד משני צדי $\\pm\\sqrt3$.",
     "לכלול את $x=\\pm\\sqrt3$ בתחומי העליה והירידה או בתחומי הקמירות."
    ],
    "steps": [
@@ -141,14 +141,14 @@
      "explain": "המכנה מתאפס ב-$x=\\pm\\sqrt3$; $\\lim\\frac{y}{x}=1$ ו-$\\lim(y-x)=\\lim\\frac{3x}{x^2-3}=0$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
    "kind": "proof",
    "topic": "sequences_limits",
    "question": "נתונה הסדרה: $a_1=2,\\quad a_{n+1}=\\frac{3a_n}{2a_n+1}$. הוכיחו כי הסדרה מונוטונית וחסומה וחשבו את גבולה.",
-   "solution": "נחשב: $a_1=2,\\ a_2=\\frac65,\\ a_3=\\frac{18}{17},\\dots$ ונרשום $a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}}$.\n**חסימות:** נוכיח באינדוקציה ש-$1<a_n<2$ לכל $n\\ge1$. עבור $n=1$ זה נכון. אם $1<a_n<2$ אז\n$$\\frac12<\\frac{1}{a_n}<1\\ \\Rightarrow\\ \\frac52<2+\\frac{1}{a_n}<3\\ \\Rightarrow\\ \\frac13<\\frac{1}{2+\\frac{1}{a_n}}<\\frac25\\ \\Rightarrow\\ 1<\\frac{3}{2+\\frac{1}{a_n}}<\\frac65<2$$\nז\"א $1<a_{n+1}<2$.\n**מונוטוניות:** נראה שהסדרה יורדת:\n$$\\frac{a_{n+1}}{a_n}=\\frac{3}{2a_n+1}$$\nמ-$1<a_n<2$ נקבל $3<2a_n+1<5$, ולכן $\\frac15<\\frac{1}{2a_n+1}<\\frac13$ ו-$\\frac{a_{n+1}}{a_n}<1$.\nהסדרה יורדת וחסומה מלמטה, ולכן מתכנסת. נסמן $\\lim_{n\\to\\infty}a_n=L$ ונעבור לגבול בנוסחת הנסיגה $a_{n+1}=\\frac{3a_n}{2a_n+1}$:\n$$L=\\frac{3L}{2L+1}\\ \\Rightarrow\\ 2L^2+L=3L\\ \\Rightarrow\\ L^2-L=0$$\nמכיוון ש-$a_n>1$, לא ייתכן $L=0$, ולכן הגבול הוא $L=1$.",
+   "solution": "נחשב: $a_1=2,\\ a_2=\\frac65,\\ a_3=\\frac{18}{17},\\dots$ ונרשום $a_{n+1}=\\frac{3}{2+\\frac{1}{a_n}}$.\n**חסימות:** נוכיח באינדוקציה ש-$1<a_n\\le2$ לכל $n\\ge1$. עבור $n=1$ זה נכון ($a_1=2$). אם $1<a_n\\le2$ אז\n$$\\frac12\\le\\frac{1}{a_n}<1\\ \\Rightarrow\\ \\frac52\\le2+\\frac{1}{a_n}<3\\ \\Rightarrow\\ \\frac13<\\frac{1}{2+\\frac{1}{a_n}}\\le\\frac25\\ \\Rightarrow\\ 1<\\frac{3}{2+\\frac{1}{a_n}}\\le\\frac65<2$$\nז\"א $1<a_{n+1}\\le2$.\n**מונוטוניות:** נראה שהסדרה יורדת:\n$$\\frac{a_{n+1}}{a_n}=\\frac{3}{2a_n+1}$$\nמ-$1<a_n\\le2$ נקבל $3<2a_n+1\\le5$, ולכן $\\frac15\\le\\frac{1}{2a_n+1}<\\frac13$ ו-$\\frac{a_{n+1}}{a_n}<1$.\nהסדרה יורדת וחסומה מלמטה, ולכן מתכנסת. נסמן $\\lim_{n\\to\\infty}a_n=L$ ונעבור לגבול בנוסחת הנסיגה $a_{n+1}=\\frac{3a_n}{2a_n+1}$:\n$$L=\\frac{3L}{2L+1}\\ \\Rightarrow\\ 2L^2+L=3L\\ \\Rightarrow\\ L^2-L=0$$\nמכיוון ש-$a_n>1$, לא ייתכן $L=0$, ולכן הגבול הוא $L=1$.",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "high",
@@ -171,7 +171,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול מהמשוואה $L=\\frac{3L}{2L+1}$ בלי להוכיח קודם התכנסות, ולהשאיר גם את $L=0$.",
     "לפסול את $L=0$ בעזרת החסם העליון $a_n<2$ במקום החסם התחתון $a_n>1$.",
@@ -193,22 +193,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{3}{2 aa - 1}$"
+       "value": "$\\frac{3}{2 a_n - 1}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$\\frac{3 aa}{2 aa + 1}$"
+       "value": "$\\frac{3 a_n}{2 a_n + 1}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{1}{2 aa + 1}$"
+       "value": "$\\frac{1}{2 a_n + 1}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{3}{2 aa + 1}$"
+       "value": "$\\frac{3}{2 a_n + 1}$"
       }
      ],
      "correctId": "d",
@@ -275,7 +275,7 @@
      "explain": "$L^2-L=0$ ו-$L\\ge1$ ולכן $L=1$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -306,7 +306,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את גורם השרשרת $3x^2$ (נגזרת הגבול העליון).",
     "לפתור קודם את האינטגרל במקום להשתמש במשפט היסוד.",
@@ -377,7 +377,7 @@
      "explain": "$f'$ חיובית לפני $-1$, שלילית בין $-1$ ל-$0$, וחיובית אחרי $0$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -408,7 +408,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק יחידות מכך ש-$e^x$ עולה: הסכום $e^x+\\sin x$ אינו מונוטוני.",
     "לטעון ש-$f\\left(-\\frac\\pi2\\right)>0$ בגלל $e^{-\\pi/2}>1$; בפועל $e^{-\\pi/2}<1$.",
@@ -469,7 +469,7 @@
      "explain": "בכל קטע כזה $f$ משנה סימן (מ-$e^{-\\pi/2-2\\pi k}-1<0$ ל-$e^{-2\\pi k}>0$), ולכן יש פתרון בכל קטע. $f$ אינה מונוטונית: $f'(-\\pi)<0<f'(0)$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -500,7 +500,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק את הגבול משמאל ולהשוות אותו ל-$e$ בלי לחשב אותו נכון: הוא $1$ ולא $e$.",
     "לטעון ש-$1^{\\infty}=1$ ללא חישוב; זו צורה לא מסוימת.",
@@ -578,7 +578,7 @@
      "explain": "הגבול הימני $e=f\\left(\\frac\\pi2\\right)$ אבל השמאלי $1\\neq e$, ולכן אין רציפות; שני הגבולות סופיים ולכן זו קפיצה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -609,7 +609,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לרבע את הרדיוס: $\\left(x\\sqrt{\\arctan x}\\right)^2=x^2\\arctan x$.",
     "טעות הצבת גבולות בשורה האחרונה: $\\frac13\\left(\\frac12-\\frac12\\ln2\\right)=\\frac16-\\frac16\\ln2$ ולכן המקדם של $\\pi$ הוא $-\\frac16$.",
@@ -618,7 +618,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזה אינטגרנד (ב-$x$ מ-$0$ עד $1$) מתאים לנפח החלוקות $\\frac{V}{\\pi}$?",
+     "prompt": "איזה אינטגרנד (ב-$x$ מ-$0$ עד $1$) מתאים ל-$\\frac{V}{\\pi}$, כלומר לנפח הגוף לאחר חילוקו ב-$\\pi$?",
      "options": [
       {
        "id": "a",
@@ -666,7 +666,7 @@
      "explain": "$V=\\pi\\cdot0.2107\\approx0.662$, כלומר $\\frac{\\pi^2}{12}-\\frac\\pi6+\\frac\\pi6\\ln2$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -701,7 +701,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לנמק ש-$f'$ עולה בקטע; בלי זה אי אפשר לחסום את $f'(c)$ בין $f'(1)$ ל-$f'(2)$.",
     "לגזור את $xe^{x^2}$ בלי כלל המכפלה ובלי גורם השרשרת $2x$.",
@@ -774,7 +774,7 @@
      "explain": "הנגזרת היא $e^{x^2}\\left(1+2x^2\\right)$; עם $1+x^2$ מתקבל $f'(1)=2e$ ולא $3e$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -805,7 +805,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את המינוס מ-$dt=-\\sin x\\,dx$.",
     "לא להפריד גורם $\\sin x\\,dx$ ולנסות להציב $t=\\sin x$.",
@@ -847,22 +847,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{1 - t_{5}^{2}}{t_{5}^{4}}$"
+       "value": "$\\frac{1 - t^{2}}{t^{4}}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$\\frac{t_{5}^{2} - 1}{t_{5}^{4}}$"
+       "value": "$\\frac{t^{2} - 1}{t^{4}}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{- t_{5}^{2} - 1}{t_{5}^{4}}$"
+       "value": "$\\frac{- t^{2} - 1}{t^{4}}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{t_{5}^{2} - 1}{t_{5}^{2}}$"
+       "value": "$\\frac{t^{2} - 1}{t^{2}}$"
       }
      ],
      "correctId": "b",
@@ -897,7 +897,7 @@
      "explain": "$-\\int\\left(t^{-4}-t^{-2}\\right)dt=\\frac{1}{3t^3}-\\frac1t$ עם $t=\\cos x$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -928,7 +928,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את השורש בנוסחה $L=\\int\\sqrt{1+(y')^2}dx$.",
     "לטעות בחישוב $1+\\frac{x^2}{1-x^2}$: זה $\\frac{1}{1-x^2}$ ולא $\\frac{1+x^2}{1-x^2}$.",
@@ -971,7 +971,7 @@
      "explain": "$\\int_0^{0.5}\\frac{dx}{\\sqrt{1-x^2}}=\\arcsin0.5=\\frac\\pi6\\approx0.5236$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1002,7 +1002,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב \"$0\\cdot\\infty=0$\" בלי חישוב: זו צורה לא מסוימת.",
     "בחירת המנה ההפוכה $\\frac{\\ln x}{1/\\ln(1-x)}$, שהנגזרת שלה מסובכת יותר.",
@@ -1073,7 +1073,7 @@
      "explain": "לופיטל שני: $\\frac{\\ln^2x+2\\ln x}{-1}\\to0$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

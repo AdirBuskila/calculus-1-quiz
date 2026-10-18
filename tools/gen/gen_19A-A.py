@@ -42,7 +42,7 @@ $$f'(x)=\left(-\frac{1}{e^x(x-1)}\right)'=\frac{e^xx}{e^{2x}(x-1)^2}$$
 תחומי עלייה: $(0,1),(1,+\infty)$. תחומי ירידה: $(-\infty,0)$. נקודת מינימום מקומי: $x=0$, $f(0)=1$.
 $$f''(x)=\left(-\frac{1}{e^x(x-1)}\right)''=\left(\frac{x}{e^x(x-1)^2}\right)'=\frac{e^x(x-1)^2-xe^x(x-1)^2-xe^x2(x-1)}{e^{2x}(x-1)^4}=$$
 $$=\frac{(x-1)-x(x-1)-2x}{e^x(x-1)^3}=-\frac{x^2+1}{e^x(x-1)^3}$$
-קמורה ב: $(-\infty,1)$. קעורה ב: $(1,+\infty)$. אין נקודת פיתול.
+קמורה ($\cup$) ב: $(-\infty,1)$. קעורה ($\cap$) ב: $(1,+\infty)$. אין נקודת פיתול.
 ![גרף הפונקציה y = e^(−x)/(1−x) עם האסימפטוטה האנכית x=1, האסימפטוטה y=0 מימין והמינימום ב-(0,1)](images/exams/19A-A-Q1-graph.png)
 """
 
@@ -171,12 +171,13 @@ _rot = [0]
 x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
+SYMNAMES = {}  # display names for scratch symbols (set where they are defined)
 TOPSRC = {}
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -249,7 +250,7 @@ add(1,
                ("נגזרת $f'(x)=\\frac{xe^{-x}}{(x-1)^2}$, תחומי עליה וירידה ומינימום מקומי $(0,1)$", 5),
                ("$f''(x)=-\\frac{x^2+1}{e^x(x-1)^3}$, קמירות ב-$(-\\infty,1)$, קעירות ב-$(1,\\infty)$ וללא נקודות פיתול", 5),
                ("שרטוט הגרף בהתאם לכל הנתונים", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון לאסימפטוטה אופקית ב-$-\\infty$: שם $f\\to+\\infty$ מהר מכל ישר, ולכן אין אסימפטוטה בכלל.",
               "לכלול את $x=1$ בתחומי הקמירות או העליה.",
               "לטעון לנקודת פיתול ב-$x=1$: $f''$ משנה שם סימן, אבל $x=1$ אינה בתחום ההגדרה."],
@@ -260,17 +261,18 @@ add(1,
             "כלל המנה: $\\frac{-e^{-x}(1-x)+e^{-x}}{(1-x)^2}=\\frac{xe^{-x}}{(x-1)^2}$ (אומת ב-sympy)."),
         num("מהו ערך הפונקציה בנקודת המינימום המקומי $x=0$?", 1, "$f(0)=\\frac{e^0}{1}=1$."),
         ch("מה סימן $f''(x)=-\\frac{x^2+1}{e^x(x-1)^3}$ בכל אחד מתחומי ההגדרה?",
-           "חיובית עבור $x<1$ (קמורה) ושלילית עבור $x>1$ (קעורה), ללא נקודות פיתול",
+           "חיובית עבור $x<1$ (קמורה, $\\cup$) ושלילית עבור $x>1$ (קעורה, $\\cap$), ללא נקודות פיתול",
            ["שלילית עבור $x<1$ וחיובית עבור $x>1$", "חיובית בכל תחום ההגדרה", "מתאפסת ב-$x=0$ ולכן ב-$0$ יש נקודת פיתול"],
            "המונה $x^2+1>0$ ו-$e^x>0$, לכן הסימן נקבע לפי $-(x-1)^3$; ואין אפסים (נבדק ב-sympy)."),
         ch("מהן האסימפטוטות של $y$?", "אנכית $x=1$ ואופקית $y=0$ ב-$+\\infty$ בלבד",
            ["אנכית $x=1$ ואופקית $y=0$ בשני הכיוונים", "אנכית $x=1$ בלבד", "אנכית $x=1$ ומשופעת ב-$-\\infty$"],
            "ב-$-\\infty$: $f\\to+\\infty$ ו-$\\frac{f(x)}{x}\\to-\\infty$, ולכן אין שם אסימפטוטה (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: sandwich =====
 nn = sp.Symbol('nn', positive=True)
+SYMNAMES[nn] = "n"
 a2 = lambda k: (3**k + 7**(2*k) + R(k, k + 1))**R(1, 2*k)
 for k in (1, 2, 5, 10):
     assert 7 <= a2(k) <= 7*3**R(1, 2*k)
@@ -282,7 +284,7 @@ add(2, "א",
                ("חסם עליון: החלפת כל אחד משלושת המחוברים ב-$7^{2n}$ והוצאת שורש, כלומר $7\\sqrt[2n]{3}$", 3),
                ("$\\lim_{n\\to\\infty}\\sqrt[2n]{3}=1$", 2),
                ("משפט הסנדוויץ' וערך הגבול $7$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להציב $n\\to\\infty$ בכל מחובר בנפרד: $7^{2n}$ שולט, אבל צריך סנדוויץ' כדי להצדיק זאת.",
               "לכתוב חסם עליון שאינו גדול מהביטוי המקורי: $\\frac{n}{n+1}<1\\le7^{2n}$ ו-$3^n\\le7^{2n}$ נדרשים.",
               "להוציא שורש $2n$ מהמכפלה $3\\cdot7^{2n}$ ולקבל $\\sqrt[2n]{3}\\cdot7$ ולא $3\\cdot7$."],
@@ -296,7 +298,7 @@ add(2, "א",
         num("מהו $\\lim_{n\\to\\infty}\\sqrt[2n]{3}$?", 1, "$3^{\\frac{1}{2n}}\\to3^0=1$ (sympy)."),
         num("מהו ערך הגבול?", 7, "משפט הסנדוויץ': $7\\le a_n\\le7\\cdot3^{\\frac1{2n}}\\to7$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: Lagrange, f = x ln x =====
 f2 = x*sp.log(x)
@@ -316,7 +318,7 @@ add(2, "ב",
                ("חישוב $f'(x)=\\ln x+1$", 2),
                ("מונוטוניות $\\ln x+1$ וחסימה בין $f'(1)=1$ ל-$f'(e)=2$", 3),
                ("המסקנה", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את כלל המכפלה: $(x\\ln x)'=\\ln x+x\\cdot\\frac1x=\\ln x+1$.",
               "לשכוח לנמק ש-$\\ln x+1$ עולה, ולכן $c\\in(a,b)\\subseteq[1,e]$ נותן $1\\le\\ln c+1\\le2$.",
               "טעות בערך הקצה: $\\ln e+1=2$ ולא $1$ או $3$."],
@@ -328,7 +330,7 @@ add(2, "ב",
         findbug("בהוכחה שורה אחת שגויה. מצאו אותה.", L2b, 2,
                 "$\\ln e+1=1+1=2$ ולא $3$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (4/(1+sqrt(9+x)))^(1/sin x) =====
 base3 = 4/(1 + sp.sqrt(9 + x))
@@ -343,7 +345,7 @@ add(3, "א",
                ("הגבול המפורסם $\\left(1+u\\right)^{1/u}\\to e$", 2),
                ("חישוב המעריך $\\lim\\frac{3-\\sqrt{9+x}}{(1+\\sqrt{9+x})\\sin x}=-\\frac1{24}$ (כפל בצמוד ו-$\\frac{x}{\\sin x}\\to1$)", 3),
                ("הערך הסופי $e^{-1/24}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון שהגבול הוא $1$ כי הבסיס שואף ל-$1$.",
               "לשכוח את הסימן במונה $3-\\sqrt{9+x}=\\frac{-x}{3+\\sqrt{9+x}}$ ולקבל $+\\frac1{24}$.",
               "לשכוח את הגורם $\\frac{x}{\\sin x}\\to1$ בחישוב המעריך."],
@@ -355,13 +357,14 @@ add(3, "א",
             "$3-\\sqrt{9+x}=\\frac{-x}{3+\\sqrt{9+x}}$ ולכן הגבול $-\\frac{1}{4\\cdot6}=-\\frac1{24}\\approx-0.04167$ (sympy)."),
         num("מהו ערך הגבול המבוקש? (עשרוני)", sp.exp(R(-1, 24)), "$L=e^{-1/24}\\approx0.9592$ (sympy).", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int tan x / (cos^2 x e^{2 tan x}) =====
 g3b = sp.tan(x)/(sp.cos(x)**2*sp.exp(2*sp.tan(x)))
 F3b = -(2*sp.tan(x) + 1)/(4*sp.exp(2*sp.tan(x)))
 assert same(sp.diff(F3b, x), g3b)
 tq = sp.Symbol('tq', real=True)
+SYMNAMES[tq] = "t"
 F3w = [-(2*sp.tan(x) - 1)/(4*sp.exp(2*sp.tan(x))), (2*sp.tan(x) + 1)/(4*sp.exp(2*sp.tan(x))), -(2*sp.tan(x) + 1)/(2*sp.exp(2*sp.tan(x)))]
 tint_ok = lambda e: same(sp.expand(e), sp.expand(tq*sp.exp(-2*tq)))
 
@@ -370,7 +373,7 @@ add(3, "ב",
                ("מעבר ל-$\\int te^{-2t}dt$", 1),
                ("אינטגרציה בחלקים: $u=t$, $dv=e^{-2t}dt$", 4),
                ("חזרה ל-$x$: $-\\frac{2\\tan x+1}{4e^{2\\tan x}}+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לזהות את $\\frac{dx}{\\cos^2x}$ כ-$dt$.",
               "בבחירת $v$ לשכוח את המקדם: $\\int e^{-2t}dt=-\\frac12e^{-2t}$.",
               "טעות סימן באינטגרל הנותר: $+\\frac12\\int e^{-2t}dt=-\\frac14e^{-2t}$."],
@@ -384,7 +387,7 @@ add(3, "ב",
         chx("מהו האינטגרל? (בלי הקבוע)", F3b, F3w, lambda e: same(sp.diff(e, x), g3b),
             "$-\\frac12te^{-2t}-\\frac14e^{-2t}$ עם $t=\\tan x$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: extrema of x * cbrt(x^2-1) on [0,3] =====
 import mpmath as mpm
@@ -405,7 +408,7 @@ add(4, "א",
                ("נקודות חשודות: $x=\\sqrt{\\frac35}$ ($f'=0$) ו-$x=1$ (הנגזרת לא מוגדרת, הפונקציה מוגדרת)", 3),
                ("ערכי הפונקציה בנקודות החשודות ובקצוות: $0,\\,-\\frac15\\sqrt[6]{540},\\,0,\\,6$", 2),
                ("מקסימום $6$ ומינימום $-\\frac15\\sqrt[6]{540}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את $x=1$ כנקודה חשודה: שם המכנה מתאפס אבל $f(1)=0$ מוגדרת.",
               "לחשב $\\sqrt[3]{\\frac35-1}$ כשורש של מספר שלילי בצורה שגויה; השורש הממשי הוא $-\\sqrt[3]{\\frac25}$.",
               "לשכוח לבדוק את הקצוות $x=0$ ו-$x=3$."],
@@ -417,7 +420,7 @@ add(4, "א",
         num("מהו $f\\left(\\sqrt{\\frac35}\\right)$? (עשרוני)", v4['c'], "$-\\frac15\\sqrt[6]{540}\\approx-0.5707$ (sympy)."),
         num("מהו הערך הגדול ביותר של הפונקציה בקטע?", 6, "$f(3)=3\\sqrt[3]{8}=6$, הגדול מבין $0,\\,-0.5707,\\,0,\\,6$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: tangent of (x-3)^sqrt(x) at x=4 =====
 f4 = (x - 3)**sp.sqrt(x)
@@ -430,7 +433,7 @@ add(4, "ב",
                ("נגזרת $f'(x)=(x-3)^{\\sqrt x}\\left(\\frac{\\ln(x-3)}{2\\sqrt x}+\\frac{\\sqrt x}{x-3}\\right)$", 3),
                ("ערכים $f(4)=1$ ו-$f'(4)=2$", 2),
                ("משוואת המשיק $y=1+2(x-4)$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לגזור כאילו המעריך קבוע (כלל חזקה) או כאילו הבסיס קבוע (כלל מעריכית).",
               "לשכוח את הנגזרת של $\\sqrt x\\ln(x-3)$ כמכפלה.",
               "לשכוח ש-$\\ln(4-3)=0$ ולכן האיבר הראשון מתאפס."],
@@ -443,7 +446,7 @@ add(4, "ב",
         chx("מהי משוואת המשיק בנקודה $x=4$?", 1 + 2*(x - 4), [1 + (x - 4), 2 + 2*(x - 4), 1 - 2*(x - 4)], tang_ok,
             "המשיק עובר דרך $(4,1)$ עם שיפוע $2$: $y=1+2(x-4)$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: lim 1/((sqrt(2x-1)-sqrt(2x-3)) sqrt(x+1)) =====
 orig5 = 1/((sp.sqrt(2*x - 1) - sp.sqrt(2*x - 3))*sp.sqrt(x + 1))
@@ -461,7 +464,7 @@ add(5, "א",
                ("פישוט המכנה $(2x-1)-(2x-3)=2$", 2),
                ("הוצאת $\\sqrt x$ מהמונה והמכנה וצמצום", 3),
                ("ערך הגבול $\\sqrt2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעות בחישוב $(2x-1)-(2x-3)$: התוצאה $2$ ולא $-4$.",
               "להציב $\\infty$ ישירות במכנה $\\sqrt{2x-1}-\\sqrt{2x-3}$ (צורה $\\infty-\\infty$) בלי כפל בצמוד.",
               "לשכוח שמוציאים $\\sqrt x$ גם מהמכנה $\\sqrt{x+1}$."],
@@ -474,7 +477,7 @@ add(5, "א",
             "$\\frac{\\sqrt{2x-1}+\\sqrt{2x-3}}{2\\sqrt{x+1}}$ (נבדק נומרית ב-sympy מול הביטוי המקורי ב-$x=3,10,50$)."),
         num("מהו ערך הגבול? (עשרוני)", sp.sqrt(2), "$\\frac{2\\sqrt2}{2}=\\sqrt2\\approx1.4142$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: partial fractions =====
 g5 = (2*x**2 - x + 1)/((x - 1)*(x**2 + 1))
@@ -490,7 +493,7 @@ add(5, "ב",
                ("השוואת מקדמים: $A+B=2$, $-B+C=-1$, $A-C=1$", 3),
                ("הפתרון $A=1$, $B=1$, $C=0$", 2),
                ("אינטגרציה: $\\ln|x-1|+\\frac12\\ln\\left(x^2+1\\right)+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכתוב מונה קבוע $\\frac{B}{x^2+1}$ במקום מונה לינארי $Bx+C$.",
               "לשכוח את הגורם $\\frac12$ באינטגרל $\\int\\frac{x}{x^2+1}dx=\\frac12\\ln\\left(x^2+1\\right)$.",
               "לכתוב $\\ln(x-1)$ בלי ערך מוחלט כשהתחום כולל גם $x<1$."],
@@ -501,7 +504,7 @@ add(5, "ב",
         chx("מהו האינטגרל? (עבור $x>1$, בלי הקבוע)", F5, F5w, lambda e: same(sp.diff(e, x), g5),
             "$\\int\\left(\\frac{1}{x-1}+\\frac{x}{x^2+1}\\right)dx=\\ln(x-1)+\\frac12\\ln\\left(x^2+1\\right)$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: volume about the y-axis =====
 V6 = sp.integrate(2*sp.pi*x*(1 - (sp.exp(x) - 1)), (x, 0, sp.log(2)))
@@ -520,7 +523,7 @@ add(6, "א",
                ("הצבת נפח בשיטת הקונכיות או כהפרש גליל פחות קונכיות", 4),
                ("אינטגרציה בחלקים של $\\int xe^xdx$", 2),
                ("הערך $V=2\\pi(1-\\ln2)^2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הגורם $x$ (רדיוס הקונכייה) באינטגרנד.",
               "לקחת גובה קונכייה $e^x-1$ במקום $1-\\left(e^x-1\\right)$: התחום נמצא בין העקומה לישר $y=1$.",
               "לחשב את הנפח של הגליל $\\pi(\\ln2)^2$ בלבד, בלי להחסיר את מה שמתחת לעקומה."],
@@ -531,7 +534,7 @@ add(6, "א",
         num("מהו $\\int_0^{\\ln2}xe^x\\,dx$? (עשרוני)", xe6, "$\\left(xe^x-e^x\\right)\\Big|_0^{\\ln2}=2\\ln2-2+1=2\\ln2-1\\approx0.3863$ (sympy)."),
         num("מהו הנפח? (עשרוני)", V6, "$V=2\\pi(1-\\ln2)^2\\approx0.5916$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area between y=x, y=x/2, y=1/x =====
 S6 = sp.integrate(x - x/2, (x, 0, 1)) + sp.integrate(1/x - x/2, (x, 1, sp.sqrt(2)))
@@ -545,7 +548,7 @@ add(6, "ב",
                ("פיצול התחום ב-$x=1$ וקביעת הגבול העליון בכל קטע", 2),
                ("חישוב שני האינטגרלים: $\\frac14$ ו-$\\ln\\sqrt2-\\frac14$", 3),
                ("הערך $S=\\frac12\\ln2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לא לפצל את התחום: הגבול העליון משתנה מ-$y=x$ ל-$y=\\frac1x$ ב-$x=1$.",
               "להשתמש בגבול העליון $x=2$ בטעות: ההיפרבולה פוגשת את $y=\\frac x2$ ב-$x=\\sqrt2$.",
               "לשכוח ש-$\\int\\frac{dx}{x}=\\ln x$ ו-$\\ln\\sqrt2=\\frac12\\ln2$."],
@@ -555,7 +558,7 @@ add(6, "ב",
         num("מהו $\\int_0^1\\left(x-\\frac x2\\right)dx$? (עשרוני)", R(1, 4), "$\\frac14x^2\\Big|_0^1=\\frac14$."),
         num("מהו השטח הכלוא? (עשרוני)", S6, "$\\frac14+\\left(\\ln\\sqrt2-\\frac12+\\frac14\\right)=\\frac12\\ln2\\approx0.3466$ (sympy).", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

@@ -46,7 +46,7 @@ $$x_1=\frac12,\quad x_2=\frac32$$
 $$y_{max}=y(0.5)=2,\quad y_{min}=y(1.5)=10$$
 **תחומי קמירות וקעירות, נקודות פיתול:**
 $$y''=\frac{2}{(x-1)^3}$$
-סימני נגזרת שנייה: שלילית ב-$x<1$ (קעורה), חיובית ב-$x>1$ (קמורה). אין נקודת פיתול.
+סימני נגזרת שנייה: שלילית ב-$x<1$ (קעורה, $\cap$), חיובית ב-$x>1$ (קמורה, $\cup$). אין נקודת פיתול.
 נקודות חיתוך עם צירים: $(0,1)$, $\left(\frac{1+\sqrt5}{4},0\right)$, $\left(\frac{1-\sqrt5}{4},0\right)$.
 ![שרטוט הגרף של y = (4x² − 2x − 1)/(x − 1) עם האסימפטוטה האנכית x = 1 והאסימפטוטה המשופעת y = 4x + 2](images/exams/17A-A-Q1-graph.png)
 """
@@ -192,12 +192,13 @@ _rot = [0]
 x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
+SYMNAMES = {}  # display names for scratch symbols (set where they are defined)
 TOPSRC = {}
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -272,7 +273,7 @@ add(1,
                ("ערכי הקיצון: מקסימום מקומי $2$ ומינימום מקומי $10$", 3),
                ("$y''=\\frac{2}{(x-1)^3}$: קעירות עבור $x<1$, קמירות עבור $x>1$, ללא נקודות פיתול", 3),
                ("חיתוכים עם הצירים ושרטוט", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להתייחס ל-$x=1$ כאל נקודת קיצון או חלק מתחום העליה והירידה, למרות שהיא מחוץ לתחום ההגדרה.",
               "לחשב את האסימפטוטה המשופעת בלי הפרמטר החופשי: הוא $\\lim\\left(f(x)-4x\\right)=2$ ולא $0$.",
               "לטעון לנקודת פיתול ב-$x=1$: $y''$ אמנם משנה שם סימן, אבל $x=1$ אינה בתחום ההגדרה."],
@@ -289,7 +290,7 @@ add(1,
            ["$y=4x$", "$y=4x-2$", "$y=4x+1$", "אין אסימפטוטה משופעת"],
            "$\\lim\\frac{y}{x}=4$ ו-$\\lim(y-4x)=\\lim\\frac{2x-1}{x-1}=2$ (אומת ב-sympy, ב-$+\\infty$ וב-$-\\infty$)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: a_{n+1} = a_n/3 + 3, a_1 = 1 =====
 seq = [R(1)]
@@ -313,7 +314,7 @@ add(2, "א",
                ("הוכחה באינדוקציה שהסדרה עולה: $a_{n+1}\\ge a_n$", 3),
                ("מסקנה: סדרה עולה וחסומה מתכנסת (ווירשטראס)", 1),
                ("מעבר לגבול במשוואת הנסיגה: $L=\\frac{L}{3}+3$ ו-$L=4.5$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחשב את הגבול מהמשוואה $L=\\frac{L}{3}+3$ בלי להוכיח קודם שהגבול קיים.",
               "להוכיח רק חסימות או רק מונוטוניות: שתיהן נדרשות כדי להפעיל את משפט ווירשטראס.",
               "בצעד האינדוקציה של המונוטוניות להניח את מה שצריך להוכיח במקום להניח $a_{n+1}\\ge a_n$ ולהסיק $a_{n+2}\\ge a_{n+1}$."],
@@ -328,13 +329,14 @@ add(2, "א",
         findbug("בהוכחת המונוטוניות שורה אחת שגויה. מצאו אותה.", MPb, 2,
                 "מהאי-שוויון $\\frac{a_{n+1}}{3}+3\\ge\\frac{a_n}{3}+3$ מקבלים $a_{n+2}\\ge a_{n+1}$ ולא $\\le$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: int dx/(cos^2 + 4cos^4) =====
 g2b = 1/(sp.cos(x)**2 + 4*sp.cos(x)**4)
 F2b = sp.tan(x) - 4/sp.sqrt(5)*sp.atan(sp.tan(x)/sp.sqrt(5))
 assert same(sp.diff(F2b, x), g2b)
 tt = sp.Symbol('tt', positive=True)
+SYMNAMES[tt] = "t"
 assert same(((1 + tt**2)/(5 + tt**2)), 1 - 4/(5 + tt**2))
 sub2b = (1/(1 + tt**2))/(1/(1 + tt**2) + 4/(1 + tt**2)**2)
 assert same(sub2b, (1 + tt**2)/(5 + tt**2))
@@ -346,7 +348,7 @@ add(2, "ב",
                ("העברה לאינטגרל רציונלי $\\int\\frac{1+t^2}{5+t^2}dt$", 3),
                ("פירוק $1-\\frac{4}{5+t^2}$ ואינטגרציה (פולינום ו-$\\arctan$)", 2),
                ("חזרה למשתנה המקורי ותשובה סופית עם $+c$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הגורם $dx=\\frac{dt}{1+t^2}$ בהצבה.",
               "לשכוח לחלק ב-$\\sqrt5$ בתוך ה-$\\arctan$, או לכתוב $\\frac{4}{5}$ במקום $\\frac{4}{\\sqrt5}$ כמקדם.",
               "לא לפרק את המנה: $\\frac{1+t^2}{5+t^2}$ מדרגה שווה ויש לפרק לפני האינטגרציה."],
@@ -360,7 +362,7 @@ add(2, "ב",
         chx("מהו האינטגרל? (בלי הקבוע)", F2b, F2w, lambda e: same(sp.diff(e, x), g2b),
             "$\\int\\left(1-\\frac{4}{5+t^2}\\right)dt=t-\\frac{4}{\\sqrt5}\\arctan\\frac{t}{\\sqrt5}$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (cos x)^(1/(x sin x)) =====
 lim3a = sp.limit(sp.log(sp.cos(x))/(x*sp.sin(x)), x, 0)
@@ -372,7 +374,7 @@ add(3, "א",
                ("זיהוי $\\frac{0}{0}$ והפעלת לופיטל נכונה", 3),
                ("פישוט וחישוב $\\lim\\ln p=-\\frac12$", 2),
                ("חזרה לגבול המקורי $e^{-1/2}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון שהגבול הוא $1$ בגלל $\\cos x\\to1$. הצורה $1^{\\infty}$ אינה מסוימת.",
               "לשכוח להעלות את הגבול של $\\ln p$ בחזקת $e$ בסוף.",
               "טעות בנגזרת המכנה: $(x\\sin x)'=\\sin x+x\\cos x$ (כלל מכפלה)."],
@@ -385,7 +387,7 @@ add(3, "א",
         num("מהו הגבול המבוקש $\\lim_{x\\to0}(\\cos x)^{\\frac{1}{x\\sin x}}$? (עשרוני)", sp.exp(R(-1, 2)),
             "$p=e^{\\ln p}\\to e^{-1/2}\\approx0.6065$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: differential of cos(pi e^x / 6) =====
 y3 = sp.cos(sp.pi*sp.exp(x)/6)
@@ -399,7 +401,7 @@ add(3, "ב",
                ("חישוב $y(0)=\\frac{\\sqrt3}{2}$", 2),
                ("חישוב הנגזרת $y'(0)=-\\frac{\\pi}{12}$ (כלל שרשרת)", 3),
                ("הצבה בנוסחת הדיפרנציאל וערך מקורב $\\approx0.84$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את גורם השרשרת $\\frac{\\pi}{6}e^x$ בגזירה.",
               "לחשב $\\Delta y$ בלבד ולשכוח להוסיף את $y(x_0)$.",
               "לשכוח את סימן המינוס בנגזרת הקוסינוס."],
@@ -408,7 +410,7 @@ add(3, "ב",
         num("מהו $y'(0)$? (עשרוני)", y3p.subs(x, 0), "$y'(x)=-\\frac{\\pi}{6}e^x\\sin\\frac{\\pi e^x}{6}$ ולכן $y'(0)=-\\frac{\\pi}{6}\\cdot\\frac12=-\\frac{\\pi}{12}\\approx-0.2618$."),
         num("מהו הערך המקורב $y(0.1)\\approx y(0)+y'(0)\\Delta x$? (עשרוני)", approx3, "$0.8660-0.02618\\approx0.8398$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: continuity with parameter a =====
 def g4(av, xv):
@@ -424,7 +426,7 @@ add(4, "א",
                ("צמצום $x-a$ וחישוב הגבול $\\frac{1}{4a\\sqrt a}$", 3),
                ("דרישת רציפות: הגבול שווה ל-$\\sqrt a$", 2),
                ("פתרון המשוואה: $a=\\frac12$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להפעיל הצבה ישירה ולהישאר עם $\\frac00$ בלי לכפול בצמוד.",
               "לשכוח שיש לפרק גם את המכנה: $x^2-a^2=(x-a)(x+a)$.",
               "לבדוק רציפות רק לפי קיום הגבול, בלי להשוות אותו לערך $f(a)=\\sqrt a$."],
@@ -438,7 +440,7 @@ add(4, "א",
             "אחרי הצמצום $\\frac{1}{(x+a)\\left(\\sqrt{2x-a}+\\sqrt x\\right)}\\to\\frac{1}{2a\\cdot2\\sqrt a}=\\frac{1}{4a\\sqrt a}$ (נבדק ב-sympy ל-$a=1,2,5$)."),
         num("מהו הערך של $a$ שעבורו הפונקציה רציפה? (עשרוני)", R(1, 2), "$\\frac{1}{4a\\sqrt a}=\\sqrt a$ נותן $4a^2=1$ ולכן $a=0.5$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: int_0^1 e^x sin(pi x) =====
 Q4 = sp.integrate(sp.exp(x)*sp.sin(sp.pi*x), (x, 0, 1))
@@ -455,7 +457,7 @@ add(4, "ב",
                ("אינטגרציה בחלקים שנייה ($u=\\cos\\pi x$) וחזרה לאינטגרל המקורי", 3),
                ("משוואה ב-$Q$: $Q=\\pi(e+1)-\\pi^2Q$", 2),
                ("פתרון: $Q=\\frac{\\pi(e+1)}{1+\\pi^2}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["באינטגרציה בחלקים השנייה להחליף את התפקידים ($u=e^x$) ולחזור בדיוק לאינטגרל המקורי בלי להתקדם.",
               "טעות סימן ב-$\\left(e^x\\cos\\pi x\\right)\\Big|_0^1=-e-1$.",
               "לשכוח להעביר את $\\pi^2Q$ לאגף השני ולחלק ב-$1+\\pi^2$."],
@@ -467,7 +469,7 @@ add(4, "ב",
            "$Q=0-\\pi\\left\\{(-e-1)+\\pi Q\\right\\}=\\pi(e+1)-\\pi^2Q$. הערך המספרי של $Q$ מקיים את המשוואה הזו ולא את האחרות (נבדק ב-sympy)."),
         num("מהו הערך של $Q$? (עשרוני)", Q4, "$Q=\\frac{\\pi(e+1)}{1+\\pi^2}\\approx1.0747$ (בדיקה נומרית ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: absolute extrema of x*((3x-12)^2)^(1/3) on [0,6] =====
 y5 = x*((3*x - 12)**2)**R(1, 3)
@@ -484,7 +486,7 @@ add(5, "א",
                ("נקודות חשודות: $x=2.4$ ($y'=0$) ו-$x=4$ (הנגזרת לא מוגדרת והפונקציה מוגדרת)", 3),
                ("ערכי הפונקציה בנקודות החשודות ובקצוות הקטע", 2),
                ("מקסימום מוחלט $6\\sqrt[3]{36}\\approx19.81$ ומינימום מוחלט $0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לא לכלול את $x=4$ כנקודה חשודה: שם הנגזרת לא מוגדרת אבל הפונקציה כן.",
               "לשכוח לבדוק את קצוות הקטע $x=0$ ו-$x=6$.",
               "להסיק שהמינימום המוחלט הוא ב-$x=2.4$, שם יש מקסימום מקומי, ולא בנקודות שבהן הפונקציה מתאפסת."],
@@ -497,7 +499,7 @@ add(5, "א",
         num("מהו המקסימום המוחלט של הפונקציה בקטע? (עשרוני)", vals5[6], "הערך בקצה $x=6$: $6\\sqrt[3]{36}\\approx19.81$, הגדול מבין $0,\\,6.829,\\,0,\\,19.81$."),
         num("מהו המינימום המוחלט של הפונקציה בקטע?", 0, "$y(0)=y(4)=0$ והערכים האחרים חיוביים."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: rational integral =====
 g5 = (x**3 + 3*x**2 + 5)/(x*(x**2 + 2*x + 5))
@@ -515,7 +517,7 @@ add(5, "ב",
                ("פירוק לשברים חלקיים $\\frac{A}{x}+\\frac{Bx+C}{x^2+2x+5}$", 2),
                ("חישוב המקדמים $A=1$, $B=0$, $C=-7$", 3),
                ("השלמה לריבוע, $\\arctan$ ותשובה סופית עם $+c$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה שווה לדרגת המכנה.",
               "ברכיב $\\frac{7}{(x+1)^2+4}$ לשכוח ש-$\\int\\frac{du}{u^2+4}=\\frac12\\arctan\\frac u2$, ולכן המקדם הסופי $\\frac72$ ולא $7$."],
     steps=[
@@ -528,7 +530,7 @@ add(5, "ב",
         chx("מהו האינטגרל? (עבור $x>0$, בלי הקבוע)", F5, F5w, lambda e: same(sp.diff(e, x), g5),
             "$\\int\\left(1+\\frac1x-\\frac{7}{(x+1)^2+4}\\right)dx=x+\\ln x-\\frac72\\arctan\\frac{x+1}{2}$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: Taylor of sqrt(x) at 1 =====
 fs = sp.sqrt(x)
@@ -545,7 +547,7 @@ add(6, "א",
                ("פולינום טיילור $P_2(x)=1+\\frac12(x-1)-\\frac18(x-1)^2$", 2),
                ("הערך המקורב $P_2(1.05)=1.0246875$", 2),
                ("שארית לגרנז' עם $f'''$ וחסם $\\frac{0.05^3}{16}<10^{-5}$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחלק ב-$2$ במקום ב-$2!$ במקדם הריבועי: המקדם הוא $\\frac{f''(1)}{2}=-\\frac18$.",
               "לחשב את החסם בעזרת $f''$ במקום $f'''$: שארית של פולינום מסדר שני דורשת את הנגזרת השלישית.",
               "להעריך את $f'''(c)$ בנקודה כלשהי במקום לחסום אותה מלמעלה בקטע ($c\\ge1$ נותן $f'''(c)\\le\\frac38$)."],
@@ -557,7 +559,7 @@ add(6, "א",
             [R(5, 100)**3/6, R(5, 100)**3/8, R(5, 100)**2/16], lambda e: e == rem_bound,
             "$\\frac{f'''(c)}{3!}(0.05)^3\\le\\frac{3/8}{6}(0.05)^3=\\frac{0.05^3}{16}\\approx7.81\\cdot10^{-6}$. שאר האפשרויות מתקבלות ממקדם או מחזקה שגויים."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area between y=x^3 and y=sqrt(32x) =====
 S6 = sp.integrate(sp.sqrt(32*x) - x**3, (x, 0, 2))
@@ -569,7 +571,7 @@ add(6, "ב",
                ("קביעת הפונקציה העליונה בקטע ($\\sqrt{32x}$) והצבת האינטגרל", 3),
                ("מציאת הפונקציה הקדומה $\\sqrt{32}\\cdot\\frac{2\\sqrt{x^3}}{3}-\\frac{x^4}{4}$", 3),
                ("הצבת הגבולות והשטח $\\frac{20}{3}\\approx6.67$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להחסיר בסדר הפוך (התחתונה פחות העליונה) ולקבל שטח שלילי.",
               "לשכוח את נקודת החיתוך $x=0$, או לטעות בצמצום $x^6=32x$ ל-$x^5=32$."],
     steps=[
@@ -579,7 +581,7 @@ add(6, "ב",
         num("מהו $\\int_0^2\\sqrt{32x}\\,dx$? (עשרוני)", R(32, 3), "$\\sqrt{32}\\cdot\\frac{2}{3}\\cdot2^{3/2}=\\frac{32}{3}\\approx10.667$ (sympy)."),
         num("מהו השטח הכלוא? (עשרוני)", S6, "$\\frac{32}{3}-\\frac{2^4}{4}=\\frac{32}{3}-4=\\frac{20}{3}\\approx6.667$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

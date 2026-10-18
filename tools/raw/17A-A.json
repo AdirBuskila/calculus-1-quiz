@@ -12,7 +12,7 @@
    "kind": "computation",
    "topic": "function_investigation",
    "question": "חקרו את הפונקציה הבאה $y=\\frac{4x^2-2x-1}{x-1}$ על פי הסעיפים הבאים: תחום הגדרה, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
-   "solution": "**תחום הגדרה:** $x\\in(-\\infty,1)\\cup(1,\\infty)$.\n**אסימפטוטה אנכית:** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^+}=+\\infty$$\n$$\\lim_{x\\to1^-}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^-}=-\\infty$$\n**אסימפטוטה משופעת:**\n$$a_\\pm=\\lim_{x\\to\\pm\\infty}\\frac{4x^2-2x-1}{x(x-1)}=4$$\n$$b_\\pm=\\lim_{x\\to\\pm\\infty}\\left(\\frac{4x^2-2x-1}{x-1}-4x\\right)=\\lim_{x\\to\\pm\\infty}\\frac{2x-1}{x-1}=2$$\n$$y=4x+2$$\n**תחומי עלייה וירידה, נקודות קיצון:**\n$$y'=\\frac{(8x-2)(x-1)-\\left(4x^2-2x-1\\right)}{(x-1)^2}=\\frac{4x^2-8x+3}{(x-1)^2}=0$$\n$$x_1=\\frac12,\\quad x_2=\\frac32$$\nסימני נגזרת: חיובית ב-$x<\\frac12$ (עולה), שלילית ב-$\\frac12<x<1$ וב-$1<x<\\frac32$ (יורדת), חיובית ב-$x>\\frac32$ (עולה).\n$$y_{max}=y(0.5)=2,\\quad y_{min}=y(1.5)=10$$\n**תחומי קמירות וקעירות, נקודות פיתול:**\n$$y''=\\frac{2}{(x-1)^3}$$\nסימני נגזרת שנייה: שלילית ב-$x<1$ (קעורה), חיובית ב-$x>1$ (קמורה). אין נקודת פיתול.\nנקודות חיתוך עם צירים: $(0,1)$, $\\left(\\frac{1+\\sqrt5}{4},0\\right)$, $\\left(\\frac{1-\\sqrt5}{4},0\\right)$.\n![שרטוט הגרף של y = (4x² − 2x − 1)/(x − 1) עם האסימפטוטה האנכית x = 1 והאסימפטוטה המשופעת y = 4x + 2](images/exams/17A-A-Q1-graph.png)",
+   "solution": "**תחום הגדרה:** $x\\in(-\\infty,1)\\cup(1,\\infty)$.\n**אסימפטוטה אנכית:** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^+}=+\\infty$$\n$$\\lim_{x\\to1^-}\\frac{4x^2-2x-1}{x-1}=\\frac1{0^-}=-\\infty$$\n**אסימפטוטה משופעת:**\n$$a_\\pm=\\lim_{x\\to\\pm\\infty}\\frac{4x^2-2x-1}{x(x-1)}=4$$\n$$b_\\pm=\\lim_{x\\to\\pm\\infty}\\left(\\frac{4x^2-2x-1}{x-1}-4x\\right)=\\lim_{x\\to\\pm\\infty}\\frac{2x-1}{x-1}=2$$\n$$y=4x+2$$\n**תחומי עלייה וירידה, נקודות קיצון:**\n$$y'=\\frac{(8x-2)(x-1)-\\left(4x^2-2x-1\\right)}{(x-1)^2}=\\frac{4x^2-8x+3}{(x-1)^2}=0$$\n$$x_1=\\frac12,\\quad x_2=\\frac32$$\nסימני נגזרת: חיובית ב-$x<\\frac12$ (עולה), שלילית ב-$\\frac12<x<1$ וב-$1<x<\\frac32$ (יורדת), חיובית ב-$x>\\frac32$ (עולה).\n$$y_{max}=y(0.5)=2,\\quad y_{min}=y(1.5)=10$$\n**תחומי קמירות וקעירות, נקודות פיתול:**\n$$y''=\\frac{2}{(x-1)^3}$$\nסימני נגזרת שנייה: שלילית ב-$x<1$ (קעורה, $\\cap$), חיובית ב-$x>1$ (קמורה, $\\cup$). אין נקודת פיתול.\nנקודות חיתוך עם צירים: $(0,1)$, $\\left(\\frac{1+\\sqrt5}{4},0\\right)$, $\\left(\\frac{1-\\sqrt5}{4},0\\right)$.\n![שרטוט הגרף של y = (4x² − 2x − 1)/(x − 1) עם האסימפטוטה האנכית x = 1 והאסימפטוטה המשופעת y = 4x + 2](images/exams/17A-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -42,7 +42,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתייחס ל-$x=1$ כאל נקודת קיצון או חלק מתחום העליה והירידה, למרות שהיא מחוץ לתחום ההגדרה.",
     "לחשב את האסימפטוטה המשופעת בלי הפרמטר החופשי: הוא $\\lim\\left(f(x)-4x\\right)=2$ ולא $0$.",
@@ -132,7 +132,7 @@
      "explain": "$\\lim\\frac{y}{x}=4$ ו-$\\lim(y-4x)=\\lim\\frac{2x-1}{x-1}=2$ (אומת ב-sympy, ב-$+\\infty$ וב-$-\\infty$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -163,7 +163,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול מהמשוואה $L=\\frac{L}{3}+3$ בלי להוכיח קודם שהגבול קיים.",
     "להוכיח רק חסימות או רק מונוטוניות: שתיהן נדרשות כדי להפעיל את משפט ווירשטראס.",
@@ -235,7 +235,7 @@
      "explain": "מהאי-שוויון $\\frac{a_{n+1}}{3}+3\\ge\\frac{a_n}{3}+3$ מקבלים $a_{n+2}\\ge a_{n+1}$ ולא $\\le$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -266,7 +266,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $dx=\\frac{dt}{1+t^2}$ בהצבה.",
     "לשכוח לחלק ב-$\\sqrt5$ בתוך ה-$\\arctan$, או לכתוב $\\frac{4}{5}$ במקום $\\frac{4}{\\sqrt5}$ כמקדם.",
@@ -308,22 +308,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{tt^{2} + 1}{tt^{2} + 5}$"
+       "value": "$\\frac{t^{2} + 1}{t^{2} + 5}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$\\frac{tt^{2} + 1}{4 tt^{2} + 1}$"
+       "value": "$\\frac{t^{2} + 1}{4 t^{2} + 1}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{1}{tt^{2} + 5}$"
+       "value": "$\\frac{1}{t^{2} + 5}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{tt^{2} + 1}{tt^{2} + 4}$"
+       "value": "$\\frac{t^{2} + 1}{t^{2} + 4}$"
       }
      ],
      "correctId": "a",
@@ -358,7 +358,7 @@
      "explain": "$\\int\\left(1-\\frac{4}{5+t^2}\\right)dt=t-\\frac{4}{\\sqrt5}\\arctan\\frac{t}{\\sqrt5}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -389,7 +389,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהגבול הוא $1$ בגלל $\\cos x\\to1$. הצורה $1^{\\infty}$ אינה מסוימת.",
     "לשכוח להעלות את הגבול של $\\ln p$ בחזקת $e$ בסוף.",
@@ -439,7 +439,7 @@
      "explain": "$p=e^{\\ln p}\\to e^{-1/2}\\approx0.6065$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -470,7 +470,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את גורם השרשרת $\\frac{\\pi}{6}e^x$ בגזירה.",
     "לחשב $\\Delta y$ בלבד ולשכוח להוסיף את $y(x_0)$.",
@@ -499,7 +499,7 @@
      "explain": "$0.8660-0.02618\\approx0.8398$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -530,7 +530,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל הצבה ישירה ולהישאר עם $\\frac00$ בלי לכפול בצמוד.",
     "לשכוח שיש לפרק גם את המכנה: $x^2-a^2=(x-a)(x+a)$.",
@@ -601,7 +601,7 @@
      "explain": "$\\frac{1}{4a\\sqrt a}=\\sqrt a$ נותן $4a^2=1$ ולכן $a=0.5$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -632,7 +632,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "באינטגרציה בחלקים השנייה להחליף את התפקידים ($u=e^x$) ולחזור בדיוק לאינטגרל המקורי בלי להתקדם.",
     "טעות סימן ב-$\\left(e^x\\cos\\pi x\\right)\\Big|_0^1=-e-1$.",
@@ -689,7 +689,7 @@
      "explain": "$Q=\\frac{\\pi(e+1)}{1+\\pi^2}\\approx1.0747$ (בדיקה נומרית ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -720,7 +720,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא לכלול את $x=4$ כנקודה חשודה: שם הנגזרת לא מוגדרת אבל הפונקציה כן.",
     "לשכוח לבדוק את קצוות הקטע $x=0$ ו-$x=6$.",
@@ -784,7 +784,7 @@
      "explain": "$y(0)=y(4)=0$ והערכים האחרים חיוביים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -815,7 +815,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה שווה לדרגת המכנה.",
     "ברכיב $\\frac{7}{(x+1)^2+4}$ לשכוח ש-$\\int\\frac{du}{u^2+4}=\\frac12\\arctan\\frac u2$, ולכן המקדם הסופי $\\frac72$ ולא $7$."
@@ -892,7 +892,7 @@
      "explain": "$\\int\\left(1+\\frac1x-\\frac{7}{(x+1)^2+4}\\right)dx=x+\\ln x-\\frac72\\arctan\\frac{x+1}{2}$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -923,7 +923,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחלק ב-$2$ במקום ב-$2!$ במקדם הריבועי: המקדם הוא $\\frac{f''(1)}{2}=-\\frac18$.",
     "לחשב את החסם בעזרת $f''$ במקום $f'''$: שארית של פולינום מסדר שני דורשת את הנגזרת השלישית.",
@@ -973,7 +973,7 @@
      "explain": "$\\frac{f'''(c)}{3!}(0.05)^3\\le\\frac{3/8}{6}(0.05)^3=\\frac{0.05^3}{16}\\approx7.81\\cdot10^{-6}$. שאר האפשרויות מתקבלות ממקדם או מחזקה שגויים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1004,7 +1004,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להחסיר בסדר הפוך (התחתונה פחות העליונה) ולקבל שטח שלילי.",
     "לשכוח את נקודת החיתוך $x=0$, או לטעות בצמצום $x^6=32x$ ל-$x^5=32$."
@@ -1060,7 +1060,7 @@
      "explain": "$\\frac{32}{3}-\\frac{2^4}{4}=\\frac{32}{3}-4=\\frac{20}{3}\\approx6.667$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

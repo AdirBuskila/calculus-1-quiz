@@ -575,7 +575,7 @@ add(6, "ב",
                ("גזירת המכנה לפי המשפט היסודי וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x$", 3),
                ("הפעלת לופיטל ופישוט ל-$\\frac{2}{\\cos\\left(x^4\\right)}$", 3),
                ("ערך הגבול $2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את גורם השרשרת $2x$ (נגזרת הגבול העליון $x^2$) בגזירת האינטגרל.",
               "להציב $t=x^2$ בתוך האינטגרנד במקום בגבול העליון בלבד: האינטגרנד הוא $t\\cos\\left(t^2\\right)$.",
               "להתבלבל עם הגבול שבעמוד הפתרון הרשמי (מונה $\\sin^2x$), שערכו $\\infty$ ואינו הגבול שהודפס."],
@@ -588,7 +588,7 @@ add(6, "ב",
             "משפט היסוד וכלל השרשרת: $x^2\\cos\\left(x^4\\right)\\cdot2x=2x^3\\cos\\left(x^4\\right)$ (אומת ב-sympy)."),
         num("מהו ערך הגבול?", 2, "לופיטל: $\\frac{4x^3}{2x^3\\cos\\left(x^4\\right)}=\\frac{2}{\\cos\\left(x^4\\right)}\\to2$ (sympy; גם דרך $\\frac12\\sin\\left(x^4\\right)$)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 exam = {
     "examCode": "24A-B",

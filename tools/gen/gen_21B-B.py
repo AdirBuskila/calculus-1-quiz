@@ -60,10 +60,10 @@ SOL1 = r"""
 SOL3A = r"""
 **הפתרון הרשמי עם תיקון:** בפתרון הרשמי נכתב שהשורש נמצא בקטע $(-1,0)$ ושהערך $f(1)\approx-3.99$. אך $f(0)=5>0$, ו-$f(-1)\approx4.04>0$ (אין שינוי סימן בקטע $[-1,0]$), ואילו $f(1)\approx-3.96<0$. לכן שינוי הסימן הוא בקטע $(0,1)$ והשורש $c$ נמצא ב-$(0,1)$. להלן הפתרון הרשמי עם התיקון הזה.
 $f(x)=2\sin^2(3x)+5\sqrt[3]{1-x^2}-4x^5$
-Continues function for all $x$.
+הפונקציה $f$ רציפה לכל $x$.
 $f(0)=5,\quad f(1)=2\sin^2(3)-4\approx-3.96<0$
-Therefore there exist $c\in(0,1)$ such that $f(c)=0$
-$c$ is a root of $f(x)$.
+לכן, לפי משפט ערך הביניים, קיים $c\in(0,1)$ כך ש-$f(c)=0$
+$c$ הוא שורש של $f(x)$.
 """
 
 SOL3B = r"""
@@ -174,12 +174,13 @@ _rot = [0]
 x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
+SYMNAMES = {}  # display names for scratch symbols (set where they are defined)
 TOPSRC = {}
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -256,7 +257,7 @@ add(1,
                ("$y''=\\frac{4x+10}{(x+1)^4}$ ותחומי קמירות וקעירות", 4),
                ("נקודת פיתול $\\left(-\\frac52,\\frac19\\right)$", 2),
                ("שרטוט הגרף בהתאם לכל הנתונים", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכלול את $x=-1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
               "לבלבל בין תחומי העליה והירידה: $y$ עולה ב-$(-2,-1)$ ויורדת ב-$(-\\infty,-2)$ וב-$(-1,\\infty)$.",
               "לטעות בערך בנקודת הפיתול: $y\\left(-\\frac52\\right)=\\left(\\frac{-1/2}{-3/2}\\right)^2=\\frac19$."],
@@ -273,7 +274,7 @@ add(1,
            ["אנכית $x=-1$ בלבד", "אנכית $x=-1$ ומשופעת $y=x$", "אנכית $x=-2$ ואופקית $y=1$"],
            "$\\lim_{x\\to-1}y=+\\infty$ משני הצדדים ו-$\\lim_{x\\to\\pm\\infty}y=1$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: a root of 2 sin^2(3x) + 5 cbrt(1-x^2) - 4x^5 =====
 f3 = lambda v: 2*sp.sin(3*v)**2 + 5*sp.real_root(1 - v**2, 3) - 4*v**5
@@ -298,7 +299,7 @@ add(3, "א",
                ("חישוב $f(0)=5>0$", 2),
                ("חישוב $f(1)=2\\sin^23-4<0$", 3),
                ("הפעלת משפט ערך הביניים והמסקנה שקיים שורש ממשי", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לבחור קטע שבו אין החלפת סימן: $f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן הקטע $[-1,0]$ אינו מתאים.",
               "לא לנמק רציפות לפני הפעלת משפט ערך הביניים (השורש $\\sqrt[3]{1-x^2}$ רציף לכל $x$).",
               "לחשב את $f(1)$ בלי לשים לב ש-$\\sin^23<1$ ולכן $2\\sin^23-4<0$."],
@@ -311,7 +312,7 @@ add(3, "א",
         findbug("בנימוק שורה אחת שגויה. מצאו אותה.", L3b, 1,
                 "$f(1)=2\\sin^23-4\\approx-3.96<0$, לא חיובי; בלי הסימן השלילי אין החלפת סימן."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int dx / (x (ln x - 1)(ln x - 3)) =====
 g3b = 1/(x*(sp.log(x) - 1)*(sp.log(x) - 3))
@@ -319,6 +320,7 @@ F3b = sp.log(sp.Abs((sp.log(x) - 3)/(sp.log(x) - 1)))/2
 Fpos = sp.log((sp.log(x) - 3)/(sp.log(x) - 1))/2
 assert same(sp.diff(Fpos, x), g3b)
 tq = sp.Symbol('tq', real=True)
+SYMNAMES[tq] = "t"
 pf_ok = lambda e: same(e, 1/((tq - 1)*(tq - 3)))
 pf_good = R(1, 2)/(tq - 3) - R(1, 2)/(tq - 1)
 assert pf_ok(pf_good)
@@ -329,7 +331,7 @@ add(3, "ב",
                ("פירוק לשברים חלקיים $\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$", 3),
                ("אינטגרציה לוגריתמית", 2),
                ("חזרה ל-$x$: $0.5\\ln\\left|\\frac{\\ln x-3}{\\ln x-1}\\right|+c$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את $\\frac{dx}{x}$ ולא להבחין שהוא $dt$.",
               "טעות בסימן הפירוק: $\\frac{1}{(t-1)(t-3)}=\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$ ולא עם הסימנים ההפוכים.",
               "לשכוח ערכים מוחלטים בתוך הלוגריתם."],
@@ -342,7 +344,7 @@ add(3, "ב",
         chx("מהו האינטגרל? (עבור התחום $\\ln x>3$, בלי הקבוע)", Fpos, F3w, lambda e: same(sp.diff(e, x), g3b),
             "$\\frac12\\ln|t-3|-\\frac12\\ln|t-1|=\\frac12\\ln\\left|\\frac{t-3}{t-1}\\right|$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: lim ln cos x / ln cos 4x =====
 assert sp.limit(sp.log(sp.cos(x))/sp.log(sp.cos(4*x)), x, 0) == R(1, 16)
@@ -355,7 +357,7 @@ add(4, "א",
                ("נגזרות $\\left(\\ln\\cos x\\right)'=-\\tan x$ ו-$\\left(\\ln\\cos4x\\right)'=-4\\tan4x$", 2),
                ("שוב $\\frac00$ והפעלת לופיטל שנייה על $\\frac{\\tan x}{\\tan4x}$", 3),
                ("ערך הגבול $\\frac1{16}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את גורם השרשרת $4$ בנגזרת של $\\ln\\cos4x$.",
               "לעצור אחרי לופיטל אחד: $\\frac{\\tan x}{\\tan4x}$ עדיין $\\frac00$.",
               "לשכוח את הגורם $\\frac14$ שמוצא החוצה: הגבול הוא $\\frac14\\cdot\\frac14$."],
@@ -366,7 +368,7 @@ add(4, "א",
         num("מהו $\\lim_{x\\to0}\\frac{\\tan x}{\\tan4x}$? (עשרוני)", R(1, 4), "לופיטל: $\\frac{1/\\cos^2x}{4/\\cos^24x}\\to\\frac14$ (sympy)."),
         num("מהו ערך הגבול המבוקש? (עשרוני)", R(1, 16), "$\\frac14\\cdot\\frac14=\\frac1{16}=0.0625$ (sympy).", tol=0.0005),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: shells about x = 4 =====
 V1 = 2*sp.pi*sp.integrate((4 - x)*x**2, (x, 0, 2))
@@ -377,6 +379,7 @@ assert V1 == 2*sp.pi*R(20, 3) and V2 == R(32, 3)*sp.pi and V4 == 24*sp.pi
 assert sp.solve(sp.Eq(-2*x + 8, 0), x) == [4]
 # cross-check by washers in y (inner radius 4-sqrt(y), outer radius 4-(8-y)/2 = y/2)
 yw = sp.Symbol('yw', positive=True)
+SYMNAMES[yw] = "y"
 Vwash = sp.pi*sp.integrate((4 - sp.sqrt(yw))**2 - (yw/2)**2, (yw, 0, 4))
 assert sp.simplify(Vwash - V4) == 0
 
@@ -386,7 +389,7 @@ add(4, "ב",
                ("חישוב $V_1=\\frac{40\\pi}{3}$ עבור $0\\le x\\le2$", 2),
                ("חישוב $V_2=\\frac{32\\pi}{3}$ עבור $2\\le x\\le4$", 2),
                ("סכום: $V=24\\pi$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לקחת רדיוס $x$ במקום $4-x$: הסיבוב הוא סביב הישר $X=4$ ולא סביב ציר ה-$y$.",
               "לשכוח לפצל לשני קטעים: הגבול העליון משתנה ב-$x=2$ מהפרבולה לישר.",
               "לשכוח את הגורם $2\\pi$ של הקונכייה."],
@@ -399,7 +402,7 @@ add(4, "ב",
         num("מהו $\\frac{V_2}{\\pi}$ עבור $V_2=2\\pi\\int_2^4(4-x)(-2x+8)dx$? (עשרוני)", R(32, 3), "$4\\int_2^4(4-x)^2dx=4\\cdot\\frac83=\\frac{32}{3}\\approx10.667$ (sympy)."),
         num("מהו נפח הגוף? (עשרוני)", V4, "$V=\\frac{40\\pi}{3}+\\frac{32\\pi}{3}=24\\pi\\approx75.398$ (sympy, ובדיקה בשיטת הדסקיות).", tol=0.01),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: extrema of ln(1+x^2) on [-1, sqrt(e-1)] =====
 f5 = sp.log(1 + x**2)
@@ -412,7 +415,7 @@ add(5, "א",
                ("ערכי הפונקציה: $f(0)=0$, $f(-1)=\\ln2$", 2),
                ("$f\\left(\\sqrt{e-1}\\right)=\\ln e=1$", 3),
                ("מסקנה: מקסימום $1$ ומינימום $0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לבדוק את שני הקצוות של הקטע.",
               "להסיק שהמקסימום הוא $\\ln2$ (הקצה השמאלי) בלי לחשב את הקצה הימני: $\\ln2\\approx0.693<1$.",
               "לחשב $f\\left(\\sqrt{e-1}\\right)=\\ln\\left(1+(e-1)\\right)=\\ln e=1$ בצורה שגויה."],
@@ -424,7 +427,7 @@ add(5, "א",
            ["מינימום $0$ ומקסימום $\\ln2$", "מינימום $\\ln2$ ומקסימום $1$", "מינימום $0$ ומקסימום $e$"],
            "הערכים הם $0,\\,0.693,\\,1$; הקטן ביותר $0$ והגדול ביותר $1$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: differentiability with parameters =====
 def diffable(av, bv, cv):
@@ -441,7 +444,7 @@ add(5, "ב",
                ("נגזרת ימנית $f'_+(0)=2b$ (עם $\\frac{\\sin2\\Delta x}{\\Delta x}\\to2$)", 3),
                ("נגזרת שמאלית $f'_-(0)=a$", 2),
                ("השוואה: $a=2b=c$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לבדוק רק את הנגזרות החד-צדדיות ולשכוח את דרישת הרציפות $a=c$.",
               "לשכוח את הגורם $2$ בגבול $\\lim\\frac{\\sin2\\Delta x}{\\Delta x}=2$.",
               "לטעות בנגזרת השמאלית: $\\lim\\frac{ae^{\\Delta x}-a}{\\Delta x}=a$."],
@@ -454,7 +457,7 @@ add(5, "ב",
            ["$a=b=c$", "$a=c$ בלבד", "$a=2b$ בלבד"],
            "דרושות רציפות ($a=c$) ושוויון נגזרות חד-צדדיות ($a=2b$). למשל $(a,b,c)=(1,1,1)$ רציפה אבל $f'_-=1\\neq2=f'_+$ (נבדק)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

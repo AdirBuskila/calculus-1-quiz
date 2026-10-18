@@ -243,3 +243,11 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Question: the solution equates slopes at the same x and never shows the tangent touches both curves at one point. A visible "הערה (השלמה)" line was added: with distinct abscissas p=1/q, q the tangent-equality gives q^2-1-2ln q=0, whose only root is q=1 (sympy/grid, tools/verify/22A-A/check.py). The answer is unchanged.
 - Needed: none.
 - Status: resolved
+
+
+### 18B-A Q2 - official bound 1<a_n<2 fails at n=1
+- Page: solution
+- Question: the solution proves 1<a_n<2 "for all n>=1" and says n=1 holds, but a_1=2. Intermediate slip: the induction and the monotonicity proof only need a_n>1, and the upper bound is never used. Shipped as 1<a_n<=2 (induction chain, monotonicity line and the n=1 remark adjusted), the final answer L=1 is unchanged.
+- Needed: none.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): intermediate slip, corrected without a student-facing label per the standing ruling.

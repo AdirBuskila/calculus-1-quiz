@@ -43,7 +43,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכלול את $x=-1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
     "לבלבל בין תחומי העליה והירידה: $y$ עולה ב-$(-2,-1)$ ויורדת ב-$(-\\infty,-2)$ וב-$(-1,\\infty)$.",
@@ -149,7 +149,7 @@
      "explain": "$\\lim_{x\\to-1}y=+\\infty$ משני הצדדים ו-$\\lim_{x\\to\\pm\\infty}y=1$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -161,7 +161,7 @@
    "kind": "proof",
    "topic": "continuity",
    "question": "הוכיחו שלמשוואה $2\\sin^2(3x)+5\\sqrt[3]{1-x^2}-4x^5=0$ קיים שורש ממשי.",
-   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נכתב שהשורש נמצא בקטע $(-1,0)$ ושהערך $f(1)\\approx-3.99$. אך $f(0)=5>0$, ו-$f(-1)\\approx4.04>0$ (אין שינוי סימן בקטע $[-1,0]$), ואילו $f(1)\\approx-3.96<0$. לכן שינוי הסימן הוא בקטע $(0,1)$ והשורש $c$ נמצא ב-$(0,1)$. להלן הפתרון הרשמי עם התיקון הזה.\n$f(x)=2\\sin^2(3x)+5\\sqrt[3]{1-x^2}-4x^5$\nContinues function for all $x$.\n$f(0)=5,\\quad f(1)=2\\sin^2(3)-4\\approx-3.96<0$\nTherefore there exist $c\\in(0,1)$ such that $f(c)=0$\n$c$ is a root of $f(x)$.",
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי נכתב שהשורש נמצא בקטע $(-1,0)$ ושהערך $f(1)\\approx-3.99$. אך $f(0)=5>0$, ו-$f(-1)\\approx4.04>0$ (אין שינוי סימן בקטע $[-1,0]$), ואילו $f(1)\\approx-3.96<0$. לכן שינוי הסימן הוא בקטע $(0,1)$ והשורש $c$ נמצא ב-$(0,1)$. להלן הפתרון הרשמי עם התיקון הזה.\n$f(x)=2\\sin^2(3x)+5\\sqrt[3]{1-x^2}-4x^5$\nהפונקציה $f$ רציפה לכל $x$.\n$f(0)=5,\\quad f(1)=2\\sin^2(3)-4\\approx-3.96<0$\nלכן, לפי משפט ערך הביניים, קיים $c\\in(0,1)$ כך ש-$f(c)=0$\n$c$ הוא שורש של $f(x)$.",
    "solutionSource": "solved",
    "official": false,
    "confidence": "high",
@@ -184,7 +184,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור קטע שבו אין החלפת סימן: $f(-1)\\approx4.04>0$ ו-$f(0)=5>0$, ולכן הקטע $[-1,0]$ אינו מתאים.",
     "לא לנמק רציפות לפני הפעלת משפט ערך הביניים (השורש $\\sqrt[3]{1-x^2}$ רציף לכל $x$).",
@@ -245,7 +245,7 @@
      "explain": "$f(1)=2\\sin^23-4\\approx-3.96<0$, לא חיובי; בלי הסימן השלילי אין החלפת סימן."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -275,7 +275,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $\\frac{dx}{x}$ ולא להבחין שהוא $dt$.",
     "טעות בסימן הפירוק: $\\frac{1}{(t-1)(t-3)}=\\frac{0.5}{t-3}-\\frac{0.5}{t-1}$ ולא עם הסימנים ההפוכים.",
@@ -317,22 +317,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{1}{2 \\left(tq - 1\\right)} - \\frac{1}{2 \\left(tq - 3\\right)}$"
+       "value": "$\\frac{1}{2 \\left(t - 1\\right)} - \\frac{1}{2 \\left(t - 3\\right)}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$- \\frac{1}{2 \\left(tq - 1\\right)} + \\frac{1}{2 \\left(tq - 3\\right)}$"
+       "value": "$- \\frac{1}{2 \\left(t - 1\\right)} + \\frac{1}{2 \\left(t - 3\\right)}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$- \\frac{1}{tq - 1} + \\frac{1}{tq - 3}$"
+       "value": "$- \\frac{1}{t - 1} + \\frac{1}{t - 3}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{1}{2 \\left(tq - 1\\right)} + \\frac{1}{2 \\left(tq - 3\\right)}$"
+       "value": "$\\frac{1}{2 \\left(t - 1\\right)} + \\frac{1}{2 \\left(t - 3\\right)}$"
       }
      ],
      "correctId": "b",
@@ -367,7 +367,7 @@
      "explain": "$\\frac12\\ln|t-3|-\\frac12\\ln|t-1|=\\frac12\\ln\\left|\\frac{t-3}{t-1}\\right|$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -397,7 +397,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את גורם השרשרת $4$ בנגזרת של $\\ln\\cos4x$.",
     "לעצור אחרי לופיטל אחד: $\\frac{\\tan x}{\\tan4x}$ עדיין $\\frac00$.",
@@ -447,7 +447,7 @@
      "explain": "$\\frac14\\cdot\\frac14=\\frac1{16}=0.0625$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -481,7 +481,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת רדיוס $x$ במקום $4-x$: הסיבוב הוא סביב הישר $X=4$ ולא סביב ציר ה-$y$.",
     "לשכוח לפצל לשני קטעים: הגבול העליון משתנה ב-$x=2$ מהפרבולה לישר.",
@@ -545,7 +545,7 @@
      "explain": "$V=\\frac{40\\pi}{3}+\\frac{32\\pi}{3}=24\\pi\\approx75.398$ (sympy, ובדיקה בשיטת הדסקיות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -576,7 +576,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק את שני הקצוות של הקטע.",
     "להסיק שהמקסימום הוא $\\ln2$ (הקצה השמאלי) בלי לחשב את הקצה הימני: $\\ln2\\approx0.693<1$.",
@@ -633,7 +633,7 @@
      "explain": "הערכים הם $0,\\,0.693,\\,1$; הקטן ביותר $0$ והגדול ביותר $1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -664,7 +664,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק את הנגזרות החד-צדדיות ולשכוח את דרישת הרציפות $a=c$.",
     "לשכוח את הגורם $2$ בגבול $\\lim\\frac{\\sin2\\Delta x}{\\Delta x}=2$.",
@@ -742,7 +742,7 @@
      "explain": "דרושות רציפות ($a=c$) ושוויון נגזרות חד-צדדיות ($a=2b$). למשל $(a,b,c)=(1,1,1)$ רציפה אבל $f'_-=1\\neq2=f'_+$ (נבדק)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,

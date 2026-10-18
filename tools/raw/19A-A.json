@@ -12,7 +12,7 @@
    "kind": "computation",
    "topic": "function_investigation",
    "question": "חקרו את הפונקציה $y=\\frac{e^{-x}}{1-x}$ על פי הסעיפים הבאים: תחום הגדרה, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
-   "solution": "$$f(x)=\\frac{e^{-x}}{1-x}=-\\frac{1}{e^x(x-1)}$$\n**תחום ההגדרה:** $(-\\infty,1)\\cup(1,+\\infty)$.\n**אסימפטוטה אנכית** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^+}\\right]=-\\infty,\\qquad\\lim_{x\\to1^-}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^-}\\right]=+\\infty$$\n**אסימפטוטה אופקית** ב-$+\\infty$: $y=0$:\n$$\\lim_{x\\to+\\infty}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{+\\infty}\\right]=0$$\n**אין אסימפטוטה משופעת ב-$-\\infty$:**\n$$\\lim_{x\\to-\\infty}\\frac{f(x)}{x}=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{1-x}\\cdot\\frac1x=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{x(x-1)}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(-e^{-x}\\right)'}{\\left(x^2-x\\right)'}=$$\n$$=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{2x-1}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(e^{-x}\\right)'}{(2x-1)'}=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{2}=-\\infty$$\n$$f'(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)'=\\frac{e^xx}{e^{2x}(x-1)^2}$$\nתחומי עלייה: $(0,1),(1,+\\infty)$. תחומי ירידה: $(-\\infty,0)$. נקודת מינימום מקומי: $x=0$, $f(0)=1$.\n$$f''(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)''=\\left(\\frac{x}{e^x(x-1)^2}\\right)'=\\frac{e^x(x-1)^2-xe^x(x-1)^2-xe^x2(x-1)}{e^{2x}(x-1)^4}=$$\n$$=\\frac{(x-1)-x(x-1)-2x}{e^x(x-1)^3}=-\\frac{x^2+1}{e^x(x-1)^3}$$\nקמורה ב: $(-\\infty,1)$. קעורה ב: $(1,+\\infty)$. אין נקודת פיתול.\n![גרף הפונקציה y = e^(−x)/(1−x) עם האסימפטוטה האנכית x=1, האסימפטוטה y=0 מימין והמינימום ב-(0,1)](images/exams/19A-A-Q1-graph.png)",
+   "solution": "$$f(x)=\\frac{e^{-x}}{1-x}=-\\frac{1}{e^x(x-1)}$$\n**תחום ההגדרה:** $(-\\infty,1)\\cup(1,+\\infty)$.\n**אסימפטוטה אנכית** $x=1$:\n$$\\lim_{x\\to1^+}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^+}\\right]=-\\infty,\\qquad\\lim_{x\\to1^-}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{0^-}\\right]=+\\infty$$\n**אסימפטוטה אופקית** ב-$+\\infty$: $y=0$:\n$$\\lim_{x\\to+\\infty}\\frac{-1}{e^x(x-1)}=\\left[\\frac{-1}{+\\infty}\\right]=0$$\n**אין אסימפטוטה משופעת ב-$-\\infty$:**\n$$\\lim_{x\\to-\\infty}\\frac{f(x)}{x}=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{1-x}\\cdot\\frac1x=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{x(x-1)}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(-e^{-x}\\right)'}{\\left(x^2-x\\right)'}=$$\n$$=\\lim_{x\\to-\\infty}\\frac{e^{-x}}{2x-1}=\\left[\\frac{\\infty}{\\infty}\\right]=\\lim_{x\\to-\\infty}\\frac{\\left(e^{-x}\\right)'}{(2x-1)'}=\\lim_{x\\to-\\infty}\\frac{-e^{-x}}{2}=-\\infty$$\n$$f'(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)'=\\frac{e^xx}{e^{2x}(x-1)^2}$$\nתחומי עלייה: $(0,1),(1,+\\infty)$. תחומי ירידה: $(-\\infty,0)$. נקודת מינימום מקומי: $x=0$, $f(0)=1$.\n$$f''(x)=\\left(-\\frac{1}{e^x(x-1)}\\right)''=\\left(\\frac{x}{e^x(x-1)^2}\\right)'=\\frac{e^x(x-1)^2-xe^x(x-1)^2-xe^x2(x-1)}{e^{2x}(x-1)^4}=$$\n$$=\\frac{(x-1)-x(x-1)-2x}{e^x(x-1)^3}=-\\frac{x^2+1}{e^x(x-1)^3}$$\nקמורה ($\\cup$) ב: $(-\\infty,1)$. קעורה ($\\cap$) ב: $(1,+\\infty)$. אין נקודת פיתול.\n![גרף הפונקציה y = e^(−x)/(1−x) עם האסימפטוטה האנכית x=1, האסימפטוטה y=0 מימין והמינימום ב-(0,1)](images/exams/19A-A-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -38,7 +38,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון לאסימפטוטה אופקית ב-$-\\infty$: שם $f\\to+\\infty$ מהר מכל ישר, ולכן אין אסימפטוטה בכלל.",
     "לכלול את $x=1$ בתחומי הקמירות או העליה.",
@@ -92,7 +92,7 @@
       {
        "id": "b",
        "type": "text",
-       "value": "חיובית עבור $x<1$ (קמורה) ושלילית עבור $x>1$ (קעורה), ללא נקודות פיתול"
+       "value": "חיובית עבור $x<1$ (קמורה, $\\cup$) ושלילית עבור $x>1$ (קעורה, $\\cap$), ללא נקודות פיתול"
       },
       {
        "id": "c",
@@ -137,7 +137,7 @@
      "explain": "ב-$-\\infty$: $f\\to+\\infty$ ו-$\\frac{f(x)}{x}\\to-\\infty$, ולכן אין שם אסימפטוטה (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -168,7 +168,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $n\\to\\infty$ בכל מחובר בנפרד: $7^{2n}$ שולט, אבל צריך סנדוויץ' כדי להצדיק זאת.",
     "לכתוב חסם עליון שאינו גדול מהביטוי המקורי: $\\frac{n}{n+1}<1\\le7^{2n}$ ו-$3^n\\le7^{2n}$ נדרשים.",
@@ -210,22 +210,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$7 \\cdot 3^{\\frac{1}{2 nn}}$"
+       "value": "$7 \\cdot 3^{\\frac{1}{2 n}}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$7 \\cdot 3^{\\frac{1}{nn}}$"
+       "value": "$7 \\cdot 3^{\\frac{1}{n}}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$3 \\cdot 7^{\\frac{1}{2 nn}}$"
+       "value": "$3 \\cdot 7^{\\frac{1}{2 n}}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$7 \\cdot 3^{2 nn}$"
+       "value": "$7 \\cdot 3^{2 n}$"
       }
      ],
      "correctId": "a",
@@ -246,7 +246,7 @@
      "explain": "משפט הסנדוויץ': $7\\le a_n\\le7\\cdot3^{\\frac1{2n}}\\to7$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -281,7 +281,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל המכפלה: $(x\\ln x)'=\\ln x+x\\cdot\\frac1x=\\ln x+1$.",
     "לשכוח לנמק ש-$\\ln x+1$ עולה, ולכן $c\\in(a,b)\\subseteq[1,e]$ נותן $1\\le\\ln c+1\\le2$.",
@@ -347,7 +347,7 @@
      "explain": "$\\ln e+1=1+1=2$ ולא $3$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -378,7 +378,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהגבול הוא $1$ כי הבסיס שואף ל-$1$.",
     "לשכוח את הסימן במונה $3-\\sqrt{9+x}=\\frac{-x}{3+\\sqrt{9+x}}$ ולקבל $+\\frac1{24}$.",
@@ -428,7 +428,7 @@
      "explain": "$L=e^{-1/24}\\approx0.9592$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -459,7 +459,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לזהות את $\\frac{dx}{\\cos^2x}$ כ-$dt$.",
     "בבחירת $v$ לשכוח את המקדם: $\\int e^{-2t}dt=-\\frac12e^{-2t}$.",
@@ -501,22 +501,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$tq e^{- 2 tq}$"
+       "value": "$t e^{- 2 t}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$tq e^{2 tq}$"
+       "value": "$t e^{2 t}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$tq^{2} e^{- 2 tq}$"
+       "value": "$t^{2} e^{- 2 t}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$e^{- 2 tq}$"
+       "value": "$e^{- 2 t}$"
       }
      ],
      "correctId": "a",
@@ -551,7 +551,7 @@
      "explain": "$-\\frac12te^{-2t}-\\frac14e^{-2t}$ עם $t=\\tan x$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -582,7 +582,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=1$ כנקודה חשודה: שם המכנה מתאפס אבל $f(1)=0$ מוגדרת.",
     "לחשב $\\sqrt[3]{\\frac35-1}$ כשורש של מספר שלילי בצורה שגויה; השורש הממשי הוא $-\\sqrt[3]{\\frac25}$.",
@@ -639,7 +639,7 @@
      "explain": "$f(3)=3\\sqrt[3]{8}=6$, הגדול מבין $0,\\,-0.5707,\\,0,\\,6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -670,7 +670,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור כאילו המעריך קבוע (כלל חזקה) או כאילו הבסיס קבוע (כלל מעריכית).",
     "לשכוח את הנגזרת של $\\sqrt x\\ln(x-3)$ כמכפלה.",
@@ -748,7 +748,7 @@
      "explain": "המשיק עובר דרך $(4,1)$ עם שיפוע $2$: $y=1+2(x-4)$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -779,7 +779,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בחישוב $(2x-1)-(2x-3)$: התוצאה $2$ ולא $-4$.",
     "להציב $\\infty$ ישירות במכנה $\\sqrt{2x-1}-\\sqrt{2x-3}$ (צורה $\\infty-\\infty$) בלי כפל בצמוד.",
@@ -857,7 +857,7 @@
      "explain": "$\\frac{2\\sqrt2}{2}=\\sqrt2\\approx1.4142$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -888,7 +888,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב מונה קבוע $\\frac{B}{x^2+1}$ במקום מונה לינארי $Bx+C$.",
     "לשכוח את הגורם $\\frac12$ באינטגרל $\\int\\frac{x}{x^2+1}dx=\\frac12\\ln\\left(x^2+1\\right)$.",
@@ -945,7 +945,7 @@
      "explain": "$\\int\\left(\\frac{1}{x-1}+\\frac{x}{x^2+1}\\right)dx=\\ln(x-1)+\\frac12\\ln\\left(x^2+1\\right)$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -976,7 +976,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $x$ (רדיוס הקונכייה) באינטגרנד.",
     "לקחת גובה קונכייה $e^x-1$ במקום $1-\\left(e^x-1\\right)$: התחום נמצא בין העקומה לישר $y=1$.",
@@ -1033,7 +1033,7 @@
      "explain": "$V=2\\pi(1-\\ln2)^2\\approx0.5916$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1064,7 +1064,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא לפצל את התחום: הגבול העליון משתנה מ-$y=x$ ל-$y=\\frac1x$ ב-$x=1$.",
     "להשתמש בגבול העליון $x=2$ בטעות: ההיפרבולה פוגשת את $y=\\frac x2$ ב-$x=\\sqrt2$.",
@@ -1100,7 +1100,7 @@
      "explain": "$\\frac14+\\left(\\ln\\sqrt2-\\frac12+\\frac14\\right)=\\frac12\\ln2\\approx0.3466$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

@@ -912,7 +912,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את גורם השרשרת $2x$ (נגזרת הגבול העליון $x^2$) בגזירת האינטגרל.",
     "להציב $t=x^2$ בתוך האינטגרנד במקום בגבול העליון בלבד: האינטגרנד הוא $t\\cos\\left(t^2\\right)$.",
@@ -983,7 +983,7 @@
      "explain": "לופיטל: $\\frac{4x^3}{2x^3\\cos\\left(x^4\\right)}=\\frac{2}{\\cos\\left(x^4\\right)}\\to2$ (sympy; גם דרך $\\frac12\\sin\\left(x^4\\right)$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

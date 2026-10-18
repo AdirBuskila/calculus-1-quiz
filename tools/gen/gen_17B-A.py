@@ -49,7 +49,7 @@ $$f'(x)=2\cdot\frac{x-2}{x-1}\cdot\frac{x-1-(x-2)}{(x-1)^2}=2\cdot\frac{x-2}{(x-
 טבלת סימנים של $f'$: חיובית ב-$x<1$ (עולה), שלילית ב-$1<x<2$ (יורדת), חיובית ב-$x>2$ (עולה). מינימום ב-$x=2$, $f(2)=0$.
 **קמירות ונקודות פיתול:**
 $$f''(x)=2\cdot\frac{(x-1)^3-(x-2)\cdot3(x-1)^2}{(x-1)^6}=2\cdot\frac{x-1-3(x-2)}{(x-1)^4}=2\cdot\frac{-2x+5}{(x-1)^4}$$
-טבלת סימנים של $f''$: חיובית ב-$x<1$ (קמורה), חיובית ב-$1<x<\frac52$ (קמורה), שלילית ב-$x>\frac52$ (קעורה). נקודת פיתול ב-$x=\frac52$, $f\left(\frac52\right)=\frac19$.
+טבלת סימנים של $f''$: חיובית ב-$x<1$ (קמורה, $\cup$), חיובית ב-$1<x<\frac52$ (קמורה, $\cup$), שלילית ב-$x>\frac52$ (קעורה, $\cap$). נקודת פיתול ב-$x=\frac52$, $f\left(\frac52\right)=\frac19$.
 **שרטוט:**
 ![סקיצה של הגרף של y = ((x−2)/(x−1))² עם האסימפטוטה האנכית x=1, האסימפטוטה האופקית y=1 והמינימום ב-x=2](images/exams/17B-A-Q1-sketch.png)
 """
@@ -168,12 +168,13 @@ _rot = [0]
 x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
+SYMNAMES = {}  # display names for scratch symbols (set where they are defined)
 TOPSRC = {}
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -248,7 +249,7 @@ add(1,
                ("$f''(x)=\\frac{2(5-2x)}{(x-1)^4}$ ותחומי קמירות וקעירות", 4),
                ("נקודת פיתול $\\left(\\frac52,\\frac19\\right)$", 2),
                ("שרטוט הגרף בהתאם לכל הנתונים", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכלול את $x=1$ בתחום ההגדרה או לסמן שם נקודת קיצון.",
               "לשכוח שהאסימפטוטה האופקית $y=1$ מתקבלת בשני הכיוונים $x\\to\\pm\\infty$.",
               "לטעון שגם $x=1$ היא נקודת פיתול רק כי $f''$ לא מוגדרת שם: נקודת הפיתול היחידה היא $x=\\frac52$, שם $f''$ משנה סימן."],
@@ -265,7 +266,7 @@ add(1,
            ["אנכית $x=1$ בלבד", "אנכית $x=1$ ומשופעת $y=x$", "אנכית $x=2$ ואופקית $y=1$"],
            "$\\lim_{x\\to1}f=+\\infty$ משני הצדדים, ו-$\\lim_{x\\to\\pm\\infty}f=1$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2: a_1 = 5, a_{n+1} = 2 - 1/(2+a_n) =====
 sq = [R(5)]
@@ -274,6 +275,7 @@ for _ in range(6):
 assert sq[1] == R(13, 7) and sq[2] == R(47, 27)
 assert all(sq[i] > sq[i + 1] for i in range(len(sq) - 1)) and all(sp.sqrt(3) <= v <= 2 for v in sq[1:])
 aa = sp.Symbol('aa', positive=True)
+SYMNAMES[aa] = "a_n"
 assert same(2 - 1/(2 + aa) - aa, (3 - aa**2)/(2 + aa))
 L2 = sp.Symbol('L2', real=True)
 assert sorted(sp.solve(sp.Eq(L2, 2 - 1/(2 + L2)), L2), key=float) == [-sp.sqrt(3), sp.sqrt(3)]
@@ -295,7 +297,7 @@ add(2,
                ("מונוטוניות: $a_{n+1}-a_n=\\frac{3-a_n^2}{2+a_n}\\le0$, הסדרה יורדת", 6),
                ("מסקנה: סדרה יורדת וחסומה מלרע מתכנסת", 2),
                ("משוואת הגבול $L^2=3$ ופסילת $-\\sqrt3$ לפי החסם, גבול $\\sqrt3$", 6)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון חסימות כבר מ-$n=1$: $a_1=5>2$, ולכן החסם מתחיל רק מ-$a_2$.",
               "לחשב את הגבול מהמשוואה בלי להוכיח התכנסות, או להשאיר את שני הפתרונות $\\pm\\sqrt3$ בלי לפסול את $-\\sqrt3$.",
               "לבדוק מונוטוניות לפי הדוגמאות $a_1>a_2>a_3$ בלבד, בלי להוכיח את הסימן של $a_{n+1}-a_n$ לכל $n$."],
@@ -313,7 +315,7 @@ add(2,
                 "ההפרש הוא $\\frac{3-a_n^2}{2+a_n}$ ולא $\\frac{a_n^2-3}{2+a_n}$; עם הסימן ההפוך האי-שוויון $\\le0$ אינו נובע מ-$a_n\\ge\\sqrt3$ (נבדק ב-sympy)."),
         num("מהו גבול הסדרה? (עשרוני)", sp.sqrt(3), "$L^2=3$ ו-$L\\ge\\sqrt3>0$ ולכן $L=\\sqrt3\\approx1.7321$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim x - ln(1+2e^x) =====
 lim3a = sp.limit(x - sp.log(1 + 2*sp.exp(x)), x, sp.oo)
@@ -324,7 +326,7 @@ add(3, "א",
                ("כתיבה $x=\\ln e^x$ ואיחוד ללוגריתם אחד $\\ln\\frac{e^x}{1+2e^x}$", 4),
                ("חישוב הגבול הפנימי $\\frac12$ (רציפות הלוגריתם)", 2),
                ("הערך הסופי $\\ln\\frac12=-\\ln2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון שהגבול הוא $0$ או $-\\infty$ כי \"$\\infty-\\infty$\". זו צורה לא מסוימת.",
               "לשכוח שאחרי האיחוד הגבול הפנימי הוא $\\frac12$ ולא $\\frac{1}{2e^x}$ או $1$."],
     steps=[
@@ -334,7 +336,7 @@ add(3, "א",
         num("מהו $\\lim_{x\\to\\infty}\\frac{e^x}{1+2e^x}$? (עשרוני)", R(1, 2), "מחלקים ב-$e^x$: $\\frac{1}{e^{-x}+2}\\to\\frac12$ (sympy)."),
         num("מהו ערך הגבול המבוקש? (עשרוני)", lim3a, "$\\ln\\frac12=-\\ln2\\approx-0.6931$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: shells, y = 1 + x^3, x = 1, y = 9 about the y-axis =====
 V3 = sp.integrate(2*sp.pi*x*(9 - (1 + x**3)), (x, 1, 2))
@@ -348,7 +350,7 @@ add(3, "ב",
                ("בחירת שיטת הקונכיות הגליליות ורדיוס $x$", 2),
                ("הצבת האינטגרל $2\\pi\\int_1^2x\\left(9-1-x^3\\right)dx$ (או הפרש $V_1-V_2$)", 3),
                ("חישוב ותשובה $V=\\frac{58\\pi}{5}$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחבר את הנפחים $V_1+V_2$ במקום להפחית: התחום נמצא בין העקומה לישר $y=9$.",
               "לשכוח את הגורם $x$ (רדיוס הקונכייה) באינטגרנד.",
               "לקחת גבולות אינטגרציה $0$ עד $2$ במקום $1$ עד $2$ (הישר $x=1$ חוסם את התחום)."],
@@ -360,7 +362,7 @@ add(3, "ב",
         num("מהו $V_1=2\\pi\\int_1^2x\\cdot9\\,dx$, מחולק ב-$\\pi$?", 27, "$9\\pi x^2\\Big|_1^2=27\\pi$, כלומר $27$ ב-$\\pi$ (sympy)."),
         num("מהו נפח הגוף? (עשרוני)", V3, "$V=27\\pi-\\frac{77\\pi}{5}=\\frac{58\\pi}{5}\\approx36.44$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: (x-1)/x < ln x < x-1 =====
 L4 = ["נגדיר $f(t)=\\ln t$ על הקטע $[1,x]$, כאשר $x>1$.",
@@ -379,7 +381,7 @@ add(4, "א",
                ("הפעלת משפט לגרנז': $\\ln x=\\frac{x-1}{c}$ עבור $c\\in(1,x)$", 3),
                ("חסימת $\\frac1c$ בין $\\frac1x$ ל-$1$", 2),
                ("הכפלה ב-$(x-1)>0$ ומסקנת אי-השוויון", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להפעיל את משפט לגרנז' על קטע $[0,x]$: $\\ln t$ לא מוגדרת ולא רציפה ב-$0$.",
               "להפוך את כיוון אי-השוויון כשעוברים ל-$\\frac1c$ (היפוך מתקבל ב-$c\\mapsto\\frac1c$).",
               "לבדוק את אי-השוויון בכמה ערכים של $x$ ולהסיק ממנו הוכחה."],
@@ -392,12 +394,13 @@ add(4, "א",
         findbug("בהוכחה שורה אחת שגויה. מצאו אותה.", L4b, 3,
                 "מ-$1<c<x$ מקבלים (בהיפוך) $\\frac1x<\\frac1c<1$ ולא $1<\\frac1c<\\frac1x$; למשל $c=2$, $x=3$ נותן $\\frac12$ שאינו גדול מ-$1$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: area between sqrt(x), its tangent at (4,2), and the x-axis =====
 tang = 2 + (x - 4)*sp.diff(sp.sqrt(x), x).subs(x, 4)
 assert same(tang, x/4 + 1) and sp.solve(sp.Eq(tang, 0), x) == [-4]
 yy = sp.Symbol('yy', real=True)
+SYMNAMES[yy] = "y"
 S4 = sp.integrate(yy**2 - (4*yy - 4), (yy, 0, 2))
 assert S4 == R(8, 3)
 # cross-check in x: area under sqrt(x) on [0,4] minus the triangle under the tangent from -4 to 4... done via the y-integral above
@@ -411,7 +414,7 @@ add(4, "ב",
                ("זיהוי התחום וקביעת גבולות האינטגרציה (ב-$y$ מ-$0$ עד $2$)", 3),
                ("אינטגרל $\\int_0^2\\left(y^2-(4y-4)\\right)dy$ והפונקציה הקדומה", 2),
                ("ערך השטח $\\frac83$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחשב את השיפוע כ-$\\frac{1}{\\sqrt4}$ במקום $\\frac{1}{2\\sqrt4}$.",
               "להחסיר בסדר הפוך בין הגרף למשיק (אינטגרציה על $y$: הגרף $x=y^2$ מימין למשיק $x=4y-4$).",
               "לשכוח שהמשיק פוגש את ציר ה-$x$ ב-$x=-4$ ולא ב-$x=0$."],
@@ -423,7 +426,7 @@ add(4, "ב",
             "בגובה $y$ הגרף ב-$x=y^2$ והמשיק ב-$x=4y-4$, והגרף מימין. רק האינטגרנד הנכון נותן שטח חיובי $\\frac83$ (נבדק ב-sympy)."),
         num("מהו השטח? (עשרוני)", S4, "$\\left(\\frac{y^3}{3}-2y^2+4y\\right)\\Big|_0^2=\\frac83\\approx2.6667$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: absolute extrema of sqrt(x) + 4/x on [1/4, 100] =====
 f5 = sp.sqrt(x) + 4/x
@@ -437,7 +440,7 @@ add(5, "א",
                ("הנקודה $x=4$ בתוך הקטע; ערך $f(4)=3$", 2),
                ("ערכי הקצוות $f\\left(\\frac14\\right)=\\frac{33}{2}$ ו-$f(100)=\\frac{251}{25}$", 3),
                ("מסקנה: מקסימום מוחלט $\\frac{33}{2}$, מינימום מוחלט $3$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחשב את $f\\left(\\frac14\\right)$ כ-$\\frac{17}{2}$ ולקבוע בטעות שהמקסימום בקצה הימני: $f\\left(\\frac14\\right)=\\frac12+16=\\frac{33}{2}$.",
               "לשכוח לבדוק את קצות הקטע ולהסתפק בנקודה הקריטית.",
               "לפתור $x^{3/2}=8$ בטעות: $x=8^{2/3}=4$."],
@@ -449,13 +452,14 @@ add(5, "א",
            ["מינימום $3$ ומקסימום $\\frac{251}{25}$ ב-$x=100$", "מינימום $\\frac{251}{25}$ ומקסימום $\\frac{33}{2}$", "מינימום $3$ ומקסימום $3$"],
            "הערכים הם $\\frac{33}{2}=16.5$, $3$, $10.04$; הקטן ביותר $3$ והגדול ביותר $16.5$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: int sin^5 =====
 g5b = sp.sin(x)**5
 F5b = -sp.cos(x) + R(2, 3)*sp.cos(x)**3 - sp.cos(x)**5/5
 assert same(sp.diff(F5b, x), g5b)
 t5 = sp.Symbol('t5', real=True)
+SYMNAMES[t5] = "t"
 assert same(sp.expand(-(1 - t5**2)**2), -1 + 2*t5**2 - t5**4)
 F5w = [-sp.cos(x) + R(2, 3)*sp.cos(x)**3 + sp.cos(x)**5/5, sp.cos(x) - R(2, 3)*sp.cos(x)**3 + sp.cos(x)**5/5,
        -sp.cos(x) + sp.cos(x)**3 - sp.cos(x)**5/5]
@@ -466,7 +470,7 @@ add(5, "ב",
                ("$\\sin^4x=\\left(1-\\cos^2x\\right)^2$ והמעבר ל-$-\\int\\left(1-t^2\\right)^2dt$", 3),
                ("פתיחת הסוגריים ואינטגרציה איבר איבר", 2),
                ("חזרה ל-$x$ ותשובה עם $+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את סימן המינוס הנובע מ-$dt=-\\sin x\\,dx$.",
               "לכתוב $\\sin^4x=1-\\cos^4x$ במקום $\\left(1-\\cos^2x\\right)^2$.",
               "לשכוח לחזור למשתנה $x$ בסוף."],
@@ -480,7 +484,7 @@ add(5, "ב",
         chx("מהו האינטגרל? (בלי הקבוע)", F5b, F5w, lambda e: same(sp.diff(e, x), g5b),
             "$-t+\\frac{2t^3}{3}-\\frac{t^5}{5}$ עם $t=\\cos x$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: continuity with parameters a, b =====
 def left6(av):
@@ -494,7 +498,7 @@ add(6, "א",
                ("הגבול הימני $4+\\lim e^{-a^2/x}=4$", 3),
                ("תנאי הרציפות $a^2=b=4$", 2),
                ("פתרון: $b=4$ ו-$a=\\pm2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את הפתרון $a=-2$: $a^2=4$ נותן שני ערכים.",
               "לטעות בגבול הימני: עבור $a\\neq0$ המעריך $-\\frac{a^2}{x}\\to-\\infty$ כאשר $x\\to0^+$, ולכן $e^{-a^2/x}\\to0$.",
               "לא להשוות את הגבולות גם לערך $f(0)=b$."],
@@ -505,7 +509,7 @@ add(6, "א",
            ["$b=4$ ו-$a=2$ בלבד", "$b=2$ ו-$a=2$", "$b=0$ ו-$a=0$"],
            "הרציפות דורשת $a^2=4=b$. עבור $a=0$ הגבול השמאלי $0$ והימני $5$, ולכן אין רציפות."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: int ln(x+1)/sqrt(x+1) =====
 g6 = sp.log(x + 1)/sp.sqrt(x + 1)
@@ -519,7 +523,7 @@ add(6, "ב",
                ("$du=\\frac{dx}{x+1}$ ו-$v=2\\sqrt{x+1}$", 2),
                ("האינטגרל הנותר $-2\\int\\frac{dx}{\\sqrt{x+1}}=-4\\sqrt{x+1}$", 3),
                ("תשובה סופית עם $+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לבחור $u=\\frac{1}{\\sqrt{x+1}}$: אז האינטגרל הנותר מסובך יותר.",
               "לכתוב $v=\\sqrt{x+1}$ בלי הגורם $2$.",
               "לשכוח את האיבר השני $-4\\sqrt{x+1}$."],
@@ -531,7 +535,7 @@ add(6, "ב",
         chx("מהו האינטגרל? (בלי הקבוע)", F6, F6w, lambda e: same(sp.diff(e, x), g6),
             "$2\\sqrt{x+1}\\ln(x+1)-2\\int\\frac{dx}{\\sqrt{x+1}}=2\\sqrt{x+1}\\ln(x+1)-4\\sqrt{x+1}$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

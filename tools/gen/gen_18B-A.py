@@ -52,18 +52,18 @@ $$y'=\frac{3x^2\left(x^2-3\right)-x^3\cdot2x}{\left(x^2-3\right)^2}=\frac{x^4-9x
 **קמירות ונקודות פיתול:**
 $$y''=\frac{\left(4x^3-18x\right)\left(x^2-3\right)^2-\left(x^4-9x^2\right)\cdot2\left(x^2-3\right)\cdot2x}{\left(x^2-3\right)^4}=\frac{\left(4x^3-18x\right)\left(x^2-3\right)-4x\left(x^4-9x^2\right)}{\left(x^2-3\right)^3}=$$
 $$=\frac{4x^5-30x^3+54x-4x^5+36x^3}{\left(x^2-3\right)^3}=\frac{6x^3+54x}{\left(x^2-3\right)^3}=\frac{6x\left(x^2+9\right)}{\left(x-\sqrt3\right)^3\left(x+\sqrt3\right)^3}$$
-טבלת סימנים של $y''$: שלילית ב-$x<-\sqrt3$ (קעורה), חיובית ב-$-\sqrt3<x<0$ (קמורה), שלילית ב-$0<x<\sqrt3$ (קעורה), חיובית ב-$x>\sqrt3$ (קמורה). נקודת הפיתול היחידה: $(0,0)$.
+טבלת סימנים של $y''$: שלילית ב-$x<-\sqrt3$ (קעורה, $\cap$), חיובית ב-$-\sqrt3<x<0$ (קמורה, $\cup$), שלילית ב-$0<x<\sqrt3$ (קעורה, $\cap$), חיובית ב-$x>\sqrt3$ (קמורה, $\cup$). נקודת הפיתול היחידה: $(0,0)$.
 ![שרטוט הגרף של y = x³/(x²−3) עם האסימפטוטות x=±√3 ו-y=x, המקסימום ב-x=−3 והמינימום ב-x=3](images/exams/18B-A-Q1-graph.png)
 """
 
 SOL2 = r"""
 נחשב: $a_1=2,\ a_2=\frac65,\ a_3=\frac{18}{17},\dots$ ונרשום $a_{n+1}=\frac{3}{2+\frac{1}{a_n}}$.
-**חסימות:** נוכיח באינדוקציה ש-$1<a_n<2$ לכל $n\ge1$. עבור $n=1$ זה נכון. אם $1<a_n<2$ אז
-$$\frac12<\frac{1}{a_n}<1\ \Rightarrow\ \frac52<2+\frac{1}{a_n}<3\ \Rightarrow\ \frac13<\frac{1}{2+\frac{1}{a_n}}<\frac25\ \Rightarrow\ 1<\frac{3}{2+\frac{1}{a_n}}<\frac65<2$$
-ז"א $1<a_{n+1}<2$.
+**חסימות:** נוכיח באינדוקציה ש-$1<a_n\le2$ לכל $n\ge1$. עבור $n=1$ זה נכון ($a_1=2$). אם $1<a_n\le2$ אז
+$$\frac12\le\frac{1}{a_n}<1\ \Rightarrow\ \frac52\le2+\frac{1}{a_n}<3\ \Rightarrow\ \frac13<\frac{1}{2+\frac{1}{a_n}}\le\frac25\ \Rightarrow\ 1<\frac{3}{2+\frac{1}{a_n}}\le\frac65<2$$
+ז"א $1<a_{n+1}\le2$.
 **מונוטוניות:** נראה שהסדרה יורדת:
 $$\frac{a_{n+1}}{a_n}=\frac{3}{2a_n+1}$$
-מ-$1<a_n<2$ נקבל $3<2a_n+1<5$, ולכן $\frac15<\frac{1}{2a_n+1}<\frac13$ ו-$\frac{a_{n+1}}{a_n}<1$.
+מ-$1<a_n\le2$ נקבל $3<2a_n+1\le5$, ולכן $\frac15\le\frac{1}{2a_n+1}<\frac13$ ו-$\frac{a_{n+1}}{a_n}<1$.
 הסדרה יורדת וחסומה מלמטה, ולכן מתכנסת. נסמן $\lim_{n\to\infty}a_n=L$ ונעבור לגבול בנוסחת הנסיגה $a_{n+1}=\frac{3a_n}{2a_n+1}$:
 $$L=\frac{3L}{2L+1}\ \Rightarrow\ 2L^2+L=3L\ \Rightarrow\ L^2-L=0$$
 מכיוון ש-$a_n>1$, לא ייתכן $L=0$, ולכן הגבול הוא $L=1$.
@@ -174,12 +174,13 @@ _rot = [0]
 x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
+SYMNAMES = {}  # display names for scratch symbols (set where they are defined)
 TOPSRC = {}
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -257,9 +258,9 @@ add(1,
                ("נגזרת $y'=\\frac{x^2(x^2-9)}{(x^2-3)^2}$, תחומי עליה וירידה, מקסימום ב-$x=-3$ ומינימום ב-$x=3$", 5),
                ("$y''=\\frac{6x(x^2+9)}{(x^2-3)^3}$, תחומי קמירות וקעירות ונקודת הפיתול $(0,0)$", 4),
                ("שרטוט הגרף בהתאם לכל הנתונים", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לטעון ש-$x=0$ היא נקודת קיצון כי $y'(0)=0$: $y'$ אינה משנה סימן ב-$0$ (גורם $x^2$), והנקודה היא נקודת פיתול.",
-              "לבלבל את סימני הגבולות החד-צדדיים באסימפטוטות האנכיות; הסימן נקבע לפי סימן המכנה $x^2-3$ משני צדי $\\pm\\sqrt3$.",
+              "לבלבל את סימני הגבולות החד-צדדיים באסימפטוטות האנכיות; הסימן נקבע לפי הסימנים של $x^3$ ושל $x^2-3$ יחד משני צדי $\\pm\\sqrt3$.",
               "לכלול את $x=\\pm\\sqrt3$ בתחומי העליה והירידה או בתחומי הקמירות."],
     steps=[
         chx("מהי הנגזרת של $y=\\frac{x^3}{x^2-3}$?", x**2*(x**2 - 9)/(x**2 - 3)**2,
@@ -274,7 +275,7 @@ add(1,
            ["אנכית $x=0$ ומשופעת $y=x$", "אנכיות $x=\\pm\\sqrt3$ ואופקית $y=0$", "אנכיות $x=\\pm3$ ומשופעת $y=x$"],
            "המכנה מתאפס ב-$x=\\pm\\sqrt3$; $\\lim\\frac{y}{x}=1$ ו-$\\lim(y-x)=\\lim\\frac{3x}{x^2-3}=0$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2: a_1 = 2, a_{n+1} = 3a_n/(2a_n+1) =====
 sq = [R(2)]
@@ -283,6 +284,7 @@ for _ in range(7):
 assert sq[1] == R(6, 5) and sq[2] == R(18, 17)
 assert all(sq[i] > sq[i + 1] > 1 for i in range(len(sq) - 1))
 aa = sp.Symbol('aa', positive=True)
+SYMNAMES[aa] = "a_n"
 assert same((3*aa/(2*aa + 1))/aa, 3/(2*aa + 1))
 assert 3/(2*R(11, 10) + 1) < 1 and 3/(2*R(19, 10) + 1) < 1
 L2 = sp.Symbol('L2', real=True)
@@ -301,7 +303,7 @@ add(2,
                ("מונוטוניות: $\\frac{a_{n+1}}{a_n}=\\frac{3}{2a_n+1}<1$, הסדרה יורדת", 3),
                ("מסקנה: סדרה יורדת וחסומה מלמטה מתכנסת", 1),
                ("משוואת הגבול $L^2-L=0$ ופסילת $L=0$ בעזרת $a_n>1$, ולכן $L=1$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לחשב את הגבול מהמשוואה $L=\\frac{3L}{2L+1}$ בלי להוכיח קודם התכנסות, ולהשאיר גם את $L=0$.",
               "לפסול את $L=0$ בעזרת החסם העליון $a_n<2$ במקום החסם התחתון $a_n>1$.",
               "להשתמש ביחס $\\frac{a_{n+1}}{a_n}<1$ בלי לדעת ש-$a_n>0$.",
@@ -320,10 +322,11 @@ add(2,
                 "החסם העליון $a_n<2$ אינו שולל את $L=0$; השלילה נובעת מהחסם התחתון $a_n>1$."),
         num("מהו גבול הסדרה?", 1, "$L^2-L=0$ ו-$L\\ge1$ ולכן $L=1$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: extrema of f(x) = int_{-3}^{x^3+1} t (t-1)^5 dt =====
 tq = sp.Symbol('tq', real=True)
+SYMNAMES[tq] = "t"
 Fq = sp.integrate(tq*(tq - 1)**5, tq)
 fx3 = Fq.subs(tq, x**3 + 1)
 f3p = sp.diff(fx3, x)
@@ -336,7 +339,7 @@ add(3, "א",
                ("פישוט ל-$f'(x)=3x^{17}(x^3+1)$ והנקודות הקריטיות $x=0,-1$", 2),
                ("טבלת סימנים של $f'$", 2),
                ("מסקנה: מקסימום ב-$x=-1$ ומינימום ב-$x=0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את גורם השרשרת $3x^2$ (נגזרת הגבול העליון).",
               "לפתור קודם את האינטגרל במקום להשתמש במשפט היסוד.",
               "להסיק קיצון בכל נקודה שבה $f'=0$ בלי לבדוק החלפת סימן."],
@@ -350,7 +353,7 @@ add(3, "א",
            ["מינימום ב-$x=-1$ ומקסימום ב-$x=0$", "מקסימום בשתי הנקודות", "קיצון רק ב-$x=-1$"],
            "$f'$ חיובית לפני $-1$, שלילית בין $-1$ ל-$0$, וחיובית אחרי $0$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: e^x + sin x = 0 =====
 fe = lambda v: sp.exp(v) + sp.sin(v)
@@ -371,7 +374,7 @@ add(3, "ב",
                ("מציאת שני ערכים בעלי סימנים הפוכים: $f(0)>0$ ו-$f\\left(-\\frac\\pi2\\right)<0$", 3),
                ("הפעלת משפט ערך הביניים וקיום פתרון", 2),
                ("הפתרון אינו יחיד: בכל קטע $\\left[-\\frac\\pi2-2\\pi k,-2\\pi k\\right]$ יש פתרון, ולכן אינסוף פתרונות", 4)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להסיק יחידות מכך ש-$e^x$ עולה: הסכום $e^x+\\sin x$ אינו מונוטוני.",
               "לטעון ש-$f\\left(-\\frac\\pi2\\right)>0$ בגלל $e^{-\\pi/2}>1$; בפועל $e^{-\\pi/2}<1$.",
               "לשכוח לציין שמשפט ערך הביניים דורש רציפות בקטע סגור."],
@@ -384,7 +387,7 @@ add(3, "ב",
            ["כן, כי $e^x$ פונקציה עולה", "כן, כי $f(x)>0$ לכל $x<0$", "לא, אך יש בדיוק שני פתרונות"],
            "בכל קטע כזה $f$ משנה סימן (מ-$e^{-\\pi/2-2\\pi k}-1<0$ ל-$e^{-2\\pi k}>0$), ולכן יש פתרון בכל קטע. $f$ אינה מונוטונית: $f'(-\\pi)<0<f'(0)$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: continuity of (sin x)^(tan x) at pi/2 =====
 import mpmath as mpm
@@ -397,7 +400,7 @@ add(4, "א",
                ("חישוב $\\ln A=\\lim\\frac{\\ln\\sin x}{\\cot x}=0$ (לופיטל), ולכן $A=1$", 3),
                ("הגבול הימני $e$", 1),
                ("מסקנה: $1\\neq e$, לכן אי-רציפות (קפיצה, ממין ראשון)", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לבדוק רק את הגבול משמאל ולהשוות אותו ל-$e$ בלי לחשב אותו נכון: הוא $1$ ולא $e$.",
               "לטעון ש-$1^{\\infty}=1$ ללא חישוב; זו צורה לא מסוימת.",
               "לקבוע \"לא רציפה\" בלי לציין שמדובר באי-רציפות מסוג ראשון."],
@@ -412,7 +415,7 @@ add(4, "א",
            ["רציפה, כי הגבול הימני שווה ל-$f\\left(\\frac\\pi2\\right)=e$", "רציפה, כי הגבול השמאלי $1$", "לא רציפה, כי אחד הגבולות אינסופי"],
            "הגבול הימני $e=f\\left(\\frac\\pi2\\right)$ אבל השמאלי $1\\neq e$, ולכן אין רציפות; שני הגבולות סופיים ולכן זו קפיצה."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: volume, y = x*sqrt(arctan x) about x-axis =====
 I4 = sp.integrate(x**2*sp.atan(x), (x, 0, 1))
@@ -430,19 +433,19 @@ add(4, "ב",
                ("אינטגרציה בחלקים: $u=\\arctan x$, $dv=x^2dx$", 3),
                ("האינטגרל הנותר $\\int_0^1\\frac{x^3}{1+x^2}dx=\\frac12-\\frac12\\ln2$ (חילוק פולינומים)", 2),
                ("הערך הסופי $V=\\frac{\\pi^2}{12}-\\frac\\pi6+\\frac\\pi6\\ln2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לרבע את הרדיוס: $\\left(x\\sqrt{\\arctan x}\\right)^2=x^2\\arctan x$.",
               "טעות הצבת גבולות בשורה האחרונה: $\\frac13\\left(\\frac12-\\frac12\\ln2\\right)=\\frac16-\\frac16\\ln2$ ולכן המקדם של $\\pi$ הוא $-\\frac16$.",
               "לשכוח לחלק את $\\frac{x^3}{1+x^2}$ ל-$x-\\frac{x}{1+x^2}$ לפני האינטגרציה."],
     steps=[
-        chx("איזה אינטגרנד (ב-$x$ מ-$0$ עד $1$) מתאים לנפח החלוקות $\\frac{V}{\\pi}$?", x**2*sp.atan(x),
+        chx("איזה אינטגרנד (ב-$x$ מ-$0$ עד $1$) מתאים ל-$\\frac{V}{\\pi}$, כלומר לנפח הגוף לאחר חילוקו ב-$\\pi$?", x**2*sp.atan(x),
             [x*sp.atan(x), x**2*sp.sqrt(sp.atan(x)), 2*x**2*sp.atan(x)], vo,
             "סיבוב סביב ציר $x$: $V=\\pi\\int y^2dx$ ו-$y^2=x^2\\arctan x$. שאר האינטגרנדים נותנים ערך אחר (נבדק ב-sympy)."),
         num("מהו $\\int_0^1\\frac{x^3}{1+x^2}dx$? (עשרוני)", rem4, "$\\int_0^1\\left(x-\\frac{x}{1+x^2}\\right)dx=\\frac12-\\frac12\\ln2\\approx0.1534$ (sympy)."),
         num("מהו $\\int_0^1x^2\\arctan x\\,dx$? (עשרוני)", I4, "$\\frac{\\pi}{12}-\\frac13\\left(\\frac12-\\frac12\\ln2\\right)=\\frac{\\pi}{12}-\\frac16+\\frac{\\ln2}{6}\\approx0.2107$ (sympy)."),
         num("מהו נפח הגוף? (עשרוני)", V4, "$V=\\pi\\cdot0.2107\\approx0.662$, כלומר $\\frac{\\pi^2}{12}-\\frac\\pi6+\\frac\\pi6\\ln2$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: Lagrange inequality =====
 f5 = x*sp.exp(x**2)
@@ -464,7 +467,7 @@ add(5, "א",
                ("חישוב הנגזרת $f'(x)=e^{x^2}\\left(1+2x^2\\right)$", 2),
                ("מונוטוניות $f'$ בקטע וחסימה: $f'(1)=3e$ ו-$f'(2)=9e^4$", 3),
                ("מסקנת אי-השוויון", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לנמק ש-$f'$ עולה בקטע; בלי זה אי אפשר לחסום את $f'(c)$ בין $f'(1)$ ל-$f'(2)$.",
               "לגזור את $xe^{x^2}$ בלי כלל המכפלה ובלי גורם השרשרת $2x$.",
               "להסתפק ב-$a<c<b$ ולשכוח ש-$1<a<b<2$ נותן $1<c<2$."],
@@ -478,13 +481,14 @@ add(5, "א",
         findbug("בהוכחה שורה אחת שגויה. מצאו אותה.", L5b, 1,
                 "הנגזרת היא $e^{x^2}\\left(1+2x^2\\right)$; עם $1+x^2$ מתקבל $f'(1)=2e$ ולא $3e$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: int sin^3/cos^4 =====
 g5b = sp.sin(x)**3/sp.cos(x)**4
 F5b = 1/(3*sp.cos(x)**3) - 1/sp.cos(x)
 assert same(sp.diff(F5b, x), g5b)
 t5 = sp.Symbol('t5', positive=True)
+SYMNAMES[t5] = "t"
 assert same(-(1 - t5**2)/t5**4, -1/t5**4 + 1/t5**2)
 F5w = [1/(3*sp.cos(x)**3) + 1/sp.cos(x), -1/(3*sp.cos(x)**3) + 1/sp.cos(x), 1/(3*sp.cos(x)**3) - sp.cos(x)]
 tok = lambda e: same(e, -(1 - t5**2)/t5**4)
@@ -494,7 +498,7 @@ add(5, "ב",
                ("$\\sin^2x=1-t^2$ והמעבר ל-$-\\int\\frac{1-t^2}{t^4}dt$", 3),
                ("אינטגרציה איבר איבר: $\\frac{1}{3t^3}-\\frac1t$", 2),
                ("חזרה ל-$x$ ותשובה עם $+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את המינוס מ-$dt=-\\sin x\\,dx$.",
               "לא להפריד גורם $\\sin x\\,dx$ ולנסות להציב $t=\\sin x$.",
               "טעות באינטגרציה של $t^{-4}$ ו-$t^{-2}$: $\\int t^{-4}dt=-\\frac{1}{3t^3}$ ו-$\\int t^{-2}dt=-\\frac1t$."],
@@ -508,7 +512,7 @@ add(5, "ב",
         chx("מהו האינטגרל? (בלי הקבוע)", F5b, F5w, lambda e: same(sp.diff(e, x), g5b),
             "$-\\int\\left(t^{-4}-t^{-2}\\right)dt=\\frac{1}{3t^3}-\\frac1t$ עם $t=\\cos x$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: arc length of sqrt(1-x^2) on [0, 0.5] =====
 y6 = sp.sqrt(1 - x**2)
@@ -521,7 +525,7 @@ add(6, "א",
                ("חישוב $1+(y')^2=\\frac{1}{1-x^2}$", 3),
                ("נוסחת אורך הקשת: $\\int_0^{0.5}\\frac{dx}{\\sqrt{1-x^2}}$", 2),
                ("$\\arcsin$ והערך $\\frac\\pi6$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את השורש בנוסחה $L=\\int\\sqrt{1+(y')^2}dx$.",
               "לטעות בחישוב $1+\\frac{x^2}{1-x^2}$: זה $\\frac{1}{1-x^2}$ ולא $\\frac{1+x^2}{1-x^2}$.",
               "לחשב $\\arcsin(0.5)$ במעלות או כ-$\\frac\\pi3$."],
@@ -531,7 +535,7 @@ add(6, "א",
             "$1+\\frac{x^2}{1-x^2}=\\frac{1}{1-x^2}$ (אומת ב-sympy)."),
         num("מהו ערך אורך הקשת? (עשרוני)", L6, "$\\int_0^{0.5}\\frac{dx}{\\sqrt{1-x^2}}=\\arcsin0.5=\\frac\\pi6\\approx0.5236$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: lim_{x->1-} ln x * ln(1-x) =====
 lim6 = sp.limit(sp.log(x)*sp.log(1 - x), x, 1, '-')
@@ -546,7 +550,7 @@ add(6, "ב",
                ("הפיכה למנה $\\frac{\\ln(1-x)}{1/\\ln x}$ ולופיטל ראשון", 3),
                ("פישוט ל-$\\frac{x\\ln^2x}{1-x}$ וזיהוי $\\frac00$", 3),
                ("לופיטל שני וערך הגבול $0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכתוב \"$0\\cdot\\infty=0$\" בלי חישוב: זו צורה לא מסוימת.",
               "בחירת המנה ההפוכה $\\frac{\\ln x}{1/\\ln(1-x)}$, שהנגזרת שלה מסובכת יותר.",
               "טעות בנגזרת של $\\frac{1}{\\ln x}$: היא $-\\frac{1}{x\\ln^2x}$."],
@@ -559,7 +563,7 @@ add(6, "ב",
             "$\\frac{-\\frac{1}{1-x}}{-\\frac{1}{x\\ln^2x}}=\\frac{x\\ln^2x}{1-x}$, וזו צורה $\\frac00$ (אומת ב-sympy)."),
         num("מהו ערך הגבול?", 0, "לופיטל שני: $\\frac{\\ln^2x+2\\ln x}{-1}\\to0$ (sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {
