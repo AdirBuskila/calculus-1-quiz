@@ -1,0 +1,330 @@
+{
+ "examCode": "17A-A",
+ "refuter": "independent (calculus-1 scope refute)",
+ "derivationFiles": [
+  "tools/verify/17A-A/refute_scope_numeric.py"
+ ],
+ "skippedHeld": [],
+ "items": [
+  {
+   "item": "1",
+   "myDerivation": "D x!=1; VA x=1; slant y=4x+2; max (1/2,2) min (3/2,10); f''=2/(x-1)^3 no inflection; y-int (0,1), roots (1+-sqrt5)/4",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 20)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2א",
+   "myDerivation": "limit 9/2 (induction: bounded by 4.5, increasing)",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "2ב",
+   "myDerivation": "tan x - (4/sqrt5) arctan(tan x/sqrt5)+C",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "steps 1-2: option text uses sympy symbol name \"tt\" instead of t. Cosmetic, math consistent."
+  },
+  {
+   "item": "3א",
+   "myDerivation": "e^(-1/2)",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ב",
+   "myDerivation": "sqrt3/2-pi/120 ~ 0.8398",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "myDerivation": "a=1/2",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "myDerivation": "pi(e+1)/(1+pi^2)",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5א",
+   "myDerivation": "max 6^(5/3)~19.81 at x=6; min 0 at x=0,4",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5ב",
+   "myDerivation": "x+ln|x|-(7/2)arctan((x+1)/2)+C",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6א",
+   "myDerivation": "P2(1.05)=1.0246875, |R|<=0.05^3/16=7.8e-6",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "myDerivation": "20/3",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  }
+ ]
+}

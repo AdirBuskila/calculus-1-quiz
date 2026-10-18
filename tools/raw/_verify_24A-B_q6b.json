@@ -1,0 +1,34 @@
+{
+ "examCode": "24A-B",
+ "refuter": "independent (calculus-1 scope refute)",
+ "derivationFiles": [
+  "tools/verify/24A-B/refute_scope_numeric.py"
+ ],
+ "items": [
+  {
+   "item": "6ב",
+   "myDerivation": "As printed (page 6 of the 24A-B PDF): lim x^4 / int_0^{x^2} t cos(t^2) dt = x^4/((1/2) sin(x^4)) -> 2. Numerics: x=0.1 gives 2.0000000033. The printed solution (page 7) solves a different limit (numerator sin^2 x, answer infinity): an official mismatch that does not apply to the printed question.",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "Confirmed: the exam prints x^4 in the numerator; the stored solution solves it as printed, answer 2, correct. The stored text correctly flags the official page-7 solution as a different problem."
+  }
+ ]
+}

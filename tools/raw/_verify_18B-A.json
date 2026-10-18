@@ -1,0 +1,300 @@
+{
+ "examCode": "18B-A",
+ "refuter": "independent (calculus-1 scope refute)",
+ "derivationFiles": [
+  "tools/verify/18B-A/refute_scope_numeric.py"
+ ],
+ "skippedHeld": [],
+ "items": [
+  {
+   "item": "1",
+   "myDerivation": "x!=+-sqrt3; odd; VA +-sqrt3; slant y=x; max (-3,-9/2) min (3,9/2); f''=6x(x^2+9)/(x^2-3)^3 inflection (0,0), x=0 stationary no extremum",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 20)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "pitfall 2 says the one-sided sign is set by the sign of x^2-3 alone; it is set by the signs of x^3 and x^2-3 (nit). All values agree."
+  },
+  {
+   "item": "2",
+   "myDerivation": "decreasing, 1<a_n<=2 (a_1=2), limit 1",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 5,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "FLAG on stored solution text: asserts 1<a_n<2 for all n>=1 and \"n=1 holds\"; false at n=1 (a_1=2). Harmless intermediate slip: the inductive step and the monotonicity proof only need a_n>1; the upper bound is never used. Rubric, pitfall 4 and steps (1<a_n<=2) are right but disagree with the solution text."
+  },
+  {
+   "item": "3א",
+   "myDerivation": "f'=3x^17(x^3+1); max at -1, min at 0",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "3ב",
+   "myDerivation": "root exists (IVT); NOT unique: infinitely many roots, one in each [-pi/2-2pi k,-2pi k]; none for x>=0",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4א",
+   "myDerivation": "left limit 1, right e=f(pi/2): discontinuous (jump)",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "4ב",
+   "myDerivation": "pi(pi/12-1/6+ln2/6)~0.6618",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "step 0 prompt has garbled wording (\"נפח החלוקות\", meant V divided by pi). Confirmed vs 18B-A-S p3 that the source gives 1-1/2 ln2 (slip); the correction is right."
+  },
+  {
+   "item": "5א",
+   "myDerivation": "MVT on x e^(x^2), f' increasing, 3e<f'(c)<9e^4",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "5ב",
+   "myDerivation": "1/(3cos^3 x)-1/cos x+C",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6א",
+   "myDerivation": "pi/6",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "item": "6ב",
+   "myDerivation": "0",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 10)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": ""
+  }
+ ]
+}

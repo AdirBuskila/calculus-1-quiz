@@ -1,0 +1,39 @@
+{
+ "examCode": "24A-A",
+ "refuter": "independent (calculus-1 scope refute)",
+ "derivationFiles": [
+  "tools/verify/24A-A/refute_scope_numeric.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "myDerivation": "D x!=0; no intercepts; f'=e^x(x-2)/x^3 inc x<0, dec (0,2), inc x>2; min (2,e^2/4~1.8473); f''=e^x(x^2-4x+6)/x^4>0 on both branches, no inflection; VA x=0 (+inf both sides); HA y=0 at -inf only; no asymptote at +inf",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total: 20)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "Confirmed vs 24A-A p1: official part ג wrongly says y''<0 for x<0; f''=e^x(x^2-4x+6)/x^4>0 everywhere. Terminology: this solution uses the 24A convention (f''>0 = concave up, called קעורה); the 17A/17B/18B/19A items use the opposite word convention (f''>0 = קמורה)."
+  }
+ ]
+}
