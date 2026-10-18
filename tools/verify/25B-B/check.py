@@ -74,6 +74,7 @@ right = sp.limit(x**2*sp.log(x)/x, x, 0, '+')
 ok("Q6b continuity at 0 for every a", sp.limit(x**2*sp.log(x), x, 0, '+') == 0)
 ok("Q6b f'_-(0)=a, f'_+(0)=0 -> a=0", sp.simplify(left - aa) == 0 and right == 0)
 bad = [nm for nm, c in r if not c]
+ok("Q2b step-4 explain value 5pi/2-2-3ln2 = 3.7745", abs(float(5*sp.pi/2 - 2 - 3*sp.log(2)) - 3.7745) < 5e-5)
 for nm, c in r:
     print(("OK  " if c else "FAIL"), nm)
 print("mismatches:", len(bad))

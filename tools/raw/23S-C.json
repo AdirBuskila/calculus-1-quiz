@@ -39,7 +39,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור $e^{-\\frac{x^2}{2}}$ בלי כלל השרשרת, ולשכוח את הגורם $-x$.",
     "לפספס את $x=0$ כנקודת פיתול: $f''$ מתאפסת שם ומשנה סימן.",
@@ -145,7 +145,7 @@
      "explain": "$\\lim_{x\\to\\pm\\infty}2xe^{-\\frac{x^2}{2}}=0$ (אומת ב-sympy), ולכן $y=0$ אופקית; אין נקודת אי-רציפות ולכן אין אנכית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -180,7 +180,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מכמה איברים ראשונים ($1,1.5,1.75,\\ldots$) שהסדרה עולה, בלי הוכחה.",
     "לפתור את $L=\\frac{L}{2}+1$ לפני שהוכח שהגבול קיים.",
@@ -269,7 +269,7 @@
      "explain": "$L=\\frac{L}{2}+1$ נותן $\\frac{L}{2}=1$, כלומר $L=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -300,7 +300,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות פירוק לשברים חלקיים כשהמונה מדרגה גבוהה מהמכנה: קודם חייבים לחלק.",
     "לאנטגרל $\\frac{3x}{x^2+1}$ כ-$3\\ln\\left(x^2+1\\right)$ ולשכוח את הגורם $\\frac{1}{2}$ מהנגזרת הפנימית $2x$.",
@@ -371,7 +371,7 @@
      "explain": "$F(1)-F(0)=\\frac{1}{2}-\\frac{3}{2}\\ln2\\approx-0.5397$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -402,7 +402,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש רק שוויון נגזרות ולשכוח את תנאי הרציפות (גזירות מחייבת רציפות).",
     "להשוות נגזרות חד-צדדיות לפי הנוסחאות של הענפים בלי לוודא שהן מוגדרות לפי הענף הנכון ($x\\le1$ משמאל, $x>1$ מימין).",
@@ -435,7 +435,7 @@
       }
      ],
      "correctId": "d",
-     "explain": "$a+1=2-b$ שקול ל-$a+b=1$ (נבדק ב-sympy; שלוש האפשרויות האחרות נותנות פתרון אחר למערכת)."
+     "explain": "$a+1=2-b$ שקול ל-$a+b=1$ (נבדק ב-sympy; בצירוף $2a+b=3$ האפשרויות $a+b=3$ ו-$a-b=1$ נותנות פתרון אחר, והאפשרות $2a+b=1$ סותרת את $2a+b=3$ ולכן למערכת אין פתרון)."
     },
     {
      "type": "choice",
@@ -480,14 +480,14 @@
      "explain": "$b=1-a=-1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
    "kind": "proof",
    "topic": "continuity",
    "question": "הוכיחו שלמשוואה $2x^3-x^2+x+1=0$ קיים פתרון ממשי אחד בקטע $[-3,0]$.",
-   "solution": "$$f'(x)=6x^2-2x+1$$\n$$f'(x)=0\\Rightarrow x\\in\\varnothing$$\n$f'(x)>0$ הפונקציה עולה בתחום $(-\\infty,\\infty)$.\n$$f(-3)=-59<0$$\n$$f(0)=1>0$$\nבקצוות הקטע סימנים של הפונקציה מנוגדים ופונקציה עולה בקטע, לכן יש נקודת חיתוך אחת עם ציר ה-$X$.",
+   "solution": "$$f'(x)=6x^2-2x+1$$\n$$f'(x)=0\\Rightarrow x\\in\\varnothing$$\n$f'(x)>0$ הפונקציה עולה בתחום $(-\\infty,\\infty)$.\n$$f(-3)=-65<0$$\n$$f(0)=1>0$$\nבקצוות הקטע סימנים של הפונקציה מנוגדים ופונקציה עולה בקטע, לכן יש נקודת חיתוך אחת עם ציר ה-$X$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -511,11 +511,11 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בסימנים מנוגדים בקצוות: זה מוכיח רק קיום של שורש אחד לפחות, לא יחידות.",
     "לטעון ש-$f'(x)\\neq0$ בלי להראות שהיא חיובית (סימן קבוע) בכל התחום.",
-    "לטעות בחישוב $f(-3)$: הערך הוא $-65$ (בפתרון הרשמי מודפס $-59$), אך רק הסימן חשוב."
+    "לטעות בחישוב $f(-3)$: הערך הוא $2(-27)-9-3+1=-65$; הסימן (שלילי) הוא החשוב להוכחה."
    ],
    "steps": [
     {
@@ -530,7 +530,7 @@
      "prompt": "מהו $f(-3)$ עבור $f(x)=2x^3-x^2+x+1$?",
      "answer": -65,
      "tol": 0.001,
-     "explain": "$2(-27)-9-3+1=-65$. בפתרון הרשמי מודפס $-59$, אך רק הסימן (שלילי) משמש בהוכחה."
+     "explain": "$2(-27)-9-3+1=-65$; רק הסימן (שלילי) משמש בהוכחה."
     },
     {
      "type": "numeric",
@@ -568,7 +568,7 @@
      "explain": "רול דורש $f(-3)=f(0)$, אבל $-65\\neq1$. מונוטוניות אינה מבטיחה קיום (למשל $e^x$), וסימנים מנוגדים אינם מבטיחים יחידות. כאן $f'$ אינה מתאפסת כלל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -603,7 +603,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח ש-$1^\\infty=1$: זו צורה לא מוגדרת, והמעריך הגדל משפיע.",
     "לטעות בחיסור $\\left(x^2+5x+4\\right)-\\left(x^2-3x+7\\right)=8x-3$ (ולא $2x-3$).",
@@ -702,7 +702,7 @@
      "explain": "$(1+g)^{2x}=\\left((1+g)^{1/g}\\right)^{2xg}\\to e^{16}$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -733,7 +733,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשמיט את הגורם $\\pi$ מהתשובה הסופית (טעות שמופיעה גם בפתרון הרשמי המודפס).",
     "לשכוח שיש להפעיל אינטגרציה בחלקים פעמיים, כי $\\int\\ln x\\,dx$ עדיין דורש חלקים.",
@@ -801,7 +801,7 @@
      "prompt": "מהו $\\int_1^e\\ln^2x\\,dx$? (עשרוני)",
      "answer": 0.7183,
      "tol": 0.001,
-     "explain": "$AF(e)-AF(1)=e-2\\approx0.7183$."
+     "explain": "$F(e)-F(1)=e-2\\approx0.7183$."
     },
     {
      "type": "numeric",
@@ -811,7 +811,7 @@
      "explain": "$V=\\pi(e-2)\\approx2.2565$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -842,7 +842,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שגם $y$ תלוי ב-$x$: הנגזרת של $\\sin\\frac{y}{2}$ היא $\\cos\\frac{y}{2}\\cdot\\frac{y'}{2}$.",
     "לבודד את $y'$ בלי להעביר את האיבר המכיל $y'$ מאגף ימין לאגף שמאל.",
@@ -913,7 +913,7 @@
      "explain": "המשיק עובר דרך $(1,\\pi)$ בשיפוע $\\pi$: $y-\\pi=\\pi(x-1)$, כלומר $y=\\pi x$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -948,7 +948,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר את התשובה כ-$\\ln A=1$ בלי לחזור ל-$A=e$.",
     "לגזור את $\\ln\\left(e^x-1\\right)$ בלי כלל השרשרת: הנגזרת היא $\\frac{e^x}{e^x-1}$.",
@@ -1026,7 +1026,7 @@
      "explain": "$\\ln A=1$ ולכן $A=e\\approx2.7183$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1057,7 +1057,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$x=0$ היא נקודה חשודה כי $y'$ לא מוגדרת שם (וגם קצה הקטע).",
     "לשכוח לחשב את $y(-2)$ בקצה השמאלי של הקטע.",
@@ -1135,7 +1135,7 @@
      "explain": "הערכים בנקודות החשודות: $y(-2)\\approx0.76$, $y(-1)=1$, $y(0)=0$; הגדול הוא $1$ והקטן הוא $0$ (נבדק על רשת צפופה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1166,7 +1166,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפתח סביב $x_0=0$ או $x_0=9$: שם הנגזרות לא מוגדרות או שהערכים לא ידועים.",
     "להעריך את השארית עם $c=9$ במקום $c>8$: החסם הגדול ביותר מתקבל כש-$c$ קרוב ל-$8$.",
@@ -1223,7 +1223,7 @@
      "explain": "כש-$c>8$ הערך $\\frac{1}{9\\sqrt[3]{c^5}}$ קטן מ-$\\frac{1}{9\\cdot32}=\\frac{1}{288}\\approx0.00347<0.01$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

@@ -196,3 +196,37 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Status: resolved
 - Ruling 2026-10-18 (solver/arbiter): covered by the standing label rule; stays as shipped.
 
+
+### 23S-C Q3b - official prints f(-3) = -59
+- Page: 5
+- Question: f(-3) = 2(-27)-9-3+1 = -65, the official solution prints -59. Intermediate slip: only the sign is used, the conclusion (one root) is unchanged.
+- Needed: none. Corrected silently to -65 in the solution and steps.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): standing rule for intermediate slips; no student-facing label.
+
+### 23A-B Q2b - official says the denominator is negative
+- Page: 6
+- Question: in the monotonicity proof the official text says "המכנה שלילי" where the numerator 7-a_n^2 is meant (the denominator 2a_n is positive, as the next sentence says). Intermediate wording slip.
+- Needed: none. Corrected silently to "המונה שלילי".
+- Status: resolved
+- Ruling 2026-10-18 (fixer): standing rule for intermediate slips; no student-facing label.
+
+### 23A-B Q6b - official bound truncated to 0.00045
+- Page: 7
+- Question: 1/(3000*0.9^3) = 0.000457247, the official final line prints delta < 0.00045 (truncated, so not a valid upper bound). Shipped with the minimal fix delta < 0.000457, labeled, solved, official:false. ln 0.9 ~ -0.105 is unaffected.
+- Needed: none if acceptable.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): final-answer error, standing label rule applied.
+
+### 23A-B Q1 - official uses "קעורה" for f'' > 0
+- Page: 2
+- Question: this sitting's official solution calls the region f''>0 "קעורה" (cup), the opposite of the convention in some other sittings. Wording kept as printed, with the symbols (cup/cap) added beside the words.
+- Needed: none.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): terminology note only.
+
+### 22B-B Q5a, Q5b - point split not printed
+- Page: 7-8
+- Question: the printed solution pages show no points for Q5a and Q5b. The instructions give 20% per question and every other question is split 10+10, so 10+10 is inferred (the raw items carry no explicit points; each rubric sums to 10). It is not verifiable on the page.
+- Needed: confirm the 10+10 split if it matters.
+- Status: open

@@ -12,7 +12,7 @@
    "kind": "computation",
    "topic": "function_investigation",
    "question": "חקרו את הפונקציה $f(x)=\\frac{\\ln(x)-1}{\\ln(x)}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה, נקודות קיצון, תחומי קמירות וקעירות, נקודות פיתול, אסימפטוטות, שרטוט.",
-   "solution": "**א.** תחום הגדרה הוא $D=\\{x>0,\\ x\\neq1\\}$.\n**ב.** נק' חיתוך עם הצירים היא $(e,0)$.\n**ג.** $f'(x)=\\frac{\\frac{1}{x}\\ln x-(\\ln x-1)\\frac{1}{x}}{(\\ln x)^2}=\\frac{\\frac{1}{x}}{(\\ln x)^2}>0$ ולכן הפונקציה עולה ממש כל הזמן ללא נקודת קיצון.\n**ד.** $f''(x)=\\frac{-(\\ln x+2)}{x^2(\\ln x)^3}$ ולכן פונקציה קעורה כאשר $e^{-2}<x<1$ וקמורה כאשר $x>1$ או $x<e^{-2}$. בנקודה $x=e^{-2}$ הפונקציה בעלת נקודת פיתול.\n**ה. אסימפטוטות:** אם נחשב $\\begin{cases}\\lim_{x\\to1^-}f(x)=+\\infty\\\\ \\lim_{x\\to1^+}f(x)=-\\infty\\end{cases}$, אז נקבל שקו ישר $x=1$ מהווה אסימפטוטה אנכית לגרף הפונקציה. בנוסף, $\\begin{cases}\\lim_{x\\to+\\infty}\\frac{f(x)}{x}=0\\\\ \\lim_{x\\to+\\infty}f(x)=1\\end{cases}$ ולכן קו ישר $y=1$ מהווה אסימפטוטה אופקית באינסוף לגרף הפונקציה.\nנקי' אי-רציפות מימין בנק' $x=0$: $\\lim_{x\\to0^+}f(x)=1$.\n\n![הגרף הרשמי של הפונקציה](images/exams/23A-B-Q1-graph.png)",
+   "solution": "**א.** תחום הגדרה הוא $D=\\{x>0,\\ x\\neq1\\}$.\n**ב.** נק' חיתוך עם הצירים היא $(e,0)$.\n**ג.** $f'(x)=\\frac{\\frac{1}{x}\\ln x-(\\ln x-1)\\frac{1}{x}}{(\\ln x)^2}=\\frac{\\frac{1}{x}}{(\\ln x)^2}>0$ ולכן הפונקציה עולה ממש כל הזמן ללא נקודת קיצון.\n**ד.** $f''(x)=\\frac{-(\\ln x+2)}{x^2(\\ln x)^3}$ ולכן פונקציה קעורה ($\\cup$) כאשר $e^{-2}<x<1$ וקמורה ($\\cap$) כאשר $x>1$ או $x<e^{-2}$. בנקודה $x=e^{-2}$ הפונקציה בעלת נקודת פיתול.\n**ה. אסימפטוטות:** אם נחשב $\\begin{cases}\\lim_{x\\to1^-}f(x)=+\\infty\\\\ \\lim_{x\\to1^+}f(x)=-\\infty\\end{cases}$, אז נקבל שקו ישר $x=1$ מהווה אסימפטוטה אנכית לגרף הפונקציה. בנוסף, $\\begin{cases}\\lim_{x\\to+\\infty}\\frac{f(x)}{x}=0\\\\ \\lim_{x\\to+\\infty}f(x)=1\\end{cases}$ ולכן קו ישר $y=1$ מהווה אסימפטוטה אופקית באינסוף לגרף הפונקציה.\nנקי' אי-רציפות מימין בנק' $x=0$: $\\lim_{x\\to0^+}f(x)=1$.\n\n![הגרף הרשמי של הפונקציה](images/exams/23A-B-Q1-graph.png)",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -39,7 +39,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$x=1$ מחוץ לתחום ההגדרה ($\\ln1=0$ במכנה) ולכן יש שם אסימפטוטה אנכית.",
     "לטעון לקיצון כי $f'$ לא מוגדרת ב-$x=1$: $x=1$ אינה בתחום, ו-$f'>0$ בכל התחום.",
@@ -124,7 +124,7 @@
      "explain": "$f=1-\\frac{1}{\\ln x}\\to1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -159,7 +159,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\frac{B}{x^2+4}$ במקום מונה לינארי $Bx+C$: אז אין פתרון למערכת המקדמים.",
     "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל $\\int\\frac{x}{x^2+4}dx$.",
@@ -232,14 +232,14 @@
      "explain": "$\\int\\frac{x}{x^2+4}dx=\\frac{1}{2}\\ln\\left(x^2+4\\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
    "kind": "proof",
    "topic": "sequences_limits",
    "question": "נתונה הסדרה: $a_1=3,\\ a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)$.\nהוכיחו כי הסדרה מתכנסת וחשבו את הגבול של הסדרה.",
-   "solution": "$$a_1=3$$\n$$a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3$$\n$$a_3=\\frac{1}{2}\\left(\\frac{8}{3}+\\frac{21}{8}\\right)=\\frac{127}{48}<\\frac{8}{3}$$\nנראה באינדוקציה כי הסדרה יורדת וחיובית.\n**הוכחת חסימות:** קודם כל, לפי אי שיוויון הממוצעים, $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{7}{a_n}}=\\sqrt{7}$. לכן לכל $n$, $a_n\\ge\\sqrt{7}$.\n**הוכחת מונוטוניות:** $a_1=3$. $a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3=a_1$. נניח $a_n<a_{n-1}$. צריך להוכיח כי $a_{n+1}<a_n$.\nנסתכל על\n$$a_{n+1}-a_n=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)-a_n=-\\frac{1}{2}a_n+\\frac{7}{2a_n}=\\frac{7-a_n^2}{2a_n}=\\frac{\\left[\\sqrt{7}-a_n\\right]\\left[\\sqrt{7}+a_n\\right]}{2a_n}$$\nהמכנה שלילי כי $a_n\\ge\\sqrt{7}$ ו-$a_n>0$. המכנה חיובי.\nלכן $a_{n+1}-a_n<0$. לכן הסדרה מונוטונית יורדת.\nכמו כן הסדרה חסומה מלרע כי ראינו כי $a_n\\ge\\sqrt{7}$. ולפי משפט סידרה מונוטונית וחסומה מתכנסת.\nנניח שהגבול הוא $L$, כך ש-$\\lim_{n\\to\\infty}a_n=\\lim_{n\\to\\infty}a_{n+1}=L$.\nמתוך ההגדרה הרקורסיבית של הסדרה $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)$ ואריתמטיקה של גבולות נקבל:\n$$L=\\frac{1}{2}\\left(L+\\frac{7}{L}\\right)\\Rightarrow\\frac{1}{2}L=\\frac{7}{2L}\\Rightarrow L^2=7\\Rightarrow L=\\pm\\sqrt{7}$$\nאבל הסדרה חיובית ולכן לא ייתכן שהגבול שלה שלילי. לכן $L=\\sqrt{7}$.",
+   "solution": "$$a_1=3$$\n$$a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3$$\n$$a_3=\\frac{1}{2}\\left(\\frac{8}{3}+\\frac{21}{8}\\right)=\\frac{127}{48}<\\frac{8}{3}$$\nנראה באינדוקציה כי הסדרה יורדת וחיובית.\n**הוכחת חסימות:** קודם כל, לפי אי שיוויון הממוצעים, $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{7}{a_n}}=\\sqrt{7}$. לכן לכל $n$, $a_n\\ge\\sqrt{7}$.\n**הוכחת מונוטוניות:** $a_1=3$. $a_2=\\frac{1}{2}\\left(3+\\frac{7}{3}\\right)=\\frac{8}{3}<3=a_1$. נניח $a_n<a_{n-1}$. צריך להוכיח כי $a_{n+1}<a_n$.\nנסתכל על\n$$a_{n+1}-a_n=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)-a_n=-\\frac{1}{2}a_n+\\frac{7}{2a_n}=\\frac{7-a_n^2}{2a_n}=\\frac{\\left[\\sqrt{7}-a_n\\right]\\left[\\sqrt{7}+a_n\\right]}{2a_n}$$\nהמונה שלילי כי $a_n\\ge\\sqrt{7}$ ו-$a_n>0$. המכנה חיובי.\nלכן $a_{n+1}-a_n<0$. לכן הסדרה מונוטונית יורדת.\nכמו כן הסדרה חסומה מלרע כי ראינו כי $a_n\\ge\\sqrt{7}$. ולפי משפט סידרה מונוטונית וחסומה מתכנסת.\nנניח שהגבול הוא $L$, כך ש-$\\lim_{n\\to\\infty}a_n=\\lim_{n\\to\\infty}a_{n+1}=L$.\nמתוך ההגדרה הרקורסיבית של הסדרה $a_{n+1}=\\frac{1}{2}\\left(a_n+\\frac{7}{a_n}\\right)$ ואריתמטיקה של גבולות נקבל:\n$$L=\\frac{1}{2}\\left(L+\\frac{7}{L}\\right)\\Rightarrow\\frac{1}{2}L=\\frac{7}{2L}\\Rightarrow L^2=7\\Rightarrow L=\\pm\\sqrt{7}$$\nאבל הסדרה חיובית ולכן לא ייתכן שהגבול שלה שלילי. לכן $L=\\sqrt{7}$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -267,7 +267,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מהאיברים הראשונים ($3,\\frac{8}{3},\\frac{127}{48}$) שהסדרה יורדת, בלי הוכחה.",
     "לשכוח לפסול את $L=-\\sqrt{7}$ אף שכל האיברים חיוביים.",
@@ -349,7 +349,7 @@
      "explain": "קודם החסם התחתון (הוא קובע את סימן המונוטוניות), אחר כך המונוטוניות, ההתכנסות, וחישוב הגבול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -380,7 +380,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל השרשרת: הגבול העליון הוא $x^4$ ולכן יש להכפיל ב-$4x^3$.",
     "להציב $t=x$ במקום $t=x^4$ באינטגרנד אחרי הגזירה.",
@@ -451,7 +451,7 @@
      "explain": "$(1+t)^{\\frac{2}{t}}=\\left((1+t)^{\\frac{1}{t}}\\right)^2\\to e^2\\approx7.3891$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -486,7 +486,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שה-$\\frac{dx}{x}$ באינטגרנד הוא בדיוק $dt$, ולנסות לפתור את האינטגרל ב-$x$.",
     "לאנטגרל $\\frac{1}{(t+1)^2+4}$ כ-$\\arctan(t+1)$ בלי הגורם $\\frac{1}{2}$ והחלוקה ב-$2$ בתוך הארקטנגנס.",
@@ -606,7 +606,7 @@
      "explain": "$\\int\\frac{dt}{(t+1)^2+4}=\\frac{1}{2}\\arctan\\frac{t+1}{2}$ ואז $t=\\ln x$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -641,7 +641,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק את ערכי הקצה: מקסימום מוחלט נקבע מהשוואה בין הנקודות הקריטיות לקצוות.",
     "לטעות בגזירת השורש: $\\left(\\sqrt{4-x^2}\\right)'=\\frac{-x}{\\sqrt{4-x^2}}$.",
@@ -701,7 +701,7 @@
      "explain": "קודם הנגזרת והנקודה הקריטית, אחר כך השוואת הערכים וקביעת המקסימום המוחלט, ולבסוף האי-שוויון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -732,7 +732,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לרבע את הפונקציה: $\\left(\\sqrt{x\\ln x}\\right)^2=x\\ln x$, בלי שורש.",
     "לבחור $u=x$ ו-$dv=\\ln x\\,dx$: זה מסבך את החישוב ללא צורך.",
@@ -810,7 +810,7 @@
      "explain": "$V\\approx6.589$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -845,7 +845,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח ש-$1^\\infty=1$: הבסיס מתקרב ל-$1$ אבל המעריך מתפוצץ.",
     "לשכוח את החלוקה ב-$2$: $\\sin(2x-2)\\approx2(x-1)$, ולכן המעריך הוא $\\frac{1}{2}$ ולא $1$.",
@@ -923,7 +923,7 @@
      "explain": "$e^{\\frac{1}{2}}=\\sqrt{e}$ (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -954,7 +954,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור את הנוסחה $x\\arctan\\frac{1}{x^2}$ ולהציב $x=0$: הנוסחה לא מוגדרת ב-$0$, ולכן חייבים להשתמש בהגדרה.",
     "לטעון ש-$\\arctan\\frac{1}{\\Delta x^2}\\to0$ כי המעריך \"קטן\": הארגומנט $\\frac{1}{\\Delta x^2}\\to\\infty$ ולכן הערך $\\frac{\\pi}{2}$.",
@@ -1025,7 +1025,7 @@
      "explain": "שני הגבולות החד-צדדיים שווים ל-$\\frac{\\pi}{2}$, ו-$f$ רציפה ב-$0$ כי $|f(x)|\\le\\frac{\\pi}{2}|x|\\to0=f(0)$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1056,7 +1056,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהפונקציות זוגיות, ולחשב מ-$0$ עד $\\sqrt{3}$ בלי להכפיל ב-$2$ (או לחשב מ-$-\\sqrt{3}$ עד $\\sqrt{3}$).",
     "לאנטגרל $\\frac{3}{9+x^2}$ כ-$3\\arctan\\frac{x}{3}$ במקום $\\arctan\\frac{x}{3}$.",
@@ -1134,16 +1134,16 @@
      "explain": "$2\\left(\\frac{\\pi}{3}-\\frac{\\pi}{6}\\right)=\\frac{\\pi}{3}\\approx1.0472$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
    "kind": "computation",
    "topic": "lhopital_taylor",
    "question": "חשבו בקירוב $\\ln(0.9)$ באמצעות נוסחת מקלורן מסדר 2 של פונקציה $y=\\ln(1+x)$ והעריכו את שגיאת החישוב.",
-   "solution": "$$\\ln(1+x)=x-\\frac{x^2}{2}+R_2(x),\\qquad R_2(x)=\\frac{\\left(\\ln(1+x)\\right)^{(3)}(c)}{3!}x^3=\\frac{1}{3(1+c)^3}x^3,$$\n$c$ בין $x$ ל-$0$.\n$$\\ln0.9=\\ln(1+(-0.1))=-0.1-\\frac{(-0.1)^2}{2}+R_2(x)\\approx-0.105,$$\n$$R_2(x)=\\frac{1}{3(1+c)^3}(-0.1)^3,\\qquad-0.1<c<0$$\n$$|R_2(x)|=\\left|\\frac{1}{3(1+c)^3}(-0.1)^3\\right|<\\frac{1}{3000\\cdot0.9^3}=0.00045=\\delta$$\nתשובה: $\\ln0.9\\approx-0.105,\\qquad\\delta<0.00045$",
-   "solutionSource": "official-pdf",
-   "official": true,
+   "solution": "**הפתרון הרשמי עם תיקון:** בפתרון הרשמי החסם $\\frac{1}{3000\\cdot0.9^3}$ נכתב $0.00045$, אך ערכו $0.000457247\\ldots$ ולכן $0.00045$ אינו חסם עליון תקף (הוא נקצץ ולא עוגל כלפי מעלה). התשובה הסופית מתוקנת ל-$\\delta<0.000457$. התיקון נבדק (sympy).\n$$\\ln(1+x)=x-\\frac{x^2}{2}+R_2(x),\\qquad R_2(x)=\\frac{\\left(\\ln(1+x)\\right)^{(3)}(c)}{3!}x^3=\\frac{1}{3(1+c)^3}x^3,$$\n$c$ בין $x$ ל-$0$.\n$$\\ln0.9=\\ln(1+(-0.1))=-0.1-\\frac{(-0.1)^2}{2}+R_2(x)\\approx-0.105,$$\n$$R_2(x)=\\frac{1}{3(1+c)^3}(-0.1)^3,\\qquad-0.1<c<0$$\n$$|R_2(x)|=\\left|\\frac{1}{3(1+c)^3}(-0.1)^3\\right|<\\frac{1}{3000\\cdot0.9^3}\\approx0.000457=\\delta$$\nתשובה: $\\ln0.9\\approx-0.105,\\qquad\\delta<0.000457$",
+   "solutionSource": "solved",
+   "official": false,
    "confidence": "high",
    "part": "ב",
    "points": 10,
@@ -1165,7 +1165,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את החלוקה ב-$2!$ באיבר $-\\frac{x^2}{2}$.",
     "להעריך את השארית עם $c=0$ במקום להשתמש בכך ש-$1+c>0.9$ כדי לחסום את המכנה מלמטה.",
@@ -1222,7 +1222,7 @@
      "explain": "$\\frac{0.001}{3\\cdot0.729}\\approx0.000457$. הפתרון הרשמי כותב $0.00045$ (קיצוץ); השגיאה בפועל כ-$0.00036$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

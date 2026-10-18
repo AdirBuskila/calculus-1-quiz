@@ -11,8 +11,11 @@ Transcription notes
 - Q1: the official graph (p.2) is shipped as a figure (a red pen annotation next to it was whited out; the pen
   arrow and circle marking the open point (0,1) remain).
 - Q4b: the handwritten region sketch is described in words in the question, not shipped.
-- Q6b (as printed): the bound is written 1/(3000*0.9^3) = 0.00045; the exact value is 0.000457, so 0.00045 is a
-  truncation (the actual error is 0.00036). Final answer ln 0.9 ~ -0.105 is correct.
+- Q6b: the bound is printed 1/(3000*0.9^3) = 0.00045; the exact value is 0.000457247, so 0.00045 is a truncation and
+  not a valid upper bound (the actual error is 0.00036). Final-answer error -> "הפתרון הרשמי עם תיקון" label, minimal
+  fix delta < 0.000457, solutionSource solved, official False. ln 0.9 ~ -0.105 is correct.
+- Q2b: the official text says "המכנה שלילי" where the numerator 7-a_n^2 is meant; corrected silently, logged in ASK_ADIR.
+- Q1: the official uses "קעורה" for f''>0; the symbols (cup/cap) were added beside the words, wording otherwise unchanged.
 
 Checks (tools/verify/23A-B/check.py, sympy): every derivative, limit, integral, sign table, volume, area and the
 Taylor estimate match the official answers.
@@ -35,7 +38,7 @@ SOL1 = r"""
 **א.** תחום הגדרה הוא $D=\{x>0,\ x\neq1\}$.
 **ב.** נק' חיתוך עם הצירים היא $(e,0)$.
 **ג.** $f'(x)=\frac{\frac{1}{x}\ln x-(\ln x-1)\frac{1}{x}}{(\ln x)^2}=\frac{\frac{1}{x}}{(\ln x)^2}>0$ ולכן הפונקציה עולה ממש כל הזמן ללא נקודת קיצון.
-**ד.** $f''(x)=\frac{-(\ln x+2)}{x^2(\ln x)^3}$ ולכן פונקציה קעורה כאשר $e^{-2}<x<1$ וקמורה כאשר $x>1$ או $x<e^{-2}$. בנקודה $x=e^{-2}$ הפונקציה בעלת נקודת פיתול.
+**ד.** $f''(x)=\frac{-(\ln x+2)}{x^2(\ln x)^3}$ ולכן פונקציה קעורה ($\cup$) כאשר $e^{-2}<x<1$ וקמורה ($\cap$) כאשר $x>1$ או $x<e^{-2}$. בנקודה $x=e^{-2}$ הפונקציה בעלת נקודת פיתול.
 **ה. אסימפטוטות:** אם נחשב $\begin{cases}\lim_{x\to1^-}f(x)=+\infty\\ \lim_{x\to1^+}f(x)=-\infty\end{cases}$, אז נקבל שקו ישר $x=1$ מהווה אסימפטוטה אנכית לגרף הפונקציה. בנוסף, $\begin{cases}\lim_{x\to+\infty}\frac{f(x)}{x}=0\\ \lim_{x\to+\infty}f(x)=1\end{cases}$ ולכן קו ישר $y=1$ מהווה אסימפטוטה אופקית באינסוף לגרף הפונקציה.
 נקי' אי-רציפות מימין בנק' $x=0$: $\lim_{x\to0^+}f(x)=1$.
 
@@ -63,7 +66,7 @@ $$a_3=\frac{1}{2}\left(\frac{8}{3}+\frac{21}{8}\right)=\frac{127}{48}<\frac{8}{3
 **הוכחת מונוטוניות:** $a_1=3$. $a_2=\frac{1}{2}\left(3+\frac{7}{3}\right)=\frac{8}{3}<3=a_1$. נניח $a_n<a_{n-1}$. צריך להוכיח כי $a_{n+1}<a_n$.
 נסתכל על
 $$a_{n+1}-a_n=\frac{1}{2}\left(a_n+\frac{7}{a_n}\right)-a_n=-\frac{1}{2}a_n+\frac{7}{2a_n}=\frac{7-a_n^2}{2a_n}=\frac{\left[\sqrt{7}-a_n\right]\left[\sqrt{7}+a_n\right]}{2a_n}$$
-המכנה שלילי כי $a_n\ge\sqrt{7}$ ו-$a_n>0$. המכנה חיובי.
+המונה שלילי כי $a_n\ge\sqrt{7}$ ו-$a_n>0$. המכנה חיובי.
 לכן $a_{n+1}-a_n<0$. לכן הסדרה מונוטונית יורדת.
 כמו כן הסדרה חסומה מלרע כי ראינו כי $a_n\ge\sqrt{7}$. ולפי משפט סידרה מונוטונית וחסומה מתכנסת.
 נניח שהגבול הוא $L$, כך ש-$\lim_{n\to\infty}a_n=\lim_{n\to\infty}a_{n+1}=L$.
@@ -117,12 +120,13 @@ $$=2\left(\arctan\sqrt{3}-\arctan\frac{\sqrt{3}}{3}\right)=2\left(\frac{\pi}{3}-
 """
 
 SOL6B = r"""
+**הפתרון הרשמי עם תיקון:** בפתרון הרשמי החסם $\frac{1}{3000\cdot0.9^3}$ נכתב $0.00045$, אך ערכו $0.000457247\ldots$ ולכן $0.00045$ אינו חסם עליון תקף (הוא נקצץ ולא עוגל כלפי מעלה). התשובה הסופית מתוקנת ל-$\delta<0.000457$. התיקון נבדק (sympy).
 $$\ln(1+x)=x-\frac{x^2}{2}+R_2(x),\qquad R_2(x)=\frac{\left(\ln(1+x)\right)^{(3)}(c)}{3!}x^3=\frac{1}{3(1+c)^3}x^3,$$
 $c$ בין $x$ ל-$0$.
 $$\ln0.9=\ln(1+(-0.1))=-0.1-\frac{(-0.1)^2}{2}+R_2(x)\approx-0.105,$$
 $$R_2(x)=\frac{1}{3(1+c)^3}(-0.1)^3,\qquad-0.1<c<0$$
-$$|R_2(x)|=\left|\frac{1}{3(1+c)^3}(-0.1)^3\right|<\frac{1}{3000\cdot0.9^3}=0.00045=\delta$$
-תשובה: $\ln0.9\approx-0.105,\qquad\delta<0.00045$
+$$|R_2(x)|=\left|\frac{1}{3(1+c)^3}(-0.1)^3\right|<\frac{1}{3000\cdot0.9^3}\approx0.000457=\delta$$
+תשובה: $\ln0.9\approx-0.105,\qquad\delta<0.000457$
 """
 
 questions = [
@@ -170,7 +174,7 @@ questions = [
 
     Q(6, "computation", "lhopital_taylor",
       r"חשבו בקירוב $\ln(0.9)$ באמצעות נוסחת מקלורן מסדר 2 של פונקציה $y=\ln(1+x)$ והעריכו את שגיאת החישוב.",
-      SOL6B, part="ב", points=10),
+      SOL6B, part="ב", points=10, solutionSource="solved", official=False),
 ]
 
 # ---- steps / rubric / pitfalls (ai-draft); every value below is computed or asserted with sympy ----
@@ -281,7 +285,7 @@ add(1,
                ("נגזרת שנייה $f''(x)=\\frac{-(\\ln x+2)}{x^2\\ln^3x}$, תחומי קמירות וקעירות ונקודת פיתול ב-$x=e^{-2}$", 6),
                ("אסימפטוטה אנכית $x=1$ (גבולות $+\\infty$ ו-$-\\infty$) ואופקית $y=1$, והגבול $f\\to1$ ב-$0^+$", 4),
                ("שרטוט הגרף בהתאם לכל הנתונים", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח ש-$x=1$ מחוץ לתחום ההגדרה ($\\ln1=0$ במכנה) ולכן יש שם אסימפטוטה אנכית.",
               "לטעון לקיצון כי $f'$ לא מוגדרת ב-$x=1$: $x=1$ אינה בתחום, ו-$f'>0$ בכל התחום.",
               "לשכוח שבאינסוף האסימפטוטה האופקית היא $y=1$ ($\\frac{\\ln x-1}{\\ln x}=1-\\frac{1}{\\ln x}$)."],
@@ -299,7 +303,7 @@ add(1,
            "$f=1-\\frac{1}{\\ln x}$: משמאל $\\ln x\\to0^-$ ולכן $-\\frac{1}{\\ln x}\\to+\\infty$, ומימין $\\ln x\\to0^+$ ולכן $f\\to-\\infty$ (אומת ב-sympy)."),
         num("מהו $\\lim_{x\\to+\\infty}f(x)$ (האסימפטוטה האופקית $y=?$)", 1, "$f=1-\\frac{1}{\\ln x}\\to1$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: (2x^2 + x + 4)/((x+1)(x^2+4)) =====
 g2a = (2*x**2 + x + 4)/((x + 1)*(x**2 + 4))
@@ -317,7 +321,7 @@ add(2, "א",
                ("אינטגרל $\\int\\frac{dx}{x+1}=\\ln|x+1|$", 1),
                ("אינטגרל $\\int\\frac{x\\,dx}{x^2+4}=\\frac{1}{2}\\ln\\left(x^2+4\\right)$", 2),
                ("תשובה סופית עם $+C$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לכתוב $\\frac{B}{x^2+4}$ במקום מונה לינארי $Bx+C$: אז אין פתרון למערכת המקדמים.",
               "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל $\\int\\frac{x}{x^2+4}dx$.",
               "טעות בהצבת $x=-1$: $A\\left((-1)^2+4\\right)=5A=5$."],
@@ -332,7 +336,7 @@ add(2, "א",
             lambda e: same(sp.diff(e, x), g2a),
             "$\\int\\frac{x}{x^2+4}dx=\\frac{1}{2}\\ln\\left(x^2+4\\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: a_1 = 3, a_{n+1} = (a_n + 7/a_n)/2 =====
 seq2 = lim_iter(lambda v: (v + 7/v)/2, 3, n=6)
@@ -353,7 +357,7 @@ add(2, "ב",
                ("סדרה יורדת וחסומה מלמטה מתכנסת", 1),
                ("מעבר לגבול בנוסחת הנסיגה וקבלת $L^2=7$", 2),
                ("פסילת $L=-\\sqrt{7}$ ומסקנה $L=\\sqrt{7}$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להסיק מהאיברים הראשונים ($3,\\frac{8}{3},\\frac{127}{48}$) שהסדרה יורדת, בלי הוכחה.",
               "לשכוח לפסול את $L=-\\sqrt{7}$ אף שכל האיברים חיוביים.",
               "להוכיח מונוטוניות בלי החסם $a_n\\ge\\sqrt{7}$, שהוא מה שקובע את סימן $7-a_n^2$."],
@@ -369,7 +373,7 @@ add(2, "ב",
         order("סדרו את שלבי ההוכחה.", L2b,
               "קודם החסם התחתון (הוא קובע את סימן המונוטוניות), אחר כך המונוטוניות, ההתכנסות, וחישוב הגבול."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (int_0^{x^4} (1+t)^{2/t} dt)/x^4 =====
 gt = (1 + t)**(2/t)
@@ -388,7 +392,7 @@ add(3, "א",
                ("גזירת האינטגרל במונה לפי המשפט היסודי וכלל השרשרת: $(1+x^4)^{\\frac{2}{x^4}}\\cdot4x^3$", 4),
                ("גזירת המכנה $4x^3$ וצמצום", 1),
                ("חישוב $\\lim_{x\\to0}(1+x^4)^{\\frac{2}{x^4}}=e^2$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את כלל השרשרת: הגבול העליון הוא $x^4$ ולכן יש להכפיל ב-$4x^3$.",
               "להציב $t=x$ במקום $t=x^4$ באינטגרנד אחרי הגזירה.",
               "לא לזהות את הגבול $(1+u)^{\\frac{1}{u}}\\to e$ עם $u=x^4$ והמעריך $\\frac{2}{u}$, ולהסיק $e$ במקום $e^2$."],
@@ -403,7 +407,7 @@ add(3, "א",
         num("מהו $\\lim_{t\\to0^+}(1+t)^{\\frac{2}{t}}$, הגבול של המנה אחרי הצמצום של $4x^3$? (עשרוני)", sp.exp(2),
             "$(1+t)^{\\frac{2}{t}}=\\left((1+t)^{\\frac{1}{t}}\\right)^2\\to e^2\\approx7.3891$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int dx/(x(ln^2 x + 2 ln x + 5)) =====
 g3b = 1/(x*(sp.log(x)**2 + 2*sp.log(x) + 5))
@@ -418,7 +422,7 @@ add(3, "ב",
                ("אינטגרל $\\frac{1}{2}\\arctan\\frac{t+1}{2}$", 3),
                ("הצבה חוזרת $t=\\ln x$", 1),
                ("קבוע האינטגרציה $+C$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח שה-$\\frac{dx}{x}$ באינטגרנד הוא בדיוק $dt$, ולנסות לפתור את האינטגרל ב-$x$.",
               "לאנטגרל $\\frac{1}{(t+1)^2+4}$ כ-$\\arctan(t+1)$ בלי הגורם $\\frac{1}{2}$ והחלוקה ב-$2$ בתוך הארקטנגנס.",
               "להשאיר את התשובה במשתנה $t$ במקום לחזור ל-$x$."],
@@ -440,7 +444,7 @@ add(3, "ב",
             lambda e: same(sp.diff(e, x), g3b, pts=P3b),
             "$\\int\\frac{dt}{(t+1)^2+4}=\\frac{1}{2}\\arctan\\frac{t+1}{2}$ ואז $t=\\ln x$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: (x+2) sqrt(4-x^2) <= 3 sqrt(3) on [-2,2] =====
 f4 = (x + 2)*sp.sqrt(4 - x**2)
@@ -463,7 +467,7 @@ add(4, "א",
                ("נקודה קריטית פנימית $x=1$ ($x=-2$ היא קצה)", 2),
                ("חישוב $f(1)=3\\sqrt{3}$ והשוואה לקצוות: מקסימום מוחלט", 2),
                ("מסקנה: $f(x)\\le3\\sqrt{3}$ לכל $x\\in[-2,2]$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לבדוק את ערכי הקצה: מקסימום מוחלט נקבע מהשוואה בין הנקודות הקריטיות לקצוות.",
               "לטעות בגזירת השורש: $\\left(\\sqrt{4-x^2}\\right)'=\\frac{-x}{\\sqrt{4-x^2}}$.",
               "להתייחס ל-$x=-2$ כנקודה קריטית פנימית, אף שהיא בקצה ו-$f'$ לא מוגדרת בה."],
@@ -478,7 +482,7 @@ add(4, "א",
         order("סדרו את שלבי ההוכחה.", L4a,
               "קודם הנגזרת והנקודה הקריטית, אחר כך השוואת הערכים וקביעת המקסימום המוחלט, ולבסוף האי-שוויון."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: volume of y = sqrt(x ln x), 1 <= x <= e =====
 _mp.mp.dps = 25
@@ -501,7 +505,7 @@ add(4, "ב",
                ("אינטגרציה בחלקים עם $u=\\ln x$, $dv=x\\,dx$", 2),
                ("קדומה $\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$ והצבת הגבולות", 3),
                ("תשובה סופית $V=\\frac{\\pi}{4}\\left(e^2+1\\right)$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח לרבע את הפונקציה: $\\left(\\sqrt{x\\ln x}\\right)^2=x\\ln x$, בלי שורש.",
               "לבחור $u=x$ ו-$dv=\\ln x\\,dx$: זה מסבך את החישוב ללא צורך.",
               "לטעות בהצבת הגבול התחתון: ב-$x=1$ מתקבל $\\frac{1}{2}\\ln1-\\frac{1}{4}=-\\frac{1}{4}$ ולא $0$."],
@@ -516,7 +520,7 @@ add(4, "ב",
         num("מהו $\\int_1^ex\\ln x\\,dx$? (עשרוני)", I4, "$\\frac{e^2+1}{4}\\approx2.0973$."),
         num("מהו הנפח $V=\\frac{\\pi}{4}\\left(e^2+1\\right)$? (עשרוני)", sp.pi*I4, "$V\\approx6.589$.", nd=3),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: lim x^{1/sin(2x-2)}, x -> 1 =====
 assert sp.limit((1 + x)**(1/x), x, 0) == sp.E and sp.limit(x/sp.sin(2*x), x, 0) == R(1, 2)
@@ -531,7 +535,7 @@ add(5, "א",
                ("שימוש ב-$\\lim_{u\\to0}(1+u)^{\\frac{1}{u}}=e$", 1),
                ("חישוב גבול המעריך $\\frac{x-1}{\\sin(2x-2)}\\to\\frac{1}{2}$", 2),
                ("תשובה סופית $\\sqrt{e}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["להניח ש-$1^\\infty=1$: הבסיס מתקרב ל-$1$ אבל המעריך מתפוצץ.",
               "לשכוח את החלוקה ב-$2$: $\\sin(2x-2)\\approx2(x-1)$, ולכן המעריך הוא $\\frac{1}{2}$ ולא $1$.",
               "להפעיל לופיטל ישירות על הביטוי החזקתי בלי לקחת לוגריתם."],
@@ -545,7 +549,7 @@ add(5, "א",
         ch("מהו הגבול המבוקש?", "$\\sqrt{e}$", ["$e$", "$e^2$", "$1$"],
            "$e^{\\frac{1}{2}}=\\sqrt{e}$ (נבדק מספרית)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: differentiability at 0 of x arctan(1/x^2) =====
 f5 = x*sp.atan(1/x**2)
@@ -559,7 +563,7 @@ add(5, "ב",
                ("פישוט למנה $\\arctan\\frac{1}{\\Delta x^2}$", 2),
                ("חישוב הגבול $\\frac{\\pi}{2}$ משני הצדדים", 3),
                ("מסקנה: הפונקציה גזירה ב-$0$ ו-$f'(0)=\\frac{\\pi}{2}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לגזור את הנוסחה $x\\arctan\\frac{1}{x^2}$ ולהציב $x=0$: הנוסחה לא מוגדרת ב-$0$, ולכן חייבים להשתמש בהגדרה.",
               "לטעון ש-$\\arctan\\frac{1}{\\Delta x^2}\\to0$ כי המעריך \"קטן\": הארגומנט $\\frac{1}{\\Delta x^2}\\to\\infty$ ולכן הערך $\\frac{\\pi}{2}$.",
               "לשכוח לבדוק שהגבול זהה משני הצדדים (כאן הוא זהה כי $\\Delta x^2$ זוגית)."],
@@ -575,7 +579,7 @@ add(5, "ב",
            ["גזירה ב-$0$ ו-$f'(0)=0$", "לא גזירה: הגבול משמאל שונה מהגבול מימין", "לא גזירה כי $f$ אינה רציפה ב-$0$"],
            "שני הגבולות החד-צדדיים שווים ל-$\\frac{\\pi}{2}$, ו-$f$ רציפה ב-$0$ כי $|f(x)|\\le\\frac{\\pi}{2}|x|\\to0=f(0)$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: area between 1/(1+x^2) and 3/(9+x^2) =====
 u6, l6 = 1/(1 + x**2), 3/(9 + x**2)
@@ -588,7 +592,7 @@ add(6, "א",
                ("זיהוי הפונקציה העליונה $\\frac{1}{1+x^2}$ ובניית $S=2\\int_0^{\\sqrt{3}}\\left(\\frac{1}{1+x^2}-\\frac{3}{9+x^2}\\right)dx$", 3),
                ("קדומות: $\\arctan x$ ו-$\\arctan\\frac{x}{3}$", 2),
                ("הצבת הגבולות ותשובה $\\frac{\\pi}{3}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח שהפונקציות זוגיות, ולחשב מ-$0$ עד $\\sqrt{3}$ בלי להכפיל ב-$2$ (או לחשב מ-$-\\sqrt{3}$ עד $\\sqrt{3}$).",
               "לאנטגרל $\\frac{3}{9+x^2}$ כ-$3\\arctan\\frac{x}{3}$ במקום $\\arctan\\frac{x}{3}$.",
               "להחסיר בסדר הפוך (התחתונה פחות העליונה) ולקבל שטח שלילי."],
@@ -604,7 +608,7 @@ add(6, "א",
             "$\\int\\frac{3}{9+x^2}dx=3\\cdot\\frac{1}{3}\\arctan\\frac{x}{3}=\\arctan\\frac{x}{3}$ (נבדק ב-sympy)."),
         num("מהו השטח הכלוא? (עשרוני)", S6, "$2\\left(\\frac{\\pi}{3}-\\frac{\\pi}{6}\\right)=\\frac{\\pi}{3}\\approx1.0472$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: Maclaurin of ln(1+x) of order 2, ln 0.9 =====
 y6 = sp.log(1 + x)
@@ -621,7 +625,7 @@ add(6, "ב",
                ("הצבה $x=-0.1$ וקירוב $\\ln0.9\\approx-0.105$", 2),
                ("שארית לגרנז' $R_2(x)=\\frac{1}{3(1+c)^3}x^3$ עם $c$ בין $x$ ל-$0$", 2),
                ("חסם $\\left|R_2\\right|<\\frac{(0.1)^3}{3\\cdot(0.9)^3}\\approx0.00046$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=["לשכוח את החלוקה ב-$2!$ באיבר $-\\frac{x^2}{2}$.",
               "להעריך את השארית עם $c=0$ במקום להשתמש בכך ש-$1+c>0.9$ כדי לחסום את המכנה מלמטה.",
               "לחשב את הנגזרת השלישית כ-$\\frac{1}{(1+x)^3}$ בלי הגורם $2$: $y'''=\\frac{2}{(1+x)^3}$, ואז לחלק ב-$3!$ נותן $\\frac{1}{3(1+x)^3}$."],
@@ -637,7 +641,7 @@ add(6, "ב",
             "$\\frac{0.001}{3\\cdot0.729}\\approx0.000457$. הפתרון הרשמי כותב $0.00045$ (קיצוץ); השגיאה בפועל כ-$0.00036$.",
             tol=0.00001, nd=6),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

@@ -39,7 +39,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל השרשרת באקספוננט: $\\left(e^{1-2x^2}\\right)'=-4x\\cdot e^{1-2x^2}$.",
     "לפספס את $x=0$ כנקודת פיתול: $f''$ מתאפסת שם ומשנה סימן.",
@@ -124,7 +124,7 @@
      "explain": "$\\lim_{x\\to\\pm\\infty}\\frac{x}{e^{2x^2-1}}=0$ (אומת ב-sympy), ולכן $y=0$ אופקית; אין נקודת אי-רציפות ולכן אין אנכית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -155,7 +155,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מ-$a_2<a_1$ בלבד שהסדרה יורדת, בלי צעד אינדוקציה.",
     "לשכוח לפסול את $L=-1$ אף שכל איברי הסדרה חיוביים.",
@@ -215,7 +215,7 @@
      "explain": "האיברים חיוביים, ולכן $L\\ge0$ ו-$L=0$ (נבדק גם מספרית: $a_{60}<10^{-8}$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -246,7 +246,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\frac{2}{1+t^2}$ מ-$dx$, ולהישאר עם אינטגרל שאינו מצטמצם.",
     "לטעות בסימן בפישוט המכנה: $5(1+t^2)-8t+3(1-t^2)=2t^2-8t+8=2(t-2)^2$.",
@@ -338,7 +338,7 @@
      "explain": "$\\int\\frac{dt}{(t-2)^2}=-\\frac{1}{t-2}=\\frac{1}{2-t}$ ואז $t=\\tan\\frac{x}{2}$ (הנגזרת נבדקה ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -369,9 +369,9 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "להפוך את כיוון האי-שוויון בשלב ההיפוך $\\frac{1}{u}$ (אצל מספרים חיוביים ההיפוך הופך את הכיוון).",
+    "לשכוח להפוך את כיוון האי-שוויון בשלב ההיפוך $\\frac{1}{u}$: אצל מספרים חיוביים ההיפוך הופך את הכיוון.",
     "לשכוח שהאי-שוויון הוא אי-שוויון חזק בגלל $a<c<b$, אף שהמשימה מבקשת $\\le$.",
     "לכפול ב-$b-a$ בלי לציין שהוא חיובי, ולכן הכיוון נשמר."
    ],
@@ -456,7 +456,7 @@
      "explain": "מ-$a^2<c^2<b^2$ נובע (אחרי הכפלה ב-$-1$ והוספת $1$) $1-b^2<1-c^2<1-a^2$; הכיוון בשורה השגויה הפוך."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -487,7 +487,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לרבע את הפונקציה: $\\left(\\sqrt{x\\ln x}\\right)^2=x\\ln x$, בלי שורש.",
     "לבחור $u=x$ ו-$dv=\\ln x\\,dx$: זה מסבך את החישוב ללא צורך.",
@@ -565,7 +565,7 @@
      "explain": "$V\\approx6.589$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -596,11 +596,11 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את כלל השרשרת: הגבול העליון $x^2$ מוסיף גורם $2x$, ובאינטגרנד $t=x^2$ נותן $\\cos\\left(x^4\\right)$.",
     "להציב $t=x^2$ באינטגרנד $\\cos\\left(t^2\\right)$ ולכתוב $\\cos\\left(x^2\\right)$ במקום $\\cos\\left(x^4\\right)$.",
-    "להפעיל לופיטל כשהמכנה אינו מתאפס: כאן המכנה $x^3-6x\\to0$, ולכן זה חוקי, אך בדקו תמיד את הצורה."
+    "לטעות בסימן הנגזרת של המונה: האינטגרל מופיע עם מינוס, ולכן המונה נגזר ל-$1-2x\\cos\\left(x^4\\right)$ ולא ל-$1+2x\\cos\\left(x^4\\right)$."
    ],
    "steps": [
     {
@@ -667,7 +667,7 @@
      "explain": "$\\frac{1-2x\\cos(x^4)}{3x^2-6}\\to\\frac{1}{-6}=-\\frac{1}{6}\\approx-0.1667$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -698,7 +698,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לרבע את הנגזרת: $\\left(f'\\right)^2=\\frac{9}{4}x$ ולא $\\frac{3}{2}\\sqrt{x}$.",
     "לשכוח את הגורם $\\frac{4}{9}$ בהצבה $u=1+\\frac{9}{4}x$ (מהנגזרת הפנימית $\\frac{9}{4}$).",
@@ -797,7 +797,7 @@
      "explain": "$\\frac{8}{27}\\left(\\left(\\frac{13}{4}\\right)^{\\frac{3}{2}}-1\\right)=\\frac{13\\sqrt{13}-8}{27}\\approx1.4397$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -831,7 +831,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בקיום פתרון (ערך הביניים) ולא להוכיח יחידות.",
     "לטעון ש-$f'>0$ בלי להצדיק: כל שלושת המחוברים $6x^2$, $\\frac{3}{1+x^2}$, $e^x$ אי-שליליים והשני והשלישי חיוביים ממש.",
@@ -909,7 +909,7 @@
      "explain": "רול דורש $f(-1)=f(0)$, אבל $f(-1)<0<2=f(0)$. מונוטוניות אינה מבטיחה קיום, וסימנים מנוגדים אינם מבטיחים יחידות. כאן $f'$ חיובית תמיד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -939,7 +939,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שהמשיק נוגע ב-$x=1$ (שם הנגזרת לא מוגדרת) במקום לפתור את תנאי ההשקה.",
     "לחבר את שטח המשולש ושטח מתחת לגרף במקום לחסר.",
@@ -1003,7 +1003,7 @@
      "explain": "$1-\\frac{2}{3}=\\frac{1}{3}\\approx0.3333$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1038,7 +1038,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\frac{B}{x^2+4x+5}$ במקום מונה לינארי $Bx+C$.",
     "לפצל את המונה $x$ ל-$\\frac{1}{2}(2x+4)-2$ ולשכוח את החלק $-2$, שנותן את ה-$\\arctan$.",
@@ -1095,7 +1095,7 @@
      "explain": "החלק הלוגריתמי הוא $\\frac{1}{2}\\ln|x+1|-\\frac{1}{4}\\ln\\left(x^2+4x+5\\right)$ והחלק הנוסף הוא $-\\frac{1}{2}\\arctan(x+2)$ (הנגזרת של כל אפשרות נבדקה ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1130,7 +1130,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $(0.01)^3$ בחסם במקום $(0.1)^3$ (טעות בפתרון הרשמי המודפס): $|x|\\le0.1$ ולכן $|x|^3\\le0.001$.",
     "לחסום את המכנה $(1+z)^3$ בעזרת $z=0.1$ במקום $z=-0.1$: החסם הגרוע ביותר מתקבל ב-$1+z=0.9$.",
@@ -1187,7 +1187,7 @@
      "explain": "$\\frac{0.001}{3\\cdot0.729}\\approx4.57\\cdot10^{-4}$ (לא $4.57\\cdot10^{-7}$ כפי שמודפס בפתרון הרשמי; נבדק גם על רשת צפופה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

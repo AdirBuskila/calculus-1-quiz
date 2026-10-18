@@ -39,7 +39,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שבנגזרת של מכפלה $x\\cdot e^{\\frac{1}{x-2}}$ יש גם נגזרת הפנים $-\\frac{1}{(x-2)^2}$ של המעריך.",
     "לטעות בגבול החד-צדדי ב-$x=2$: משמאל $e^{\\frac{1}{x-2}}\\to0$ ולכן $f\\to0$ (אין אסימפטוטה), ורק מימין $f\\to+\\infty$.",
@@ -129,7 +129,7 @@
      "explain": "$a=\\lim\\frac{f}{x}=\\lim e^{\\frac{1}{x-2}}=1$ ו-$b=\\lim x\\left(e^{\\frac{1}{x-2}}-1\\right)=1$, כי $\\frac{e^u-1}{u}\\to1$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -164,7 +164,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפתור את משוואת הגבול $L=\\sqrt{20+L}$ בלי להוכיח קודם שהגבול קיים.",
     "לשכוח לפסול את הפתרון $L=-4$ אף שכל איברי הסדרה חיוביים.",
@@ -246,7 +246,7 @@
      "explain": "$(L-5)(L+4)=0$, ומכיוון שהאיברים חיוביים $L=5$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -277,7 +277,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $u=4x+6$ ו-$dv=\\arctan x\\,dx$: אז צריך קודם לחשב קדומה של $\\arctan x$ והחישוב מסתבך.",
     "לשכוח את הפירוק $2x^2+6x+2=2\\left(x^2+1\\right)+6x$ בפישוט, ולהשאיר אינטגרל מורכב יותר.",
@@ -373,10 +373,10 @@
      "prompt": "מהו הערך של האינטגרל המסוים $\\int_0^1(4x+6)\\arctan x\\,dx$? (עשרוני)",
      "answer": 3.7745,
      "tol": 0.001,
-     "explain": "$F(1)-F(0)=\\frac{5\\pi}{2}-2-3\\ln2\\approx3.7752$."
+     "explain": "$F(1)-F(0)=\\frac{5\\pi}{2}-2-3\\ln2\\approx3.7745$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -411,7 +411,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח ש-$\\infty^0=\\infty$ או $\\infty^0=0$ במקום לפתור את הצורה הלא מוגדרת בעזרת $e^{\\ln}$.",
     "לשכוח את סימן המינוס: $\\ln\\frac{1}{x}=-\\ln x$.",
@@ -489,7 +489,7 @@
      "explain": "הגבול הוא $e^{-0}=e^0=1$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -524,7 +524,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור $(\\tan x)^{\\cos x}$ ככוח עם מעריך קבוע, או כמעריכית עם בסיס קבוע, במקום גזירה לוגריתמית.",
     "לשכוח את גורם $y$: $\\frac{y'}{y}$ הוא הנגזרת של $\\ln y$, ולכן צריך להכפיל חזרה ב-$y$.",
@@ -602,7 +602,7 @@
      "explain": "המשיק עובר דרך $\\left(\\frac{\\pi}{4},1\\right)$ בשיפוע $\\sqrt{2}$: $y-1=\\sqrt{2}\\left(x-\\frac{\\pi}{4}\\right)$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -637,7 +637,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל לופיטל על ארבעה שורשים: אפשרי אבל מסורבל ופגיע לטעויות. הכפלה בצמוד קצרה יותר.",
     "לחשב $(x+2)-(3x-2)$ בטעות: הנכון $4-2x=2(2-x)$.",
@@ -736,7 +736,7 @@
      "explain": "$\\frac{2(3+3)}{2+2}=3$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -767,7 +767,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\int_0^2(x^2-(4x-4))dx$: בקטע $[0,1]$ המשיק מתחת לציר ה-$X$, והתחום נחסם שם בציר ולא במשיק.",
     "לחבר במקום לחסר את שטח המשולש מתחת למשיק.",
@@ -824,7 +824,7 @@
      "explain": "$\\frac{8}{3}-2=\\frac{2}{3}\\approx0.6667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -859,7 +859,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור $e^{\\sin^2x}$ בלי כלל שרשרת מלא: הנגזרת היא $e^{\\sin^2x}\\cdot2\\sin x\\cos x$.",
     "לחשוש מכך ש-$\\sin2c$ שלילי: החסם $\\sin2c\\le1$ נכון גם אז, והמכפלה פשוט קטנה מ-$e$.",
@@ -953,7 +953,7 @@
      "explain": "משפט לגרנז' נותן $f(b)-f(a)=f'(c)(b-a)$, לא $\\frac{f'(c)}{b-a}$ (שיפוע המיתר $\\frac{f(b)-f(a)}{b-a}$ הוא שווה ל-$f'(c)$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -988,7 +988,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את סימן המינוס שנובע מ-$dt=-\\sin x\\,dx$.",
     "לאנטגרל $\\frac{1}{(t+1)^2+4}$ כ-$\\arctan(t+1)$ ולשכוח את הגורם $\\frac{1}{2}$ ואת החלוקה ב-$2$ בתוך הארקטנגנס.",
@@ -1108,7 +1108,7 @@
      "explain": "$\\int\\frac{dt}{(t+1)^2+4}=\\frac{1}{2}\\arctan\\frac{t+1}{2}$, ועם המינוס מקבלים את התשובה (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1143,7 +1143,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\pi\\int\\left(\\sqrt{25-x^2}-3\\right)^2dx$: זה לא נפח של טבעת, כי הפרש הרדיוסים אינו הפרש הריבועים.",
     "לחשב נפח מ-$-5$ עד $5$ במקום בין נקודות החיתוך $\\pm4$.",
@@ -1200,7 +1200,7 @@
      "explain": "$V=\\frac{256\\pi}{3}\\approx268.08$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1231,7 +1231,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מרציפות שהפונקציה גזירה: כאן $f$ רציפה לכל $a$ אבל גזירה רק עבור $a=0$.",
     "להשאיר את $\\lim x\\ln x$ כ-$0\\cdot\\infty$ בלי לבדוק שהוא $0$.",
@@ -1288,7 +1288,7 @@
      "explain": "גזירות דורשת $f'_-(0)=f'_+(0)$, כלומר $a=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

@@ -29,5 +29,7 @@ ok("Q6b ln0.9 ~ -0.105",abs(float(sp.log(sp.Rational(9,10)))+0.105)<1e-3 and abs
 b=sp.Rational(1,3000)/sp.Rational(9,10)**3
 ok("Q6b bound 1/(3000*0.9^3)=0.000457 (official prints 0.00045: truncated)",abs(float(b)-0.000457)<1e-6 and float(b)>0.00045)
 ok("Q6b true error 0.00036 < 0.00045",abs(float(sp.log(sp.Rational(9,10)))+0.105)<0.00045)
+ok("Q6b corrected final bound delta<0.000457 is a valid upper bound (>= 0.000457247 truncated down is not)",float(b)<0.000457248 and float(b)>0.000457 and float(b)<=0.000458)
+ok("Q2b: 7-a_n^2 (numerator) <=0 for a_n>=sqrt7",all(7-sp.Rational(a)**2<0 and sp.Rational(a)>0 for a in (3,8,127)))
 for k,v in r: print(k,"OK" if v else "MISMATCH")
 print("ALL OK" if all(v for _,v in r) else "FAIL (see MISMATCH lines)")
