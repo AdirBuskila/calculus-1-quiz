@@ -43,6 +43,8 @@ r.append(("Q6a f'", sp.simplify(sp.diff(fx, x) - (3 - x) / (2 * sp.sqrt(x - 2)) 
 r.append(("Q6a crit", sp.solve(sp.diff(fx, x), x) == [3]))
 V = sp.pi * sp.integrate((x - 2) * sp.exp(-x), (x, 2, 3))
 r.append(("Q6b", sp.simplify(V - sp.pi * (sp.exp(-2) - 2 * sp.exp(-3))) == 0))
+r.append(("Q6b 0.1123", round(float(V), 4) == 0.1123))
+r.append(("Q6a sign plus->minus", sp.N(sp.diff(fx, x).subs(x, sp.Rational(5, 2))) > 0 and sp.N(sp.diff(fx, x).subs(x, sp.Rational(7, 2))) < 0))
 for k, v in r:
     print(k, "OK" if v else "MISMATCH")
 print("ALL OK" if all(v for _, v in r) else "FAIL")

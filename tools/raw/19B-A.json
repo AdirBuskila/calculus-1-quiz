@@ -38,7 +38,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבוע נקודת פיתול רק כי $f''$ מחליפה סימן ב-$x=\\pm1$. הנקודות האלה אינן בתחום ההגדרה.",
     "לשכוח שהסימן של $f'$ ושל $f''$ נקבע גם לפי המכנה: הנגזרת עולה ב-$(-\\infty,-1)$ וב-$(-1,0)$ ויורדת ב-$(0,1)$ וב-$(1,\\infty)$.",
@@ -165,7 +165,7 @@
      "explain": "$\\lim_{x\\to\\pm1}|f|=\\infty$ ו-$\\lim_{x\\to\\pm\\infty}f=2$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -196,7 +196,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $L=2$ בלי להשתמש בחסימה $L\\ge3$ שבאה מהאינדוקציה.",
     "להכפיל בצמוד בלי לבדוק שהמכנה $\\sqrt{5a_n-6}+a_n$ חיובי.",
@@ -217,22 +217,22 @@
       {
        "id": "a",
        "type": "text",
-       "value": "$\\frac{\\left(2 - aa\\right) \\left(aa - 3\\right)}{aa + \\sqrt{5 aa - 6}}$"
+       "value": "$\\frac{\\left(2 - a_n\\right) \\left(a_n - 3\\right)}{a_n + \\sqrt{5 a_n - 6}}$"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "$\\frac{\\left(aa - 3\\right) \\left(aa - 2\\right)}{aa + \\sqrt{5 aa - 6}}$"
+       "value": "$\\frac{\\left(a_n - 3\\right) \\left(a_n - 2\\right)}{a_n + \\sqrt{5 a_n - 6}}$"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "$\\frac{\\left(2 - aa\\right) \\left(aa + 3\\right)}{aa + \\sqrt{5 aa - 6}}$"
+       "value": "$\\frac{\\left(2 - a_n\\right) \\left(a_n + 3\\right)}{a_n + \\sqrt{5 a_n - 6}}$"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "$\\frac{\\left(2 - aa\\right) \\left(aa - 3\\right)}{- aa + \\sqrt{5 aa - 6}}$"
+       "value": "$\\frac{\\left(2 - a_n\\right) \\left(a_n - 3\\right)}{- a_n + \\sqrt{5 a_n - 6}}$"
       }
      ],
      "correctId": "a",
@@ -271,7 +271,7 @@
      "explain": "$L=3$ (התקרבות מספרית: $a_{300}$ שונה מ-$3$ בפחות מ-$10^{-9}$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -302,7 +302,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להראות רק קיום (ערך ביניים) ולשכוח הוכחת יחידות.",
     "לחשב $f(-1)$ בטעות כ-$-2+e$ ולא $-2+e^{-1}$, כך שהסימן יוצא חיובי והמשפט אינו חל."
@@ -391,7 +391,7 @@
      "explain": "$f(-1)=-1-1+e^{-1}=-2+\\frac1e$ ולא $-2+e$. הערך השלילי הוא מה שמאפשר להפעיל את משפט ערך הביניים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -418,7 +418,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\infty^0=1$ בלי חישוב; זו אי-ודאות.",
     "לשכוח לחלק מונה ומכנה ב-$e^x$ בחישוב $\\lim\\frac{e^x}{1+e^x}$ ולטעות להסיק $\\infty$."
@@ -495,7 +495,7 @@
      "explain": "$e^1=e\\approx2.7183$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -526,7 +526,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסימן ולכתוב $x\\arcsin x-\\sqrt{1-x^2}$.",
     "לשכוח שהנגזרת של $\\arcsin x$ היא $\\frac{1}{\\sqrt{1-x^2}}$ ולא $\\frac{1}{1+x^2}$."
@@ -624,7 +624,7 @@
      "explain": "$\\left[x\\arcsin x+\\sqrt{1-x^2}\\right]_0^{1/2}=\\frac{\\pi}{12}+\\frac{\\sqrt3}{2}-1\\approx0.1278$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -655,7 +655,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצמצם את $\\ln a$ משני האגפים ולהפסיד את הפתרון $a=1$.",
     "לשכוח שהגבול $e^{-1/x}\\to0$ כאשר $x\\to0^+$ (ולא $\\infty$)."
@@ -704,7 +704,7 @@
      "explain": "$\\ln a=1$ נותן $a=e\\approx2.7183$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -735,7 +735,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת שיפוע $-1$ כי $x-y=7$ נראה עם מינוס; כאן $y=x-7$ ולכן השיפוע $1$.",
     "לחשב את החותך כ-$\\ln2$ במקום $f(1)-f'(1)\\cdot1=\\ln2-1$."
@@ -819,7 +819,7 @@
      "explain": "$y=f(1)+f'(1)(x-1)=\\ln2+x-1$. רק לערך הזה הישר עובר דרך $(1,\\ln2)$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -846,7 +846,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\sqrt{x^2}=x$ כאשר $x\\to-\\infty$ ולקבל $+2$ במקום $-2$.",
     "להשאיר $\\infty-\\infty$ בלי כפל בצמוד."
@@ -916,7 +916,7 @@
      "explain": "$\\frac{4x}{|x|\\left(\\sqrt{\\cdot}+\\sqrt{\\cdot}\\right)}=\\frac{-4}{1+1}=-2$ (נבדק ב-sympy וגם בהצבה $x=-10^6$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -947,7 +947,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב מונה קבוע $B$ מעל $x^2+1$ ולהיתקע במערכת בלי פתרון.",
     "לשכוח שחלק מהמונה $\\frac{x+1}{x^2+1}$ נותן גם $\\arctan x$ ולא רק לוגריתם."
@@ -1026,7 +1026,7 @@
      "explain": "$-\\frac12\\ln(x+1)+\\frac14\\ln(x^2+1)+\\frac12\\arctan x$; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1057,7 +1057,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\pi\\int\\left(R-r\\right)^2dx$ במקום $\\pi\\int\\left(R^2-r^2\\right)dx$.",
     "להחליף בין הרדיוס החיצוני לפנימי: בקטע הנתון $\\frac\\pi2-x\\ge\\cos x$ ולכן הישר הוא החיצוני."
@@ -1110,10 +1110,10 @@
      "prompt": "מהו הנפח $V$? (עשרוני)",
      "answer": 1.5913,
      "tol": 0.001,
-     "explain": "$V=\\pi\\left(\\frac{\\pi^3}{24}-\\frac{\\pi}{4}\\right)\\approx1.5912$."
+     "explain": "$V=\\pi\\left(\\frac{\\pi^3}{24}-\\frac{\\pi}{4}\\right)\\approx1.5913$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1144,7 +1144,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת רק את הקטע $[0,2]$ ולהתעלם מהחלק $-2\\le x\\le0$ שבו התחום יושב ישירות מעל ציר ה-$x$.",
     "לחבר את שני האינטגרלים במקום לחסר את הקטן."
@@ -1207,7 +1207,7 @@
      "explain": "$\\frac{16}{3}-\\frac{8}{3}=\\frac83\\approx2.6667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

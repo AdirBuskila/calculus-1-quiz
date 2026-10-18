@@ -104,7 +104,7 @@ $$=\frac12\ln x-2\ln\left(\sqrt[4]{x}+2\right)+C$$
 SOL6A = r"""
 תחום ההגדרה של הפונקציה הוא $x\in[2,\infty)$. נחקור את הפונקציה לקיצון מקומי.
 $$f'(x)=\frac{1}{2\sqrt{x-2}}e^{-\frac x2}-\frac12\sqrt{x-2}\,e^{-\frac x2}=\frac{1}{2\sqrt{x-2}}e^{-\frac x2}\left(1-x+2\right)=\frac{3-x}{2\sqrt{x-2}}e^{-\frac x2},$$
-הנקודה $x=3$ היא נקודת המקסימום המקומי כי $f'(3)=0$ והנגזרת משנה את הסימן במעבר דרך $x=3$ ממינוס לפלוס.
+הנקודה $x=3$ היא נקודת המקסימום המקומי כי $f'(3)=0$ והנגזרת משנה את הסימן במעבר דרך $x=3$ מפלוס למינוס.
 """
 
 SOL6B = r"""
@@ -173,11 +173,12 @@ x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
 TOPSRC = {}
+SYMNAMES = {}  # display names for scratch symbols (filled where they are defined)
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -252,7 +253,7 @@ add(1,
                (r"נגזרת $f'(x)=e^{1/x}\frac{x-1}{x}$, טבלת סימנים ומינימום מקומי $f(1)=e$", 5),
                (r"$f''(x)=\frac{e^{1/x}}{x^3}$, קעירות ב-$x<0$ וקמירות ב-$x>0$, ללא נקודות פיתול", 4),
                ("שרטוט הגרף בהתאם לכל הנתונים", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעון ש-$x=0$ היא אסימפטוטה אנכית משני הצדדים. משמאל $f(x)\to0$, ורק מימין $f\to+\infty$.",
               r"לחשב את חותך האסימפטוטה בטעות כ-$0$: $\lim\left(xe^{1/x}-x\right)=\lim\frac{e^t-1}{t}=1$ בהצבה $t=\frac1x$.",
               r"לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה."],
@@ -270,7 +271,7 @@ add(1,
         ch(r"מהי האסימפטוטה המשופעת של $f$ ב-$\pm\infty$?", "$y=x+1$", ["$y=x$", "$y=x-1$", "$y=x+e$"],
            r"$a=\lim e^{1/x}=1$ ו-$b=\lim\left(xe^{1/x}-x\right)=\lim_{t\to0}\frac{e^t-1}{t}=1$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: limit of a sequence times cos(2n) =====
 n_ = sp.Symbol('n', positive=True)
@@ -282,7 +283,7 @@ add(2, "א",
     rubric=rub((r"שימוש בחסימות $-1\le\cos2n\le1$", 2),
                (r"חישוב הגבול $\lim\frac{n+\sqrt[3]{1-n^6}}{1+n^3}=0$ באמצעות חלוקה בחזקה הגבוהה", 5),
                (r"מסקנה: מכפלה של סדרה חסומה בסדרה השואפת ל-$0$ שואפת ל-$0$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעון שהגבול אינו קיים כי $\cos2n$ אינה מתכנסת. מכפלה בסדרה שואפת ל-$0$ מבטלת את התנודה.",
               r"לחלק ב-$n^3$ ולטעות בפירוק $\sqrt[3]{1-n^6}\sim-n^2$."],
     steps=[
@@ -291,7 +292,7 @@ add(2, "א",
            [r"אינו קיים, כי $\cos2n$ אינה מתכנסת", "$1$", r"קיים ושווה לערך כלשהו בין $-1$ ל-$1$"],
            r"$\left|a_n\cos2n\right|\le|a_n|\to0$, ולכן לפי כלל הסנדוויץ' הגבול הוא $0$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: b^2 = 3ac =====
 a2, b2, c2 = sp.symbols('a b c')
@@ -313,7 +314,7 @@ add(2, "ב",
                (r"פתרון $y''=0$: $x=-\frac{b}{3a}$ (שימוש ב-$a\neq0$)", 3),
                (r"הצבה ב-$y'=0$ ופישוט עד $c=\frac{b^2}{3a}$", 3),
                (r"מסקנה $b^2=3ac$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להשתמש בתנאי $y'=0$ בלבד, בלי התנאי השני $y''=0$ שקובע את $x$.",
               r"לחלק ב-$a$ בלי לציין ש-$a\neq0$, או לטעות במקדם ב-$x=-\frac{b}{3a}$."],
     steps=[
@@ -325,7 +326,7 @@ add(2, "ב",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", P2b, 1,
                 r"$6ax+2b=0$ נותן $x=-\frac{2b}{6a}=-\frac{b}{3a}$, לא $-\frac{b}{2a}$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (cos x)^(1/sin^2 2x) =====
 ex3 = sp.limit((sp.cos(x) - 1)/sp.sin(2*x)**2, x, 0)
@@ -336,7 +337,7 @@ add(3, "א",
     rubric=rub((r"זיהוי צורה $1^{\infty}$ ובניית החזקה $\frac{1}{\cos x-1}\cdot\frac{\cos x-1}{\sin^2 2x}$", 4),
                (r"חישוב $\lim\frac{\cos x-1}{\sin^22x}=-\frac18$ (באמצעות $1-\cos x=2\sin^2\frac x2$)", 4),
                (r"מסקנה: הגבול $e^{-1/8}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב $1^{\infty}=1$.",
               r"לטעות בקירוב $\sin^22x\approx4x^2$ ולקבל $-\frac{1}{4}$ או $-\frac{1}{2}$ במקום $-\frac18$."],
     steps=[
@@ -345,7 +346,7 @@ add(3, "א",
         num(r"מהו $\lim_{x\to0}\frac{\cos x-1}{\sin^22x}$? (עשרוני)", ex3, r"$\cos x-1\approx-\frac{x^2}{2}$ ו-$\sin^22x\approx4x^2$, לכן הגבול $-\frac{1}{8}=-0.125$."),
         num(r"מהו הגבול המבוקש? (עשרוני)", sp.exp(ex3), r"$e^{-1/8}\approx0.8825$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int dx / (x (ln^2 x - 5 ln x + 6)) =====
 g3b = 1/(x*(sp.log(x)**2 - 5*sp.log(x) + 6))
@@ -361,7 +362,7 @@ add(3, "ב",
     rubric=rub((r"הצבה $t=\ln x$, $dt=\frac{dx}{x}$", 3),
                (r"פירוק המכנה $t^2-5t+6=(t-2)(t-3)$ ושברים חלקיים: $A=-1$, $B=1$", 4),
                (r"אינטגרציה וחזרה ל-$x$: $\ln\left|\frac{\ln x-3}{\ln x-2}\right|+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את $\frac{1}{x}$ שהופך ל-$dt$ ולהשאיר $x$ באינטגרל.",
               r"להחליף את סימני $A$ ו-$B$ ולקבל את ההופכי בתוך הלוגריתם."],
     steps=[
@@ -372,7 +373,7 @@ add(3, "ב",
         chx(r"מהי הפונקציה הקדומה (בתחום $\ln x>3$, בלי הקבוע)?", F3, F3w, lambda e: same(sp.diff(e, x), g3b),
             r"$-\ln|t-2|+\ln|t-3|=\ln\left|\frac{t-3}{t-2}\right|$ עם $t=\ln x$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: continuity parameter =====
 ap = sp.Symbol('a', positive=True)
@@ -384,7 +385,7 @@ add(4, "א",
     rubric=rub((r"הגבול השמאלי: $\frac{1}{\sqrt2-1}-\sqrt2=1$", 3),
                (r"הגבול הימני: פיצול ל-$\frac{\sqrt{1+ax}-1}{x}+\frac{1-\cos x}{x}$ וחישוב $\frac{a}{2}$", 4),
                (r"השוואה: $\frac{a}{2}=1$ ולכן $a=2$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח שההגדרה ב-$x=0$ היא מהענף $x\le0$, ולכן גם $f(0)=1$ ולא רק הגבול השמאלי.",
               r"לחשב את $\lim\frac{\sqrt{1+ax}-\cos x}{x}$ בלי פיצול ולקבל $\frac{0}{0}$ בלי לפתור."],
     steps=[
@@ -393,7 +394,7 @@ add(4, "א",
            r"$\frac{\sqrt{1+ax}-1}{x}\to\frac{a}{2}$ ו-$\frac{1-\cos x}{x}\to0$ (נבדק ב-sympy עבור $a$ סמלי)."),
         num(r"מהו $a$ שעבורו $f$ רציפה ב-$x=0$?", 2, r"$\frac{a}{2}=1$ נותן $a=2$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: arc length of cosh =====
 ch_ = (sp.exp(x) + sp.exp(-x))/2
@@ -406,7 +407,7 @@ add(4, "ב",
     rubric=rub((r"נוסחת אורך הקשת $l=\int_{-2}^{2}\sqrt{1+(y')^2}\,dx$ ונגזרת $y'=\frac{e^x-e^{-x}}{2}$", 3),
                (r"$1+(y')^2=\left(\frac{e^x+e^{-x}}{2}\right)^2$ והוצאת שורש", 4),
                (r"אינטגרציה וחישוב $l=e^2-e^{-2}$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להוציא שורש מ-$\left(\frac{e^x+e^{-x}}{2}\right)^2$ בלי לשים לב שהביטוי חיובי, ולכתוב ערך מוחלט מיותר.",
               r"לשכוח שהקטע הוא $[-2,2]$ ולחשב רק מ-$0$ עד $2$ בלי להכפיל ב-$2$ (הפונקציה זוגית)."],
     steps=[
@@ -414,7 +415,7 @@ add(4, "ב",
             lambda e: same(e, 1 + sh_**2), r"$1+\frac{e^{2x}-2+e^{-2x}}{4}=\frac{e^{2x}+2+e^{-2x}}{4}=\left(\frac{e^x+e^{-x}}{2}\right)^2$ (אומת ב-sympy)."),
         num(r"מהו אורך הקשת? (עשרוני)", len4, r"$\int_{-2}^{2}\frac{e^x+e^{-x}}{2}dx=e^2-e^{-2}\approx7.2537$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: differentiability of |x-a| g(x) =====
 hh = sp.Symbol('h', real=True)
@@ -432,7 +433,7 @@ add(5, "א",
                (r"פישוט מנת ההפרשים ל-$\frac{|\Delta x|}{\Delta x}g(a+\Delta x)$", 3),
                (r"נימוק: הגורם הראשון חסום והשני שואף ל-$0$ (רציפות $g$ ו-$g(a)=0$)", 3),
                (r"מסקנה: $f$ גזירה ו-$f'(a)=0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעון ש-$|x-a|$ אינה גזירה ב-$a$ ולכן גם המכפלה אינה גזירה. כאן הגורם $g(x)$ מתאפס ב-$a$.",
               r"לחשב את הגבול של $\frac{|\Delta x|}{\Delta x}$ בנפרד ולטעון שהוא לא קיים, בלי להשתמש בכך שהוא חסום."],
     steps=[
@@ -443,11 +444,12 @@ add(5, "א",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", Q5b, 1,
                 r"$f(a+\Delta x)=|\Delta x|\,g(a+\Delta x)$ ולכן הגורם הוא $g(a+\Delta x)$ ולא $g(a)$ (שהוא $0$ ומוחק את כל הביטוי בלי הצדקה)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: integral with fourth root =====
 tp = sp.Symbol('tp', positive=True)
 xp = sp.Symbol('xp', positive=True)
+SYMNAMES.update({tp: "t", xp: "x"})
 integrand5 = 1/(xp**R(3, 4)*(sp.sqrt(xp) + 2*xp**R(1, 4)))
 sub5 = sp.simplify(integrand5.subs(xp, tp**4)*sp.diff(tp**4, tp))
 assert same(sub5, 4/(tp*(tp + 2)))
@@ -462,7 +464,7 @@ add(5, "ב",
     rubric=rub((r"הצבה $x=t^4$, $dx=4t^3dt$", 3),
                (r"פישוט האינטגרנד ל-$\frac{4}{t(t+2)}$ ופירוק לשברים חלקיים ($A=\frac12$, $B=-\frac12$)", 4),
                (r"אינטגרציה וחזרה ל-$x$: $\frac12\ln x-2\ln\left(\sqrt[4]{x}+2\right)+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לבחור הצבה שאינה מבטלת את כל השורשים בבת אחת (למשל $t=\sqrt{x}$ בלבד); הדרוש הוא $x=t^4$.",
               r"לשכוח את הגורם $4t^3$ של $dx$ או את הגורם $4$ בפירוק."],
     steps=[
@@ -474,7 +476,7 @@ add(5, "ב",
         chx(r"מהי הפונקציה הקדומה (בתחום $x>0$, בלי הקבוע)?", F5, F5w, lambda e: same(sp.diff(e, xp), integrand5),
             r"$2\left(\ln t-\ln(t+2)\right)=\frac12\ln x-2\ln\left(\sqrt[4]{x}+2\right)$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: local extremum of sqrt(x-2) e^(-x/2) =====
 f6 = sp.sqrt(x - 2)*sp.exp(-x/2)
@@ -489,7 +491,7 @@ add(6, "א",
                (r"נגזרת $f'(x)=\frac{3-x}{2\sqrt{x-2}}e^{-x/2}$", 4),
                (r"הנקודה הקריטית $x=3$ ובדיקת סימן הנגזרת משני צדיה", 3),
                (r"מסקנה: מקסימום מקומי ב-$x=3$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את תחום ההגדרה $x\ge2$ ולבדוק נקודות מחוץ אליו.",
               r"לטעות בכיוון החלפת הסימן: $f'>0$ לפני $x=3$ ו-$f'<0$ אחריה, כלומר מקסימום ולא מינימום."],
     steps=[
@@ -502,7 +504,7 @@ add(6, "א",
            r"עבור $2<x<3$ נקבל $f'>0$ ועבור $x>3$ נקבל $f'<0$ (נבדק ב-sympy), כלומר מקסימום מקומי."),
         num(r"מהו הערך $f(3)$? (עשרוני)", f6.subs(x, 3), r"$f(3)=\sqrt1\cdot e^{-3/2}=e^{-1.5}\approx0.2231$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: solid of revolution =====
 sq6 = f6**2
@@ -518,7 +520,7 @@ add(6, "ב",
     rubric=rub((r"נוסחת הנפח $V=\pi\int_2^3f^2(x)\,dx$ והגבולות $2\le x\le3$", 3),
                (r"פישוט $f^2(x)=(x-2)e^{-x}$ ואינטגרציה בחלקים", 4),
                (r"הצבת הגבולות: $V=\pi\left(e^{-2}-2e^{-3}\right)$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את ההעלאה בריבוע ולחשב $\pi\int f\,dx$.",
               r"להשתמש בגבולות לא נכונים: התחום מתחיל ב-$x=2$ (קצה תחום ההגדרה) ונגמר ב-$x=3$."],
     steps=[
@@ -527,9 +529,9 @@ add(6, "ב",
         chx(r"מהי פונקציה קדומה של $(x-2)e^{-x}$?", G6, G6w, lambda e: same(sp.diff(e, x), (x - 2)*sp.exp(-x)),
             r"באינטגרציה בחלקים: $-(x-2)e^{-x}-e^{-x}=-(x-1)e^{-x}$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
         num(r"מהו $\int_2^3(x-2)e^{-x}dx$? (עשרוני)", V6int, r"$G(3)-G(2)=-2e^{-3}+e^{-2}\approx0.0358$."),
-        num(r"מהו הנפח $V=\pi\int_2^3(x-2)e^{-x}dx$? (עשרוני)", V6, r"$V=\pi\left(e^{-2}-2e^{-3}\right)\approx0.1124$."),
+        num(r"מהו הנפח $V=\pi\int_2^3(x-2)e^{-x}dx$? (עשרוני)", V6, r"$V=\pi\left(e^{-2}-2e^{-3}\right)\approx0.1123$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 exam = {
     "examCode": "20A-A",

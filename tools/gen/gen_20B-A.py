@@ -257,7 +257,7 @@ add(1,
                (r"נגזרת $f'(x)=\frac{e^{2x}(2x-1)}{x^2}$, טבלת סימנים ומינימום מקומי $f\left(\frac12\right)=2e$", 5),
                (r"$f''(x)=\frac{2e^{2x}(2x^2-2x+1)}{x^3}$, קמירות וקעירות ואין נקודות פיתול", 5),
                ("שרטוט הגרף בהתאם לכל הנתונים", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעון שיש אסימפטוטה אופקית $y=0$ גם ב-$+\infty$: שם $\frac{e^{2x}}{x}\to\infty$ ואין אסימפטוטה בכלל.",
               r"לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה.",
               r"לשכוח שהמונה $2x^2-2x+1$ של $f''$ חיובי תמיד (דיסקרימיננטה שלילית), ולכן הסימן נקבע לפי $x^3$."],
@@ -275,7 +275,7 @@ add(1,
             r"אופקית $y=0$ בלבד"],
            r"$\lim_{x\to-\infty}f=0$, $\lim_{x\to+\infty}f=\infty$ ו-$\lim_{x\to+\infty}\frac{f}{x}=\infty$ (אין שיפוע סופי); בנוסף $\lim_{x\to0^\pm}f=\pm\infty$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: a_{n+1} = 3 - 2/a_n, a_1 = 3/2 =====
 an = sp.Symbol('a_n', positive=True)
@@ -300,7 +300,7 @@ add(2, "א",
                (r"חישוב $a_{n+1}-a_n=\frac{(2-a_n)(a_n-1)}{a_n}>0$ ומסקנה שהסדרה עולה", 3),
                (r"מסקנה מונוטוניות וחסימות: הסדרה מתכנסת", 1),
                (r"מעבר לגבול בנוסחת הנסיגה: $L^2-3L+2=0$ ובחירה נכונה $L=2$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לבחור $L=1$ בלי לשים לב שסדרה עולה המתחילה מ-$\frac{3}{2}$ לא יכולה להתכנס לערך קטן ממנה.",
               r"לעבור לגבול בנוסחת הנסיגה לפני שהוכחנו שהסדרה מתכנסת.",
               r"להניח $a_n>0$ במקום להוכיח את החסימה $1<a_n<2$, שממנה נובע סימן הפרש."],
@@ -312,7 +312,7 @@ add(2, "א",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L2b, 4,
                 r"הסדרה עולה ו-$a_1=\frac{3}{2}>1$, לכן $L\ge\frac{3}{2}$ ו-$L=1$ אינו אפשרי; נכון $L=2$ (הסדרה מתקרבת ל-$2$ בחישוב ישיר)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: common tangent of 1/x and x^2 =====
 x1s, x2s = sp.symbols('x1 x2')
@@ -336,7 +336,7 @@ add(2, "ב",
                (r"משוואות המשיקים: $y=-\frac{1}{x_1^2}x+\frac{2}{x_1}$ ו-$y=2x_2x-x_2^2$", 3),
                (r"השוואת שיפועים ומשוואות חופשיים: $-\frac{1}{x_1^2}=2x_2$ ו-$\frac{2}{x_1}=-x_2^2$", 2),
                (r"פתרון $x_1=-\frac12$, $x_2=-2$ והמשיק $y=-4x-4$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להניח שהמשיק עובר בנקודת החיתוך $(1,1)$ של הגרפים. שם השיפועים שונים ($-1$ ו-$2$), ולכן אין משיק משותף בה.",
               r"להשתמש באותו $x$ עבור שתי הפונקציות במקום $x_1$ ו-$x_2$ נפרדים.",
               r"לטעות בחותך של המשיק ל-$x^2$: הוא $-x_2^2$ ולא $+x_2^2$."],
@@ -350,7 +350,7 @@ add(2, "ב",
         ch("מהי משוואת המשיק המשותף?", "$y=-4x-4$", ["$y=4x+4$", "$y=-4x+4$", "$y=-4x-2$"],
            r"השיפוע הוא $-\frac{1}{x_1^2}=-4$ והחותך $\frac{2}{x_1}=-4$. רק הישר $y=-4x-4$ משיק גם ל-$\frac1x$ וגם ל-$x^2$ (נבדק ב-sympy לפי דיסקרימיננטה אפס)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (sin x / x)^(1/x^2) =====
 g3 = (sp.sin(x)/x)**(1/x**2)
@@ -363,7 +363,7 @@ add(3, "א",
     rubric=rub((r"זיהוי צורה $1^{\infty}$ והעברה ללוגריתם: $\ln A=\lim\frac{\ln\frac{\sin x}{x}}{x^2}$", 3),
                (r"הפעלת לופיטל מספר פעמים עד $\ln A=-\frac16$", 5),
                (r"חזרה מהלוגריתם: $A=e^{-\frac16}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב $1^{\infty}=1$. זו אי-ודאות ולא ערך.",
               r"לשכוח לחזור מ-$\ln A$ ל-$A$ בסוף ולהשאיר $-\frac16$ כתשובה.",
               r"לעצור אחרי לופיטל אחד כשעדיין מתקבלת צורה $\frac{0}{0}$."],
@@ -373,7 +373,7 @@ add(3, "א",
         num(r"מהו $\ln A=\lim_{x\to0}\frac{\ln\frac{\sin x}{x}}{x^2}$? (עשרוני)", lnA, r"אחרי שלוש הפעלות של לופיטל מקבלים $\frac{-\cos x}{6\cos x-2x\sin x}\to-\frac{1}{6}\approx-0.1667$."),
         num(r"מהו הגבול $A=e^{\ln A}$? (עשרוני)", sp.exp(lnA), r"$A=e^{-1/6}\approx0.8465$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int (2x^2+15)/(x(x^2+2x+5)) =====
 g3b = (2*x**2 + 15)/(x*(x**2 + 2*x + 5))
@@ -393,7 +393,7 @@ add(3, "ב",
                (r"חישוב המקדמים $A=3$, $B=-1$, $C=-6$", 3),
                (r"השלמה לריבוע והצבה $t=x+1$ באינטגרל $\int\frac{x+6}{x^2+2x+5}dx$", 2),
                (r"אינטגרציה: לוגריתם ו-$\arctan\frac{x+1}{2}$ ותשובה סופית עם $+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב מונה קבוע $B$ מעל הגורם הריבועי $x^2+2x+5$. כך אין פתרון למערכת המקדמים.",
               r"לשכוח את הגורם $\frac{1}{2}$ באינטגרל $\int\frac{dt}{t^2+4}=\frac{1}{2}\arctan\frac{t}{2}$.",
               r"לשכוח סימן מינוס כשמוציאים את $-\int\frac{x+6}{x^2+2x+5}dx$."],
@@ -407,7 +407,7 @@ add(3, "ב",
         chx(r"מהי הפונקציה הקדומה (בתחום $x>0$, בלי הקבוע)?", F3, F3w, lambda e: same(sp.diff(e, x), g3b),
             r"$3\ln x-\frac{1}{2}\ln(x^2+2x+5)-\frac{5}{2}\arctan\frac{x+1}{2}$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: parameters a, b =====
 a4, b4 = sp.symbols('a b', real=True)
@@ -421,7 +421,7 @@ add(4, "א",
                (r"נימוק שהגבול סופי רק כאשר $b=-1$ (אחרת המונה מסדר $x^2$ והמכנה מסדר $x$)", 3),
                (r"חישוב הגבול עבור $b=-1$: $\frac{a}{2}$", 2),
                (r"השוואה ל-$3$ ופתרון $a=6$, $b=-1$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לחשב את הגבול כאילו $b=-1$ מראש, בלי להסביר למה אין פתרון עבור $b\neq-1$.",
               r"לשכוח שבחילוק ב-$x$ מתחת לשורש מתקבל $|x|=x$ ב-$+\infty$ (בלי שינוי סימן)."],
     steps=[
@@ -430,7 +430,7 @@ add(4, "א",
         num(r"עבור $b=-1$ הגבול שווה ל-$\frac{a}{2}$. מהו הגבול כאשר $a=4$?", 2, r"$\frac{a}{2}=\frac{4}{2}=2$ (נבדק ב-sympy)."),
         num(r"מהו $a$ שעבורו הגבול שווה ל-$3$?", 6, r"$\frac{a}{2}=3$ נותן $a=6$; עבור $a=6$, $b=-1$ הגבול הוא $3$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: int sin x cos x/(1+sin^2 x) =====
 g4b = sp.sin(x)*sp.cos(x)/(1 + sp.sin(x)**2)
@@ -444,7 +444,7 @@ add(4, "ב",
     rubric=rub((r"הצבה $t=\sin x$, $dt=\cos x\,dx$", 3),
                (r"אינטגרל $\int\frac{t}{1+t^2}dt=\frac12\ln(1+t^2)$", 4),
                (r"חזרה למשתנה המקורי ותשובה $\frac12\ln(1+\sin^2x)+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את הגורם $\frac{1}{2}$ באינטגרל של $\frac{t}{1+t^2}$ (נגזרת המכנה היא $2t$).",
               r"לשכוח לחזור מ-$t$ ל-$\sin x$ בסוף."],
     steps=[
@@ -454,7 +454,7 @@ add(4, "ב",
         chx(r"מהי הפונקציה הקדומה של $\frac{\sin x\cos x}{1+\sin^2x}$?", F4b, F4bw, lambda e: same(sp.diff(e, x), g4b),
             r"אחרי ההצבה $\frac12\ln(1+t^2)$, ובחזרה ל-$x$: $\frac12\ln(1+\sin^2x)$. הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: differentiability at x=1 =====
 hh = sp.Symbol('h', real=True)
@@ -466,7 +466,7 @@ add(5, "א",
     rubric=rub((r"חישוב $f(1)=0$ ורישום הגבול המגדיר את $f'(1)$", 3),
                (r"הצבה ופישוט: $\frac{\sqrt[3]{h^2}\sin h}{h}$", 3),
                (r"חישוב הגבול $0$ משני הצדדים ומסקנה: גזירה עם $f'(1)=0$", 4)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעון ש-$\sqrt[3]{(x-1)^2}$ אינה גזירה ב-$1$ ולכן גם המכפלה אינה גזירה. הגורם $\sin(x-1)$ מרסן את התנהגות הנגזרת.",
               r"לגזור בכלל המכפלה כרגיל ולקבל ביטוי לא מוגדר ב-$x=1$ במקום להשתמש בהגדרת הנגזרת."],
     steps=[
@@ -476,7 +476,7 @@ add(5, "א",
         ch("האם $f$ גזירה ב-$x=1$?", r"כן, והנגזרת היא $0$", [r"לא, כי $\sqrt[3]{(x-1)^2}$ אינה גזירה ב-$1$", r"לא, כי הגבולות החד-צדדיים שונים", r"כן, והנגזרת היא $1$"],
            r"שני הגבולות החד-צדדיים של מנת ההפרשים שווים ל-$0$, ולכן $f$ גזירה ו-$f'(1)=0$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: arc length =====
 y5 = R(2, 5)*x**R(5, 4) - R(2, 3)*x**R(3, 4)
@@ -491,7 +491,7 @@ add(5, "ב",
                (r"נגזרת $y'=\frac12\left(x^{1/4}-x^{-1/4}\right)$", 3),
                (r"השלמה לריבוע מושלם: $1+(y')^2=\left(\frac{x^{1/4}+x^{-1/4}}{2}\right)^2$", 3),
                (r"אינטגרציה וחישוב $L=\frac{16}{15}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לא לזהות ש-$1+(y')^2$ הוא ריבוע מושלם ולהישאר עם שורש שאין לו פונקציה קדומה פשוטה.",
               r"טעות בחזקות בגזירה: $\left(x^{5/4}\right)'=\frac54x^{1/4}$."],
     steps=[
@@ -501,7 +501,7 @@ add(5, "ב",
             lambda e: same(e, 1 + y5p**2), r"$1+\frac{x^{1/2}-2+x^{-1/2}}{4}=\frac{x^{1/2}+2+x^{-1/2}}{4}=\left(\frac{x^{1/4}+x^{-1/4}}{2}\right)^2$ (אומת ב-sympy)."),
         num(r"מהו אורך הקשת? (עשרוני)", L5, r"$\frac12\left(\frac45x^{5/4}+\frac43x^{3/4}\right)\Big|_0^1=\frac25+\frac23=\frac{16}{15}\approx1.0667$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: parameters of g = (x^2+a)/(x-b) =====
 g6 = (x**2 + a4)/(x - b4)
@@ -517,7 +517,7 @@ add(6, "א",
                (r"תנאי הקיצון $g'(2)=0$: $4-4b-a=0$", 2),
                (r"שיפוע האסימפטוטה $k=1$ וחותך $m=b$", 3),
                (r"מהתנאי $y=x+7$: $b=7$, ומכאן $a=-24$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את הגורם $(x-b)^2$ במכנה של הנגזרת ולטעות בכלל המנה.",
               r"לחשב את חותך האסימפטוטה כ-$\lim g(x)$ במקום $\lim(g(x)-x)$."],
     steps=[
@@ -530,7 +530,7 @@ add(6, "א",
             r"$k=1$ ו-$m=\lim\left(g(x)-x\right)=\lim\frac{bx+a}{x-b}=b$, לכן $b=7$."),
         num(r"מהו $a$?", -24, r"$a=4-4b=4-28=-24$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area under ln(x+1)/sqrt(x+1) on [0,1] =====
 g6b = sp.log(x + 1)/sp.sqrt(x + 1)
@@ -545,7 +545,7 @@ add(6, "ב",
                (r"אינטגרציה בחלקים עם $u=\ln(x+1)$, $v=2\sqrt{x+1}$", 3),
                (r"חישוב האינטגרל הנותר $\int\frac{dx}{\sqrt{x+1}}=2\sqrt{x+1}$", 2),
                (r"הצבת הגבולות: $S=2\sqrt2\ln2-4\sqrt2+4$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח שהשטח הוא אינטגרל של פונקציה אי-שלילית. כאן $\ln(x+1)\ge0$ בקטע, ולכן אין צורך בערך מוחלט.",
               r"לטעות ב-$v$: הקדומה של $\frac{1}{\sqrt{x+1}}$ היא $2\sqrt{x+1}$ ולא $\sqrt{x+1}$."],
     steps=[
@@ -555,7 +555,7 @@ add(6, "ב",
             r"$2\sqrt{x+1}\ln(x+1)-2\int\frac{dx}{\sqrt{x+1}}=2\sqrt{x+1}\ln(x+1)-4\sqrt{x+1}$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
         num(r"מהו השטח? (עשרוני)", S6, r"$S=2\sqrt2\ln2-4\sqrt2+4\approx0.3037$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 exam = {
     "examCode": "20B-A",

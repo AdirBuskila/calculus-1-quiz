@@ -49,6 +49,22 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 
 ## Resolved
 
+### 20A-A Q6a - official solution has the sign change backwards (intermediate slip)
+- Path: sitting 20A-A (exam + official solution PDF), p.6
+- Page: 6
+- Question: the official solution says f' changes sign "from minus to plus" at x=3. Sympy: f'(2.5)=+0.101, f'(3.5)=-0.035, so it is plus to minus. The classification (local maximum, f(3)=e^-1.5=0.2231) is correct and unchanged.
+- Needed: none.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): intermediate slip, fixed silently in the stored solution sentence; the steps and pitfalls already said plus to minus.
+
+### 20A-A Q6b, 19B-A Q6a - rounding slip in the step explanation
+- Path: sitting 20A-A (6b, step 3, explanation); sitting 19B-A (6a, step 3, explanation)
+- Page: 20A-A p.6; 19B-A p.6
+- Question: 20A-A explanation printed V~0.1124 for pi(e^-2-2e^-3)=0.112347, so it is 0.1123; 19B-A explanation printed V~1.5912 for pi(pi^3/24-pi/4)=1.591311, so it is 1.5913. The numeric answers (0.1123, 1.5913) were already correct.
+- Needed: none.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): intermediate slip, corrected silently in the explanation text and checked with sympy.
+
 ### 24A-B Q6b - official solution computes a different limit than the printed one
 - Path: sitting 24A-B (exam + official solution PDF)
 - Page: 6 (question), 7 (solution)

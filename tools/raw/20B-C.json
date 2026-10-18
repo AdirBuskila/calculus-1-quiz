@@ -43,7 +43,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכריז על קיצון ב-$x=0$ רק כי $f'(0)=0$. הנגזרת חיובית משני הצדדים ולכן אין קיצון, ויש שם נקודת פיתול.",
     "לשכוח שהאסימפטוטה האנכית $x=-1$ שואפת ל-$-\\infty$ משני הצדדים (המכנה ריבועי).",
@@ -170,7 +170,7 @@
      "explain": "$a=\\lim\\frac{f(x)}{x}=\\frac{1}{2}$ ו-$b=\\lim\\left(f(x)-\\frac{x}{2}\\right)=-1$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -201,7 +201,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק ערך אחד של $b$ ולא לפצל לשלושה מקרים לפי היחס בין $b$ ל-$3$.",
     "לשכוח את המקרה $b=3$, שבו המנה קבועה $\\frac{1}{2}$ ולא שואפת ל-$0$ או ל-$1$."
@@ -250,7 +250,7 @@
      "explain": "$\\frac{3^n}{3^n+b^n}=\\frac{(3/b)^n}{(3/b)^n+1}\\to\\frac{0}{0+1}=0$ כי $0<\\frac{3}{b}<1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -281,7 +281,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה גבוהה מדרגת המכנה.",
     "לשכוח ערך מוחלט בלוגריתמים או להחליף סימן ב-$B$."
@@ -358,7 +358,7 @@
      "explain": "$\\int\\left(x+\\frac{4}{x-1}-\\frac{1}{x+1}\\right)dx=\\frac{x^2}{2}+4\\ln(x-1)-\\ln(x+1)$; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -385,7 +385,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול הימני כ-$0\\cdot\\infty=0$ בלי הצדקה, ולשכוח את האיבר $\\frac{\\arcsin x}{2x}$.",
     "לבדוק רק גבול אחד ולא את שני הצדדים ואת ערך הפונקציה."
@@ -441,7 +441,7 @@
      "explain": "שני הגבולות החד-צדדיים הם $\\frac{1}{2}=f(0)$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -472,7 +472,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק את קצות הקטע $x=0$ ו-$x=4$.",
     "לכלול את הנקודה $x=-3$, שאינה בקטע $[0,4]$."
@@ -556,7 +556,7 @@
      "explain": "משווים $f(0)=0$, $f(3)=9$, $f(4)\\approx5.66$; הגדול הוא $9$ והקטן הוא $0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -583,7 +583,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $2$ ב-$\\int\\ln^2x\\,dx=x\\ln^2x-2\\int\\ln x\\,dx$ (נגזרת $\\ln^2x$ היא $\\frac{2\\ln x}{x}$).",
     "לטעות בסימן בשלב השני ולקבל $-2x$ במקום $+2x$."
@@ -632,7 +632,7 @@
      "explain": "מציבים $\\int\\ln x\\,dx=x\\ln x-x$ בנוסחה הראשונה; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -663,7 +663,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $x=2$ ישירות ולכתוב $\\frac{0}{0}=0$ בלי לפתור את אי-הוודאות.",
     "לכפול רק את המונה בצמוד ולא את המכנה, או לטעות ב-$(3x-2)-(x+2)$."
@@ -712,7 +712,7 @@
      "explain": "$\\frac{2}{16}=\\frac{1}{8}=0.125$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -743,7 +743,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפוך את כיוון אי-השוויונות בעת מעבר להופכי ולכתוב $1\\le\\frac{1}{2x^4+1}\\le3$.",
     "לשכוח להכפיל באורך הקטע $2$ בקבלת הגבולות של האינטגרל."
@@ -785,7 +785,7 @@
      "explain": "כאשר $1\\le2x^4+1\\le3$ ההופכי מקיים $\\frac{1}{3}\\le\\frac{1}{2x^4+1}\\le1$ (ההפכים מחליפים סדר), לא $1\\le\\cdots\\le3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -812,7 +812,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות לחשב את האינטגרל $\\int\\frac{t^2}{1+t^4}dt$ במפורש במקום להשתמש במשפט היסודי ובלופיטל.",
     "לשכוח את המכנה $3x^2$ כשגוזרים את $x^3$."
@@ -854,7 +854,7 @@
      "explain": "$\\frac{x^2/(1+x^4)}{3x^2}=\\frac{1}{3(1+x^4)}\\to\\frac{1}{3}\\approx0.3333$ (נבדק ב-sympy דרך טור)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -885,7 +885,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להציב $\\Delta x=3$ במעלות במקום ברדיאנים ($\\frac{\\pi}{60}$).",
     "לשכוח שהנגזרת של $\\tan x$ היא $\\frac{1}{\\cos^2x}$ ולהשתמש ב-$\\cos x$."
@@ -913,7 +913,7 @@
      "explain": "$1+2\\cdot\\frac{\\pi}{60}=1+\\frac{\\pi}{30}\\approx1.1047$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -944,7 +944,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקחת אינטגרל יחיד בין $y=2x$ ל-$y=\\frac{x}{2}$ ולהתעלם מכך שהגבול העליון מתחלף ל-$y=\\frac{1}{x}$.",
     "לטעות בנקודת החיתוך של $y=\\frac{x}{2}$ עם $y=\\frac{1}{x}$: היא ב-$x=\\sqrt2$ ולא ב-$x=2$."
@@ -1000,7 +1000,7 @@
      "explain": "$\\frac{3}{8}+\\left(\\ln2-\\frac{3}{8}\\right)=\\ln2\\approx0.6931$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

@@ -33,6 +33,7 @@ V = sp.pi * sp.integrate((sp.pi / 2 - x) ** 2 - sp.cos(x) ** 2, (x, 0, sp.pi / 2
 r.append(("Q6a", sp.simplify(V - sp.pi**2 / 4 * (-1 + sp.pi**2 / 6)) == 0))
 S = sp.integrate(sp.sqrt(x + 2), (x, -2, 2)) - sp.integrate(sp.sqrt(2 * x), (x, 0, 2))
 r.append(("Q6b", sp.simplify(S - sp.Rational(8, 3)) == 0))
+r.append(("Q6a 1.5913", round(float(sp.N(V, 10)), 4) == 1.5913))
 for k, v in r:
     print(k, "OK" if v else "MISMATCH")
 print("ALL OK" if all(v for _, v in r) else "FAIL")

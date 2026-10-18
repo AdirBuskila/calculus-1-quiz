@@ -176,11 +176,12 @@ x, t, a, b = sp.symbols('x t a b', real=True)
 n = sp.Symbol('n', positive=True)
 R = sp.Rational
 TOPSRC = {}
+SYMNAMES = {}  # display names for scratch symbols (filled where they are defined)
 
 
 def T(e):
     """TeX of a sympy expression, wrapped in $...$."""
-    return "$" + sp.latex(e) + "$"
+    return "$" + sp.latex(e, symbol_names=SYMNAMES) + "$"
 
 
 def rub(*items):
@@ -256,7 +257,7 @@ add(1,
                (r"נגזרת $f'(x)=\frac{-4x}{(x^2-1)^2}$, תחומי עליה וירידה ומקסימום מקומי $f(0)=0$", 5),
                (r"$f''(x)=\frac{4(3x^2+1)}{(x^2-1)^3}$, קמירות וקעירות וקביעה שאין נקודות פיתול", 5),
                ("שרטוט הגרף בהתאם לכל הנתונים", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לקבוע נקודת פיתול רק כי $f''$ מחליפה סימן ב-$x=\pm1$. הנקודות האלה אינן בתחום ההגדרה.",
               r"לשכוח שהסימן של $f'$ ושל $f''$ נקבע גם לפי המכנה: הנגזרת עולה ב-$(-\infty,-1)$ וב-$(-1,0)$ ויורדת ב-$(0,1)$ וב-$(1,\infty)$.",
               r"לבלבל בין הגבול ב-$1^+$ ($+\infty$) לבין הגבול ב-$1^-$ ($-\infty$) ולשרטט את הענפים הפוך."],
@@ -274,10 +275,11 @@ add(1,
            [r"אנכית $x=1$ בלבד, ואופקית $y=2$", r"אנכיות $x=\pm1$ ואופקית $y=0$", r"אנכיות $x=\pm1$ ואסימפטוטה משופעת"],
            r"$\lim_{x\to\pm1}|f|=\infty$ ו-$\lim_{x\to\pm\infty}f=2$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: a_{n+1} = sqrt(5 a_n - 6), a_1 = 4 =====
 aa = sp.Symbol('aa', positive=True)
+SYMNAMES.update({aa: "a_n"})
 sq = sp.sqrt(5*aa - 6)
 assert same(sq - aa, -(aa - 2)*(aa - 3)/(sq + aa))
 seq2 = [sp.Integer(4)]
@@ -299,7 +301,7 @@ add(2, "א",
                (r"הצגת $a_{n+1}-a_n=-\frac{(a_n-2)(a_n-3)}{\sqrt{5a_n-6}+a_n}<0$ ומסקנה שהסדרה יורדת", 3),
                (r"התכנסות (מונוטונית וחסומה) והגדרת הגבול $L\ge3$", 1),
                (r"מעבר לגבול: $L^2-5L+6=0$ ובחירה נכונה $L=3$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לבחור $L=2$ בלי להשתמש בחסימה $L\ge3$ שבאה מהאינדוקציה.",
               r"להכפיל בצמוד בלי לבדוק שהמכנה $\sqrt{5a_n-6}+a_n$ חיובי.",
               r"להניח התכנסות ולעבור לגבול בנוסחת הנסיגה לפני שהוכחנו מונוטוניות וחסימות."],
@@ -313,7 +315,7 @@ add(2, "א",
                 r"הפתרון $L=2$ אינו מקיים $L\ge3$; מהחסימה מהאינדוקציה נובע $L=3$."),
         num(r"מהו גבול הסדרה?", 3, r"$L=3$ (התקרבות מספרית: $a_{300}$ שונה מ-$3$ בפחות מ-$10^{-9}$)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: exactly one solution of x^3 + e^x = -x =====
 f2 = x**3 + x + sp.exp(x)
@@ -333,7 +335,7 @@ add(2, "ב",
                (r"חישוב $f(-1)<0$ ו-$f(0)>0$ והפעלת משפט ערך הביניים: קיים פתרון", 4),
                (r"חישוב $f'(x)=3x^2+1+e^x>0$: $f$ עולה ממש", 2),
                (r"מסקנה: $f$ חד-חד-ערכית ולכן הפתרון יחיד", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להראות רק קיום (ערך ביניים) ולשכוח הוכחת יחידות.",
               r"לחשב $f(-1)$ בטעות כ-$-2+e$ ולא $-2+e^{-1}$, כך שהסימן יוצא חיובי והמשפט אינו חל."],
     steps=[
@@ -347,7 +349,7 @@ add(2, "ב",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", P2b, 1,
                 r"$f(-1)=-1-1+e^{-1}=-2+\frac1e$ ולא $-2+e$. הערך השלילי הוא מה שמאפשר להפעיל את משפט ערך הביניים."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: lim (1+e^x)^(1/x) =====
 assert sp.limit(sp.log(1 + sp.exp(x))/x, x, sp.oo) == 1
@@ -358,7 +360,7 @@ add(3, "א",
     rubric=rub((r"זיהוי צורה $\infty^0$ והעברה לחזקת $e$: $e^{\frac{1}{x}\ln(1+e^x)}$", 3),
                (r"לופיטל על $\frac{\ln(1+e^x)}{x}$: $\frac{e^x}{1+e^x}\to1$", 5),
                (r"מסקנה: הגבול $e$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב $\infty^0=1$ בלי חישוב; זו אי-ודאות.",
               r"לשכוח לחלק מונה ומכנה ב-$e^x$ בחישוב $\lim\frac{e^x}{1+e^x}$ ולטעות להסיק $\infty$."],
     steps=[
@@ -369,7 +371,7 @@ add(3, "א",
         num(r"מהו $\lim_{x\to+\infty}\frac{\ln(1+e^x)}{x}$?", 1, r"$\frac{e^x}{1+e^x}=\frac{1}{e^{-x}+1}\to1$ (נבדק ב-sympy)."),
         num(r"מהו הגבול המבוקש? (עשרוני)", sp.E, r"$e^1=e\approx2.7183$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: int arcsin x dx =====
 F3b = x*sp.asin(x) + sp.sqrt(1 - x**2)
@@ -383,7 +385,7 @@ add(3, "ב",
                (r"נגזרת $u'=\frac{1}{\sqrt{1-x^2}}$ ו-$v=x$", 2),
                (r"חישוב האינטגרל הנותר $\int\frac{x}{\sqrt{1-x^2}}dx=-\sqrt{1-x^2}$", 3),
                (r"תשובה $x\arcsin x+\sqrt{1-x^2}+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לטעות בסימן ולכתוב $x\arcsin x-\sqrt{1-x^2}$.",
               r"לשכוח שהנגזרת של $\arcsin x$ היא $\frac{1}{\sqrt{1-x^2}}$ ולא $\frac{1}{1+x^2}$."],
     steps=[
@@ -395,7 +397,7 @@ add(3, "ב",
             r"$x\arcsin x-\int\frac{x}{\sqrt{1-x^2}}dx=x\arcsin x+\sqrt{1-x^2}$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
         num(r"מהו $\int_0^{1/2}\arcsin x\,dx$? (עשרוני)", def0, r"$\left[x\arcsin x+\sqrt{1-x^2}\right]_0^{1/2}=\frac{\pi}{12}+\frac{\sqrt3}{2}-1\approx0.1278$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: continuity parameter a =====
 a_ = sp.Symbol('a_', positive=True)
@@ -411,7 +413,7 @@ add(4, "א",
                (r"גבול ימני: $\ln\left(a+e^{-1/x}\right)\to\ln a$ כאשר $x\to0^+$", 3),
                (r"משוואה $(\ln a)^2=\ln a$ ופתרון $a=1$ או $a=e$", 3),
                (r"רציפות בשאר הנקודות (פונקציה אלמנטרית) ומסקנה", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לצמצם את $\ln a$ משני האגפים ולהפסיד את הפתרון $a=1$.",
               r"לשכוח שהגבול $e^{-1/x}\to0$ כאשר $x\to0^+$ (ולא $\infty$)."],
     steps=[
@@ -420,7 +422,7 @@ add(4, "א",
         num(r"מהו הערך הקטן מבין הערכים של $a$ המקיימים את המשוואה?", 1, r"$\ln a(\ln a-1)=0$ נותן $\ln a=0$, כלומר $a=1$."),
         num(r"מהו הערך הגדול? (עשרוני)", sp.E, r"$\ln a=1$ נותן $a=e\approx2.7183$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: tangent parallel to x - y = 7 =====
 f4 = sp.log(1 + x**2)
@@ -435,7 +437,7 @@ add(4, "ב",
                (r"נגזרת $f'(x)=\frac{2x}{1+x^2}$ ופתרון $f'(x_0)=1$: $x_0=1$", 4),
                (r"חישוב $f(1)=\ln2$", 1),
                (r"משוואת המשיק $y=x+\ln2-1$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לקחת שיפוע $-1$ כי $x-y=7$ נראה עם מינוס; כאן $y=x-7$ ולכן השיפוע $1$.",
               r"לחשב את החותך כ-$\ln2$ במקום $f(1)-f'(1)\cdot1=\ln2-1$."],
     steps=[
@@ -447,7 +449,7 @@ add(4, "ב",
         ch("מהי משוואת המשיק?", r"$y=x+\ln2-1$", [r"$y=x+\ln2$", r"$y=x-\ln2-1$", r"$y=x+1-\ln2$"],
            r"$y=f(1)+f'(1)(x-1)=\ln2+x-1$. רק לערך הזה הישר עובר דרך $(1,\ln2)$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: limit at -infinity =====
 g5 = sp.sqrt(2 + 2*x + x**2) - sp.sqrt(2 - 2*x + x**2)
@@ -459,7 +461,7 @@ add(5, "א",
     rubric=rub((r"כפל בצמוד והמונה $(2+2x+x^2)-(2-2x+x^2)=4x$", 3),
                (r"הוצאת $|x|$ מהשורשים, ובמעבר ל-$-\infty$ נקבל $|x|=-x$", 3),
                (r"חישוב הגבול $\frac{4}{-(1+1)}=-2$", 4)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב $\sqrt{x^2}=x$ כאשר $x\to-\infty$ ולקבל $+2$ במקום $-2$.",
               r"להשאיר $\infty-\infty$ בלי כפל בצמוד."],
     steps=[
@@ -469,7 +471,7 @@ add(5, "א",
            r"שורש ריבועי אינו שלילי, ועבור $x<0$ מתקיים $|x|=-x$."),
         num(r"מהו הגבול ב-$-\infty$?", -2, r"$\frac{4x}{|x|\left(\sqrt{\cdot}+\sqrt{\cdot}\right)}=\frac{-4}{1+1}=-2$ (נבדק ב-sympy וגם בהצבה $x=-10^6$)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: int x/((x^2+1)(x+1)) =====
 g5b = x/((x**2 + 1)*(x + 1))
@@ -488,7 +490,7 @@ add(5, "ב",
                (r"פתרון $A=-\frac12$, $B=C=\frac12$", 3),
                (r"אינטגרציה של שלושת החלקים: שני לוגריתמים ו-$\arctan$", 3),
                (r"תשובה סופית עם $+C$", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לכתוב מונה קבוע $B$ מעל $x^2+1$ ולהיתקע במערכת בלי פתרון.",
               r"לשכוח שחלק מהמונה $\frac{x+1}{x^2+1}$ נותן גם $\arctan x$ ולא רק לוגריתם."],
     steps=[
@@ -500,7 +502,7 @@ add(5, "ב",
         chx(r"מהי הפונקציה הקדומה (בתחום $x>-1$, בלי הקבוע)?", F5, F5w, lambda e: same(sp.diff(e, x), g5b),
             r"$-\frac12\ln(x+1)+\frac14\ln(x^2+1)+\frac12\arctan x$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: volume of revolution (washers) =====
 V6 = sp.pi*sp.integrate((sp.pi/2 - x)**2 - sp.cos(x)**2, (x, 0, sp.pi/2))
@@ -515,7 +517,7 @@ add(6, "א",
                (r"חישוב $\int_0^{\pi/2}\left(\frac\pi2-x\right)^2dx=\frac{\pi^3}{24}$", 2),
                (r"חישוב $\int_0^{\pi/2}\cos^2x\,dx=\frac{\pi}{4}$ (באמצעות $\cos^2x=\frac{1+\cos2x}{2}$)", 2),
                (r"חיבור התוצאה $V=\pi\left(\frac{\pi^3}{24}-\frac{\pi}{4}\right)$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לחשב $\pi\int\left(R-r\right)^2dx$ במקום $\pi\int\left(R^2-r^2\right)dx$.",
               r"להחליף בין הרדיוס החיצוני לפנימי: בקטע הנתון $\frac\pi2-x\ge\cos x$ ולכן הישר הוא החיצוני."],
     steps=[
@@ -523,9 +525,9 @@ add(6, "א",
            r"בקטע $[0,\frac\pi2]$ מתקיים $\frac\pi2-x\ge\cos x$ (נבדק ב-sympy בכמה נקודות), לכן הישר חיצוני והקוסינוס פנימי."),
         num(r"מהו $\int_0^{\pi/2}\left(\frac\pi2-x\right)^2dx$? (עשרוני)", i61, r"$\frac{(\pi/2)^3}{3}=\frac{\pi^3}{24}\approx1.2919$."),
         num(r"מהו $\int_0^{\pi/2}\cos^2x\,dx$? (עשרוני)", i62, r"$\cos^2x=\frac{1+\cos2x}{2}$ ולכן האינטגרל $\frac{\pi}{4}\approx0.7854$."),
-        num(r"מהו הנפח $V$? (עשרוני)", V6, r"$V=\pi\left(\frac{\pi^3}{24}-\frac{\pi}{4}\right)\approx1.5912$."),
+        num(r"מהו הנפח $V$? (עשרוני)", V6, r"$V=\pi\left(\frac{\pi^3}{24}-\frac{\pi}{4}\right)\approx1.5913$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area between sqrt(x+2), sqrt(2x), y=0 =====
 xs = sp.Symbol('xs', real=True)
@@ -544,7 +546,7 @@ add(6, "ב",
                (r"הצגת השטח כהפרש: $\int_{-2}^{2}\sqrt{x+2}\,dx-\int_0^2\sqrt{2x}\,dx$", 3),
                (r"חישוב שני האינטגרלים: $\frac{16}{3}$ ו-$\frac{8}{3}$", 3),
                (r"מסקנה: $S=\frac{8}{3}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לקחת רק את הקטע $[0,2]$ ולהתעלם מהחלק $-2\le x\le0$ שבו התחום יושב ישירות מעל ציר ה-$x$.",
               r"לחבר את שני האינטגרלים במקום לחסר את הקטן."],
     steps=[
@@ -556,7 +558,7 @@ add(6, "ב",
         num(r"מהו $\int_0^2\sqrt{2x}\,dx$? (עשרוני)", I2, r"$\sqrt2\cdot\frac23x^{3/2}\Big|_0^2=\frac{8}{3}\approx2.6667$."),
         num(r"מהו השטח הכלוא? (עשרוני)", area, r"$\frac{16}{3}-\frac{8}{3}=\frac83\approx2.6667$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 exam = {
     "examCode": "19B-A",

@@ -38,7 +38,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שיש אסימפטוטה אופקית $y=0$ גם ב-$+\\infty$: שם $\\frac{e^{2x}}{x}\\to\\infty$ ואין אסימפטוטה בכלל.",
     "לראות בנקודה $x=0$ נקודת פיתול כי $f''$ מחליפה סימן, אף ש-$x=0$ אינה בתחום ההגדרה.",
@@ -144,7 +144,7 @@
      "explain": "$\\lim_{x\\to-\\infty}f=0$, $\\lim_{x\\to+\\infty}f=\\infty$ ו-$\\lim_{x\\to+\\infty}\\frac{f}{x}=\\infty$ (אין שיפוע סופי); בנוסף $\\lim_{x\\to0^\\pm}f=\\pm\\infty$ (אומת ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -175,7 +175,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $L=1$ בלי לשים לב שסדרה עולה המתחילה מ-$\\frac{3}{2}$ לא יכולה להתכנס לערך קטן ממנה.",
     "לעבור לגבול בנוסחת הנסיגה לפני שהוכחנו שהסדרה מתכנסת.",
@@ -243,7 +243,7 @@
      "explain": "הסדרה עולה ו-$a_1=\\frac{3}{2}>1$, לכן $L\\ge\\frac{3}{2}$ ו-$L=1$ אינו אפשרי; נכון $L=2$ (הסדרה מתקרבת ל-$2$ בחישוב ישיר)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -274,7 +274,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שהמשיק עובר בנקודת החיתוך $(1,1)$ של הגרפים. שם השיפועים שונים ($-1$ ו-$2$), ולכן אין משיק משותף בה.",
     "להשתמש באותו $x$ עבור שתי הפונקציות במקום $x_1$ ו-$x_2$ נפרדים.",
@@ -352,7 +352,7 @@
      "explain": "השיפוע הוא $-\\frac{1}{x_1^2}=-4$ והחותך $\\frac{2}{x_1}=-4$. רק הישר $y=-4x-4$ משיק גם ל-$\\frac1x$ וגם ל-$x^2$ (נבדק ב-sympy לפי דיסקרימיננטה אפס)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -379,7 +379,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $1^{\\infty}=1$. זו אי-ודאות ולא ערך.",
     "לשכוח לחזור מ-$\\ln A$ ל-$A$ בסוף ולהשאיר $-\\frac16$ כתשובה.",
@@ -429,7 +429,7 @@
      "explain": "$A=e^{-1/6}\\approx0.8465$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -460,7 +460,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב מונה קבוע $B$ מעל הגורם הריבועי $x^2+2x+5$. כך אין פתרון למערכת המקדמים.",
     "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל $\\int\\frac{dt}{t^2+4}=\\frac{1}{2}\\arctan\\frac{t}{2}$.",
@@ -540,7 +540,7 @@
      "explain": "$3\\ln x-\\frac{1}{2}\\ln(x^2+2x+5)-\\frac{5}{2}\\arctan\\frac{x+1}{2}$; הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -571,7 +571,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב את הגבול כאילו $b=-1$ מראש, בלי להסביר למה אין פתרון עבור $b\\neq-1$.",
     "לשכוח שבחילוק ב-$x$ מתחת לשורש מתקבל $|x|=x$ ב-$+\\infty$ (בלי שינוי סימן)."
@@ -620,7 +620,7 @@
      "explain": "$\\frac{a}{2}=3$ נותן $a=6$; עבור $a=6$, $b=-1$ הגבול הוא $3$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -647,7 +647,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\frac{1}{2}$ באינטגרל של $\\frac{t}{1+t^2}$ (נגזרת המכנה היא $2t$).",
     "לשכוח לחזור מ-$t$ ל-$\\sin x$ בסוף."
@@ -722,7 +722,7 @@
      "explain": "אחרי ההצבה $\\frac12\\ln(1+t^2)$, ובחזרה ל-$x$: $\\frac12\\ln(1+\\sin^2x)$. הנגזרת של כל אפשרות נבדקה ב-sympy."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -749,7 +749,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$\\sqrt[3]{(x-1)^2}$ אינה גזירה ב-$1$ ולכן גם המכפלה אינה גזירה. הגורם $\\sin(x-1)$ מרסן את התנהגות הנגזרת.",
     "לגזור בכלל המכפלה כרגיל ולקבל ביטוי לא מוגדר ב-$x=1$ במקום להשתמש בהגדרת הנגזרת."
@@ -805,7 +805,7 @@
      "explain": "שני הגבולות החד-צדדיים של מנת ההפרשים שווים ל-$0$, ולכן $f$ גזירה ו-$f'(1)=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -836,7 +836,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא לזהות ש-$1+(y')^2$ הוא ריבוע מושלם ולהישאר עם שורש שאין לו פונקציה קדומה פשוטה.",
     "טעות בחזקות בגזירה: $\\left(x^{5/4}\\right)'=\\frac54x^{1/4}$."
@@ -906,7 +906,7 @@
      "explain": "$\\frac12\\left(\\frac45x^{5/4}+\\frac43x^{3/4}\\right)\\Big|_0^1=\\frac25+\\frac23=\\frac{16}{15}\\approx1.0667$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -937,7 +937,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $(x-b)^2$ במכנה של הנגזרת ולטעות בכלל המנה.",
     "לחשב את חותך האסימפטוטה כ-$\\lim g(x)$ במקום $\\lim(g(x)-x)$."
@@ -1014,7 +1014,7 @@
      "explain": "$a=4-4b=4-28=-24$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1045,7 +1045,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהשטח הוא אינטגרל של פונקציה אי-שלילית. כאן $\\ln(x+1)\\ge0$ בקטע, ולכן אין צורך בערך מוחלט.",
     "לטעות ב-$v$: הקדומה של $\\frac{1}{\\sqrt{x+1}}$ היא $2\\sqrt{x+1}$ ולא $\\sqrt{x+1}$."
@@ -1115,7 +1115,7 @@
      "explain": "$S=2\\sqrt2\\ln2-4\\sqrt2+4\\approx0.3037$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

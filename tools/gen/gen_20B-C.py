@@ -249,7 +249,7 @@ add(1,
                (r"$f''(x)=\frac{3x}{(x+1)^4}$, קמירות וקעירות ונקודת פיתול $(0,0)$", 4),
                (r"אסימפטוטה אנכית $x=-1$ ואסימפטוטה משופעת $y=\frac{x}{2}-1$", 4),
                ("שרטוט הגרף בהתאם לכל הנתונים", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להכריז על קיצון ב-$x=0$ רק כי $f'(0)=0$. הנגזרת חיובית משני הצדדים ולכן אין קיצון, ויש שם נקודת פיתול.",
               r"לשכוח שהאסימפטוטה האנכית $x=-1$ שואפת ל-$-\infty$ משני הצדדים (המכנה ריבועי).",
               r"לחשב את האסימפטוטה המשופעת בלי חילוק פולינומים או בלי הגבול $\lim(f(x)-\frac{x}{2})$ ולקבל חותך שגוי."],
@@ -269,7 +269,7 @@ add(1,
            [r"$y=\frac{x}{2}$", r"$y=\frac{x}{2}+1$", r"$y=x-1$"],
            r"$a=\lim\frac{f(x)}{x}=\frac{1}{2}$ ו-$b=\lim\left(f(x)-\frac{x}{2}\right)=-1$ (אומת ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2a: lim 3^n/(3^n+b^n) =====
 
@@ -285,7 +285,7 @@ add(2, "א",
                (r"המקרה $0<b<3$: הגבול $1$", 2),
                (r"המקרה $b=3$: הגבול $\frac{1}{2}$", 2),
                (r"המקרה $b>3$: הגבול $0$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לבדוק רק ערך אחד של $b$ ולא לפצל לשלושה מקרים לפי היחס בין $b$ ל-$3$.",
               r"לשכוח את המקרה $b=3$, שבו המנה קבועה $\frac{1}{2}$ ולא שואפת ל-$0$ או ל-$1$."],
     steps=[
@@ -294,7 +294,7 @@ add(2, "א",
         ch(r"מהו הגבול כאשר $b>3$?", "$0$", ["$1$", r"$\frac{1}{2}$", r"$\infty$"],
            r"$\frac{3^n}{3^n+b^n}=\frac{(3/b)^n}{(3/b)^n+1}\to\frac{0}{0+1}=0$ כי $0<\frac{3}{b}<1$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q2b: integral (x^3+2x+5)/(x^2-1) =====
 g2 = (x**3 + 2*x + 5)/(x**2 - 1)
@@ -312,7 +312,7 @@ add(2, "ב",
                (r"פירוק $\frac{3x+5}{(x-1)(x+1)}=\frac{A}{x-1}+\frac{B}{x+1}$", 2),
                (r"חישוב המקדמים $A=4$, $B=-1$", 2),
                (r"אינטגרציה וכתיבת התשובה $\frac{x^2}{2}+4\ln|x-1|-\ln|x+1|+C$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לפרק לשברים חלקיים בלי לחלק קודם: דרגת המונה גבוהה מדרגת המכנה.",
               r"לשכוח ערך מוחלט בלוגריתמים או להחליף סימן ב-$B$."],
     steps=[
@@ -324,7 +324,7 @@ add(2, "ב",
         chx(r"מהי הפונקציה הקדומה (בתחום $x>1$, בלי הקבוע)?", F2, F2w, lambda e: same(sp.diff(e, x), g2),
             r"$\int\left(x+\frac{4}{x-1}-\frac{1}{x+1}\right)dx=\frac{x^2}{2}+4\ln(x-1)-\ln(x+1)$; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3a: continuity at 0 =====
 L3 = sp.limit((sp.exp(x) - 1)/sp.sin(2*x), x, 0, '-')
@@ -337,7 +337,7 @@ add(3, "א",
     rubric=rub((r"הגבול השמאלי $\lim_{x\to0^-}\frac{e^x-1}{\sin2x}=\frac{1}{2}$", 3),
                (r"$\lim_{x\to0^+}x\ln x=0$ (לופיטל) ו-$\lim\frac{\arcsin x}{2x}=\frac{1}{2}$", 4),
                (r"השוואה ל-$f(0)=\frac{1}{2}$ ומסקנה שהפונקציה רציפה", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לחשב את הגבול הימני כ-$0\cdot\infty=0$ בלי הצדקה, ולשכוח את האיבר $\frac{\arcsin x}{2x}$.",
               r"לבדוק רק גבול אחד ולא את שני הצדדים ואת ערך הפונקציה."],
     steps=[
@@ -348,7 +348,7 @@ add(3, "א",
            [r"לא, כי הגבול הימני $0$ שונה מ-$f(0)$", r"לא, כי הגבול השמאלי אינו קיים", r"לא, כי $f(0)\neq1$"],
            r"שני הגבולות החד-צדדיים הם $\frac{1}{2}=f(0)$ (נבדק ב-sympy)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q3b: extrema of x sqrt(18-x^2) on [0,4] =====
 f3 = x*sp.sqrt(18 - x**2)
@@ -362,7 +362,7 @@ add(3, "ב",
                (r"נגזרת $f'(x)=\frac{18-2x^2}{\sqrt{18-x^2}}$ והנקודה החשודה $x=3$", 4),
                ("חישוב ערכי הפונקציה בנקודה החשודה ובקצוות", 2),
                (r"מסקנה: מקסימום $9$ ב-$x=3$ ומינימום $0$ ב-$x=0$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח לבדוק את קצות הקטע $x=0$ ו-$x=4$.",
               r"לכלול את הנקודה $x=-3$, שאינה בקטע $[0,4]$."],
     steps=[
@@ -377,7 +377,7 @@ add(3, "ב",
             r"מקסימום $9$ ב-$x=3$, מינימום $-9$ ב-$x=-3$"],
            r"משווים $f(0)=0$, $f(3)=9$, $f(4)\approx5.66$; הגדול הוא $9$ והקטן הוא $0$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4a: int ln^2 x =====
 F4 = x*sp.log(x)**2 - 2*x*sp.log(x) + 2*x
@@ -392,7 +392,7 @@ add(4, "א",
     rubric=rub((r"אינטגרציה בחלקים ראשונה: $\int\ln^2x\,dx=x\ln^2x-2\int\ln x\,dx$", 4),
                (r"אינטגרציה בחלקים שנייה: $\int\ln x\,dx=x\ln x-x$", 4),
                (r"הרכבה לתשובה $x\ln^2x-2x\ln x+2x+C$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לשכוח את הגורם $2$ ב-$\int\ln^2x\,dx=x\ln^2x-2\int\ln x\,dx$ (נגזרת $\ln^2x$ היא $\frac{2\ln x}{x}$).",
               r"לטעות בסימן בשלב השני ולקבל $-2x$ במקום $+2x$."],
     steps=[
@@ -401,7 +401,7 @@ add(4, "א",
         chx(r"מהי הפונקציה הקדומה של $\ln^2x$?", F4, F4w, lambda e: same(sp.diff(e, x), sp.log(x)**2),
             r"מציבים $\int\ln x\,dx=x\ln x-x$ בנוסחה הראשונה; הנגזרת של כל אפשרות נבדקה ב-sympy."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q4b: limit with square roots =====
 g4 = (sp.sqrt(3*x - 2) - sp.sqrt(x + 2))/(x**2 - 4)
@@ -416,7 +416,7 @@ add(4, "ב",
                (r"המונה אחרי הכפל: $(3x-2)-(x+2)=2(x-2)$", 3),
                (r"צמצום הגורם $x-2$ והגעה לביטוי $\frac{2}{(x+2)(\sqrt{3x-2}+\sqrt{x+2})}$", 3),
                (r"הצבה וחישוב הגבול $\frac{1}{8}$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להציב $x=2$ ישירות ולכתוב $\frac{0}{0}=0$ בלי לפתור את אי-הוודאות.",
               r"לכפול רק את המונה בצמוד ולא את המכנה, או לטעות ב-$(3x-2)-(x+2)$."],
     steps=[
@@ -426,7 +426,7 @@ add(4, "ב",
             r"$(2+2)\left(\sqrt4+\sqrt4\right)=4\cdot4=16$."),
         num(r"מהו הגבול?", sp.limit(g4, x, 2), r"$\frac{2}{16}=\frac{1}{8}=0.125$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5a: bounds of an integral =====
 v5 = sp.integrate(1/(2*x**4 + 1), (x, -1, 1))
@@ -444,7 +444,7 @@ add(5, "א",
                (r"חסימת האינטגרנד: $\frac{1}{3}\le\frac{1}{2x^4+1}\le1$", 3),
                (r"שימוש במונוטוניות האינטגרל ובאורך הקטע $2$", 2),
                (r"מסקנה: $\frac{2}{3}\le\int\le2$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להפוך את כיוון אי-השוויונות בעת מעבר להופכי ולכתוב $1\le\frac{1}{2x^4+1}\le3$.",
               r"לשכוח להכפיל באורך הקטע $2$ בקבלת הגבולות של האינטגרל."],
     steps=[
@@ -455,7 +455,7 @@ add(5, "א",
         findbug("בהוכחה הבאה שורה אחת שגויה. מצאו אותה.", L5b, 1,
                 r"כאשר $1\le2x^4+1\le3$ ההופכי מקיים $\frac{1}{3}\le\frac{1}{2x^4+1}\le1$ (ההפכים מחליפים סדר), לא $1\le\cdots\le3$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q5b: limit with integral =====
 ser5 = sp.integrate(sp.series(t**2/(1 + t**4), t, 0, 10).removeO(), (t, 0, x))
@@ -466,7 +466,7 @@ add(5, "ב",
     rubric=rub((r"זיהוי צורה $\frac{0}{0}$ והפעלת לופיטל", 3),
                (r"גזירת המונה לפי המשפט היסודי: $\frac{x^2}{1+x^4}$", 3),
                (r"צמצום וחישוב הגבול $\frac{1}{3}$", 4)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לנסות לחשב את האינטגרל $\int\frac{t^2}{1+t^4}dt$ במפורש במקום להשתמש במשפט היסודי ובלופיטל.",
               r"לשכוח את המכנה $3x^2$ כשגוזרים את $x^3$."],
     steps=[
@@ -474,7 +474,7 @@ add(5, "ב",
             lambda e: same(e, d5) , r"לפי המשפט היסודי של החשבון האינטגרלי, גוזרים את האינטגרנד ומציבים את הגבול העליון: $\frac{x^2}{1+x^4}$."),
         num(r"מהו הגבול?", R(1, 3), r"$\frac{x^2/(1+x^4)}{3x^2}=\frac{1}{3(1+x^4)}\to\frac{1}{3}\approx0.3333$ (נבדק ב-sympy דרך טור)."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6a: differential approximation of tan 48 =====
 dx6 = sp.pi/60
@@ -487,7 +487,7 @@ add(6, "א",
                (r"המרת $3^\circ$ לרדיאנים: $\Delta x=\frac{\pi}{60}$", 3),
                (r"חישוב $\tan\frac{\pi}{4}=1$ ו-$\frac{1}{\cos^2\frac{\pi}{4}}=2$", 2),
                (r"הקירוב $1+\frac{\pi}{30}\approx1.1047$", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"להציב $\Delta x=3$ במעלות במקום ברדיאנים ($\frac{\pi}{60}$).",
               r"לשכוח שהנגזרת של $\tan x$ היא $\frac{1}{\cos^2x}$ ולהשתמש ב-$\cos x$."],
     steps=[
@@ -495,7 +495,7 @@ add(6, "א",
         num(r"מהו הערך $\frac{1}{\cos^2\frac{\pi}{4}}$ (הנגזרת של $\tan x$ ב-$\frac{\pi}{4}$)?", dy6, r"$\cos^2\frac{\pi}{4}=\frac{1}{2}$ ולכן הנגזרת $2$."),
         num(r"מהו הקירוב של $\tan48^\circ$? (עשרוני)", ap6, r"$1+2\cdot\frac{\pi}{60}=1+\frac{\pi}{30}\approx1.1047$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # ===== Q6b: area between y=2x, y=x/2, y=1/x =====
 x1 = 1/sp.sqrt(2)
@@ -513,7 +513,7 @@ add(6, "ב",
                (r"זיהוי הגבולות: למטה $y=\frac{x}{2}$, למעלה $y=2x$ ואחר כך $y=\frac{1}{x}$", 2),
                (r"הצבת שני אינטגרלים מתאימים", 2),
                (r"חישוב השטח $\ln2$", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"לקחת אינטגרל יחיד בין $y=2x$ ל-$y=\frac{x}{2}$ ולהתעלם מכך שהגבול העליון מתחלף ל-$y=\frac{1}{x}$.",
               r"לטעות בנקודת החיתוך של $y=\frac{x}{2}$ עם $y=\frac{1}{x}$: היא ב-$x=\sqrt2$ ולא ב-$x=2$."],
     steps=[
@@ -523,7 +523,7 @@ add(6, "ב",
         num(r"מהו האינטגרל על $0\le x\le\frac{1}{\sqrt2}$ של $2x-\frac{x}{2}$?", P1, r"$\frac{3x^2}{4}\Big|_0^{1/\sqrt2}=\frac{3}{8}=0.375$."),
         num(r"מהו השטח הכולל? (עשרוני)", P1 + P2, r"$\frac{3}{8}+\left(\ln2-\frac{3}{8}\right)=\ln2\approx0.6931$."),
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 exam = {
     "examCode": "20B-C",
