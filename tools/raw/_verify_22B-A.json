@@ -1,0 +1,387 @@
+{
+ "examCode": "22B-A",
+ "refuter": "claude",
+ "summary": "Params checked at A,B,C in {0,3,9}/{0,4,9}: 1b=(A+2)(C+1); 2b limit 1 (decreasing, >1); 3a y=3x+3A, no vertical; 5a=(C+1)sqrt2/8 independent of A; 6b=pi^3/(2(B+1)^2). Transcription matches page PNGs.",
+ "items": [
+  {
+   "index": 0,
+   "num": 1,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 1,
+   "num": 1,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 2,
+   "num": 2,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "Step0 says 'official solution' but solutionSource=solved/unofficial (no official 22B-A solution)"
+  },
+  {
+   "index": 3,
+   "num": 2,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 4,
+   "num": 3,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 5,
+   "num": 3,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "tan(x/2) antiderivative is valid per-interval only (undefined at x=pi+2k pi); not in solution"
+  },
+  {
+   "index": 6,
+   "num": 4,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 7,
+   "num": 4,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 8,
+   "num": 5,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 4,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 9,
+   "num": 5,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 10,
+   "num": 6,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 11,
+   "num": 6,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  }
+ ],
+ "counts": {
+  "items": 12,
+  "agree": 12,
+  "disagree": 0,
+  "unclear": 0
+ }
+}

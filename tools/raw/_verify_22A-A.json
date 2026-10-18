@@ -1,0 +1,387 @@
+{
+ "examCode": "22A-A",
+ "refuter": "claude",
+ "summary": "All numeric answers recomputed (scipy/sympy); 6b verified at B,C in {0,1,3}x{0,1,3} plus B=1,C=2 -> 40.5054.",
+ "items": [
+  {
+   "index": 0,
+   "num": 1,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 1,
+   "num": 1,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "order",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 2,
+   "num": 2,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "Pitfall says sin(2^((B+1)n)) does not converge: true (doubling-map argument) but not proved anywhere"
+  },
+  {
+   "index": 3,
+   "num": 2,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "Step3 explain says ~0.2193; true value 0.219412 (answer 0.2194 is right)"
+  },
+  {
+   "index": 4,
+   "num": 3,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 5,
+   "num": 3,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 6,
+   "num": 4,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "Official solution equates slopes at the SAME x and never shows a common tangent must touch both curves at the same abscissa; I verified a=1/b and b^2-1-2ln b=0 has only b=1 so the answer is right, but the argument has a gap"
+  },
+  {
+   "index": 7,
+   "num": 4,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 8,
+   "num": 5,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": "Step1 explain says -0.0537, value -0.05375 rounds to -0.0538 (answer ok)"
+  },
+  {
+   "index": 9,
+   "num": 5,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 10,
+   "num": 6,
+   "part": "א",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  },
+  {
+   "index": 11,
+   "num": 6,
+   "part": "ב",
+   "item": "agree",
+   "solution": "agree",
+   "rubric": "agree (sums to item points)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "step": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "step": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "step": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "firstDivergence": null
+  }
+ ],
+ "counts": {
+  "items": 12,
+  "agree": 12,
+  "disagree": 0,
+  "unclear": 0
+ }
+}
