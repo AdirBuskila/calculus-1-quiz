@@ -135,6 +135,12 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none if acceptable. The whole 17B-A solution is an unnamed handwritten source and needs the refuter (student-solution, official:false).
 - Status: shipped with label, needs refuter
 
+### 17A-A Q6a - official Taylor approximation is miscomputed
+- Page: p.7
+- Question: P2(1.05) printed 1.02466875 (correct 1.0246875) and the result 1.02467 +- 1e-5 misses the true sqrt(1.05)=1.024695; correct: 1.02469 +- 1e-5 (sympy). Shipped labeled (solved, official:false).
+- Needed: none if acceptable.
+- Status: shipped with label
+
 ### Silent corrections (intermediate slips, no student-facing label; for the record)
 - 20B-A Q1 (p.2): printed f'' numerator has "-2e^(2x)" inside the first bracket; it must be "+2e^(2x)" (the simplified f'' printed next is right).
 - 21B-B Q3b (p.4): "0.5ln|t-3| - 0.5|t-1|" is missing the second ln; restored.
@@ -149,6 +155,9 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - 17B-A Q2 (solution p.2): a(n+1)-a(n) is written over 2-a_n twice; it is 2+a_n (numerator 3-a_n^2 and the sign conclusion unchanged). Corrected.
 - 17B-A Q3b (solution p.3): V2 line reads "9pi * integral", must be 2pi (the value 77pi/5 is right). Corrected.
 - 17B-A Q4a (solution p.3): the Lagrange point is written "1<x<X"; it is c. Corrected.
+- 17A1-A Q3a (p.5): middle line prints (cos x - 1)/(1+sin x); it is (1/cos x - 1)/(1+sin x) (limit 0 and answer 1 unchanged). Corrected.
+- 17A1-A Q5a (p.7): f(-2) printed cbrt(36); it is cbrt(4) (max cbrt(144), min 0 unchanged). Corrected.
+- 17A-A Q4a (p.5): the stem prints the function and a separate continuity sentence, each with (10%); merged into one part a. Q4b stem has a stray "Q" after dx; transcribed as dx.
 - Status: logged
 
 ## Resolved
