@@ -1,0 +1,18 @@
+from sympy import *
+x,a=symbols('x a',real=True); n=symbols('n',positive=True)
+f=x*exp(1/x)
+print('Q1',factor(diff(f,x)),factor(simplify(diff(f,x,2))),solve(diff(f,x),x))
+print(' f(1)',f.subs(x,1),' lim0+',limit(f,x,0,'+'),' lim0-',limit(f,x,0,'-'),' slope',limit(f/x,x,oo),limit(f-x,x,oo),limit(f-x,x,-oo))
+print(' f1 sign',[N(diff(f,x).subs(x,v)) for v in (-1,0.5,2)],' f2 sign',[N(diff(f,x,2).subs(x,v)) for v in (-1,0.5,2)])
+print('2a numeric',[N(((m+(1-m**6)**Rational(1,3) if False else m+ -(m**6-1)**Rational(1,3))/(1+m**3))*cos(2*m)) for m in (10,100,1000)])
+b,c,d=symbols('b c d'); aa=symbols('aa',nonzero=True)
+P=aa*x**3+b*x**2+c*x+d
+x0=solve(diff(P,x,2),x)[0]; print('2b',simplify(diff(P,x).subs(x,x0)))
+print('3a',limit((cos(x))**(1/sin(2*x)**2),x,0),exp(Rational(-1,8)))
+print('3b',integrate(1/(x*(log(x)**2-5*log(x)+6)),x))
+print('4a left',limit(1/(sqrt(2-x)-1)-sqrt(2-x),x,0,'-'),' right',limit((sqrt(1+a*x)-cos(x))/x,x,0,'+'))
+print('4b',integrate(cosh(x),(x,-2,2)),N(2*sinh(2)),simplify(exp(2)-exp(-2)))
+print('5b',integrate(1/(x**Rational(3,4)*(sqrt(x)+2*x**Rational(1,4))),x))
+fx=sqrt(x-2)*exp(-x/2)
+print('6a',factor(simplify(diff(fx,x))),solve(diff(fx,x),x),[N(diff(fx,x).subs(x,v)) for v in (2.5,3.5)],fx.subs(x,3))
+V=pi*integrate((x-2)*exp(-x),(x,2,3)); print('6b',simplify(V),N(V),N(pi*(exp(-2)-2*exp(-3))))

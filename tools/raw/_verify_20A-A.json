@@ -1,0 +1,304 @@
+{
+ "examCode": "20A-A",
+ "refuter": "independent",
+ "derivationFiles": [
+  "tools/verify/20A-A/refute_calc.py"
+ ],
+ "items": [
+  {
+   "item": "1",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 4,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "2א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "2ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "3א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "3ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "4א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "4ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "5א",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "order",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "findbug",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "agree; every quoted number recomputed independently (sympy)"
+  },
+  {
+   "item": "5ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "choice",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "Answers all agree, but step1 and step3 option texts print sympy symbol names 'tp' and 'xp' instead of t and x (cosmetic/render defect, e.g. 4/(tp(tp+2)))."
+  },
+  {
+   "item": "6א",
+   "solution": "disagree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "Final classification is CORRECT (local max at x=3, f(3)=e^-1.5=0.2231): f'(2.5)=+0.101, f'(3.5)=-0.035, sympy gives f'=-(x-3)e^(-x/2)/(2 sqrt(x-2)). Only the stored solution/official sentence 'f' changes sign from minus to plus' is wrong: it must read plus to minus. Official PDF p.6 has the same slip, so the wording error is in the source, not the transcription. Steps (step2 correctId a) and pitfall 2 already say plus-to-minus, so the solution text contradicts them. Rubric and pitfalls agree."
+  },
+  {
+   "item": "6ב",
+   "solution": "agree",
+   "rubric": "agree (points sum to item total)",
+   "pitfalls": "agree",
+   "steps": [
+    {
+     "i": 0,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 1,
+     "type": "choice",
+     "verdict": "agree"
+    },
+    {
+     "i": 2,
+     "type": "numeric",
+     "verdict": "agree"
+    },
+    {
+     "i": 3,
+     "type": "numeric",
+     "verdict": "agree"
+    }
+   ],
+   "notes": "Answers agree. Step3 explain says V~0.1124 but pi(e^-2-2e^-3)=0.112347 -> 0.1123 (the numeric answer 0.1123 is right, explain rounding is off)."
+  }
+ ],
+ "summary": {
+  "items": 11,
+  "solutionAgree": 10,
+  "solutionDisagree": 1,
+  "stepsAllAgree": true
+ }
+}
