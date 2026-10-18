@@ -36,7 +36,7 @@ $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x
       }
     ],
     "correctId": "a",
-    "explanation": "עם $u=\\ln x$ מקבלים $v=\\frac{x^2}{2}$ ו-$v\\,du=\\frac{x}{2}dx$, בלי $\\ln$. עם $u=x$ צריך קודם את $v=\\int\\ln x\\,dx=x\\ln x-x$, והאינטגרל הנותר $\\int(x\\ln x-x)dx$ שוב מכיל $\\ln$. הבחירה $u=x\\ln x$ מחזירה $(\\ln x+1)x$, שוב עם $\\ln$. הבחירה האחרונה היא האינטגרל עצמו.",
+    "explanation": "עם $u=\\ln x$ מקבלים $v=\\frac{x^2}{2}$ ו-$v\\,du=\\frac{x}{2}dx$, בלי $\\ln$. עם $u=x$ צריך קודם את $v=\\int\\ln x\\,dx=x\\ln x-x$, והאינטגרל הנותר $\\int(x\\ln x-x)dx$ שוב מכיל $\\ln$. הבחירה $u=x\\ln x$ מחזירה $(\\ln x+1)x$, שוב עם $\\ln$. הבחירה $u=1,\\ dv=x\\ln x\\,dx$ היא האינטגרל עצמו.",
     "recap": "ln הוא תמיד u: הנגזרת שלו 1/x מעלימה אותו"
   },
   {
@@ -61,7 +61,7 @@ $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x
       }
     ],
     "correctId": "d",
-    "explanation": "‏$u=\\ln x$ ו-$dv=dx$: ‏$x\\ln x-\\int x\\cdot\\frac1x\\,dx=$ **$x\\ln x-x$**. ‏$\\frac1x$ היא הנגזרת של $\\ln x$ ולא האינטגרל. התשובה עם $+x$ שוכחת את המינוס של האינטגרל הנותר. התשובה האחרונה מחשבת את $\\int 1\\,dx$ כ-$1$.",
+    "explanation": "‏$u=\\ln x$ ו-$dv=dx$: ‏$x\\ln x-\\int x\\cdot\\frac1x\\,dx=$ **$x\\ln x-x$**. ‏$\\frac1x$ היא הנגזרת של $\\ln x$ ולא האינטגרל. התשובה עם $+x$ שוכחת את המינוס של האינטגרל הנותר. התשובה $x\\ln x-x+C$ מחשבת את $\\int 1\\,dx$ כ-$1$.",
     "recap": "ln x ← x ln x − x"
   },
   {
@@ -86,7 +86,7 @@ $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x
       }
     ],
     "correctId": "b",
-    "explanation": "‏$\\frac{x^2}{2}\\ln x-\\int\\frac{x^2}{2}\\cdot\\frac1x\\,dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$. הטעות הנפוצה היא $\\frac{x^2}{2}$ במקום $\\frac{x^2}{4}$, כלומר לשכוח את חצי המקדם. התשובה השלישית שגויה בסימן. האחרונה היא מכפלת הנגזרות.",
+    "explanation": "‏$\\frac{x^2}{2}\\ln x-\\int\\frac{x^2}{2}\\cdot\\frac1x\\,dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$. הטעות הנפוצה היא $\\frac{x^2}{2}$ במקום $\\frac{x^2}{4}$, כלומר לשכוח את חצי המקדם. התשובה $\\frac{x^2}{2}\\ln x+\\frac{x^2}{4}+C$ שגויה בסימן. האחרונה היא מכפלת הנגזרות.",
     "recap": "x ln x ← (x²/2) ln x − x²/4"
   },
   {
@@ -147,7 +147,7 @@ $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x
       }
     ],
     "correctId": "a",
-    "explanation": "‏$u=\\arctan x$, ‏$v=\\frac{x^2}{2}$: ‏$\\frac{x^2}{2}\\arctan x-\\frac12\\int\\frac{x^2}{1+x^2}dx$. כתיבה $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$ נותנת $\\frac{x^2}{2}\\arctan x-\\frac x2+\\frac12\\arctan x=$ **$\\frac{x^2+1}{2}\\arctan x-\\frac x2$**. מי ששוכח את $\\arctan$ שחוזר מקבל את התשובה השנייה. האחרונה מערבבת עם הדוגמה של $\\int\\arctan x$.",
+    "explanation": "‏$u=\\arctan x$, ‏$v=\\frac{x^2}{2}$: ‏$\\frac{x^2}{2}\\arctan x-\\frac12\\int\\frac{x^2}{1+x^2}dx$. כתיבה $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$ נותנת $\\frac{x^2}{2}\\arctan x-\\frac x2+\\frac12\\arctan x=$ **$\\frac{x^2+1}{2}\\arctan x-\\frac x2$**. מי ששוכח את $\\arctan$ שחוזר מקבל את התשובה $\\frac{x^2}{2}\\arctan x-\\frac x2+C$. האחרונה מערבבת עם הדוגמה של $\\int\\arctan x$.",
     "recap": "x arctan x: האינטגרל הנותר דורש חלוקה x²/(1+x²) = 1 − 1/(1+x²)"
   }
 ],

@@ -149,7 +149,7 @@ COURSE_LEVEL("integration", {
       }
     ],
     "correctId": "d",
-    "explanation": "קודם הצבה $t=x^2$, ‏$x\\,dx=\\frac12dt$: ‏$\\frac12\\int\\arctan t\\,dt=\\frac12\\left(t\\arctan t-\\frac12\\ln(1+t^2)\\right)$. מחזירים: **$\\frac{x^2}{2}\\arctan x^2-\\frac14\\ln(1+x^4)$**. ‏$\\frac12\\ln$ שוכחת את חצי החצי. ‏$\\frac12\\arctan x^2$ מתעלמת מהחלקים. הסימן בתשובה האחרונה הפוך.",
+    "explanation": "קודם הצבה $t=x^2$, ‏$x\\,dx=\\frac12dt$: ‏$\\frac12\\int\\arctan t\\,dt=\\frac12\\left(t\\arctan t-\\frac12\\ln(1+t^2)\\right)$. מחזירים: **$\\frac{x^2}{2}\\arctan x^2-\\frac14\\ln(1+x^4)$**. ‏$\\frac12\\ln$ שוכחת את חצי החצי. ‏$\\frac12\\arctan x^2$ מתעלמת מהחלקים. הסימן בתשובה $\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac14\\ln\\left(1+x^4\\right)+C$ הפוך.",
     "recap": "הצבה t = x² ואז בחלקים"
   }
 ],
