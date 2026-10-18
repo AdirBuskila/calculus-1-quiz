@@ -1,4 +1,1724 @@
 window.COURSES = {
+ "integration": {
+  "levels": [
+   {
+    "id": "C01",
+    "order": 1,
+    "icon": "📘",
+    "title": "הטבלה ופנימית לינארית",
+    "goal": "לפתור אינטגרלים שהם שורה בטבלה, כולל פנימית לינארית ומונה שהוא נגזרת המכנה.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>לפני שבוחרים שיטה צריך להכיר את הטבלה. כל שיטה בקורס הזה נגמרת בהחזרת האינטגרל לשורה בטבלה.</p>\n<h3>הטבלה הקצרה</h3>\n<ul>\n<li><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>x</mi><mi>α</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mrow><mi>α</mi><mo>+</mo><mn>1</mn></mrow></msup><mrow><mi>α</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int x^{\\alpha}dx=\\frac{x^{\\alpha+1}}{\\alpha+1}</annotation></semantics></math></span> (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>α</mi><mo mathvariant=\"normal\">≠</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\alpha\\neq-1</annotation></semantics></math></span>), <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mi>x</mi></mfrac><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x}=\\ln|x|</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">\\int e^{x}dx=e^{x}</annotation></semantics></math></span>.</li>\n<li><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\sin x\\,dx=-\\cos x</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\cos x\\,dx=\\sin x</annotation></semantics></math></span>.</li>\n<li><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mi>a</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{a^2+x^2}=\\frac{1}{a}\\arctan\\frac{x}{a}</annotation></semantics></math></span>.</li>\n</ul>\n<h3>פונקציה פנימית לינארית</h3>\n<p>כשבמקום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> מופיע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">ax+b</annotation></semantics></math></span>, האינטגרל הוא אותו אינטגרל בטבלה, <b>חלקי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span></b>:</p>\n<div class=\"lesson-formula\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>g</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mtext> </mtext><mi>G</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int g(ax+b)\\,dx=\\frac{1}{a}\\,G(ax+b)+C</annotation></semantics></math></span>, כאשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>G</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mi>g</mi></mrow><annotation encoding=\"application/x-tex\">G&#x27;=g</annotation></semantics></math></span></div>\n<p>הסיבה: גזירה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>G</mi><mo stretchy=\"false\">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">G(ax+b)</annotation></semantics></math></span> מכפילה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span>, וה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>a</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1a</annotation></semantics></math></span> מבטל את זה.</p>\n<h3>מונה שהוא נגזרת המכנה</h3>\n<div class=\"lesson-rule\">🔑 <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><msup><mi>f</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{f&#x27;(x)}{f(x)}dx=\\ln|f(x)|+C</annotation></semantics></math></span>. אם חסר רק מספר קבוע במונה, מוסיפים אותו מבחוץ.</div>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>e</mi><mrow><mn>5</mn><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>e</mi><mrow><mn>5</mn><mi>x</mi></mrow></msup><mn>5</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int e^{5x}dx=\\frac{e^{5x}}{5}+C</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mn>2</mn><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>2</mn><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{2x-1}=\\frac{1}{2}\\ln|2x-1|+C</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{3x^2}{x^3+1}dx=\\ln|x^3+1|+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-trap\">⚠️ שוכחים את ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>a</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1a</annotation></semantics></math></span>. בדיקה מהירה: גוזרים את התשובה, ואם יצא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> פעמים האינטגרנד, חסר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>a</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1a</annotation></semantics></math></span>.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C01-Q1",
+      "question": "מהו $\\int\\cos(3x)\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\sin 3x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\sin 3x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$3\\sin 3x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">3\\sin 3x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{\\sin 3x}{3}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\sin 3x}{3}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$-\\frac{\\sin 3x}{3}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{\\sin 3x}{3}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "במקום $x$ מופיע $3x$, ולכן התשובה היא $\\sin(3x)$ חלקי $3$: **$\\frac{\\sin 3x}{3}$**. גזירה: $\\frac{3\\cos3x}{3}=\\cos3x$. ‏$\\sin3x$ נותנת $3\\cos3x$, פי שלושה מהנדרש. ‏$3\\sin3x$ נותנת $9\\cos3x$. המינוס מתאים ל-$\\sin$ ולא ל-$\\cos$.",
+      "recap": "פנימית לינארית ax+b: אותה שורה בטבלה, חלקי a",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mi>x</mi><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\cos(3x)\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "במקום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> מופיע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3x</annotation></semantics></math></span>, ולכן התשובה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\sin(3x)</annotation></semantics></math></span> חלקי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>: <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\sin 3x}{3}</annotation></semantics></math></span></strong>. גזירה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>3</mn><mi>cos</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>=</mo><mi>cos</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{3\\cos3x}{3}=\\cos3x</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin3x</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>cos</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\cos3x</annotation></semantics></math></span>, פי שלושה מהנדרש. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>sin</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\sin3x</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn><mi>cos</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">9\\cos3x</annotation></semantics></math></span>. המינוס מתאים ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\sin</annotation></semantics></math></span> ולא ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\cos</annotation></semantics></math></span>.",
+      "recapHtml": "פנימית לינארית ax+b: אותה שורה בטבלה, חלקי a"
+     },
+     {
+      "id": "C01-Q2",
+      "question": "מהו $\\int e^{2x+1}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{e^{2x+1}}{2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{e^{2x+1}}{2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$e^{2x+1}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">e^{2x+1}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$2e^{2x+1}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2e^{2x+1}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{e^{2x+1}}{2x+1}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{e^{2x+1}}{2x+1}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "הפנימית $2x+1$ לינארית עם $a=2$, ולכן **$\\frac{e^{2x+1}}{2}$**. ‏$e^{2x+1}$ נותנת פי שניים. ‏$2e^{2x+1}$ נותנת פי ארבעה. החלוקה ב-$2x+1$ היא כלל החזקה שהוחל על אקספוננט, וגזירתה מוסיפה איבר שלא קיים באינטגרנד.",
+      "recap": "אקספוננט עם 2x+1: חלקי המקדם 2, לא חלקי הפנימית",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int e^{2x+1}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2x+1</annotation></semantics></math></span> לינארית עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">a=2</annotation></semantics></math></span>, ולכן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{e^{2x+1}}{2}</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">e^{2x+1}</annotation></semantics></math></span> נותנת פי שניים. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">2e^{2x+1}</annotation></semantics></math></span> נותנת פי ארבעה. החלוקה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2x+1</annotation></semantics></math></span> היא כלל החזקה שהוחל על אקספוננט, וגזירתה מוסיפה איבר שלא קיים באינטגרנד.",
+      "recapHtml": "אקספוננט עם 2x+1: חלקי המקדם 2, לא חלקי הפנימית"
+     },
+     {
+      "id": "C01-Q3",
+      "question": "מהו $\\int\\frac{dx}{3x-2}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\ln|3x-2|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|3x-2|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$3\\ln|3x-2|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">3\\ln|3x-2|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$-\\frac{1}{(3x-2)^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{1}{(3x-2)^2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{1}{3}\\ln|3x-2|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{3}\\ln|3x-2|+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "שורת הטבלה היא $\\ln|x|$, והפנימית $3x-2$ נותנת **$\\frac13\\ln|3x-2|$**. ‏$\\ln|3x-2|$ מחזירה $\\frac{3}{3x-2}$. ‏$3\\ln$ מחזירה פי תשעה. התשובה האחרונה היא נגזרת של $\\frac1{3x-2}$ ולא אינטגרל שלה.",
+      "recap": "1/(ax+b): (1/a)·ln|ax+b|",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{3x-2}</annotation></semantics></math></span> ?",
+      "explanationHtml": "שורת הטבלה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x|</annotation></semantics></math></span>, והפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">3x-2</annotation></semantics></math></span> נותנת <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\frac13\\ln|3x-2|</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|3x-2|</annotation></semantics></math></span> מחזירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{3x-2}</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">3\\ln</annotation></semantics></math></span> מחזירה פי תשעה. התשובה האחרונה היא נגזרת של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1{3x-2}</annotation></semantics></math></span> ולא אינטגרל שלה.",
+      "recapHtml": "1/(ax+b): (1/a)·ln|ax+b|"
+     },
+     {
+      "id": "C01-Q4",
+      "question": "מהו $\\int\\frac{2x}{x^2+5}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{1}{\\sqrt5}\\arctan\\frac{x}{\\sqrt5}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><msqrt><mn>5</mn></msqrt></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><msqrt><mn>5</mn></msqrt></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{\\sqrt5}\\arctan\\frac{x}{\\sqrt5}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\ln\\left(x^2+5\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln\\left(x^2+5\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$2x\\ln\\left(x^2+5\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2x\\ln\\left(x^2+5\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{2}{x^2+5}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{x^2+5}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "המונה $2x$ הוא בדיוק הנגזרת של המכנה $x^2+5$, ולכן **$\\ln(x^2+5)$** (ללא ערך מוחלט, כי $x^2+5>0$). ‏$\\arctan$ מתאים ל-$\\frac{1}{x^2+5}$ בלי $x$ במונה. שני האחרים לא נותנים את האינטגרנד כשגוזרים.",
+      "recap": "מונה = נגזרת המכנה ← ln של המכנה",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{2x}{x^2+5}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "המונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2x</annotation></semantics></math></span> הוא בדיוק הנגזרת של המכנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x^2+5</annotation></semantics></math></span>, ולכן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\ln(x^2+5)</annotation></semantics></math></span></strong> (ללא ערך מוחלט, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x^2+5&gt;0</annotation></semantics></math></span>). ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> מתאים ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>5</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{x^2+5}</annotation></semantics></math></span> בלי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> במונה. שני האחרים לא נותנים את האינטגרנד כשגוזרים.",
+      "recapHtml": "מונה = נגזרת המכנה ← ln של המכנה"
+     },
+     {
+      "id": "C01-Q5",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\int\\frac{dx}{4x+1}=k\\ln|4x+1|+C$. מהו $k$ ?",
+       "answer": 0.25,
+       "tol": 0,
+       "explain": "הפנימית $4x+1$ מגיעה עם $a=4$, ולכן $k=\\frac14=0.25$. גזירה: $\\frac14\\cdot\\frac{4}{4x+1}=\\frac{1}{4x+1}$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mi>k</mi><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{4x+1}=k\\ln|4x+1|+C</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> ?",
+       "explainHtml": "הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">4x+1</annotation></semantics></math></span> מגיעה עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">a=4</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mn>0.25</mn></mrow><annotation encoding=\"application/x-tex\">k=\\frac14=0.25</annotation></semantics></math></span>. גזירה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>⋅</mo><mfrac><mn>4</mn><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac14\\cdot\\frac{4}{4x+1}=\\frac{1}{4x+1}</annotation></semantics></math></span>."
+      },
+      "recap": "1/(ax+b): המקדם k הוא 1/a",
+      "recapHtml": "1/(ax+b): המקדם k הוא 1/a"
+     },
+     {
+      "id": "C01-Q6",
+      "question": "מהו $\\int\\frac{dx}{x^2+9}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\arctan\\frac{x}{3}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan\\frac{x}{3}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{1}{9}\\arctan\\frac{x}{9}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>9</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>9</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{9}\\arctan\\frac{x}{9}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{1}{3}\\arctan\\frac{x}{3}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{3}\\arctan\\frac{x}{3}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac12\\ln\\left(x^2+9\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln\\left(x^2+9\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "השורה בטבלה: $\\frac1a\\arctan\\frac xa$ עם $a=3$, כלומר **$\\frac13\\arctan\\frac x3$**. בלי ה-$\\frac13$ הגזירה נותנת $\\frac{3}{x^2+9}$. ‏$\\ln$ מתאים למונה $x$, שלא קיים כאן.",
+      "recap": "1/(a²+x²): (1/a)·arctan(x/a)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x^2+9}</annotation></semantics></math></span> ?",
+      "explanationHtml": "השורה בטבלה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>a</mi></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mi>a</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1a\\arctan\\frac xa</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a=3</annotation></semantics></math></span>, כלומר <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac13\\arctan\\frac x3</annotation></semantics></math></span></strong>. בלי ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac13</annotation></semantics></math></span> הגזירה נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3}{x^2+9}</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> מתאים למונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>, שלא קיים כאן.",
+      "recapHtml": "1/(a²+x²): (1/a)·arctan(x/a)"
+     }
+    ]
+   },
+   {
+    "id": "C02",
+    "order": 2,
+    "icon": "🔁",
+    "title": "הצבה: פנימית ונגזרתה",
+    "goal": "לזהות פונקציה פנימית שנגזרתה מופיעה באינטגרנד, ולבצע את ההצבה בלי להשאיר x.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>הצבה היא הפיכה של הכלל \"נגזרת של פנימית\" אחורה. מחפשים בתוך האינטגרנד <b>פונקציה פנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>g</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">g(x)</annotation></semantics></math></span></b> ו<b>גורם אחר שהוא (עד כדי מספר) הנגזרת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>g</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">g&#x27;(x)</annotation></semantics></math></span></b>.</p>\n<h3>המתכון</h3>\n<ul>\n<li>בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>g</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">t=g(x)</annotation></semantics></math></span> וכותבים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><msup><mi>g</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=g&#x27;(x)\\,dx</annotation></semantics></math></span>.</li>\n<li>מחליפים את כל האינטגרנד ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span>. אם נשאר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> חופשי, ההצבה לא מתאימה.</li>\n<li>פותרים באמצעות הטבלה ומחזירים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>g</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">t=g(x)</annotation></semantics></math></span>.</li>\n</ul>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x^2}dx</annotation></semantics></math></span>. הפנימית היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=2x\\,dx</annotation></semantics></math></span> כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=\\frac12dt</annotation></semantics></math></span>.<br>\nהאינטגרל הופך ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><msup><mi>e</mi><mi>t</mi></msup><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>e</mi><mi>t</mi></msup><mo>+</mo><mi>C</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int e^{t}dt=\\frac12e^{t}+C=\\frac12e^{x^2}+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-rule\">🔑 סימן מובהק להצבה: כשאין דרך לעשות את זה אחרת. ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int xe^{x^2}dx</annotation></semantics></math></span> אי אפשר בחלקים, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">e^{x^2}</annotation></semantics></math></span> אין לה אינטגרל אלמנטרי. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x\\cos^2x</annotation></semantics></math></span>: הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\cos x</annotation></semantics></math></span> וגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x</annotation></semantics></math></span> הוא הנגזרת (עד מינוס).</div>\n<div class=\"lesson-trap\">⚠️ אחרי ההצבה לא אמור להישאר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>. אם נשאר, או שבחרתם פנימית לא נכונה, או ששכחתם להחליף את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dx</annotation></semantics></math></span>.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C02-Q1",
+      "question": "מהו $\\int x\\,e^{x^2}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac12e^{x^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12e^{x^2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$e^{x^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">e^{x^2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$2e^{x^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2e^{x^2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2}e^{x^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}e^{x^2}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "עם $t=x^2$ מקבלים $x\\,dx=\\frac12dt$ ו-$\\frac12\\int e^tdt=$ **$\\frac12e^{x^2}$**. ‏$e^{x^2}$ נותנת $2xe^{x^2}$, פי שניים. ‏$2e^{x^2}$ נותנת פי ארבעה. ‏$\\frac{x^2}{2}e^{x^2}$ היא ניסיון להשתמש בכלל החזקה על הגורם $x$.",
+      "recap": "הפנימית x² והגורם x הוא חצי מהנגזרת שלה",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x^2}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=\\frac12dt</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><msup><mi>e</mi><mi>t</mi></msup><mi>d</mi><mi>t</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int e^tdt=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">\\frac12e^{x^2}</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">e^{x^2}</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">2xe^{x^2}</annotation></semantics></math></span>, פי שניים. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">2e^{x^2}</annotation></semantics></math></span> נותנת פי ארבעה. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}e^{x^2}</annotation></semantics></math></span> היא ניסיון להשתמש בכלל החזקה על הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>.",
+      "recapHtml": "הפנימית x² והגורם x הוא חצי מהנגזרת שלה"
+     },
+     {
+      "id": "C02-Q2",
+      "question": "באינטגרל $\\int\\frac{\\cos x}{1+\\sin^2x}\\,dx$, איזו הצבה מחזירה אינטגרל רציונלי ב-$t$ בלבד ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$t=\\cos x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$t=1+\\sin^2x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1</mn><mo>+</mo><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=1+\\sin^2x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$t=x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$t=\\sin x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\sin x</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "עם $t=\\sin x$ מקבלים $dt=\\cos x\\,dx$, והאינטגרל הוא **$\\int\\frac{dt}{1+t^2}=\\arctan t$**, כלומר $\\arctan(\\sin x)$. עם $t=\\cos x$ נשאר $\\sin x=\\sqrt{1-t^2}$ במכנה. עם $t=1+\\sin^2x$ נשארים שורשים. ‏$t=x$ לא משנה את האינטגרנד בכלל.",
+      "recap": "בוחרים פנימית כך שהגורם האחר הוא הנגזרת שלה",
+      "questionHtml": "באינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{\\cos x}{1+\\sin^2x}\\,dx</annotation></semantics></math></span>, איזו הצבה מחזירה אינטגרל רציונלי ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span> בלבד ?",
+      "explanationHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\sin x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=\\cos x\\,dx</annotation></semantics></math></span>, והאינטגרל הוא <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dt}{1+t^2}=\\arctan t</annotation></semantics></math></span></strong>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan(\\sin x)</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span> נשאר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><msqrt><mrow><mn>1</mn><mo>−</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sin x=\\sqrt{1-t^2}</annotation></semantics></math></span> במכנה. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1</mn><mo>+</mo><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=1+\\sin^2x</annotation></semantics></math></span> נשארים שורשים. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=x</annotation></semantics></math></span> לא משנה את האינטגרנד בכלל.",
+      "recapHtml": "בוחרים פנימית כך שהגורם האחר הוא הנגזרת שלה"
+     },
+     {
+      "id": "C02-Q3",
+      "question": "מהו $\\int\\frac{\\sin x}{\\cos^3x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$-\\frac{1}{2\\cos^2x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{1}{2\\cos^2x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{1}{2\\cos^2x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{2\\cos^2x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{1}{\\cos^2x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{\\cos^2x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$-\\frac{\\cos^{-2}x}{2}\\cdot\\sin x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mrow><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mrow><mo>−</mo><mn>2</mn></mrow></msup><mi>x</mi></mrow><mn>2</mn></mfrac><mo>⋅</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\frac{\\cos^{-2}x}{2}\\cdot\\sin x+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "הפנימית $t=\\cos x$, ו-$dt=-\\sin x\\,dx$. מקבלים $-\\int t^{-3}dt=\\frac{1}{2t^2}$, כלומר **$\\frac{1}{2\\cos^2x}$**. מי ששכח את המינוס של $dt$ מקבל את הסימן ההפוך. ‏$\\frac{1}{\\cos^2x}$ נותנת פי שניים. התשובה האחרונה משאירה גורם $\\sin x$ שהיה אמור להיעלם.",
+      "recap": "sin x dx = -dt כש-t = cos x",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>3</mn></msup><mi>x</mi></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{\\sin x}{\\cos^3x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mo>−</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=-\\sin x\\,dx</annotation></semantics></math></span>. מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mo>∫</mo><msup><mi>t</mi><mrow><mo>−</mo><mn>3</mn></mrow></msup><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">-\\int t^{-3}dt=\\frac{1}{2t^2}</annotation></semantics></math></span>, כלומר <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{2\\cos^2x}</annotation></semantics></math></span></strong>. מי ששכח את המינוס של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">dt</annotation></semantics></math></span> מקבל את הסימן ההפוך. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{\\cos^2x}</annotation></semantics></math></span> נותנת פי שניים. התשובה האחרונה משאירה גורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x</annotation></semantics></math></span> שהיה אמור להיעלם.",
+      "recapHtml": "sin x dx = -dt כש-t = cos x"
+     },
+     {
+      "id": "C02-Q4",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\int x\\left(x^2+1\\right)^3dx=k\\left(x^2+1\\right)^4+C$. מהו $k$ ?",
+       "answer": 0.125,
+       "tol": 0,
+       "explain": "עם $t=x^2+1$ מקבלים $x\\,dx=\\frac12dt$, ו-$\\frac12\\int t^3dt=\\frac{t^4}{8}$. לכן $k=\\frac18=0.125$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mn>3</mn></msup><mi>d</mi><mi>x</mi><mo>=</mo><mi>k</mi><msup><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mn>4</mn></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\left(x^2+1\\right)^3dx=k\\left(x^2+1\\right)^4+C</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> ?",
+       "explainHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2+1</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=\\frac12dt</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><msup><mi>t</mi><mn>3</mn></msup><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><msup><mi>t</mi><mn>4</mn></msup><mn>8</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int t^3dt=\\frac{t^4}{8}</annotation></semantics></math></span>. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><mo>=</mo><mn>0.125</mn></mrow><annotation encoding=\"application/x-tex\">k=\\frac18=0.125</annotation></semantics></math></span>."
+      },
+      "recap": "x dx = dt/2: מוסיפים 1/2 ואז כלל החזקה",
+      "recapHtml": "x dx = dt/2: מוסיפים 1/2 ואז כלל החזקה"
+     },
+     {
+      "id": "C02-Q5",
+      "question": "מהו $\\int\\frac{(\\ln x)^2}{x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{(\\ln x)^3}{3x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><msup><mo stretchy=\"false\">)</mo><mn>3</mn></msup></mrow><mrow><mn>3</mn><mi>x</mi></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{(\\ln x)^3}{3x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{(\\ln x)^2}{2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{(\\ln x)^2}{2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{(\\ln x)^3}{3}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><msup><mo stretchy=\"false\">)</mo><mn>3</mn></msup></mrow><mn>3</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{(\\ln x)^3}{3}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$2\\ln x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2\\ln x+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "הפנימית $t=\\ln x$ עם $dt=\\frac{dx}{x}$. מקבלים $\\int t^2dt=\\frac{t^3}{3}$, כלומר **$\\frac{\\ln^3x}{3}$**. אין סיבה לחלק ב-$x$ שוב: ה-$\\frac1x$ כבר נבלע ב-$dt$. ‏$\\frac{\\ln^2x}{2}$ היא החזקה השגויה (האינטגרל של $\\ln x/x$).",
+      "recap": "ln x עם dx/x: t = ln x",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow><mi>x</mi></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{(\\ln x)^2}{x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\ln x</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">dt=\\frac{dx}{x}</annotation></semantics></math></span>. מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>t</mi><mn>2</mn></msup><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><msup><mi>t</mi><mn>3</mn></msup><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int t^2dt=\\frac{t^3}{3}</annotation></semantics></math></span>, כלומר <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mrow><mi>ln</mi><mo>⁡</mo></mrow><mn>3</mn></msup><mi>x</mi></mrow><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\ln^3x}{3}</annotation></semantics></math></span></strong>. אין סיבה לחלק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> שוב: ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1x</annotation></semantics></math></span> כבר נבלע ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">dt</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mrow><mi>ln</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\ln^2x}{2}</annotation></semantics></math></span> היא החזקה השגויה (האינטגרל של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi><mi mathvariant=\"normal\">/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x/x</annotation></semantics></math></span>).",
+      "recapHtml": "ln x עם dx/x: t = ln x"
+     },
+     {
+      "id": "C02-Q6",
+      "step": {
+       "type": "findbug",
+       "prompt": "בפתרון של $\\int x^2e^{x^3}dx$ יש שורה אחת שגויה. איזו ?",
+       "lines": [
+        "בוחרים $t=x^3$ וכותבים $dt=3x^2\\,dx$.",
+        "לכן $x^2\\,dx=3\\,dt$ והאינטגרל הוא $3\\int e^{t}\\,dt$.",
+        "$3\\int e^{t}\\,dt=3e^{t}+C$.",
+        "מחזירים: $3e^{x^3}+C$."
+       ],
+       "bugIndex": 1,
+       "explain": "מ-$dt=3x^2\\,dx$ מקבלים $x^2\\,dx=\\frac13dt$ ולא $3\\,dt$. התשובה הנכונה היא $\\frac13e^{x^3}+C$. הגזירה של $3e^{x^3}$ נותנת $9x^2e^{x^3}$.",
+       "promptHtml": "בפתרון של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><msup><mi>x</mi><mn>3</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x^2e^{x^3}dx</annotation></semantics></math></span> יש שורה אחת שגויה. איזו ?",
+       "explainHtml": "מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=3x^2\\,dx</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x^2\\,dx=\\frac13dt</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">3\\,dt</annotation></semantics></math></span>. התשובה הנכונה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>3</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac13e^{x^3}+C</annotation></semantics></math></span>. הגזירה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><msup><mi>e</mi><msup><mi>x</mi><mn>3</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">3e^{x^3}</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><msup><mi>x</mi><mn>3</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">9x^2e^{x^3}</annotation></semantics></math></span>.",
+       "linesHtml": [
+        "בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^3</annotation></semantics></math></span> וכותבים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=3x^2\\,dx</annotation></semantics></math></span>.",
+        "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mn>3</mn><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x^2\\,dx=3\\,dt</annotation></semantics></math></span> והאינטגרל הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∫</mo><msup><mi>e</mi><mi>t</mi></msup><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">3\\int e^{t}\\,dt</annotation></semantics></math></span>.",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∫</mo><msup><mi>e</mi><mi>t</mi></msup><mtext> </mtext><mi>d</mi><mi>t</mi><mo>=</mo><mn>3</mn><msup><mi>e</mi><mi>t</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">3\\int e^{t}\\,dt=3e^{t}+C</annotation></semantics></math></span>.",
+        "מחזירים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><msup><mi>e</mi><msup><mi>x</mi><mn>3</mn></msup></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">3e^{x^3}+C</annotation></semantics></math></span>."
+       ]
+      },
+      "recap": "מבודדים את הגורם: x² dx = dt/3, לא 3 dt",
+      "recapHtml": "מבודדים את הגורם: x² dx = dt/3, לא 3 dt"
+     }
+    ]
+   },
+   {
+    "id": "C03",
+    "order": 3,
+    "icon": "✂️",
+    "title": "בחלקים: פולינום כפול e^x, sin, cos",
+    "goal": "לבחור u כפולינום ולפתור אינטגרל מכפלה בסיבוב אחד או בשניים.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>אינטגרציה בחלקים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>u</mi><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>u</mi><mi>v</mi><mo>−</mo><mo>∫</mo><mi>v</mi><mtext> </mtext><mi>d</mi><mi>u</mi></mrow><annotation encoding=\"application/x-tex\">\\int u\\,dv=uv-\\int v\\,du</annotation></semantics></math></span>. היא באה לעזרה כשיש <b>מכפלה</b> שאין בה פנימית עם נגזרתה.</p>\n<h3>איך בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi></mrow><annotation encoding=\"application/x-tex\">u</annotation></semantics></math></span></h3>\n<p>מכפלה של פולינום ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^{x}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\sin</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\cos</annotation></semantics></math></span>: <b><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">u=</annotation></semantics></math></span> הפולינום</b> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">dv=</annotation></semantics></math></span> השאר. כל סיבוב מוריד את דרגת הפולינום ב-1, עד שהוא נעלם.</p>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x}dx</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=e^{x}dx</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>u</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">du=dx</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">v=e^{x}</annotation></semantics></math></span>.<br>\n<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mo>∫</mo><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int xe^{x}dx=xe^{x}-\\int e^{x}dx=xe^{x}-e^{x}+C=(x-1)e^{x}+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-rule\">🔑 בבחירה ההפוכה (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">u=e^{x}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=x\\,dx</annotation></semantics></math></span>) הפולינום עולה בדרגה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{x^2}{2}</annotation></semantics></math></span> והאינטגרל החדש גרוע מהמקורי.</div>\n<p>פולינום מדרגה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> דורש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> סיבובים. הדרך לא לטעות בסימנים: לכתוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>u</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>v</mi></mrow><annotation encoding=\"application/x-tex\">u,\\ du,\\ dv,\\ v</annotation></semantics></math></span> בשורה לפני שמציבים.</p>\n<div class=\"lesson-trap\">⚠️ מי ששוכח את המינוס ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v=-\\cos x</annotation></semantics></math></span> מקבל סימן שגוי בכל התשובה. תמיד בודקים בגזירה.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C03-Q1",
+      "question": "באינטגרל $\\int x\\sin x\\,dx$ בחלקים, איזו בחירה מקטינה את הבעיה ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$u=x,\\ dv=\\sin x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x,\\ dv=\\sin x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$u=\\sin x,\\ dv=x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\sin x,\\ dv=x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$u=x\\sin x,\\ dv=dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x\\sin x,\\ dv=dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$u=1,\\ dv=x\\sin x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=1,\\ dv=x\\sin x\\,dx</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "עם $u=x$ מקבלים $du=dx$ ו-$v=-\\cos x$, והאינטגרל החדש $\\int-\\cos x\\,dx$ ללא $x$ כלל. עם $u=\\sin x$ מקבלים $v=\\frac{x^2}{2}$ והאינטגרל החדש $\\int\\frac{x^2}{2}\\cos x\\,dx$ מסובך יותר: הפולינום עלה בדרגה. הבחירה $u=x\\sin x$ מחזירה $\\int\\left(x\\sin x+x^2\\cos x\\right)dx$, גרוע מהמקורי. הבחירה האחרונה היא פשוט האינטגרל המקורי.",
+      "recap": "פולינום × sin/cos/e^x: u הוא הפולינום",
+      "questionHtml": "באינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\sin x\\,dx</annotation></semantics></math></span> בחלקים, איזו בחירה מקטינה את הבעיה ?",
+      "explanationHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>u</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">du=dx</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v=-\\cos x</annotation></semantics></math></span>, והאינטגרל החדש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int-\\cos x\\,dx</annotation></semantics></math></span> ללא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> כלל. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\sin x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{x^2}{2}</annotation></semantics></math></span> והאינטגרל החדש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x^2}{2}\\cos x\\,dx</annotation></semantics></math></span> מסובך יותר: הפולינום עלה בדרגה. הבחירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x\\sin x</annotation></semantics></math></span> מחזירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mrow><mo fence=\"true\">(</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\left(x\\sin x+x^2\\cos x\\right)dx</annotation></semantics></math></span>, גרוע מהמקורי. הבחירה האחרונה היא פשוט האינטגרל המקורי.",
+      "recapHtml": "פולינום × sin/cos/e^x: u הוא הפולינום"
+     },
+     {
+      "id": "C03-Q2",
+      "question": "מהו $\\int x\\,e^{x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$(x+1)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">(x+1)e^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$xe^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">xe^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{x^2}{2}e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}e^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$(x-1)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">(x-1)e^{x}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "‏$u=x$ ו-$dv=e^xdx$ נותנים $xe^x-\\int e^xdx=$ **$(x-1)e^x$**. ‏$(x+1)e^x$ נובעת מטעות בסימן של האינטגרל השני. ‏$xe^x$ שוכחת את החלק השני בכלל. ‏$\\frac{x^2}{2}e^x$ היא כפל של שני האינטגרלים.",
+      "recap": "xe^x ← (x−1)e^x",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=e^xdx</annotation></semantics></math></span> נותנים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mo>∫</mo><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">xe^x-\\int e^xdx=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">(x-1)e^x</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">(x+1)e^x</annotation></semantics></math></span> נובעת מטעות בסימן של האינטגרל השני. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">xe^x</annotation></semantics></math></span> שוכחת את החלק השני בכלל. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}e^x</annotation></semantics></math></span> היא כפל של שני האינטגרלים.",
+      "recapHtml": "xe^x ← (x−1)e^x"
+     },
+     {
+      "id": "C03-Q3",
+      "question": "מהו $\\int x\\cos x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$x\\sin x-\\cos x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\sin x-\\cos x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$x\\sin x+\\cos x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\sin x+\\cos x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$-x\\sin x+\\cos x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-x\\sin x+\\cos x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2}\\sin x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\sin x+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "‏$u=x$, ‏$v=\\sin x$: ‏$x\\sin x-\\int\\sin x\\,dx=x\\sin x+\\cos x$, כי $\\int\\sin x\\,dx=-\\cos x$. ‏$x\\sin x-\\cos x$ מתקבלת כשמשאירים את המינוס הכפול. ‏$-x\\sin x+\\cos x$ הפוכה בסימן הכולל. ‏$\\frac{x^2}{2}\\sin x$ מתייחסת לאינטגרל כאל מכפלת אינטגרלים.",
+      "recap": "xcos x ← x sin x + cos x",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\cos x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v=\\sin x</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mo>∫</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\sin x-\\int\\sin x\\,dx=x\\sin x+\\cos x</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\sin x\\,dx=-\\cos x</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\sin x-\\cos x</annotation></semantics></math></span> מתקבלת כשמשאירים את המינוס הכפול. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">-x\\sin x+\\cos x</annotation></semantics></math></span> הפוכה בסימן הכולל. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\sin x</annotation></semantics></math></span> מתייחסת לאינטגרל כאל מכפלת אינטגרלים.",
+      "recapHtml": "xcos x ← x sin x + cos x"
+     },
+     {
+      "id": "C03-Q4",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\int x\\,e^{2x}dx=\\left(\\frac{x}{2}-a\\right)e^{2x}+C$. מהו $a$ ?",
+       "answer": 0.25,
+       "tol": 0,
+       "explain": "‏$u=x$, ‏$v=\\frac{e^{2x}}{2}$: ‏$\\frac{xe^{2x}}{2}-\\frac12\\int e^{2x}dx=\\frac{xe^{2x}}{2}-\\frac{e^{2x}}{4}$. לכן $a=\\frac14=0.25$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mrow><mo fence=\"true\">(</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>−</mo><mi>a</mi><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{2x}dx=\\left(\\frac{x}{2}-a\\right)e^{2x}+C</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ?",
+       "explainHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{e^{2x}}{2}</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>x</mi><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup></mrow><mn>2</mn></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mi>x</mi><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup></mrow><mn>2</mn></mfrac><mo>−</mo><mfrac><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{xe^{2x}}{2}-\\frac12\\int e^{2x}dx=\\frac{xe^{2x}}{2}-\\frac{e^{2x}}{4}</annotation></semantics></math></span>. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo>=</mo><mn>0.25</mn></mrow><annotation encoding=\"application/x-tex\">a=\\frac14=0.25</annotation></semantics></math></span>."
+      },
+      "recap": "v = e^{2x}/2: הפנימית הלינארית מחלקת ב-2 פעמיים",
+      "recapHtml": "v = e^{2x}/2: הפנימית הלינארית מחלקת ב-2 פעמיים"
+     },
+     {
+      "id": "C03-Q5",
+      "question": "מהו $\\int x^2e^{x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\left(x^2+2x+2\\right)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\left(x^2+2x+2\\right)e^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\left(x^2-2x\\right)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\left(x^2-2x\\right)e^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\left(x^2-2x+2\\right)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\left(x^2-2x+2\\right)e^{x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\left(x^2-2x+1\\right)e^{x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\left(x^2-2x+1\\right)e^{x}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "סיבוב ראשון: ‏$x^2e^x-2\\int xe^xdx$. סיבוב שני: ‏$\\int xe^x=(x-1)e^x$. התוצאה $x^2e^x-2(x-1)e^x=$ **$(x^2-2x+2)e^x$**. שאר התשובות נופלות בסימן או במחסור בקבוע ($+2$ נובע מ-$-2\\cdot(-1)$).",
+      "recap": "x²e^x: שני סיבובים, סימנים מתחלפים",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x^2e^{x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "סיבוב ראשון: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>2</mn><mo>∫</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x^2e^x-2\\int xe^xdx</annotation></semantics></math></span>. סיבוב שני: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">\\int xe^x=(x-1)e^x</annotation></semantics></math></span>. התוצאה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><mn>2</mn><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">x^2e^x-2(x-1)e^x=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">(x^2-2x+2)e^x</annotation></semantics></math></span></strong>. שאר התשובות נופלות בסימן או במחסור בקבוע (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">+2</annotation></semantics></math></span> נובע מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>2</mn><mo>⋅</mo><mo stretchy=\"false\">(</mo><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">-2\\cdot(-1)</annotation></semantics></math></span>).",
+      "recapHtml": "x²e^x: שני סיבובים, סימנים מתחלפים"
+     },
+     {
+      "id": "C03-Q6",
+      "step": {
+       "type": "order",
+       "prompt": "סדרו את הפתרון של $\\int x\\sin x\\,dx$.",
+       "lines": [
+        "$u=x,\\ dv=\\sin x\\,dx$",
+        "$du=dx,\\ v=-\\cos x$",
+        "$\\int x\\sin x\\,dx=-x\\cos x+\\int\\cos x\\,dx$",
+        "$=-x\\cos x+\\sin x+C$"
+       ],
+       "explain": "קודם בוחרים $u,dv$, אחר כך מחשבים $du,v$, ואז מציבים בנוסחה ולבסוף פותרים את האינטגרל הנותר.",
+       "promptHtml": "סדרו את הפתרון של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\sin x\\,dx</annotation></semantics></math></span>.",
+       "explainHtml": "קודם בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo separator=\"true\">,</mo><mi>d</mi><mi>v</mi></mrow><annotation encoding=\"application/x-tex\">u,dv</annotation></semantics></math></span>, אחר כך מחשבים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>u</mi><mo separator=\"true\">,</mo><mi>v</mi></mrow><annotation encoding=\"application/x-tex\">du,v</annotation></semantics></math></span>, ואז מציבים בנוסחה ולבסוף פותרים את האינטגרל הנותר.",
+       "linesHtml": [
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x,\\ dv=\\sin x\\,dx</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>u</mi><mo>=</mo><mi>d</mi><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>v</mi><mo>=</mo><mo>−</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">du=dx,\\ v=-\\cos x</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mo>∫</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\sin x\\,dx=-x\\cos x+\\int\\cos x\\,dx</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mo>−</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">=-x\\cos x+\\sin x+C</annotation></semantics></math></span>"
+       ]
+      },
+      "recap": "u,dv ← du,v ← הצבה בנוסחה ← האינטגרל הנותר",
+      "recapHtml": "u,dv ← du,v ← הצבה בנוסחה ← האינטגרל הנותר"
+     }
+    ]
+   },
+   {
+    "id": "C04",
+    "order": 4,
+    "icon": "🪢",
+    "title": "בחלקים: ln ו-arctan",
+    "goal": "לזהות ש-ln ו-arctan הם תמיד u, ולפתור אינטגרלים שבהם הם לבדם או כפולים בפולינום.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>כשבאינטגרנד יש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan x</annotation></semantics></math></span>, הם <b>תמיד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi></mrow><annotation encoding=\"application/x-tex\">u</annotation></semantics></math></span></b>, כי נגזרתם פשוטה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\left(\\ln x\\right)&#x27;=\\frac1x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\">(</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\left(\\arctan x\\right)&#x27;=\\frac{1}{1+x^2}</annotation></semantics></math></span>. את האינטגרלים שלהם ישירות לא מכירים.</p>\n<div class=\"lesson-formula\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\ln x\\,dx=x\\ln x-x+C</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\arctan x\\,dx=x\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C</annotation></semantics></math></span></div>\n<p>אלה בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=dx</annotation></semantics></math></span> (כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v=x</annotation></semantics></math></span>): כותבים את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> כ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>⋅</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\ln x\\cdot1</annotation></semantics></math></span>.</p>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=x\\,dx</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>u</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">du=\\frac{dx}{x}</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{x^2}{2}</annotation></semantics></math></span>.<br>\n<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mo>∫</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx=\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-rule\">🔑 סימן להצלחה: אחרי הבחירה הנכונה ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> או ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> נעלם מהאינטגרל הנותר. אם הוא נשאר, הבחירה הייתה הפוכה.</div>\n<div class=\"lesson-trap\">⚠️ ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> האינטגרל הנותר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mi>x</mi><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x}{1+x^2}dx</annotation></semantics></math></span>, וזה הצבה (מונה = חצי נגזרת המכנה), לא טבלה ישירה.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C04-Q1",
+      "question": "באינטגרל $\\int x\\ln x\\,dx$ בחלקים, איזו בחירה מעלימה את ה-$\\ln$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$u=\\ln x,\\ dv=x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x,\\ dv=x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$u=x,\\ dv=\\ln x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x,\\ dv=\\ln x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$u=x\\ln x,\\ dv=dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x\\ln x,\\ dv=dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$u=1,\\ dv=x\\ln x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=1,\\ dv=x\\ln x\\,dx</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "עם $u=\\ln x$ מקבלים $v=\\frac{x^2}{2}$ ו-$v\\,du=\\frac{x}{2}dx$, בלי $\\ln$. עם $u=x$ צריך קודם את $v=\\int\\ln x\\,dx=x\\ln x-x$, והאינטגרל הנותר $\\int(x\\ln x-x)dx$ שוב מכיל $\\ln$. הבחירה $u=x\\ln x$ מחזירה $(\\ln x+1)x$, שוב עם $\\ln$. הבחירה האחרונה היא האינטגרל עצמו.",
+      "recap": "ln הוא תמיד u: הנגזרת שלו 1/x מעלימה אותו",
+      "questionHtml": "באינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx</annotation></semantics></math></span> בחלקים, איזו בחירה מעלימה את ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> ?",
+      "explanationHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{x^2}{2}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mtext> </mtext><mi>d</mi><mi>u</mi><mo>=</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v\\,du=\\frac{x}{2}dx</annotation></semantics></math></span>, בלי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span> צריך קודם את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mo>∫</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">v=\\int\\ln x\\,dx=x\\ln x-x</annotation></semantics></math></span>, והאינטגרל הנותר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int(x\\ln x-x)dx</annotation></semantics></math></span> שוב מכיל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>. הבחירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x\\ln x</annotation></semantics></math></span> מחזירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">(\\ln x+1)x</annotation></semantics></math></span>, שוב עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>. הבחירה האחרונה היא האינטגרל עצמו.",
+      "recapHtml": "ln הוא תמיד u: הנגזרת שלו 1/x מעלימה אותו"
+     },
+     {
+      "id": "C04-Q2",
+      "question": "מהו $\\int\\ln x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$x\\ln x+x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\ln x+x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac1x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac1x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$x\\ln x-1+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\ln x-1+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$x\\ln x-x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\ln x-x+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "‏$u=\\ln x$ ו-$dv=dx$: ‏$x\\ln x-\\int x\\cdot\\frac1x\\,dx=$ **$x\\ln x-x$**. ‏$\\frac1x$ היא הנגזרת של $\\ln x$ ולא האינטגרל. התשובה עם $+x$ שוכחת את המינוס של האינטגרל הנותר. התשובה האחרונה מחשבת את $\\int 1\\,dx$ כ-$1$.",
+      "recap": "ln x ← x ln x − x",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\ln x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=dx</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mo>∫</mo><mi>x</mi><mo>⋅</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">x\\ln x-\\int x\\cdot\\frac1x\\,dx=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\ln x-x</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1x</annotation></semantics></math></span> היא הנגזרת של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> ולא האינטגרל. התשובה עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">+x</annotation></semantics></math></span> שוכחת את המינוס של האינטגרל הנותר. התשובה האחרונה מחשבת את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mn>1</mn><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int 1\\,dx</annotation></semantics></math></span> כ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>.",
+      "recapHtml": "ln x ← x ln x − x"
+     },
+     {
+      "id": "C04-Q3",
+      "question": "מהו $\\int x\\ln x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\ln x-\\frac{x^2}{2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{x^2}{2}\\ln x+\\frac{x^2}{4}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\ln x+\\frac{x^2}{4}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2}\\cdot\\frac1x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo>⋅</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\cdot\\frac1x+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "‏$\\frac{x^2}{2}\\ln x-\\int\\frac{x^2}{2}\\cdot\\frac1x\\,dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}$. הטעות הנפוצה היא $\\frac{x^2}{2}$ במקום $\\frac{x^2}{4}$, כלומר לשכוח את חצי המקדם. התשובה השלישית שגויה בסימן. האחרונה היא מכפלת הנגזרות.",
+      "recap": "x ln x ← (x²/2) ln x − x²/4",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mo>∫</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo>⋅</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\ln x-\\int\\frac{x^2}{2}\\cdot\\frac1x\\,dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}</annotation></semantics></math></span>. הטעות הנפוצה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}</annotation></semantics></math></span> במקום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{4}</annotation></semantics></math></span>, כלומר לשכוח את חצי המקדם. התשובה השלישית שגויה בסימן. האחרונה היא מכפלת הנגזרות.",
+      "recapHtml": "x ln x ← (x²/2) ln x − x²/4"
+     },
+     {
+      "id": "C04-Q4",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\int x\\ln x\\,dx=\\frac{x^2}{2}\\ln x-k\\,x^2+C$. מהו $k$ ?",
+       "answer": 0.25,
+       "tol": 0,
+       "explain": "האינטגרל הנותר $\\int\\frac{x}{2}dx=\\frac{x^2}{4}$, ולכן $k=0.25$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>k</mi><mtext> </mtext><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx=\\frac{x^2}{2}\\ln x-k\\,x^2+C</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> ?",
+       "explainHtml": "האינטגרל הנותר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x}{2}dx=\\frac{x^2}{4}</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0.25</mn></mrow><annotation encoding=\"application/x-tex\">k=0.25</annotation></semantics></math></span>."
+      },
+      "recap": "האינטגרל הנותר ב-x ln x הוא x/2",
+      "recapHtml": "האינטגרל הנותר ב-x ln x הוא x/2"
+     },
+     {
+      "id": "C04-Q5",
+      "question": "מהו $\\int\\arctan x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$x\\arctan x-\\ln\\left(1+x^2\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\arctan x-\\ln\\left(1+x^2\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$x\\arctan x+\\frac12\\ln\\left(1+x^2\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\arctan x+\\frac12\\ln\\left(1+x^2\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$x\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{1}{1+x^2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1+x^2}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "‏$u=\\arctan x$, ‏$dv=dx$: ‏$x\\arctan x-\\int\\frac{x}{1+x^2}dx$, והאינטגרל הנותר הוא $\\frac12\\ln(1+x^2)$ (הצבה $t=1+x^2$). התשובות עם $\\ln$ שלם או עם סימן הפוך שוכחות את החצי או את המינוס.",
+      "recap": "arctan x ← x arctan x − ½ ln(1+x²)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\arctan x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\arctan x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=dx</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mo>∫</mo><mfrac><mi>x</mi><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\arctan x-\\int\\frac{x}{1+x^2}dx</annotation></semantics></math></span>, והאינטגרל הנותר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln(1+x^2)</annotation></semantics></math></span> (הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=1+x^2</annotation></semantics></math></span>). התשובות עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> שלם או עם סימן הפוך שוכחות את החצי או את המינוס.",
+      "recapHtml": "arctan x ← x arctan x − ½ ln(1+x²)"
+     },
+     {
+      "id": "C04-Q6",
+      "question": "מהו $\\int x\\arctan x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{x^2+1}{2}\\arctan x-\\frac x2+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+1}{2}\\arctan x-\\frac x2+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{x^2}{2}\\arctan x-\\frac x2+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan x-\\frac x2+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{x^2+1}{2}\\arctan x+\\frac x2+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+1}{2}\\arctan x+\\frac x2+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2}\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "‏$u=\\arctan x$, ‏$v=\\frac{x^2}{2}$: ‏$\\frac{x^2}{2}\\arctan x-\\frac12\\int\\frac{x^2}{1+x^2}dx$. כתיבה $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$ נותנת $\\frac{x^2}{2}\\arctan x-\\frac x2+\\frac12\\arctan x=$ **$\\frac{x^2+1}{2}\\arctan x-\\frac x2$**. מי ששוכח את $\\arctan$ שחוזר מקבל את התשובה השנייה. האחרונה מערבבת עם הדוגמה של $\\int\\arctan x$.",
+      "recap": "x arctan x: האינטגרל הנותר דורש חלוקה x²/(1+x²) = 1 − 1/(1+x²)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\arctan x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\arctan x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>v</mi><mo>=</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">v=\\frac{x^2}{2}</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan x-\\frac12\\int\\frac{x^2}{1+x^2}dx</annotation></semantics></math></span>. כתיבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan x-\\frac x2+\\frac12\\arctan x=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>−</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2+1}{2}\\arctan x-\\frac x2</annotation></semantics></math></span></strong>. מי ששוכח את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> שחוזר מקבל את התשובה השנייה. האחרונה מערבבת עם הדוגמה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\arctan x</annotation></semantics></math></span>.",
+      "recapHtml": "x arctan x: האינטגרל הנותר דורש חלוקה x²/(1+x²) = 1 − 1/(1+x²)"
+     }
+    ]
+   },
+   {
+    "id": "C05",
+    "order": 5,
+    "icon": "➗",
+    "title": "שברים: חלוקה ושברים חלקיים",
+    "goal": "לבדוק דרגות, לחלק כשצריך, ולפרק מכנה עם גורמים לינאריים לשברים חלקיים.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>מנה של פולינומים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><mrow><mi>Q</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{P(x)}{Q(x)}</annotation></semantics></math></span>. הצעד הראשון תמיד אותו דבר: להשוות דרגות.</p>\n<div class=\"lesson-rule\">🔑 אם דרגת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo>≥</mo></mrow><annotation encoding=\"application/x-tex\">P\\ge</annotation></semantics></math></span> דרגת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi></mrow><annotation encoding=\"application/x-tex\">Q</annotation></semantics></math></span>: <b>חלוקה ארוכה קודם</b>. מקבלים פולינום (קל לאינטגרל) ושבר שבו דרגת המונה קטנה מהמכנה.</div>\n<h3>פירוק לשברים חלקיים</h3>\n<p>כשדרגת המונה קטנה, מפרקים את המכנה לגורמים לינאריים שונים, ולכל אחד שבר:</p>\n<div class=\"lesson-formula\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{3x+5}{(x-1)(x+1)}=\\frac{A}{x-1}+\\frac{B}{x+1}</annotation></semantics></math></span></div>\n<p>מוצאים את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A,B</annotation></semantics></math></span> בהצבת השורשים בתוך משוואת המונים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mi>A</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mi>B</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">3x+5=A(x+1)+B(x-1)</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8</mn><mo>=</mo><mn>2</mn><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">8=2A</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">A=4</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=-1</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>=</mo><mo>−</mo><mn>2</mn><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">2=-2B</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">B=-1</annotation></semantics></math></span>.</p>\n<p>ואז כל שבר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mi>r</mi></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mi>A</mi><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mi>r</mi><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{A}{x-r}dx=A\\ln|x-r|</annotation></semantics></math></span>.</p>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x+3}{(x-1)(x+1)}dx</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">A=2</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">B=-1</annotation></semantics></math></span>. התשובה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2\\ln|x-1|-\\ln|x+1|+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-trap\">⚠️ פירוק לשברים חלקיים כשהדרגות לא מתאימות הוא טעות. אם דרגת המונה שווה או גדולה, חלוקה קודם.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C05-Q1",
+      "question": "מהו הצעד הראשון הנכון באינטגרל $\\int\\frac{x^3+2}{x^2-1}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "פירוק מיידי לשברים חלקיים $\\frac{A}{x-1}+\\frac{B}{x+1}$",
+        "type": "text",
+        "html": "פירוק מיידי לשברים חלקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-1}+\\frac{B}{x+1}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "הצבה $t=x^2-1$",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2-1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "אינטגרציה בחלקים עם $u=x^3+2$",
+        "type": "text",
+        "html": "אינטגרציה בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">u=x^3+2</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "חלוקה ארוכה של המונה במכנה",
+        "type": "text",
+        "html": "חלוקה ארוכה של המונה במכנה"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "דרגת המונה (3) גדולה מדרגת המכנה (2), ולכן חלוקה ארוכה קודם: $x^3+2=x\\left(x^2-1\\right)+(x+2)$, כלומר $\\frac{x^3+2}{x^2-1}=x+\\frac{x+2}{x^2-1}$. פירוק מיידי נכשל כי הדרגות לא מתאימות. הצבה $t=x^2-1$ משאירה $x$ במונה ($x^3\\,dx$ לא מכיל את החלק הקבוע $2$). בחלקים עם $u=x^3+2$ מחזיר שבר מסובך יותר.",
+      "recap": "דרגת מונה ≥ מכנה: חלוקה ארוכה לפני כל דבר אחר",
+      "questionHtml": "מהו הצעד הראשון הנכון באינטגרל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x^3+2}{x^2-1}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "דרגת המונה (3) גדולה מדרגת המכנה (2), ולכן חלוקה ארוכה קודם: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mo>=</mo><mi>x</mi><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x^3+2=x\\left(x^2-1\\right)+(x+2)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mi>x</mi><mo>+</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^3+2}{x^2-1}=x+\\frac{x+2}{x^2-1}</annotation></semantics></math></span>. פירוק מיידי נכשל כי הדרגות לא מתאימות. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2-1</annotation></semantics></math></span> משאירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> במונה (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>3</mn></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x^3\\,dx</annotation></semantics></math></span> לא מכיל את החלק הקבוע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>). בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">u=x^3+2</annotation></semantics></math></span> מחזיר שבר מסובך יותר.",
+      "recapHtml": "דרגת מונה ≥ מכנה: חלוקה ארוכה לפני כל דבר אחר"
+     },
+     {
+      "id": "C05-Q2",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\frac{x^3+2}{x^2-1}=x+\\frac{ax+2}{x^2-1}$. מהו $a$ ?",
+       "answer": 1,
+       "tol": 0,
+       "explain": "‏$x\\left(x^2-1\\right)=x^3-x$, ולכן $x^3+2-\\left(x^3-x\\right)=x+2$. כלומר $a=1$ והשארית היא $x+2$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mi>x</mi><mo>+</mo><mfrac><mrow><mi>a</mi><mi>x</mi><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x^3+2}{x^2-1}=x+\\frac{ax+2}{x^2-1}</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ?",
+       "explainHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x\\left(x^2-1\\right)=x^3-x</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mo>−</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo>=</mo><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x^3+2-\\left(x^3-x\\right)=x+2</annotation></semantics></math></span>. כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a=1</annotation></semantics></math></span> והשארית היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x+2</annotation></semantics></math></span>."
+      },
+      "recap": "חלוקה: מנה × מכנה + שארית",
+      "recapHtml": "חלוקה: מנה × מכנה + שארית"
+     },
+     {
+      "id": "C05-Q3",
+      "question": "מהו $\\int\\frac{dx}{(x-1)(x+2)}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac13\\ln\\left|\\frac{x+2}{x-1}\\right|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">∣</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo fence=\"true\">∣</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac13\\ln\\left|\\frac{x+2}{x-1}\\right|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac13\\ln\\left|\\frac{x-1}{x+2}\\right|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">∣</mo><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mo fence=\"true\">∣</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac13\\ln\\left|\\frac{x-1}{x+2}\\right|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\ln|(x-1)(x+2)|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|(x-1)(x+2)|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac13\\ln|x-1|+\\frac13\\ln|x+2|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac13\\ln|x-1|+\\frac13\\ln|x+2|+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "‏$\\frac{1}{(x-1)(x+2)}=\\frac13\\left(\\frac{1}{x-1}-\\frac{1}{x+2}\\right)$, ולכן האינטגרל הוא $\\frac13\\left(\\ln|x-1|-\\ln|x+2|\\right)=$ **$\\frac13\\ln\\left|\\frac{x-1}{x+2}\\right|$**. היפוך היחס נותן את הסימן ההפוך. ‏$\\ln|(x-1)(x+2)|$ הוא האינטגרל של $\\frac{2x+1}{(x-1)(x+2)}$. התשובה האחרונה חיברה במקום להחסיר.",
+      "recap": "1/((x-a)(x-b)) = (1/(a−b))(1/(x−a) − 1/(x−b))",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{(x-1)(x+2)}</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{(x-1)(x+2)}=\\frac13\\left(\\frac{1}{x-1}-\\frac{1}{x+2}\\right)</annotation></semantics></math></span>, ולכן האינטגרל הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mrow><mo fence=\"true\">(</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>2</mn><mi mathvariant=\"normal\">∣</mi><mo fence=\"true\">)</mo></mrow><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">\\frac13\\left(\\ln|x-1|-\\ln|x+2|\\right)=</annotation></semantics></math></span> <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">∣</mo><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mo fence=\"true\">∣</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\frac13\\ln\\left|\\frac{x-1}{x+2}\\right|</annotation></semantics></math></span></strong>. היפוך היחס נותן את הסימן ההפוך. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|(x-1)(x+2)|</annotation></semantics></math></span> הוא האינטגרל של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{2x+1}{(x-1)(x+2)}</annotation></semantics></math></span>. התשובה האחרונה חיברה במקום להחסיר.",
+      "recapHtml": "1/((x-a)(x-b)) = (1/(a−b))(1/(x−a) − 1/(x−b))"
+     },
+     {
+      "id": "C05-Q4",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\frac{5}{(x-2)(x+3)}=\\frac{A}{x-2}+\\frac{B}{x+3}$. מהו $A$ ?",
+       "answer": 1,
+       "tol": 0,
+       "explain": "‏$5=A(x+3)+B(x-2)$. עם $x=2$: ‏$5=5A$, כלומר $A=1$. (וגם $B=-1$.)",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>5</mn><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{5}{(x-2)(x+3)}=\\frac{A}{x-2}+\\frac{B}{x+3}</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> ?",
+       "explainHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>=</mo><mi>A</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mi>B</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5=A(x+3)+B(x-2)</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=2</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>=</mo><mn>5</mn><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">5=5A</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">A=1</annotation></semantics></math></span>. (וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">B=-1</annotation></semantics></math></span>.)"
+      },
+      "recap": "מציבים את השורש של הגורם שמחפשים",
+      "recapHtml": "מציבים את השורש של הגורם שמחפשים"
+     },
+     {
+      "id": "C05-Q5",
+      "question": "מהו $\\int\\frac{3x+5}{(x-1)(x+1)}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$4\\ln|x+1|-\\ln|x-1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">4\\ln|x+1|-\\ln|x-1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\ln|x-1|+\\ln|x+1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x-1|+\\ln|x+1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$4\\ln|x-1|-\\ln|x+1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">4\\ln|x-1|-\\ln|x+1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac32\\ln\\left|x^2-1\\right|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>3</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">∣</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo fence=\"true\">∣</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac32\\ln\\left|x^2-1\\right|+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "‏$A=4$, ‏$B=-1$ (ראו בשיעור), ולכן **$4\\ln|x-1|-\\ln|x+1|$**. החלפת המקדמים בין הגורמים נותנת את התשובה השנייה. התשובה השלישית ממלאת $A=B=1$ בלי לחשב. התשובה הרביעית מניחה שהמונה הוא כפולה של נגזרת המכנה $2x$, אבל המונה הוא $3x+5$.",
+      "recap": "מפרקים, מוצאים A ו-B בהצבת שורשים, כל שבר הוא ln",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{3x+5}{(x-1)(x+1)}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">A=4</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">B=-1</annotation></semantics></math></span> (ראו בשיעור), ולכן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>−</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">4\\ln|x-1|-\\ln|x+1|</annotation></semantics></math></span></strong>. החלפת המקדמים בין הגורמים נותנת את התשובה השנייה. התשובה השלישית ממלאת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mi>B</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">A=B=1</annotation></semantics></math></span> בלי לחשב. התשובה הרביעית מניחה שהמונה הוא כפולה של נגזרת המכנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2x</annotation></semantics></math></span>, אבל המונה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">3x+5</annotation></semantics></math></span>.",
+      "recapHtml": "מפרקים, מוצאים A ו-B בהצבת שורשים, כל שבר הוא ln"
+     },
+     {
+      "id": "C05-Q6",
+      "question": "מהו $\\int\\frac{x}{x+1}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$x-\\ln|x+1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x-\\ln|x+1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$x+\\ln|x+1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x+\\ln|x+1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\ln|x+1|+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x+1|+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2\\left(x+1\\right)}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>2</mn><mrow><mo fence=\"true\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2\\left(x+1\\right)}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "הדרגות שוות, לכן חלוקה: $\\frac{x}{x+1}=1-\\frac{1}{x+1}$, ומכאן **$x-\\ln|x+1|$**. התשובה עם $+\\ln$ שוכחת את המינוס. ‏$\\ln|x+1|$ מתאימה למונה $1$ ולא $x$. התשובה האחרונה מחלקת את האינטגרלים.",
+      "recap": "דרגות שוות: x/(x+1) = 1 − 1/(x+1)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x}{x+1}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הדרגות שוות, לכן חלוקה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x}{x+1}=1-\\frac{1}{x+1}</annotation></semantics></math></span>, ומכאן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">x-\\ln|x+1|</annotation></semantics></math></span></strong>. התשובה עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">+\\ln</annotation></semantics></math></span> שוכחת את המינוס. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>1</mn><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x+1|</annotation></semantics></math></span> מתאימה למונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>. התשובה האחרונה מחלקת את האינטגרלים.",
+      "recapHtml": "דרגות שוות: x/(x+1) = 1 − 1/(x+1)"
+     }
+    ]
+   },
+   {
+    "id": "C06",
+    "order": 6,
+    "icon": "🧮",
+    "title": "מכנה ריבועי, גורם כפול והשלמה לריבוע",
+    "goal": "להשלים לריבוע כש-Δ שלילית, לפרק מונה מעל ריבועי, ולכתוב צורת פירוק נכונה לגורם כפול.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>מכנה ריבועי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>p</mi><mi>x</mi><mo>+</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">x^2+px+q</annotation></semantics></math></span> מתנהג לפי הדיסקרימיננטה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>=</mo><msup><mi>p</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">\\Delta=p^2-4q</annotation></semantics></math></span>.</p>\n<ul>\n<li><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta&gt;0</annotation></semantics></math></span>: מתפרק לשני גורמים לינאריים, ואז שברים חלקיים רגילים (תוצאה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>).</li>\n<li><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta&lt;0</annotation></semantics></math></span>: <b>לא מתפרק</b>. משלימים לריבוע ומקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span>.</li>\n</ul>\n<div class=\"lesson-ex\">השלמה לריבוע: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x^2+2x+5=(x+1)^2+4</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x^2+2x+5}=\\frac12\\arctan\\frac{x+1}{2}+C</annotation></semantics></math></span>.</div>\n<h3>מונה לינארי מעל ריבועי שלא מתפרק</h3>\n<p>מפרקים את המונה לחלק שהוא נגזרת המכנה ולקבוע: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>B</mi><mi>x</mi><mo>+</mo><mi>C</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>k</mi></mrow></mfrac><mo>=</mo><mfrac><mi>B</mi><mn>2</mn></mfrac><mo>⋅</mo><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>k</mi></mrow></mfrac><mo>+</mo><mfrac><mi>C</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>k</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{Bx+C}{x^2+k}=\\frac{B}{2}\\cdot\\frac{2x}{x^2+k}+\\frac{C}{x^2+k}</annotation></semantics></math></span>, ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span>.</p>\n<h3>צורת הפירוק</h3>\n<ul>\n<li>גורם לינארי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x-r)</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mi>r</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-r}</annotation></semantics></math></span>.</li>\n<li>גורם כפול <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mi>r</mi><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">(x-r)^2</annotation></semantics></math></span>: <b>שני</b> איברים, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mi>r</mi></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mi>r</mi><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-r}+\\frac{B}{(x-r)^2}</annotation></semantics></math></span>.</li>\n<li>גורם ריבועי שלא מתפרק: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>B</mi><mi>x</mi><mo>+</mo><mi>C</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>k</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{Bx+C}{x^2+k}</annotation></semantics></math></span> (מונה לינארי, לא קבוע).</li>\n</ul>\n<div class=\"lesson-trap\">⚠️ מונה קבוע מעל גורם ריבועי לא מספיק ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>x</mi><mrow><mi>x</mi><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x}{x(x^2+1)}</annotation></semantics></math></span> וכדומה: חסר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">Bx</annotation></semantics></math></span>. וגורם כפול עם איבר אחד חסר חלק.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C06-Q1",
+      "question": "מהו $\\int\\frac{dx}{x^2+2x+5}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\arctan\\frac{x+1}{2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan\\frac{x+1}{2}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac12\\arctan(x+1)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan(x+1)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\ln\\left(x^2+2x+5\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln\\left(x^2+2x+5\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac12\\arctan\\frac{x+1}{2}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan\\frac{x+1}{2}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "‏$x^2+2x+5=(x+1)^2+4$, ולכן **$\\frac12\\arctan\\frac{x+1}{2}$**. בלי ה-$\\frac12$ מקבלים פי שניים. ‏$\\frac12\\arctan(x+1)$ מתעלמת מהחילוק ב-$2$ בתוך ה-$\\arctan$. ‏$\\ln$ מתאים רק אם המונה היה $2x+2$.",
+      "recap": "Δ<0: משלימים לריבוע ← (1/a) arctan((x+b)/a)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x^2+2x+5}</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x^2+2x+5=(x+1)^2+4</annotation></semantics></math></span>, ולכן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan\\frac{x+1}{2}</annotation></semantics></math></span></strong>. בלי ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12</annotation></semantics></math></span> מקבלים פי שניים. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan(x+1)</annotation></semantics></math></span> מתעלמת מהחילוק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span> בתוך ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> מתאים רק אם המונה היה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2x+2</annotation></semantics></math></span>.",
+      "recapHtml": "Δ&lt;0: משלימים לריבוע ← (1/a) arctan((x+b)/a)"
+     },
+     {
+      "id": "C06-Q2",
+      "question": "איזה סוג פונקציות יופיע בתשובה של $\\int\\frac{dx}{x^2+4x+3}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\arctan$ (המכנה לא מתפרק)",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> (המכנה לא מתפרק)"
+       },
+       {
+        "id": "b",
+        "value": "לוגריתמים בלבד (המכנה מתפרק)",
+        "type": "text",
+        "html": "לוגריתמים בלבד (המכנה מתפרק)"
+       },
+       {
+        "id": "c",
+        "value": "$\\arctan$ ו-$\\ln$ ביחד",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> ביחד"
+       },
+       {
+        "id": "d",
+        "value": "אי אפשר לבטא באמצעות פונקציות אלמנטריות",
+        "type": "text",
+        "html": "אי אפשר לבטא באמצעות פונקציות אלמנטריות"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "‏$\\Delta=16-12=4>0$, והמכנה הוא $(x+1)(x+3)$. פירוק לשברים חלקיים נותן $\\frac12\\left(\\frac{1}{x+1}-\\frac{1}{x+3}\\right)$, כלומר לוגריתמים בלבד. ‏$\\arctan$ מופיע רק כש-$\\Delta<0$ (למשל $x^2+4x+5$ עם $\\Delta=-4$). השילוב מופיע כשיש גם מונה לינארי מעל ריבועי שלא מתפרק. והאינטגרל אלמנטרי.",
+      "recap": "Δ>0: ln. Δ<0: arctan",
+      "questionHtml": "איזה סוג פונקציות יופיע בתשובה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x^2+4x+3}</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>=</mo><mn>16</mn><mo>−</mo><mn>12</mn><mo>=</mo><mn>4</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta=16-12=4&gt;0</annotation></semantics></math></span>, והמכנה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x+1)(x+3)</annotation></semantics></math></span>. פירוק לשברים חלקיים נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\frac12\\left(\\frac{1}{x+1}-\\frac{1}{x+3}\\right)</annotation></semantics></math></span>, כלומר לוגריתמים בלבד. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> מופיע רק כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta&lt;0</annotation></semantics></math></span> (למשל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x^2+4x+5</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>=</mo><mo>−</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta=-4</annotation></semantics></math></span>). השילוב מופיע כשיש גם מונה לינארי מעל ריבועי שלא מתפרק. והאינטגרל אלמנטרי.",
+      "recapHtml": "Δ&gt;0: ln. Δ&lt;0: arctan"
+     },
+     {
+      "id": "C06-Q3",
+      "question": "מהו $\\int\\frac{x+3}{x^2+1}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\ln\\left(x^2+1\\right)+3\\arctan x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mn>3</mn><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln\\left(x^2+1\\right)+3\\arctan x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac12\\ln\\left(x^2+1\\right)+\\arctan 3x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>arctan</mi><mo>⁡</mo><mn>3</mn><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln\\left(x^2+1\\right)+\\arctan 3x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac12\\ln\\left(x^2+1\\right)+3\\arctan x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mn>3</mn><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln\\left(x^2+1\\right)+3\\arctan x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\ln|x+3|-\\ln\\left(x^2+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mo>+</mo><mn>3</mn><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x+3|-\\ln\\left(x^2+1\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "מפרקים: $\\frac{x}{x^2+1}+\\frac{3}{x^2+1}$. הראשון הוא חצי מנגזרת המכנה: $\\frac12\\ln(x^2+1)$. השני הוא $3\\arctan x$. התשובה **$\\frac12\\ln(x^2+1)+3\\arctan x$**. ‏$\\ln(x^2+1)$ מלא נותן $\\frac{2x}{x^2+1}$. ‏$\\arctan3x$ מכניס את ה-$3$ פנימה. התשובה האחרונה עושה פירוק מכנה שאין.",
+      "recap": "(Bx+C)/(x²+k): חצי-נגזרת ← ln, קבוע ← arctan",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x+3}{x^2+1}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "מפרקים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>x</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mn>3</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x}{x^2+1}+\\frac{3}{x^2+1}</annotation></semantics></math></span>. הראשון הוא חצי מנגזרת המכנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln(x^2+1)</annotation></semantics></math></span>. השני הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\arctan x</annotation></semantics></math></span>. התשובה <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>3</mn><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln(x^2+1)+3\\arctan x</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\ln(x^2+1)</annotation></semantics></math></span> מלא נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{2x}{x^2+1}</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan3x</annotation></semantics></math></span> מכניס את ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> פנימה. התשובה האחרונה עושה פירוק מכנה שאין.",
+      "recapHtml": "(Bx+C)/(x²+k): חצי-נגזרת ← ln, קבוע ← arctan"
+     },
+     {
+      "id": "C06-Q4",
+      "step": {
+       "type": "numeric",
+       "prompt": "$\\frac{1}{x\\left(x^2+1\\right)}=\\frac{A}{x}+\\frac{Bx+C}{x^2+1}$. מהו $B$ ?",
+       "answer": -1,
+       "tol": 0,
+       "explain": "‏$1=A\\left(x^2+1\\right)+(Bx+C)x$. עם $x=0$: ‏$A=1$. מקדם $x^2$: ‏$0=A+B$, לכן $B=-1$. מקדם $x$: ‏$0=C$.",
+       "promptHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mi>x</mi><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow></mfrac><mo>=</mo><mfrac><mi>A</mi><mi>x</mi></mfrac><mo>+</mo><mfrac><mrow><mi>B</mi><mi>x</mi><mo>+</mo><mi>C</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{x\\left(x^2+1\\right)}=\\frac{A}{x}+\\frac{Bx+C}{x^2+1}</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> ?",
+       "explainHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>=</mo><mi>A</mi><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mi>x</mi><mo>+</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">1=A\\left(x^2+1\\right)+(Bx+C)x</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">A=1</annotation></semantics></math></span>. מקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mi>A</mi><mo>+</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">0=A+B</annotation></semantics></math></span>, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">B=-1</annotation></semantics></math></span>. מקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">0=C</annotation></semantics></math></span>."
+      },
+      "recap": "משווים מקדמים אחרי שהצבת השורש נתנה A",
+      "recapHtml": "משווים מקדמים אחרי שהצבת השורש נתנה A"
+     },
+     {
+      "id": "C06-Q5",
+      "question": "מהו $\\int\\frac{dx}{x\\left(x^2+1\\right)}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\ln|x|-\\frac12\\ln\\left(x^2+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x|-\\frac12\\ln\\left(x^2+1\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\ln|x|+\\frac12\\ln\\left(x^2+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x|+\\frac12\\ln\\left(x^2+1\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\ln|x|-\\arctan x+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x|-\\arctan x+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\ln|x|-\\ln\\left(x^2+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln|x|-\\ln\\left(x^2+1\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "הפירוק הוא $\\frac1x-\\frac{x}{x^2+1}$, ולכן **$\\ln|x|-\\frac12\\ln(x^2+1)$**. הסימן החיובי והמקדם $1$ במקום $\\frac12$ נובעים מטעויות בפירוק. ‏$\\arctan$ היה מופיע רק עם מונה קבוע מעל $x^2+1$, אבל כאן $C=0$.",
+      "recap": "1/(x(x²+1)) = 1/x − x/(x²+1)",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mi>x</mi><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x\\left(x^2+1\\right)}</annotation></semantics></math></span> ?",
+      "explanationHtml": "הפירוק הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>−</mo><mfrac><mi>x</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac1x-\\frac{x}{x^2+1}</annotation></semantics></math></span>, ולכן <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi mathvariant=\"normal\">∣</mi><mi>x</mi><mi mathvariant=\"normal\">∣</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\ln|x|-\\frac12\\ln(x^2+1)</annotation></semantics></math></span></strong>. הסימן החיובי והמקדם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> במקום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12</annotation></semantics></math></span> נובעים מטעויות בפירוק. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span> היה מופיע רק עם מונה קבוע מעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x^2+1</annotation></semantics></math></span>, אבל כאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">C=0</annotation></semantics></math></span>.",
+      "recapHtml": "1/(x(x²+1)) = 1/x − x/(x²+1)"
+     },
+     {
+      "id": "C06-Q6",
+      "question": "מהי צורת הפירוק הנכונה של $\\frac{x}{(x-1)^2\\left(x^2+4\\right)}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{A}{x-1}+\\frac{Cx+D}{x^2+4}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-1}+\\frac{Cx+D}{x^2+4}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{A}{(x-1)^2}+\\frac{B}{x^2+4}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{(x-1)^2}+\\frac{B}{x^2+4}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{C}{x^2+4}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mi>C</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{C}{x^2+4}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{Cx+D}{x^2+4}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{Cx+D}{x^2+4}</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "גורם כפול $(x-1)^2$ דורש **שני** איברים, וגורם ריבועי דורש מונה **לינארי**. הפירוק $\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{Cx+D}{x^2+4}$ עובד (פתרון קיים). ללא האיבר $\\frac{B}{(x-1)^2}$ או עם קבוע בלבד מעל הריבועי, למערכת המשוואות אין פתרון. בדקנו.",
+      "recap": "כפול: שני איברים. ריבועי: Bx+C",
+      "questionHtml": "מהי צורת הפירוק הנכונה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>x</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo fence=\"true\">)</mo></mrow></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{x}{(x-1)^2\\left(x^2+4\\right)}</annotation></semantics></math></span> ?",
+      "explanationHtml": "גורם כפול <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">(x-1)^2</annotation></semantics></math></span> דורש <strong>שני</strong> איברים, וגורם ריבועי דורש מונה <strong>לינארי</strong>. הפירוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>A</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>C</mi><mi>x</mi><mo>+</mo><mi>D</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{Cx+D}{x^2+4}</annotation></semantics></math></span> עובד (פתרון קיים). ללא האיבר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>B</mi><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{B}{(x-1)^2}</annotation></semantics></math></span> או עם קבוע בלבד מעל הריבועי, למערכת המשוואות אין פתרון. בדקנו.",
+      "recapHtml": "כפול: שני איברים. ריבועי: Bx+C"
+     }
+    ]
+   },
+   {
+    "id": "C07",
+    "order": 7,
+    "icon": "🧭",
+    "title": "איזו שיטה? בחירה בין הצבה, חלקים ושברים",
+    "goal": "להסתכל על אינטגרל ולבחור שיטה אחת נכונה, ולדעת למה האחרות נכשלות.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>הרמה הזאת היא לב הקורס: מול אינטגרל לא מוכר, איך מחליטים? שואלים את <b>השאלות בסדר הזה</b>.</p>\n<table>\n<tr><th>מה רואים</th><th>השיטה</th></tr>\n<tr><td>מנה של פולינומים</td><td>דרגות; חלוקה אם צריך; שברים חלקיים. אם המכנה ריבועי עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta&lt;0</annotation></semantics></math></span>: השלמה לריבוע</td></tr>\n<tr><td>פנימית ונגזרתה באותו אינטגרנד (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">xe^{x^2}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><mi>x</mi><mo stretchy=\"false\">(</mo><mo>⋯</mo><mtext> </mtext><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\ln x}{x(\\cdots)}</annotation></semantics></math></span>)</td><td>הצבה</td></tr>\n<tr><td>מכפלה: פולינום × <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span>/<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\sin</annotation></semantics></math></span>/<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\cos</annotation></semantics></math></span></td><td>בחלקים, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">u=</annotation></semantics></math></span> פולינום</td></tr>\n<tr><td><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan x</annotation></semantics></math></span> (לבד או כפול פולינום)</td><td>בחלקים, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">u=\\ln</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span></td></tr>\n</table>\n<div class=\"lesson-rule\">🔑 שאלת מפתח: האם הגורם השני הוא הנגזרת של הפנימית? אם כן, הצבה. אם לא, מכפלה = בחלקים.</div>\n<p>סימן מובהק שבחלקים לא יעבוד: ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi></mrow><annotation encoding=\"application/x-tex\">dv</annotation></semantics></math></span> אין אינטגרל אלמנטרי. הדוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">e^{x^2}</annotation></semantics></math></span>.</p>\n<div class=\"lesson-ex\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x}dx</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x^2}dx</annotation></semantics></math></span> נראים כמעט אותו דבר. בראשון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> אינו נגזרת של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> (אפשר רק בחלקים). בשני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> הוא חצי נגזרת של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span> (הצבה).</div>\n<div class=\"lesson-trap\">⚠️ אל תנסו שיטה \"על סמך תחושה\". בדקו בשנייה: האם הנגזרת של פנימית נמצאת? אם לא, אל תבצעו הצבה.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C07-Q1",
+      "question": "איזו שיטה מתאימה ל-$\\int x\\,e^{x^2}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "בחלקים עם $u=x$ ו-$dv=e^{x^2}dx$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=e^{x^2}dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "הצבה $t=x^2$",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "שברים חלקיים",
+        "type": "text",
+        "html": "שברים חלקיים"
+       },
+       {
+        "id": "d",
+        "value": "השלמה לריבוע",
+        "type": "text",
+        "html": "השלמה לריבוע"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "הגורם $x$ הוא חצי נגזרת הפנימית $x^2$: **הצבה** נותנת $\\frac12e^{x^2}$. בחלקים נכשלת כי ל-$dv=e^{x^2}dx$ אין אינטגרל אלמנטרי (הוא שייך לפונקציית שגיאה). שברים חלקיים והשלמה לריבוע שייכים לפונקציות רציונליות, וזו לא.",
+      "recap": "הגורם x הוא נגזרת הפנימית: הצבה, לא בחלקים",
+      "questionHtml": "איזו שיטה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x^2}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> הוא חצי נגזרת הפנימית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span>: <strong>הצבה</strong> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup></mrow><annotation encoding=\"application/x-tex\">\\frac12e^{x^2}</annotation></semantics></math></span>. בחלקים נכשלת כי ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><msup><mi>e</mi><msup><mi>x</mi><mn>2</mn></msup></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=e^{x^2}dx</annotation></semantics></math></span> אין אינטגרל אלמנטרי (הוא שייך לפונקציית שגיאה). שברים חלקיים והשלמה לריבוע שייכים לפונקציות רציונליות, וזו לא.",
+      "recapHtml": "הגורם x הוא נגזרת הפנימית: הצבה, לא בחלקים"
+     },
+     {
+      "id": "C07-Q2",
+      "question": "איזו שיטה מתאימה ל-$\\int x\\,e^{x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "הצבה $t=x^2$",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "שברים חלקיים",
+        "type": "text",
+        "html": "שברים חלקיים"
+       },
+       {
+        "id": "c",
+        "value": "בחלקים עם $u=x$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "השלמה לריבוע",
+        "type": "text",
+        "html": "השלמה לריבוע"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "‏$x\\,e^{x}$ היא מכפלת פולינום ב-$e^x$: **בחלקים** עם $u=x$. הצבה $t=x^2$ משאירה $e^{\\sqrt t}$ (כי $e^x$ אינו פונקציה של $x^2$) ולא פותרת את הבעיה. שברים חלקיים והשלמה לריבוע מתאימות רק לפונקציות רציונליות.",
+      "recap": "פולינום × e^x: בחלקים",
+      "questionHtml": "איזו שיטה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mi>x</mi></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\,e^{x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">x\\,e^{x}</annotation></semantics></math></span> היא מכפלת פולינום ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span>: <strong>בחלקים</strong> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x</annotation></semantics></math></span>. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span> משאירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><msqrt><mi>t</mi></msqrt></msup></mrow><annotation encoding=\"application/x-tex\">e^{\\sqrt t}</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span> אינו פונקציה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2</annotation></semantics></math></span>) ולא פותרת את הבעיה. שברים חלקיים והשלמה לריבוע מתאימות רק לפונקציות רציונליות.",
+      "recapHtml": "פולינום × e^x: בחלקים"
+     },
+     {
+      "id": "C07-Q3",
+      "question": "איזו שיטה מתאימה ל-$\\int\\frac{x+3}{(x-1)(x+1)}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "שברים חלקיים",
+        "type": "text",
+        "html": "שברים חלקיים"
+       },
+       {
+        "id": "b",
+        "value": "הצבה $t=x^2-1$ (הנגזרת של המכנה היא $2x$)",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2-1</annotation></semantics></math></span> (הנגזרת של המכנה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2x</annotation></semantics></math></span>)"
+       },
+       {
+        "id": "c",
+        "value": "בחלקים עם $u=\\ln x$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "חלוקה ארוכה",
+        "type": "text",
+        "html": "חלוקה ארוכה"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "הפונקציה רציונלית, דרגת המונה (1) קטנה מדרגת המכנה (2), והמכנה מתפרק לגורמים לינאריים: **שברים חלקיים**. הצבה $t=x^2-1$ לא עובדת כי המונה $x+3$ אינו מכפלה של $2x$. אין $\\ln$ באינטגרנד, ולכן אין $u=\\ln x$. חלוקה נדרשת רק כשדרגת המונה שווה או גדולה.",
+      "recap": "רציונלי + דרגת מונה קטנה + גורמים: שברים חלקיים",
+      "questionHtml": "איזו שיטה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x+3}{(x-1)(x+1)}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "הפונקציה רציונלית, דרגת המונה (1) קטנה מדרגת המכנה (2), והמכנה מתפרק לגורמים לינאריים: <strong>שברים חלקיים</strong>. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2-1</annotation></semantics></math></span> לא עובדת כי המונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x+3</annotation></semantics></math></span> אינו מכפלה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2x</annotation></semantics></math></span>. אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> באינטגרנד, ולכן אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span>. חלוקה נדרשת רק כשדרגת המונה שווה או גדולה.",
+      "recapHtml": "רציונלי + דרגת מונה קטנה + גורמים: שברים חלקיים"
+     },
+     {
+      "id": "C07-Q4",
+      "question": "איזו שיטה מתאימה ל-$\\int\\arctan x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "הצבה $t=\\arctan x$",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\arctan x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "שברים חלקיים",
+        "type": "text",
+        "html": "שברים חלקיים"
+       },
+       {
+        "id": "c",
+        "value": "השלמה לריבוע",
+        "type": "text",
+        "html": "השלמה לריבוע"
+       },
+       {
+        "id": "d",
+        "value": "בחלקים עם $u=\\arctan x$ ו-$dv=dx$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\arctan x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=dx</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "אין פנימית שנגזרתה נמצאת באינטגרנד. הפונקציה $\\arctan x$ לא רציונלית. השיטה היחידה: **בחלקים** עם $dv=dx$. הצבה $t=\\arctan x$ מחייבת $dt=\\frac{dx}{1+x^2}$, אבל אין $\\frac{1}{1+x^2}$ באינטגרנד, והביטוי שנשאר הוא $t\\left(1+\\tan^2t\\right)dt$, מסובך יותר.",
+      "recap": "ln או arctan לבד: בחלקים עם dv = dx",
+      "questionHtml": "איזו שיטה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\arctan x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "אין פנימית שנגזרתה נמצאת באינטגרנד. הפונקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan x</annotation></semantics></math></span> לא רציונלית. השיטה היחידה: <strong>בחלקים</strong> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=dx</annotation></semantics></math></span>. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>arctan</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\arctan x</annotation></semantics></math></span> מחייבת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">dt=\\frac{dx}{1+x^2}</annotation></semantics></math></span>, אבל אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1+x^2}</annotation></semantics></math></span> באינטגרנד, והביטוי שנשאר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mrow><mi>tan</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>t</mi><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t\\left(1+\\tan^2t\\right)dt</annotation></semantics></math></span>, מסובך יותר.",
+      "recapHtml": "ln או arctan לבד: בחלקים עם dv = dx"
+     },
+     {
+      "id": "C07-Q5",
+      "question": "איזו שיטה מתאימה ל-$\\int\\frac{dx}{x^2+2x+5}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "שברים חלקיים עם שורשים ממשיים",
+        "type": "text",
+        "html": "שברים חלקיים עם שורשים ממשיים"
+       },
+       {
+        "id": "b",
+        "value": "השלמה לריבוע ו-$\\arctan$",
+        "type": "text",
+        "html": "השלמה לריבוע ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "בחלקים עם $u=\\frac{1}{x^2+2x+5}$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">u=\\frac{1}{x^2+2x+5}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "הצבה $t=x^2+2x+5$",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2+2x+5</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "המכנה בעל $\\Delta=4-20<0$: אין שורשים ממשיים, ולכן שברים חלקיים לא אפשריים. הצבה $t=x^2+2x+5$ דורשת מונה $2x+2$, והמונה הוא $1$. נשארת **השלמה לריבוע**: $(x+1)^2+4$, ו-$\\frac12\\arctan\\frac{x+1}{2}$.",
+      "recap": "ריבועי עם Δ<0 ומונה קבוע: השלמה לריבוע",
+      "questionHtml": "איזו שיטה מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{x^2+2x+5}</annotation></semantics></math></span> ?",
+      "explanationHtml": "המכנה בעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>=</mo><mn>4</mn><mo>−</mo><mn>20</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta=4-20&lt;0</annotation></semantics></math></span>: אין שורשים ממשיים, ולכן שברים חלקיים לא אפשריים. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">t=x^2+2x+5</annotation></semantics></math></span> דורשת מונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2x+2</annotation></semantics></math></span>, והמונה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>. נשארת <strong>השלמה לריבוע</strong>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy=\"false\">)</mo><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">(x+1)^2+4</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan\\frac{x+1}{2}</annotation></semantics></math></span>.",
+      "recapHtml": "ריבועי עם Δ&lt;0 ומונה קבוע: השלמה לריבוע"
+     },
+     {
+      "id": "C07-Q6",
+      "question": "מהו הצעד הראשון ב-$\\int\\frac{x^3+2}{x^2-1}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "פירוק מיידי לשברים חלקיים",
+        "type": "text",
+        "html": "פירוק מיידי לשברים חלקיים"
+       },
+       {
+        "id": "b",
+        "value": "השלמה לריבוע",
+        "type": "text",
+        "html": "השלמה לריבוע"
+       },
+       {
+        "id": "c",
+        "value": "חלוקה ארוכה",
+        "type": "text",
+        "html": "חלוקה ארוכה"
+       },
+       {
+        "id": "d",
+        "value": "בחלקים עם $u=x^3+2$",
+        "type": "text",
+        "html": "בחלקים עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">u=x^3+2</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "דרגת המונה (3) גדולה מדרגת המכנה (2): **חלוקה ארוכה**. המכנה $x^2-1$ אינו ריבועי עם $\\Delta<0$ ($\\Delta=4$), ולכן לא משלימים לריבוע. אין $\\ln$ באינטגרנד. פירוק מיידי נכשל כי הדרגות לא מתאימות.",
+      "recap": "בודקים דרגות לפני כל שיטה",
+      "questionHtml": "מהו הצעד הראשון ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{x^3+2}{x^2-1}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "דרגת המונה (3) גדולה מדרגת המכנה (2): <strong>חלוקה ארוכה</strong>. המכנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x^2-1</annotation></semantics></math></span> אינו ריבועי עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta&lt;0</annotation></semantics></math></span> (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Δ</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\Delta=4</annotation></semantics></math></span>), ולכן לא משלימים לריבוע. אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> באינטגרנד. פירוק מיידי נכשל כי הדרגות לא מתאימות.",
+      "recapHtml": "בודקים דרגות לפני כל שיטה"
+     },
+     {
+      "id": "C07-Q7",
+      "question": "איזו בחירה בחלקים מתאימה ל-$\\int x\\ln x\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$u=\\ln x,\\ dv=x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x,\\ dv=x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$u=x,\\ dv=\\ln x\\,dx$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>x</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>d</mi><mi>v</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=x,\\ dv=\\ln x\\,dx</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "הצבה $t=\\ln x$ בלבד",
+        "type": "text",
+        "html": "הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\ln x</annotation></semantics></math></span> בלבד"
+       },
+       {
+        "id": "d",
+        "value": "שברים חלקיים",
+        "type": "text",
+        "html": "שברים חלקיים"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "‏$u=\\ln x$ עם $dv=x\\,dx$ מעלימה את ה-$\\ln$: האינטגרל הנותר $\\int\\frac x2dx$. הבחירה ההפוכה דורשת את $\\int\\ln x\\,dx$ ומשאירה $\\ln$ באינטגרל הנותר. הצבה $t=\\ln x$ נותנת $\\int t\\,e^{2t}dt$, שהיא עצמה מכפלה שדורשת בחלקים. ושברים חלקיים לא שייכים: הפונקציה אינה רציונלית.",
+      "recap": "x ln x: בחלקים, u = ln x",
+      "questionHtml": "איזו בחירה בחלקים מתאימה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\ln x\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>v</mi><mo>=</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dv=x\\,dx</annotation></semantics></math></span> מעלימה את ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span>: האינטגרל הנותר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac x2dx</annotation></semantics></math></span>. הבחירה ההפוכה דורשת את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\ln x\\,dx</annotation></semantics></math></span> ומשאירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> באינטגרל הנותר. הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\ln x</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>t</mi><mtext> </mtext><msup><mi>e</mi><mrow><mn>2</mn><mi>t</mi></mrow></msup><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">\\int t\\,e^{2t}dt</annotation></semantics></math></span>, שהיא עצמה מכפלה שדורשת בחלקים. ושברים חלקיים לא שייכים: הפונקציה אינה רציונלית.",
+      "recapHtml": "x ln x: בחלקים, u = ln x"
+     }
+    ]
+   },
+   {
+    "id": "C08",
+    "order": 8,
+    "icon": "🎯",
+    "title": "הצבות מיוחדות: e^x, √x, טריגונומטריה",
+    "goal": "להחליף e^x, שורש או tan(x/2) כך שהאינטגרל יהפוך לרציונלי, ולהמשיך עד הסוף.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n<p>כמה אינטגרלים מתפרקים בהצבה מיוחדת שמחזירה אותם לפונקציה רציונלית.</p>\n<ul>\n<li><b><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span> בתוך מנה:</b> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">t=e^x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mi>t</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">dx=\\frac{dt}{t}</annotation></semantics></math></span>.</li>\n<li><b><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mi>x</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sqrt x</annotation></semantics></math></span> בתוך הביטוי:</b> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">t=\\sqrt x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x=t^2</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>2</mn><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">dx=2t\\,dt</annotation></semantics></math></span>.</li>\n<li><b>טריגונומטרי:</b> אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x\\,dx</annotation></semantics></math></span> נמצא באינטגרנד, אפשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>. אחרת הצבה אוניברסלית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">t=\\tan\\frac x2</annotation></semantics></math></span>.</li>\n</ul>\n<div class=\"lesson-formula\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">t=\\tan\\frac x2</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\sin x=\\frac{2t}{1+t^2}</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>t</mi><mn>2</mn></msup></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\cos x=\\frac{1-t^2}{1+t^2}</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">dx=\\frac{2\\,dt}{1+t^2}</annotation></semantics></math></span></div>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{e^x+1}</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">t=e^x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mrow><mi>t</mi><mo stretchy=\"false\">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>t</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dt}{t(t+1)}=\\ln t-\\ln(t+1)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x-\\ln\\left(e^x+1\\right)+C</annotation></semantics></math></span>.</div>\n<div class=\"lesson-ex\">דוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int e^{\\sqrt x}dx</annotation></semantics></math></span>. עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">t=\\sqrt x</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∫</mo><mi>t</mi><msup><mi>e</mi><mi>t</mi></msup><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">2\\int te^{t}dt</annotation></semantics></math></span>, ואחר כך בחלקים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo stretchy=\"false\">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">2(t-1)e^{t}</annotation></semantics></math></span>.</div>\n<div class=\"lesson-trap\">⚠️ ההצבה האוניברסלית מסורבלת. אל תשתמשו בה אם יש הצבה פשוטה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{\\sin x}{1+\\cos^2x}dx</annotation></semantics></math></span> נפתר עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>.</div>\n"
+    },
+    "questions": [
+     {
+      "id": "C08-Q1",
+      "question": "מהו $\\int\\frac{dx}{e^x+1}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\ln\\left(e^x+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln\\left(e^x+1\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$-\\ln\\left(e^x+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\ln\\left(e^x+1\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$x+\\ln\\left(e^x+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x+\\ln\\left(e^x+1\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$x-\\ln\\left(e^x+1\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x-\\ln\\left(e^x+1\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "עם $t=e^x$: ‏$\\int\\frac{dt}{t(t+1)}=\\int\\left(\\frac1t-\\frac1{t+1}\\right)dt=\\ln t-\\ln(t+1)$. מחזירים $\\ln t=x$ ומקבלים **$x-\\ln(e^x+1)$**. ‏$\\ln(e^x+1)$ לבדו נותן $\\frac{e^x}{e^x+1}$, שהוא האינטגרנד של $\\frac{e^x}{e^x+1}$ ולא של השאלה.",
+      "recap": "רציונלי ב-e^x: t = e^x ← שברים חלקיים",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{e^x+1}</annotation></semantics></math></span> ?",
+      "explanationHtml": "עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">t=e^x</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mrow><mi>t</mi><mo stretchy=\"false\">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mo>∫</mo><mrow><mo fence=\"true\">(</mo><mfrac><mn>1</mn><mi>t</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>t</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>t</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dt}{t(t+1)}=\\int\\left(\\frac1t-\\frac1{t+1}\\right)dt=\\ln t-\\ln(t+1)</annotation></semantics></math></span>. מחזירים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>t</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln t=x</annotation></semantics></math></span> ומקבלים <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>−</mo><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x-\\ln(e^x+1)</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\ln(e^x+1)</annotation></semantics></math></span> לבדו נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><mi>x</mi></msup><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{e^x}{e^x+1}</annotation></semantics></math></span>, שהוא האינטגרנד של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><mi>x</mi></msup><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{e^x}{e^x+1}</annotation></semantics></math></span> ולא של השאלה.",
+      "recapHtml": "רציונלי ב-e^x: t = e^x ← שברים חלקיים"
+     },
+     {
+      "id": "C08-Q2",
+      "question": "מהו $\\int e^{\\sqrt{x}}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$2e^{\\sqrt x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2e^{\\sqrt x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$2\\left(\\sqrt x-1\\right)e^{\\sqrt x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mrow><mo fence=\"true\">(</mo><msqrt><mi>x</mi></msqrt><mo>−</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2\\left(\\sqrt x-1\\right)e^{\\sqrt x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$2\\left(\\sqrt x+1\\right)e^{\\sqrt x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mrow><mo fence=\"true\">(</mo><msqrt><mi>x</mi></msqrt><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">2\\left(\\sqrt x+1\\right)e^{\\sqrt x}+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{e^{\\sqrt x}}{\\sqrt x}+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><msqrt><mi>x</mi></msqrt></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{e^{\\sqrt x}}{\\sqrt x}+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "‏$t=\\sqrt x$, ‏$dx=2t\\,dt$: ‏$2\\int te^{t}dt=2(t-1)e^{t}$. התשובה **$2(\\sqrt x-1)e^{\\sqrt x}$**. ‏$2e^{\\sqrt x}$ מתעלמת מהגורם $t$. ‏$(\\sqrt x+1)$ שגוי בסימן. ‏$\\frac{e^{\\sqrt x}}{\\sqrt x}$ מניח כלל חזקה על הפנימית.",
+      "recap": "√x בתוך הביטוי: t = √x ואז בחלקים",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int e^{\\sqrt{x}}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">t=\\sqrt x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>2</mn><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">dx=2t\\,dt</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∫</mo><mi>t</mi><msup><mi>e</mi><mi>t</mi></msup><mi>d</mi><mi>t</mi><mo>=</mo><mn>2</mn><mo stretchy=\"false\">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">2\\int te^{t}dt=2(t-1)e^{t}</annotation></semantics></math></span>. התשובה <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo stretchy=\"false\">(</mo><msqrt><mi>x</mi></msqrt><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup></mrow><annotation encoding=\"application/x-tex\">2(\\sqrt x-1)e^{\\sqrt x}</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup></mrow><annotation encoding=\"application/x-tex\">2e^{\\sqrt x}</annotation></semantics></math></span> מתעלמת מהגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msqrt><mi>x</mi></msqrt><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\sqrt x+1)</annotation></semantics></math></span> שגוי בסימן. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>e</mi><msqrt><mi>x</mi></msqrt></msup><msqrt><mi>x</mi></msqrt></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{e^{\\sqrt x}}{\\sqrt x}</annotation></semantics></math></span> מניח כלל חזקה על הפנימית.",
+      "recapHtml": "√x בתוך הביטוי: t = √x ואז בחלקים"
+     },
+     {
+      "id": "C08-Q3",
+      "question": "מהו $\\int\\frac{\\sin x}{1+\\cos^2x}\\,dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\arctan(\\cos x)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan(\\cos x)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$-\\arctan(\\sin x)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\arctan(\\sin x)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$-\\arctan(\\cos x)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">-\\arctan(\\cos x)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\ln\\left(1+\\cos^2x\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\ln\\left(1+\\cos^2x\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "c",
+      "explanation": "‏$t=\\cos x$, ‏$dt=-\\sin x\\,dx$, ולכן $-\\int\\frac{dt}{1+t^2}=-\\arctan t$. הסימן המינוס חיוני. ‏$\\arctan(\\sin x)$ מתאים ל-$\\frac{\\cos x}{1+\\sin^2x}$. ‏$\\ln$ מתאים אם המונה היה $\\sin x\\cos x$.",
+      "recap": "sin x dx = −dt: מחליפים בסימן",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{\\sin x}{1+\\cos^2x}\\,dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>t</mi><mo>=</mo><mo>−</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">dt=-\\sin x\\,dx</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mo>−</mo><mi>arctan</mi><mo>⁡</mo><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">-\\int\\frac{dt}{1+t^2}=-\\arctan t</annotation></semantics></math></span>. הסימן המינוס חיוני. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan(\\sin x)</annotation></semantics></math></span> מתאים ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{\\cos x}{1+\\sin^2x}</annotation></semantics></math></span>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> מתאים אם המונה היה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x\\cos x</annotation></semantics></math></span>.",
+      "recapHtml": "sin x dx = −dt: מחליפים בסימן"
+     },
+     {
+      "id": "C08-Q4",
+      "question": "איזו הצבה מחזירה את $\\int\\frac{dx}{2+\\cos x}$ לאינטגרל רציונלי ב-$t$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$t=\\tan\\frac x2$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">t=\\tan\\frac x2</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$t=\\cos x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$t=\\sin x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\sin x</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$t=2+\\cos x$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=2+\\cos x</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "אין $\\sin x\\,dx$ באינטגרנד, ולכן $t=\\cos x$ משאירה $dx=-\\frac{dt}{\\sqrt{1-t^2}}$ (שורש): לא רציונלי. ההצבה האוניברסלית $t=\\tan\\frac x2$ נותנת $\\int\\frac{2\\,dt}{3+t^2}$, כלומר $\\frac{2}{\\sqrt3}\\arctan\\frac{\\tan(x/2)}{\\sqrt3}$. אפשר לגזור ולוודא. ‏$t=\\sin x$ ו-$t=2+\\cos x$ משאירות גם שורשים.",
+      "recap": "אין sin x dx: הצבה אוניברסלית t = tan(x/2)",
+      "questionHtml": "איזו הצבה מחזירה את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mrow><mn>2</mn><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{dx}{2+\\cos x}</annotation></semantics></math></span> לאינטגרל רציונלי ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span> ?",
+      "explanationHtml": "אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin x\\,dx</annotation></semantics></math></span> באינטגרנד, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\cos x</annotation></semantics></math></span> משאירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mo>−</mo><mfrac><mrow><mi>d</mi><mi>t</mi></mrow><msqrt><mrow><mn>1</mn><mo>−</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></msqrt></mfrac></mrow><annotation encoding=\"application/x-tex\">dx=-\\frac{dt}{\\sqrt{1-t^2}}</annotation></semantics></math></span> (שורש): לא רציונלי. ההצבה האוניברסלית <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">t=\\tan\\frac x2</annotation></semantics></math></span> נותנת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mfrac><mrow><mn>2</mn><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><mrow><mn>3</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\int\\frac{2\\,dt}{3+t^2}</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><msqrt><mn>3</mn></msqrt></mfrac><mi>arctan</mi><mo>⁡</mo><mfrac><mrow><mi>tan</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mi mathvariant=\"normal\">/</mi><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><msqrt><mn>3</mn></msqrt></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{\\sqrt3}\\arctan\\frac{\\tan(x/2)}{\\sqrt3}</annotation></semantics></math></span>. אפשר לגזור ולוודא. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=\\sin x</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>2</mn><mo>+</mo><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">t=2+\\cos x</annotation></semantics></math></span> משאירות גם שורשים.",
+      "recapHtml": "אין sin x dx: הצבה אוניברסלית t = tan(x/2)"
+     },
+     {
+      "id": "C08-Q5",
+      "step": {
+       "type": "numeric",
+       "prompt": "בהצבה $t=\\tan\\frac x2$ מתקבל $dx=\\frac{c\\,dt}{1+t^2}$. מהו $c$ ?",
+       "answer": 2,
+       "tol": 0,
+       "explain": "‏$x=2\\arctan t$, ולכן $dx=\\frac{2\\,dt}{1+t^2}$. כלומר $c=2$.",
+       "promptHtml": "בהצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">t=\\tan\\frac x2</annotation></semantics></math></span> מתקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mi>c</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">dx=\\frac{c\\,dt}{1+t^2}</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span> ?",
+       "explainHtml": "‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn><mi>arctan</mi><mo>⁡</mo><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x=2\\arctan t</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mtext> </mtext><mi>d</mi><mi>t</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">dx=\\frac{2\\,dt}{1+t^2}</annotation></semantics></math></span>. כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">c=2</annotation></semantics></math></span>."
+      },
+      "recap": "dx = 2dt/(1+t²) בהצבה האוניברסלית",
+      "recapHtml": "dx = 2dt/(1+t²) בהצבה האוניברסלית"
+     },
+     {
+      "id": "C08-Q6",
+      "question": "מהו $\\int x\\arctan\\left(x^2\\right)dx$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac12\\ln\\left(1+x^4\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>4</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac12\\ln\\left(1+x^4\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac12\\arctan\\left(x^2\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan\\left(x^2\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)+\\frac14\\ln\\left(1+x^4\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>4</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan\\left(x^2\\right)+\\frac14\\ln\\left(1+x^4\\right)+C</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac14\\ln\\left(1+x^4\\right)+C$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>ln</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>4</mn></msup><mo fence=\"true\">)</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac14\\ln\\left(1+x^4\\right)+C</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "d",
+      "explanation": "קודם הצבה $t=x^2$, ‏$x\\,dx=\\frac12dt$: ‏$\\frac12\\int\\arctan t\\,dt=\\frac12\\left(t\\arctan t-\\frac12\\ln(1+t^2)\\right)$. מחזירים: **$\\frac{x^2}{2}\\arctan x^2-\\frac14\\ln(1+x^4)$**. ‏$\\frac12\\ln$ שוכחת את חצי החצי. ‏$\\frac12\\arctan x^2$ מתעלמת מהחלקים. הסימן בתשובה האחרונה הפוך.",
+      "recap": "הצבה t = x² ואז בחלקים",
+      "questionHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∫</mo><mi>x</mi><mi>arctan</mi><mo>⁡</mo><mrow><mo fence=\"true\">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo fence=\"true\">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\int x\\arctan\\left(x^2\\right)dx</annotation></semantics></math></span> ?",
+      "explanationHtml": "קודם הצבה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">t=x^2</annotation></semantics></math></span>, ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mtext> </mtext><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>d</mi><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">x\\,dx=\\frac12dt</annotation></semantics></math></span>: ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>∫</mo><mi>arctan</mi><mo>⁡</mo><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mi>t</mi><mi>arctan</mi><mo>⁡</mo><mi>t</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>2</mn></msup><mo stretchy=\"false\">)</mo><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\frac12\\int\\arctan t\\,dt=\\frac12\\left(t\\arctan t-\\frac12\\ln(1+t^2)\\right)</annotation></semantics></math></span>. מחזירים: <strong><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>ln</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>4</mn></msup><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{x^2}{2}\\arctan x^2-\\frac14\\ln(1+x^4)</annotation></semantics></math></span></strong>. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\frac12\\ln</annotation></semantics></math></span> שוכחת את חצי החצי. ‏<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>arctan</mi><mo>⁡</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">\\frac12\\arctan x^2</annotation></semantics></math></span> מתעלמת מהחלקים. הסימן בתשובה האחרונה הפוך.",
+      "recapHtml": "הצבה t = x² ואז בחלקים"
+     }
+    ]
+   },
+   {
+    "id": "C09",
+    "order": 9,
+    "icon": "🏆",
+    "title": "מבחן מסכם: אינטגרלים ממבחנים",
+    "goal": "לבחור שיטה ולהשלים חמישה אינטגרלים אמיתיים מהמבחנים, כל אחד בשיטה אחרת.",
+    "source": "ai-verified",
+    "boss": true,
+    "lesson": {
+     "html": "\n<p>זו ההרצה המלאה: חמישה אינטגרלים ממבחנים אמיתיים, כל אחד בשיטה אחרת. החליטו על השיטה לפני שמתחילים לחשב.</p>\n<table>\n<tr><th>מה רואים</th><th>השיטה</th></tr>\n<tr><td>מנה של פולינומים</td><td>דרגות, חלוקה, שברים חלקיים (גורם ריבועי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\ln</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>arctan</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\arctan</annotation></semantics></math></span>)</td></tr>\n<tr><td>פנימית ונגזרתה (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><mi>x</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{dx}{x}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\cos2x</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\sin2x</annotation></semantics></math></span>)</td><td>הצבה</td></tr>\n<tr><td>פולינום × <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>sin</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\sin</annotation></semantics></math></span>/<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>cos</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">\\cos</annotation></semantics></math></span>/<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding=\"application/x-tex\">e^x</annotation></semantics></math></span></td><td>בחלקים, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">u=</annotation></semantics></math></span> פולינום; כמה סיבובים</td></tr>\n<tr><td><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mi>ln</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln^2x</annotation></semantics></math></span> לבד</td><td>בחלקים פעמיים, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mrow><mi>ln</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln^2x</annotation></semantics></math></span> ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>u</mi><mo>=</mo><mi>ln</mi><mo>⁡</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">u=\\ln x</annotation></semantics></math></span></td></tr>\n</table>\n<div class=\"lesson-rule\">🔑 בסוף גוזרים את התשובה ובודקים. זה הכלי הטוב ביותר נגד טעויות סימן.</div>\n<div class=\"lesson-trap\">⚠️ אל תשכחו את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">+C</annotation></semantics></math></span>. במבחן זה מוריד נקודה.</div>\n"
+    },
+    "questions": [
+     {
+      "bankId": "24B-A-Q2a",
+      "recap": "מנה, דרגות קטנות, גורם לינארי וגורם ריבועי: שברים חלקיים עם A, ובמונה הריבועי ln ו-arctan",
+      "recapHtml": "מנה, דרגות קטנות, גורם לינארי וגורם ריבועי: שברים חלקיים עם A, ובמונה הריבועי ln ו-arctan"
+     },
+     {
+      "bankId": "24B-A-Q5a",
+      "recap": "פולינום × cos 2x: בחלקים פעמיים, u = הפולינום, והפנימית 2x מחלקת ב-2",
+      "recapHtml": "פולינום × cos 2x: בחלקים פעמיים, u = הפולינום, והפנימית 2x מחלקת ב-2"
+     },
+     {
+      "bankId": "24A-A-Q3b",
+      "recap": "sin 2x dx עם cos² 2x במכנה: הצבה t = cos 2x ← arctan",
+      "recapHtml": "sin 2x dx עם cos² 2x במכנה: הצבה t = cos 2x ← arctan"
+     },
+     {
+      "bankId": "24A-B-Q5a",
+      "recap": "ln x עם dx/x: הצבה t = ln x ← (1/2) ln(t²+1)",
+      "recapHtml": "ln x עם dx/x: הצבה t = ln x ← (1/2) ln(t²+1)"
+     },
+     {
+      "bankId": "20B-C-Q4a",
+      "recap": "ln² x לבד: בחלקים פעמיים, u = ln²x ואז u = ln x",
+      "recapHtml": "ln² x לבד: בחלקים פעמיים, u = ln²x ואז u = ln x"
+     }
+    ]
+   }
+  ]
+ },
  "investigation": {
   "levels": [
    {

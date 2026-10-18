@@ -1,0 +1,1184 @@
+{
+ "courseId": "integration",
+ "levels": [
+  {
+   "id": "C01",
+   "order": 1,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C01-Q1",
+     "question": "מהו $\\int\\cos(3x)\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\sin 3x+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$3\\sin 3x+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\sin 3x}{3}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$-\\frac{\\sin 3x}{3}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q2",
+     "question": "מהו $\\int e^{2x+1}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{e^{2x+1}}{2}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$e^{2x+1}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2e^{2x+1}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{e^{2x+1}}{2x+1}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q3",
+     "question": "מהו $\\int\\frac{dx}{3x-2}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\ln|3x-2|+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$3\\ln|3x-2|+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-\\frac{1}{(3x-2)^2}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{3}\\ln|3x-2|+C$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q4",
+     "question": "מהו $\\int\\frac{2x}{x^2+5}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1}{\\sqrt5}\\arctan\\frac{x}{\\sqrt5}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\ln\\left(x^2+5\\right)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2x\\ln\\left(x^2+5\\right)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{2}{x^2+5}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\int\\frac{dx}{4x+1}=k\\ln|4x+1|+C$. מהו $k$ ?"
+     }
+    },
+    {
+     "id": "C01-Q6",
+     "question": "מהו $\\int\\frac{dx}{x^2+9}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\arctan\\frac{x}{3}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{9}\\arctan\\frac{x}{9}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{3}\\arctan\\frac{x}{3}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac12\\ln\\left(x^2+9\\right)+C$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C02",
+   "order": 2,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C02-Q1",
+     "question": "מהו $\\int x\\,e^{x^2}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac12e^{x^2}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$e^{x^2}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2e^{x^2}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}e^{x^2}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q2",
+     "question": "באינטגרל $\\int\\frac{\\cos x}{1+\\sin^2x}\\,dx$, איזו הצבה מחזירה אינטגרל רציונלי ב-$t$ בלבד ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=1+\\sin^2x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q3",
+     "question": "מהו $\\int\\frac{\\sin x}{\\cos^3x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$-\\frac{1}{2\\cos^2x}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{1}{2\\cos^2x}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{1}{\\cos^2x}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$-\\frac{\\cos^{-2}x}{2}\\cdot\\sin x+C$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\int x\\left(x^2+1\\right)^3dx=k\\left(x^2+1\\right)^4+C$. מהו $k$ ?"
+     }
+    },
+    {
+     "id": "C02-Q5",
+     "question": "מהו $\\int\\frac{(\\ln x)^2}{x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{(\\ln x)^3}{3x}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{(\\ln x)^2}{2}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{(\\ln x)^3}{3}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2\\ln x+C$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q6",
+     "step": {
+      "type": "findbug",
+      "prompt": "בפתרון של $\\int x^2e^{x^3}dx$ יש שורה אחת שגויה. איזו ?",
+      "lines": [
+       "בוחרים $t=x^3$ וכותבים $dt=3x^2\\,dx$.",
+       "לכן $x^2\\,dx=3\\,dt$ והאינטגרל הוא $3\\int e^{t}\\,dt$.",
+       "$3\\int e^{t}\\,dt=3e^{t}+C$.",
+       "מחזירים: $3e^{x^3}+C$."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "C03",
+   "order": 3,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C03-Q1",
+     "question": "באינטגרל $\\int x\\sin x\\,dx$ בחלקים, איזו בחירה מקטינה את הבעיה ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=x,\\ dv=\\sin x\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=\\sin x,\\ dv=x\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$u=x\\sin x,\\ dv=dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$u=1,\\ dv=x\\sin x\\,dx$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q2",
+     "question": "מהו $\\int x\\,e^{x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(x+1)e^{x}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$xe^{x}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}e^{x}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(x-1)e^{x}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q3",
+     "question": "מהו $\\int x\\cos x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x\\sin x-\\cos x+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x\\sin x+\\cos x+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-x\\sin x+\\cos x+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\sin x+C$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\int x\\,e^{2x}dx=\\left(\\frac{x}{2}-a\\right)e^{2x}+C$. מהו $a$ ?"
+     }
+    },
+    {
+     "id": "C03-Q5",
+     "question": "מהו $\\int x^2e^{x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\left(x^2+2x+2\\right)e^{x}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(x^2-2x\\right)e^{x}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\left(x^2-2x+2\\right)e^{x}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\left(x^2-2x+1\\right)e^{x}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q6",
+     "step": {
+      "type": "order",
+      "prompt": "סדרו את הפתרון של $\\int x\\sin x\\,dx$.",
+      "lines": [
+       "$du=dx,\\ v=-\\cos x$",
+       "$\\int x\\sin x\\,dx=-x\\cos x+\\int\\cos x\\,dx$",
+       "$=-x\\cos x+\\sin x+C$",
+       "$u=x,\\ dv=\\sin x\\,dx$"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "C04",
+   "order": 4,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C04-Q1",
+     "question": "באינטגרל $\\int x\\ln x\\,dx$ בחלקים, איזו בחירה מעלימה את ה-$\\ln$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=\\ln x,\\ dv=x\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=x,\\ dv=\\ln x\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$u=x\\ln x,\\ dv=dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$u=1,\\ dv=x\\ln x\\,dx$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q2",
+     "question": "מהו $\\int\\ln x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x\\ln x+x+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac1x+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x\\ln x-1+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x\\ln x-x+C$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q3",
+     "question": "מהו $\\int x\\ln x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{2}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\ln x+\\frac{x^2}{4}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\cdot\\frac1x+C$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\int x\\ln x\\,dx=\\frac{x^2}{2}\\ln x-k\\,x^2+C$. מהו $k$ ?"
+     }
+    },
+    {
+     "id": "C04-Q5",
+     "question": "מהו $\\int\\arctan x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x\\arctan x-\\ln\\left(1+x^2\\right)+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x\\arctan x+\\frac12\\ln\\left(1+x^2\\right)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{1}{1+x^2}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q6",
+     "question": "מהו $\\int x\\arctan x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^2+1}{2}\\arctan x-\\frac x2+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\arctan x-\\frac x2+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^2+1}{2}\\arctan x+\\frac x2+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\arctan x-\\frac12\\ln\\left(1+x^2\\right)+C$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C05",
+   "order": 5,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C05-Q1",
+     "question": "מהו הצעד הראשון הנכון באינטגרל $\\int\\frac{x^3+2}{x^2-1}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פירוק מיידי לשברים חלקיים $\\frac{A}{x-1}+\\frac{B}{x+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבה $t=x^2-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינטגרציה בחלקים עם $u=x^3+2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "חלוקה ארוכה של המונה במכנה"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q2",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\frac{x^3+2}{x^2-1}=x+\\frac{ax+2}{x^2-1}$. מהו $a$ ?"
+     }
+    },
+    {
+     "id": "C05-Q3",
+     "question": "מהו $\\int\\frac{dx}{(x-1)(x+2)}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac13\\ln\\left|\\frac{x+2}{x-1}\\right|+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac13\\ln\\left|\\frac{x-1}{x+2}\\right|+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln|(x-1)(x+2)|+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac13\\ln|x-1|+\\frac13\\ln|x+2|+C$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\frac{5}{(x-2)(x+3)}=\\frac{A}{x-2}+\\frac{B}{x+3}$. מהו $A$ ?"
+     }
+    },
+    {
+     "id": "C05-Q5",
+     "question": "מהו $\\int\\frac{3x+5}{(x-1)(x+1)}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$4\\ln|x+1|-\\ln|x-1|+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\ln|x-1|+\\ln|x+1|+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$4\\ln|x-1|-\\ln|x+1|+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac32\\ln\\left|x^2-1\\right|+C$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q6",
+     "question": "מהו $\\int\\frac{x}{x+1}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x-\\ln|x+1|+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x+\\ln|x+1|+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln|x+1|+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2\\left(x+1\\right)}+C$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C06",
+   "order": 6,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C06-Q1",
+     "question": "מהו $\\int\\frac{dx}{x^2+2x+5}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\arctan\\frac{x+1}{2}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac12\\arctan(x+1)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln\\left(x^2+2x+5\\right)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac12\\arctan\\frac{x+1}{2}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q2",
+     "question": "איזה סוג פונקציות יופיע בתשובה של $\\int\\frac{dx}{x^2+4x+3}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\arctan$ (המכנה לא מתפרק)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לוגריתמים בלבד (המכנה מתפרק)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\arctan$ ו-$\\ln$ ביחד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אי אפשר לבטא באמצעות פונקציות אלמנטריות"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q3",
+     "question": "מהו $\\int\\frac{x+3}{x^2+1}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\ln\\left(x^2+1\\right)+3\\arctan x+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac12\\ln\\left(x^2+1\\right)+\\arctan 3x+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac12\\ln\\left(x^2+1\\right)+3\\arctan x+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln|x+3|-\\ln\\left(x^2+1\\right)+C$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "$\\frac{1}{x\\left(x^2+1\\right)}=\\frac{A}{x}+\\frac{Bx+C}{x^2+1}$. מהו $B$ ?"
+     }
+    },
+    {
+     "id": "C06-Q5",
+     "question": "מהו $\\int\\frac{dx}{x\\left(x^2+1\\right)}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\ln|x|-\\frac12\\ln\\left(x^2+1\\right)+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\ln|x|+\\frac12\\ln\\left(x^2+1\\right)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\ln|x|-\\arctan x+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln|x|-\\ln\\left(x^2+1\\right)+C$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q6",
+     "question": "מהי צורת הפירוק הנכונה של $\\frac{x}{(x-1)^2\\left(x^2+4\\right)}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{Cx+D}{x^2+4}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{A}{(x-1)^2}+\\frac{B}{x^2+4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{C}{x^2+4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{A}{x-1}+\\frac{B}{(x-1)^2}+\\frac{Cx+D}{x^2+4}$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C07",
+   "order": 7,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C07-Q1",
+     "question": "איזו שיטה מתאימה ל-$\\int x\\,e^{x^2}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "בחלקים עם $u=x$ ו-$dv=e^{x^2}dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבה $t=x^2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שברים חלקיים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "השלמה לריבוע"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q2",
+     "question": "איזו שיטה מתאימה ל-$\\int x\\,e^{x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הצבה $t=x^2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שברים חלקיים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בחלקים עם $u=x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "השלמה לריבוע"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q3",
+     "question": "איזו שיטה מתאימה ל-$\\int\\frac{x+3}{(x-1)(x+1)}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שברים חלקיים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הצבה $t=x^2-1$ (הנגזרת של המכנה היא $2x$)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בחלקים עם $u=\\ln x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "חלוקה ארוכה"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q4",
+     "question": "איזו שיטה מתאימה ל-$\\int\\arctan x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הצבה $t=\\arctan x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שברים חלקיים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "השלמה לריבוע"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בחלקים עם $u=\\arctan x$ ו-$dv=dx$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q5",
+     "question": "איזו שיטה מתאימה ל-$\\int\\frac{dx}{x^2+2x+5}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שברים חלקיים עם שורשים ממשיים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "השלמה לריבוע ו-$\\arctan$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בחלקים עם $u=\\frac{1}{x^2+2x+5}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הצבה $t=x^2+2x+5$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q6",
+     "question": "מהו הצעד הראשון ב-$\\int\\frac{x^3+2}{x^2-1}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פירוק מיידי לשברים חלקיים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "השלמה לריבוע"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חלוקה ארוכה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בחלקים עם $u=x^3+2$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q7",
+     "question": "איזו בחירה בחלקים מתאימה ל-$\\int x\\ln x\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$u=\\ln x,\\ dv=x\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$u=x,\\ dv=\\ln x\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הצבה $t=\\ln x$ בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שברים חלקיים"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C08",
+   "order": 8,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C08-Q1",
+     "question": "מהו $\\int\\frac{dx}{e^x+1}$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\ln\\left(e^x+1\\right)+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$-\\ln\\left(e^x+1\\right)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x+\\ln\\left(e^x+1\\right)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x-\\ln\\left(e^x+1\\right)+C$"
+      }
+     ]
+    },
+    {
+     "id": "C08-Q2",
+     "question": "מהו $\\int e^{\\sqrt{x}}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2e^{\\sqrt x}+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2\\left(\\sqrt x-1\\right)e^{\\sqrt x}+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2\\left(\\sqrt x+1\\right)e^{\\sqrt x}+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{e^{\\sqrt x}}{\\sqrt x}+C$"
+      }
+     ]
+    },
+    {
+     "id": "C08-Q3",
+     "question": "מהו $\\int\\frac{\\sin x}{1+\\cos^2x}\\,dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\arctan(\\cos x)+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$-\\arctan(\\sin x)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$-\\arctan(\\cos x)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\ln\\left(1+\\cos^2x\\right)+C$"
+      }
+     ]
+    },
+    {
+     "id": "C08-Q4",
+     "question": "איזו הצבה מחזירה את $\\int\\frac{dx}{2+\\cos x}$ לאינטגרל רציונלי ב-$t$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$t=\\tan\\frac x2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$t=\\cos x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$t=\\sin x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$t=2+\\cos x$"
+      }
+     ]
+    },
+    {
+     "id": "C08-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "בהצבה $t=\\tan\\frac x2$ מתקבל $dx=\\frac{c\\,dt}{1+t^2}$. מהו $c$ ?"
+     }
+    },
+    {
+     "id": "C08-Q6",
+     "question": "מהו $\\int x\\arctan\\left(x^2\\right)dx$ ?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac12\\ln\\left(1+x^4\\right)+C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac12\\arctan\\left(x^2\\right)+C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)+\\frac14\\ln\\left(1+x^4\\right)+C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^2}{2}\\arctan\\left(x^2\\right)-\\frac14\\ln\\left(1+x^4\\right)+C$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C09",
+   "order": 9,
+   "boss": true,
+   "questions": [
+    {
+     "id": "bank:24B-A-Q2a",
+     "bankId": "24B-A-Q2a"
+    },
+    {
+     "id": "bank:24B-A-Q5a",
+     "bankId": "24B-A-Q5a"
+    },
+    {
+     "id": "bank:24A-A-Q3b",
+     "bankId": "24A-A-Q3b"
+    },
+    {
+     "id": "bank:24A-B-Q5a",
+     "bankId": "24A-B-Q5a"
+    },
+    {
+     "id": "bank:20B-C-Q4a",
+     "bankId": "20B-C-Q4a"
+    }
+   ]
+  }
+ ]
+}
