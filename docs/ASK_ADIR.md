@@ -230,3 +230,16 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Question: the printed solution pages show no points for Q5a and Q5b. The instructions give 20% per question and every other question is split 10+10, so 10+10 is inferred (the raw items carry no explicit points; each rubric sums to 10). It is not verifiable on the page.
 - Needed: confirm the 10+10 split if it matters.
 - Status: open
+
+### 22A-B Q5a - intermediate chain has "<" where "=" belongs
+- Page: solution
+- Question: the source writes 1/(1+x) < ln(1+x)/x < 1/(1+c) < 1; since ln(1+x)/x = 1/(1+c) by Lagrange, the middle "<" is "=". Fixed silently in the shipped solution (final inequality unchanged).
+- Needed: none.
+- Status: resolved
+- Ruling 2026-10-18 (fixer): intermediate slip, corrected without a student-facing label per the standing ruling.
+
+### 22A-A Q4a - official argument gap (common tangent)
+- Page: solution
+- Question: the solution equates slopes at the same x and never shows the tangent touches both curves at one point. A visible "הערה (השלמה)" line was added: with distinct abscissas p=1/q, q the tangent-equality gives q^2-1-2ln q=0, whose only root is q=1 (sympy/grid, tools/verify/22A-A/check.py). The answer is unchanged.
+- Needed: none.
+- Status: resolved

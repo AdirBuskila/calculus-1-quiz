@@ -12,7 +12,7 @@
    "kind": "computation",
    "topic": "function_investigation",
    "question": "חקרו את הפונקציה $f(x)=\\frac{x^3}{x^2-1}$ על פי הסעיפים הבאים: תחום הגדרה, נקודות חיתוך עם הצירים, תחומי עליה וירידה ונקודות קיצון, תחומי קמירות וקעירות ונקודות פיתול, אסימפטוטות, שרטוט.",
-   "solution": "**א. תחום הגדרה:** $D=\\{x\\in\\mathbb{R},\\ x\\neq\\pm1\\}$.\n**ב. נקודת חיתוך עם צירי הקואורדינטות:** $(0,0)$.\n**ג.** $$f'(x)=\\frac{3x^2\\left(x^2-1\\right)-2x^4}{\\left(x^2-1\\right)^2}=\\frac{x^4-3x^2}{\\left(x^2-1\\right)^2}=\\frac{x^2\\left(x^2-3\\right)}{\\left(x^2-1\\right)^2}$$ והנקודות הקריטיות של הפונקציה הן $x=0,\\ x=\\pm\\sqrt{3}$.\nטבלת סימן של $f'$: חיובית כאשר $x<-\\sqrt{3}$, שלילית כאשר $-\\sqrt{3}<x<0$ וגם כאשר $0<x<\\sqrt{3}$, וחיובית כאשר $x>\\sqrt{3}$ (בתחום ההגדרה).\n**סיכום:** $f(x)$ עולה כאשר $x<-\\sqrt{3}$ וגם $x>\\sqrt{3}$, ו-$f(x)$ יורדת כאשר $-\\sqrt{3}<x<\\sqrt{3}$. הנקודה $x=-\\sqrt{3}$ היא נקודת מקסימום מקומי כך ש-$f(-\\sqrt{3})=-\\frac{3\\sqrt{3}}{2}$, והנקודה $x=\\sqrt{3}$ היא נקודת מינימום מקומי כך ש-$f(\\sqrt{3})=\\frac{3\\sqrt{3}}{2}$.\n**ד.** $$f''(x)=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)^2-2\\left(x^4-3x^2\\right)\\left(x^2-1\\right)2x}{\\left(x^2-1\\right)^4}=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)-2\\left(x^4-3x^2\\right)2x}{\\left(x^2-1\\right)^3}=\\frac{2x^3+6x}{\\left(x^2-1\\right)^3}$$\nטבלת סימן של $f''$: שלילית כאשר $x<-1$, חיובית כאשר $-1<x<0$, שלילית כאשר $0<x<1$, וחיובית כאשר $x>1$.\n**סיכום:** $f(x)$ קמורה כאשר $x<-1$ וגם $0<x<1$. $f(x)$ קעורה כאשר $x>1$ וגם $-1<x<0$. הנקודה $x=0$ היא נקודת פיתול.\n**ה.** הישרים $x=\\pm1$ מהווים אסימפטוטות אנכיות לגרף הפונקציה, כך ש-$\\lim_{x\\to-1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to-1^+}f(x)=\\infty$, וכן $\\lim_{x\\to1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to1^+}f(x)=\\infty$.\nבנוסף לזאת,\n$$k=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^2}{x^2-1}=1,\\qquad m=\\lim_{x\\to\\pm\\infty}\\left(f(x)-x\\right)=0$$\nוהתוצאה מכך היא ש-$y=x$ היא אסימפטוטה משופעת לגרף הפונקציה ב-$\\pm\\infty$.\n**ו. שרטוט:**\n![גרף הפונקציה עם האסימפטוטות x=1, x=-1 ו-y=x](images/exams/22A-B-Q1-graph.png)",
+   "solution": "**א. תחום הגדרה:** $D=\\{x\\in\\mathbb{R},\\ x\\neq\\pm1\\}$.\n**ב. נקודת חיתוך עם צירי הקואורדינטות:** $(0,0)$.\n**ג.** $$f'(x)=\\frac{3x^2\\left(x^2-1\\right)-2x^4}{\\left(x^2-1\\right)^2}=\\frac{x^4-3x^2}{\\left(x^2-1\\right)^2}=\\frac{x^2\\left(x^2-3\\right)}{\\left(x^2-1\\right)^2}$$ והנקודות הקריטיות של הפונקציה הן $x=0,\\ x=\\pm\\sqrt{3}$.\nטבלת סימן של $f'$: חיובית כאשר $x<-\\sqrt{3}$, שלילית כאשר $-\\sqrt{3}<x<0$ וגם כאשר $0<x<\\sqrt{3}$, וחיובית כאשר $x>\\sqrt{3}$ (בתחום ההגדרה).\n**סיכום:** $f(x)$ עולה כאשר $x<-\\sqrt{3}$ וגם $x>\\sqrt{3}$, ו-$f(x)$ יורדת כאשר $-\\sqrt{3}<x<\\sqrt{3}$. הנקודה $x=-\\sqrt{3}$ היא נקודת מקסימום מקומי כך ש-$f(-\\sqrt{3})=-\\frac{3\\sqrt{3}}{2}$, והנקודה $x=\\sqrt{3}$ היא נקודת מינימום מקומי כך ש-$f(\\sqrt{3})=\\frac{3\\sqrt{3}}{2}$.\n**ד.** $$f''(x)=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)^2-2\\left(x^4-3x^2\\right)\\left(x^2-1\\right)2x}{\\left(x^2-1\\right)^4}=\\frac{\\left(4x^3-6x\\right)\\left(x^2-1\\right)-2\\left(x^4-3x^2\\right)2x}{\\left(x^2-1\\right)^3}=\\frac{2x^3+6x}{\\left(x^2-1\\right)^3}$$\nטבלת סימן של $f''$: שלילית כאשר $x<-1$, חיובית כאשר $-1<x<0$, שלילית כאשר $0<x<1$, וחיובית כאשר $x>1$.\n**סיכום:** $f(x)$ קמורה (∩) כאשר $x<-1$ וגם $0<x<1$. $f(x)$ קעורה (∪) כאשר $x>1$ וגם $-1<x<0$. הנקודה $x=0$ היא נקודת פיתול.\n**ה.** הישרים $x=\\pm1$ מהווים אסימפטוטות אנכיות לגרף הפונקציה, כך ש-$\\lim_{x\\to-1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to-1^+}f(x)=\\infty$, וכן $\\lim_{x\\to1^-}f(x)=-\\infty$ ו-$\\lim_{x\\to1^+}f(x)=\\infty$.\nבנוסף לזאת,\n$$k=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}{x}=\\lim_{x\\to\\pm\\infty}\\frac{x^2}{x^2-1}=1,\\qquad m=\\lim_{x\\to\\pm\\infty}\\left(f(x)-x\\right)=0$$\nוהתוצאה מכך היא ש-$y=x$ היא אסימפטוטה משופעת לגרף הפונקציה ב-$\\pm\\infty$.\n**ו. שרטוט:**\n![גרף הפונקציה עם האסימפטוטות x=1, x=-1 ו-y=x](images/exams/22A-B-Q1-graph.png)",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "high",
@@ -42,9 +42,9 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
-    "לסווג את $x=0$ כנקודת קיצון רק כי $f'(0)=0$. $f'$ אינה משנה סימן שם ולכן $x=0$ היא נקודת פיתול.",
+    "לסווג את $x=0$ כנקודת קיצון רק כי $f'(0)=0$. ב-$x=0$ הנגזרת $f'$ אינה משנה סימן, ולכן אין שם קיצון. נקודת פיתול נקבעת לפי שינוי הסימן של $f''$, ו-$f''$ אכן משנה סימן ב-$x=0$.",
     "לשכוח שגם $x=1$ וגם $x=-1$ מחוץ לתחום ההגדרה ולכן הם נקודות אסימפטוטה אנכית ואי אפשר לחבר דרכן.",
     "לחשב את האסימפטוטה המשופעת רק ב-$+\\infty$ ולא לבדוק ב-$-\\infty$."
    ],
@@ -148,7 +148,7 @@
      "explain": "$x=\\pm1$ אנכיות (גבולות אינסופיים), ו-$y=x$ משופעת ב-$\\pm\\infty$ כי $\\frac{f}{x}\\to1$ ו-$f-x\\to0$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -178,7 +178,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שהגבול קיים ולפתור את משוואת הגבול בלי להוכיח מונוטוניות וחסימה.",
     "לשכוח את $L=-\\sqrt5$ ולפסול אותו כי כל האיברים חיוביים.",
@@ -221,7 +221,7 @@
      "explain": "מ-$a_n^2\\ge5$ נובע $\\frac{5}{a_n^2}\\le1$ ולכן היחס $\\le1$ והסדרה יורדת, לא עולה (למשל $0.6$ עבור $a_1=5$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -251,7 +251,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות בנגזרת של $\\arctan\\frac{2}{x}$: כלל השרשרת נותן $-\\frac{2}{x^2+4}$.",
     "לשכוח את הסימן ההפוך: $-\\int u'v$ עם $u'<0$ נותן סימן פלוס.",
@@ -260,7 +260,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו בחירה באינטגרציה בחלקים משתמש הפתרון הרשמי?",
+     "prompt": "איזו בחירה באינטגרציה בחלקים משתמש הפתרון?",
      "options": [
       {
        "id": "a",
@@ -329,7 +329,7 @@
      "explain": "$\\frac{x^2}{2}\\arctan\\frac{2}{x}+x-2\\arctan\\frac{x}{2}$; הנגזרת של כל אחת מהאחרות שונה מהאינטגרנד (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -360,7 +360,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק במשפט ערך הביניים: הוא נותן קיום בלבד ולא יחידות.",
     "לשכוח שהנגזרת מתאפסת ב-$x=0$ אך עדיין חיובית משני צדדיה, ולכן $f$ עולה ממש.",
@@ -417,7 +417,7 @@
      "explain": "$\\frac{1}{2\\cdot9}=\\frac{1}{18}\\approx0.0556>0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -448,7 +448,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$3-\\cos^2x=2+\\sin^2x$ ולהישאר עם שני משתנים.",
     "לבחור פירוק עם מונה קבוע מעל $t^2+2$ במקום מונה לינארי.",
@@ -457,7 +457,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "prompt": "איזו הצבה משתמש הפתרון?",
      "options": [
       {
        "id": "a",
@@ -526,7 +526,7 @@
      "explain": "$\\frac{1}{22}\\ln\\left(\\sin^2x+2\\right)+\\frac{3}{11\\sqrt2}\\arctan\\frac{\\sin x}{\\sqrt2}-\\frac{1}{11}\\ln(3-\\sin x)$; הנגזרת של כל אחת מהאחרות שונה (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -557,7 +557,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$x=1$ אינה בתחום (המעריך $\\frac{x}{1-x}$ לא מוגדר) ולבדוק רק את $x=0$.",
     "בבדיקת $x\\to1^-$ לשכוח ש-$\\frac{x}{1-x}\\to+\\infty$, ולבדוק במקום זאת גבול של $e^{-\\infty}$.",
@@ -635,7 +635,7 @@
      "explain": "הגבולות $-1$ ו-$0$ סופיים ושונים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -665,7 +665,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בשיטת הטבעות סביב ציר $y$ במקום קליפות ולסבך את החישוב.",
     "לשכוח את $2\\pi$ או את הגורם $x$ (רדיוס הקליפה) באינטגרנד.",
@@ -674,7 +674,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "באיזו שיטה משתמש הפתרון הרשמי לחישוב הנפח?",
+     "prompt": "באיזו שיטה משתמש הפתרון לחישוב הנפח?",
      "options": [
       {
        "id": "a",
@@ -717,14 +717,14 @@
      "explain": "$V\\approx13.20$ (נבדק באינטגרציה נומרית של הקליפות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
    "kind": "proof",
    "topic": "mean_value_theorems",
    "question": "הוכיחו את האי-שוויון $\\frac{x}{x+1}<\\ln(1+x)<x$, כאשר $x>0$.",
-   "solution": "ניקח $x>0$. לפי משפט לגרנז', קיימת $c\\in(0,x)$ כך שלפונקציה $f(x)=\\ln(1+x)$ מקבלים:\n$$\\frac{f(x)-f(0)}{x-0}=\\frac{\\ln(1+x)}{x}=f'(c)=\\frac{1}{1+c}$$\nמכיוון ש-$0<c<x$, נובע מכך ש-\n$$1<1+c<1+x\\ \\Longrightarrow\\ \\frac{1}{1+x}<\\frac{1}{1+c}<1$$\nזה אומר ש-\n$$\\frac{1}{1+x}<\\frac{\\ln(1+x)}{x}<\\frac{1}{1+c}<1$$\nומכיוון ש-$x>0$ נקבל ש-\n$$\\frac{x}{1+x}<\\ln(1+x)<x$$",
+   "solution": "ניקח $x>0$. לפי משפט לגרנז', קיימת $c\\in(0,x)$ כך שלפונקציה $f(x)=\\ln(1+x)$ מקבלים:\n$$\\frac{f(x)-f(0)}{x-0}=\\frac{\\ln(1+x)}{x}=f'(c)=\\frac{1}{1+c}$$\nמכיוון ש-$0<c<x$, נובע מכך ש-\n$$1<1+c<1+x\\ \\Longrightarrow\\ \\frac{1}{1+x}<\\frac{1}{1+c}<1$$\nזה אומר ש-\n$$\\frac{1}{1+x}<\\frac{\\ln(1+x)}{x}=\\frac{1}{1+c}<1$$\nומכיוון ש-$x>0$ נקבל ש-\n$$\\frac{x}{1+x}<\\ln(1+x)<x$$",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "high",
@@ -748,7 +748,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח להפוך את כיוון האי-שוויון במעבר להופכי.",
     "להפעיל את המשפט על $\\ln x$ במקום על $\\ln(1+t)$ ולקבל גבולות שגויים.",
@@ -757,7 +757,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "לאיזו פונקציה ולאיזה קטע מפעיל הפתרון הרשמי את משפט לגרנז'?",
+     "prompt": "לאיזו פונקציה ולאיזה קטע מפעיל הפתרון את משפט לגרנז'?",
      "options": [
       {
        "id": "a",
@@ -814,7 +814,7 @@
      "explain": "ההופכי של $1<1+c<1+x$ הוא $\\frac{1}{1+x}<\\frac{1}{1+c}<1$, לא $1<\\frac{1}{1+c}$ (למשל $c=0.5$ נותן $0.67<1$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -844,7 +844,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הריבוע בנגזרת: $1+(y')^2=1+e^{2x}$.",
     "לא להמיר את גבולות האינטגרציה בעת ההצבה.",
@@ -901,7 +901,7 @@
      "explain": "$L\\approx2.0035$ (נבדק באינטגרציה נומרית ובביטוי הסגור)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -932,7 +932,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=\\frac13$, שבה הנגזרת אינה קיימת (המכנה מתאפס).",
     "לחשב $\\sqrt[3]{3x-1}$ לא נכון בקצה $x=-1$ (שורש שלישי של $-4$ הוא שלילי).",
@@ -989,7 +989,7 @@
      "explain": "$f\\left(\\frac13\\right)=0$ אינו המינימום כי $f\\left(\\frac14\\right)<0$ (נבדק על רשת צפופה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1020,7 +1020,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש רק שוויון נגזרות בלי רציפות (או להפך). גזירות דורשת את שניהם.",
     "לשכוח את התנאי השני: גם כשהנגזרות החד-צדדיות שוות, בלי רציפות הפונקציה אינה גזירה.",
@@ -1077,7 +1077,7 @@
      "explain": "$8a=4+b$ נותן $b=\\frac83-4=-\\frac43\\approx-1.3333$ (sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

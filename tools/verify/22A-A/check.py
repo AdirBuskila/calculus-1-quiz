@@ -91,6 +91,12 @@ Vref = sp.Rational(5, 6)*sp.pi*(((C + 1)**2 + B + 1)**sp.Rational(6, 5) - (B + 1
 ok("Q6b V formula (symbolic or 4 numeric cases)", sp.simplify(V - Vref) == 0 or all(
     abs(float(sp.Integral(2*sp.pi*x*(x**2 + b + 1)**sp.Rational(1, 5), (x, 0, c + 1)).evalf() - Vref.subs({B: b, C: c}).evalf())) < 1e-8
     for b, c in ((0, 0), (8, 9), (3, 5), (9, 1))))
+# Q4a: common tangent at distinct abscissas p=1/q, q: h(q)=q^2-1-2ln q has the single root q=1 (min of h, h' = 2q-2/q)
+_q = sp.symbols('q', positive=True)
+_h = _q**2 - 1 - 2*sp.log(_q)
+ok("Q4a h(1)=0 and h'(q)=0 only at q=1, h>0 elsewhere (grid)",
+   _h.subs(_q, 1) == 0 and sp.solve(sp.diff(_h, _q), _q) == [1]
+   and all(_h.subs(_q, sp.Rational(i, 50)).evalf() > 1e-9 for i in list(range(1, 50)) + list(range(51, 400))))
 bad = [nm for nm, c in r if not c]
 for nm, c in r:
     print(("OK  " if c else "FAIL"), nm)

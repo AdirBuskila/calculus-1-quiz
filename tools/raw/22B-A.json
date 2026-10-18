@@ -42,7 +42,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=0$ כנקודה חשודה: הנגזרת אינה קיימת שם, אבל הפונקציה רציפה ויש בה קיצון.",
     "לחשב את $\\sqrt[3]{x}$ לא נכון עבור $x<0$ (שורש שלישי של שלילי הוא שלילי).",
@@ -94,7 +94,7 @@
      "explain": "$f(0)=0$ קטנה מ-$f(\\pm0.01)$ (נבדק מספרית), ו-$f'$ משנה סימן משלילית לחיובית ב-$0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -126,7 +126,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצמצם עצרות בלי להוציא גורם משותף: $(n+2)!-(n+1)!$ אינו $1!$.",
     "להשאיר את הביטוי כ-$\\infty\\cdot0$ בלי להחליף את $\\sin u_n$ ב-$u_n$ (גבול מפורסם).",
@@ -176,7 +176,7 @@
      "explain": "$(n+1)(5n+2)\\cdot\\frac{2}{(n+1)^2}\\to5\\cdot2=10$, בכלליות: $(A+2)(C+1)$ (נבדק מספרית עם $n=10^6$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -207,7 +207,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח להפוך את כיוון האי-שוויון בעת מעבר להופכי $\\frac{1}{1+c^2}$.",
     "להפעיל את המשפט על $[0,1]$ במקום על $[0,x]$, ואז לא מתקבל אי-שוויון התלוי ב-$x$.",
@@ -216,7 +216,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "לאיזו פונקציה ולאיזה קטע מפעיל הפתרון הרשמי את משפט לגרנז'?",
+     "prompt": "לאיזו פונקציה ולאיזה קטע מפעיל הפתרון את משפט לגרנז'?",
      "options": [
       {
        "id": "a",
@@ -273,7 +273,7 @@
      "explain": "ההופכי של $1<1+c^2<1+x^2$ הוא $\\frac{1}{1+x^2}<\\frac{1}{1+c^2}<1$, לא $1<\\frac{1}{1+c^2}$ (למשל $c=0.5$ נותן $0.8<1$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -305,7 +305,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $L=0$ מבלי לבדוק שהסדרה חסומה מלמטה על ידי $1$.",
     "להוכיח מונוטוניות לפני שהוכחה החסימה: הסימן של $a_{n+1}-a_n$ תלוי ב-$a_n>1$.",
@@ -366,7 +366,7 @@
      "explain": "חסימה קודמת למונוטוניות, שתיהן קודמות להתכנסות, וההתכנסות קודמת למעבר לגבול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -398,7 +398,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכריז על $x=-A$ כאסימפטוטה אנכית רק כי הפונקציה אינה מוגדרת שם. צריך לבדוק שהגבול אינו סופי.",
     "לטעות בגבול $\\cos u\\to1$ ולכתוב $a=2$ במקום $a=3$.",
@@ -476,7 +476,7 @@
      "explain": "$a=3$, $b=\\lim\\left[(x+A)(\\cos u-1)\\right]+3A=0+3A$ (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -507,7 +507,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בנוסחאות ההצבה האוניברסלית, כגון $dx=\\frac{2\\,dt}{1+t^2}$.",
     "לשכוח את הגורם $\\frac{1}{3}$ בפירוק $\\frac{1}{(2-t)(1+t)}=\\frac{1}{3}\\left(\\frac{1}{2-t}+\\frac{1}{1+t}\\right)$.",
@@ -516,7 +516,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו הצבה משתמש הפתרון הרשמי כדי לחשב את האינטגרל?",
+     "prompt": "איזו הצבה משתמש הפתרון כדי לחשב את האינטגרל?",
      "options": [
       {
        "id": "a",
@@ -578,7 +578,7 @@
      "explain": "הנגזרת של $\\frac{1}{3}\\ln\\frac{1+\\tan\\frac{x}{2}}{2-\\tan\\frac{x}{2}}$ שווה לאינטגרנד; לשלוש האפשרויות האחרות הנגזרת שונה (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -614,7 +614,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסתפק בכך ש-$g'\\ge0$ בלי להראות שהשוויון אינו מתקיים אף פעם, כדי לקבל עלייה ממש.",
     "טעות סימן בנגזרת של $\\cos\\left((C+1)x\\right)$: היא $-(C+1)\\sin\\left((C+1)x\\right)$.",
@@ -676,7 +676,7 @@
      "explain": "הנגזרת של $\\cos\\left((C+1)x\\right)$ היא $-(C+1)\\sin\\left((C+1)x\\right)$, לא $+$ (נבדק ב-sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -707,7 +707,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור את $\\arctan\\sqrt{x}$ בלי כלל השרשרת: $\\frac{1}{1+x}\\cdot\\frac{1}{2\\sqrt{x}}$.",
     "לשכוח את הגורם $2$ שמגיע מ-$dx=2(x+1)\\sqrt{x}\\,dt$.",
@@ -716,7 +716,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו הצבה משתמש הפתרון הרשמי?",
+     "prompt": "איזו הצבה משתמש הפתרון?",
      "options": [
       {
        "id": "a",
@@ -785,7 +785,7 @@
      "explain": "$\\frac{1}{2}\\left(\\frac{\\pi}{4}\\right)^4\\approx0.1903$ (נבדק באינטגרציה נומרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -817,7 +817,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר צורה לא מוגדרת $\\infty\\cdot0$ בלי להכפיל בצמוד.",
     "להכפיל בצמוד פעם אחת בלבד: נשאר הפרש $\\sqrt{x^4+D}-x^2$ מסוג $\\infty-\\infty$.",
@@ -826,7 +826,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו שיטה משתמש הפתרון הרשמי לחישוב הגבול?",
+     "prompt": "איזו שיטה משתמש הפתרון לחישוב הגבול?",
      "options": [
       {
        "id": "a",
@@ -884,7 +884,7 @@
      "explain": "כל שלב משתמש בביטוי שהתקבל בקודם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -915,7 +915,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהשורש של $\\frac{1}{\\sin^2x}$ הוא $\\frac{1}{|\\sin x|}$ (כאן $\\sin x>0$).",
     "לטעות בקדומה של $\\frac{1}{\\sin x}$: היא $\\ln\\left|\\tan\\frac{x}{2}\\right|$ ולא $-\\ln|\\cos x|$.",
@@ -972,7 +972,7 @@
      "explain": "$0-\\left(-\\frac{1}{2}\\ln3\\right)=\\frac{1}{2}\\ln3\\approx0.5493$ (נבדק באינטגרציה נומרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1003,7 +1003,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדלג על בדיקת הרציפות ולהניח ש-$p$ חופשי.",
     "להפעיל לופיטל על הפרש $\\frac{1}{\\sin x}-\\frac{1}{x}$ לפני שהופכים אותו למנה.",
@@ -1060,7 +1060,7 @@
      "explain": "$f'(0)=\\lim\\frac{x-\\sin x}{x^3}\\cdot\\frac{x}{\\sin x}=\\frac{1}{6}\\cdot1$ (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1092,7 +1092,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בשיטת הטבעות סביב ציר $y$: התחום אינו מתואר בנוחות כפונקציה של $y$.",
     "לשכוח את הגורם $\\frac{1}{k^2}$ מההצבה $u=kx$ (גם $x=\\frac{u}{k}$ וגם $dx=\\frac{du}{k}$).",
@@ -1101,7 +1101,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "באיזו שיטה משתמש הפתרון הרשמי לחישוב הנפח?",
+     "prompt": "באיזו שיטה משתמש הפתרון לחישוב הנפח?",
      "options": [
       {
        "id": "a",
@@ -1137,7 +1137,7 @@
      "explain": "$V=\\frac{\\pi^3}{2(B+1)^2}=\\frac{\\pi^3}{8}\\approx3.8758$ (נבדק באינטגרציה נומרית של הקליפות לכל $B=0..9$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

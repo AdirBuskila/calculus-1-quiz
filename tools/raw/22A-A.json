@@ -42,7 +42,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=1$, שבה הנגזרת אינה קיימת, כנקודה חשודה לקיצון מוחלט.",
     "לשכוח את קצות הקטע $0$ ו-$3$ בהשוואה הסופית.",
@@ -99,7 +99,7 @@
      "explain": "הערכים $f(0)=1$, $f(1)=2.8$, $f(2)=2.6$, $f(3)\\approx2.66$; המקסימום $2.8$ והמינימום $1$ (נבדק על רשת צפופה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -131,7 +131,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהסדרה מתכנסת רק כי היא נראית יורדת מהאיברים הראשונים.",
     "לשכוח לפסול את $L=-\\sqrt{A+1}$ כי האיברים חיוביים.",
@@ -171,7 +171,7 @@
      "explain": "החסימה קודמת למונוטוניות (הסימן תלוי בה), שתיהן קודמות להתכנסות, וההתכנסות קודמת למעבר לגבול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -203,7 +203,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון ש-$\\sin\\left(2^{(B+1)n}\\right)$ שואף לגבול כלשהו. הוא חסום ואינו מתכנס, ואין בכך צורך.",
     "לא להכפיל בצמוד ולהישאר עם $\\infty-\\infty$.",
@@ -253,7 +253,7 @@
      "explain": "הסינוס חסום בין $-1$ ל-$1$ והגורם השני שואף ל-$0$, ולכן המכפלה שואפת ל-$0$ (נבדק מספרית עם $n=10^9$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -284,7 +284,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $\\frac{1}{2}$ מההצבה $t=x^2$.",
     "לבחור $u=t$ ו-$dv=\\arctan t\\,dt$: האינטגרל של $\\arctan$ אינו ידוע מראש.",
@@ -359,10 +359,10 @@
      "prompt": "מהו הערך של $\\int_0^1x\\arctan\\left(x^2\\right)dx$? (עשרוני)",
      "answer": 0.2194,
      "tol": 0.001,
-     "explain": "$\\frac{1}{2}\\left(\\frac{\\pi}{4}-\\frac{\\ln2}{2}\\right)\\approx0.2193$ (נבדק באינטגרציה נומרית)."
+     "explain": "$\\frac{1}{2}\\left(\\frac{\\pi}{4}-\\frac{\\ln2}{2}\\right)\\approx0.2194$ (נבדק באינטגרציה נומרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -394,7 +394,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $x=0$ כי הפונקציה נראית מוגדרת שם: המכנה $\\arctan\\left((C+3)x\\right)$ מתאפס בו.",
     "לא לפצל את $|x-B-1|$ לשני צדדים בעת בדיקת $x=B+1$.",
@@ -472,7 +472,7 @@
      "explain": "בגלל $\\frac{|x-B-1|}{x-B-1}=\\pm1$ מתקבלים שני גבולות סופיים שונים (נבדק מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -503,7 +503,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב רק את הנגזרת החד-צדדית מצד אחד.",
     "לשכוח את הפתרון השלילי $p=-\\frac{1}{\\sqrt3}$.",
@@ -560,14 +560,14 @@
      "explain": "המשוואה $\\frac{p^2}{2}=\\frac16$ מתקיימת בשני הסימנים (שני הערכים נבדקו מספרית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
    "kind": "computation",
    "topic": "derivatives_tangents",
    "question": "מצאו משיק משותף לשני הגרפים של הפונקציות $y=2(A+1)\\ln x+C$ ו-$y=(A+1)\\left(x^2-1\\right)+C$.",
-   "solution": "עבור הפונקציה $y=2(A+1)\\ln x+C$ נקבל $y'=\\frac{2(A+1)}{x}$.\nועבור הפונקציה $y=(A+1)\\left(x^2-1\\right)+C$ נקבל $y'=2(A+1)x$.\nמכאן נקבל שהנגזרות שוות כאשר $\\frac{2(A+1)}{x}=2(A+1)x$, כלומר $x^2=1$. מכיוון שתחום ההגדרה של $\\ln x$ הוא $x>0$, מתקבל $x=1$.\nשתי הפונקציות נחתכות ב-$x=1$ כי בנקודה זו $y=C$ בשתיהן, ולכן $x=1$ היא נקודת ההשקה והשיפוע המשותף הוא $2(A+1)$. משוואת המשיק:\n$$y-C=2(A+1)(x-1)$$\nכלומר $y=2(A+1)x-2A+C-2$.",
+   "solution": "עבור הפונקציה $y=2(A+1)\\ln x+C$ נקבל $y'=\\frac{2(A+1)}{x}$.\nועבור הפונקציה $y=(A+1)\\left(x^2-1\\right)+C$ נקבל $y'=2(A+1)x$.\nמכאן נקבל שהנגזרות שוות כאשר $\\frac{2(A+1)}{x}=2(A+1)x$, כלומר $x^2=1$. מכיוון שתחום ההגדרה של $\\ln x$ הוא $x>0$, מתקבל $x=1$.\nשתי הפונקציות נחתכות ב-$x=1$ כי בנקודה זו $y=C$ בשתיהן, ולכן $x=1$ היא נקודת ההשקה והשיפוע המשותף הוא $2(A+1)$. משוואת המשיק:\n$$y-C=2(A+1)(x-1)$$\nכלומר $y=2(A+1)x-2A+C-2$.\nהערה (השלמה): גם אם מניחים נקודות השקה שונות $x=p$ ו-$x=q$ על שני הגרפים, שוויון השיפועים נותן $p=\\frac{1}{q}$ ושוויון המשיקים נותן $q^2-1-2\\ln q=0$. לפונקציה $h(q)=q^2-1-2\\ln q$ יש מינימום יחיד $h(1)=0$ (כי $h'(q)=2q-\\frac{2}{q}$), ולכן $q=1$ ו-$p=1$: המשיק משותף ונוגע בשני הגרפים באותה נקודה.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -592,7 +592,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות את הפונקציות במקום את הנגזרות ולשכוח שיש להשוות גם ערך וגם שיפוע.",
     "לכלול את $x=-1$, שאינה בתחום ההגדרה של $\\ln x$.",
@@ -649,7 +649,7 @@
      "explain": "$y=6x-2$ ולכן $y(2)=10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -680,7 +680,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב רק $\\frac{A}{x^2}$ בלי האיבר $\\frac{B}{x}$ עבור הגורם הכפול $x^2$.",
     "לשכוח את הגורם $\\frac12$ באינטגרל $\\int\\frac{dx}{x^2+4}=\\frac12\\arctan\\frac{x}{2}$.",
@@ -737,7 +737,7 @@
      "explain": "$\\int\\frac{dx}{x^2+a^2}=\\frac{1}{a}\\arctan\\frac{x}{a}$ עם $a=2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -772,7 +772,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "טעות בנגזרת של $\\frac{x}{\\sqrt{1-x^2}}$: צריך כלל מנה, והתוצאה $\\frac{1}{(1-x^2)^{3/2}}$.",
     "להסיק $f\\ge0$ מכך ש-$f$ יורדת ו-$f(0)=0$ (הכיוון הפוך).",
@@ -791,7 +791,7 @@
      "prompt": "מהו $f(0.5)=\\arcsin0.5-\\frac{0.5}{\\sqrt{0.75}}$? (עשרוני)",
      "answer": -0.0538,
      "tol": 0.001,
-     "explain": "$\\frac{\\pi}{6}-\\frac{1}{\\sqrt3}\\approx-0.0537<0$, בהתאם ל-$f(x)\\le0$."
+     "explain": "$\\frac{\\pi}{6}-\\frac{1}{\\sqrt3}\\approx-0.0538<0$, בהתאם ל-$f(x)\\le0$."
     },
     {
      "type": "order",
@@ -817,7 +817,7 @@
      "explain": "פונקציה יורדת עם $f(0)=0$ נותנת $f(x)\\le0$, לא $\\ge0$ (למשל $f(0.5)\\approx-0.054$, נבדק)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -849,7 +849,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את השורש $x=-1$ ולחשב רק את הצד החיובי בלי להכפיל ב-$2$.",
     "להשאיר את $t=-2$ כאפשרות. $t=x^2\\ge0$ ולכן נפסל.",
@@ -903,10 +903,10 @@
      "prompt": "עבור $A=0$, מהו השטח $2(A+2)\\left(\\frac{\\pi}{4}-\\frac16\\right)$? (עשרוני)",
      "answer": 2.4749,
      "tol": 0.001,
-     "explain": "$4\\cdot0.6187\\approx2.4748$ (נבדק באינטגרציה נומרית על $[-1,1]$)."
+     "explain": "$4\\cdot0.61873\\approx2.4749$ (נבדק באינטגרציה נומרית על $[-1,1]$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -937,7 +937,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לגזור את האינטגרל במכנה כאילו הגבול התחתון תלוי ב-$x$.",
     "לא להשתמש בגבול המפורסם $\\lim\\frac{x^2}{\\ln(1+x^2)}=1$.",
@@ -994,7 +994,7 @@
      "explain": "$-1\\cdot\\frac{1}{1\\cdot(1+1)}=-\\frac12$ (נבדק נומרית ב-$x=10^{-3}$ ובעזרת sympy)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1026,7 +1026,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בטבעות סביב ציר $y$: דורש להפוך את הפונקציה.",
     "לשכוח לשנות את גבולות האינטגרציה בהצבה.",
@@ -1071,7 +1071,7 @@
      "explain": "$\\frac{5\\pi}{6}\\left(11^{6/5}-2^{6/5}\\right)\\approx40.51$ (נבדק באינטגרציה נומרית של הקליפות, לכל $B,C$ שנבדקו)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
