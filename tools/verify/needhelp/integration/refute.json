@@ -1,0 +1,12 @@
+{
+  "verdict": "agree",
+  "disagreements": 0,
+  "fixed": [
+    "C06 lesson: added how to find A,B,C by comparing coefficients (Q4 asks B) and corrected the trap example x/(x(x^2+1)) (= 1/(x^2+1)) to 1/(x(x^2+1))",
+    "C04 lesson: added the x^2/(1+x^2)=1-1/(1+x^2) step needed by Q6 (x*arctan x) which was not taught before it was asked"
+  ],
+  "checked": "all 25 antiderivative mcqs: each option differentiated with sympy, exactly one matches the stored key; 8 numeric keys recomputed; method-choice mcqs C02-Q2, C05-Q1, C06-Q2/Q6, C07, C08-Q4 checked by hand; findbug C02-Q6 idx1; order C03-Q6; 5 boss bank ids (indefinite_integrals)",
+  "notes": [],
+  "course": "integration",
+  "method": "blind: solved every question from the stripped dump (sympy / hand derivation), then compared with the stored key; mcq distractors differentiated or evaluated; findbug/order lines checked line by line; lesson numbers recomputed; boss bankIds checked against questions.json"
+}

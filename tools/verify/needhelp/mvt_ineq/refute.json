@@ -1,0 +1,11 @@
+{
+  "verdict": "agree",
+  "disagreements": 0,
+  "fixed": [
+    "C09 boss: bank question 24B-B-Q6a (topic extrema_optimization) replaced by 22B-A-Q2a (mean_value_theorems, arctan inequalities solved with the C06 auxiliary-function method); the e^x>=x+1 method stays taught in C06"
+  ],
+  "checked": "22 mcq, 15 numeric (C05-Q4 true sup is about 1.85 so only M=e of the options holds; C05-Q5 smallest M = 1/2), findbug C06-Q4 idx2, C08-Q2 idx2, C08-Q3 idx0, orders C07-Q4 and C08-Q1 forced, fillblank C08-Q4 only option a true, boss bank ids present",
+  "notes": [],
+  "course": "mvt_ineq",
+  "method": "blind: solved every question from the stripped dump (sympy / hand derivation), then compared with the stored key; mcq distractors differentiated or evaluated; findbug/order lines checked line by line; lesson numbers recomputed; boss bankIds checked against questions.json"
+}

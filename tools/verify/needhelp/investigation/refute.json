@@ -1,0 +1,10 @@
+{
+  "verdict": "agree",
+  "disagreements": 0,
+  "fixed": [],
+  "checked": "31 mcq, 10 numeric, 3 findbug (C02-Q5 idx3, C04-Q6 idx2, C06-Q6 idx2), 1 order (C05-Q6 forced chain), 1 fillblank, 4 boss bank ids (function_investigation, present, not held)",
+  "convexity": "C04 lesson teaches f''>0 -> cup, f''<0 -> cap and warns the words swap between exams; every question is phrased with cup/cap and the sign of f''; no question relies on the words alone. C09 repeats the rule for the boss.",
+  "notes": [],
+  "course": "investigation",
+  "method": "blind: solved every question from the stripped dump (sympy / hand derivation), then compared with the stored key; mcq distractors differentiated or evaluated; findbug/order lines checked line by line; lesson numbers recomputed; boss bankIds checked against questions.json"
+}

@@ -11,6 +11,7 @@ COURSE_LEVEL("integration", {
 $\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x}{2}dx=\frac{x^2}{2}\ln x-\frac{x^2}{4}+C$.</div>
 <div class="lesson-rule">🔑 סימן להצלחה: אחרי הבחירה הנכונה ה-$\ln$ או ה-$\arctan$ נעלם מהאינטגרל הנותר. אם הוא נשאר, הבחירה הייתה הפוכה.</div>
 <div class="lesson-trap">⚠️ ב-$\arctan$ האינטגרל הנותר הוא $\int\frac{x}{1+x^2}dx$, וזה הצבה (מונה = חצי נגזרת המכנה), לא טבלה ישירה.</div>
+<div class="lesson-trap">⚠️ ב-$\int x\arctan x\,dx$ נשאר $\int\frac{x^2}{1+x^2}dx$. מונה מאותה דרגה כמו המכנה: כותבים $\frac{x^2}{1+x^2}=1-\frac{1}{1+x^2}$ ואז $x-\arctan x$.</div>
 ` },
   questions: [
   {

@@ -16,8 +16,7 @@ COURSE_LEVEL("recursive_seq", {
   questions: [
     { id: "C03-Q1",
       step: { type: "order", prompt: String.raw`סדרו את ההוכחה ש-$a_n<2$ לכל $n$ עבור $a_1=1,\ a_{n+1}=\sqrt{2+a_n}$.`,
-              lines: [String.raw`בסיס: $a_1=1<2$`,
-                      String.raw`הנחה: $a_n<2$`,
+              lines: [String.raw`בסיס: $a_1=1<2$. הנחת האינדוקציה: $a_n<2$`,
                       String.raw`מכאן $2+a_n<4$`,
                       String.raw`פונקציית השורש עולה, ולכן $\sqrt{2+a_n}<\sqrt4=2$`,
                       String.raw`כלומר $a_{n+1}<2$, ולפי אינדוקציה $a_n<2$ לכל $n$`],

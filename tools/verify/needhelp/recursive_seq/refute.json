@@ -1,0 +1,14 @@
+{
+  "verdict": "agree",
+  "disagreements": 0,
+  "fixed": [
+    "C03-Q1 and C04-Q3: base case and induction hypothesis were two lines that could be swapped without breaking the proof (hard rule: order only when forced); merged into one first line"
+  ],
+  "checked": "18 mcq, 14 numeric, 5 order, 5 findbug (C03-Q3 idx2, C04-Q6 idx1, C05-Q4 idx4, C06-Q6 idx3, C07-Q6 idx3), 4 boss bank ids (sequences_limits)",
+  "notes": [
+    "C02-Q6, C06-Q3, C07-Q4 chains are forced; C05-Q1 order is the only defensible one; C06-Q4 option c reaches the same limit with an invalid reason, so it fails the 'why' part",
+    "n=1 bounds hold: C03 (1<2), C05 (2<=4), C06 (0<=1), C06-Q5 (0<=3), C03-Q6 (1<=5); C07 correctly handles a_1<sqrt c"
+  ],
+  "course": "recursive_seq",
+  "method": "blind: solved every question from the stripped dump (sympy / hand derivation), then compared with the stored key; mcq distractors differentiated or evaluated; findbug/order lines checked line by line; lesson numbers recomputed; boss bankIds checked against questions.json"
+}
