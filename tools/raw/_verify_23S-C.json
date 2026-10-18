@@ -1,0 +1,94 @@
+{
+ "examCode": "23S-C",
+ "refuter": "claude-opus",
+ "answers": {
+  "1": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "odd; max (1,2/sqrt e)=1.2131, min (-1,..); inflections 0,+-sqrt3; y=0 horizontal. Rubric 20."
+  },
+  "2a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "limit 2; increasing bounded by 2; options 1.5/1.8/1.9 exceeded by a3,a4,a5 verified."
+  },
+  "2b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "x^2/2-3/2 ln(x^2+1); definite 0.5-1.5ln2=-0.5397."
+  },
+  "3a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "a=2,b=-1. Minor: step 1 explain says the other three options 'give a different solution' but option c (2a+b=1) with 2a+b=3 is inconsistent (no solution), not a different solution."
+  },
+  "3b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "CONFIRMED official slip: f(-3)=2(-27)-9-3+1=-65, printed -59 on page 5 of 23S-C. Intermediate value only: sign (negative) and conclusion unaffected, final answer (one root, existence+uniqueness) unaffected. Not a final-answer error."
+  },
+  "4a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "e^16."
+  },
+  "4b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "CONFIRMED official final-answer error: page 6 prints V=e-2~0.714 (drops pi; also e-2=0.718). Correct V=pi(e-2)=2.2565. Author correction right; this one IS a final-answer error. Claim's correction agrees with my derivation. Minor: step explain typo 'AF(e)-AF(1)'; solution paragraph wording about 0.714/0.718 is muddled."
+  },
+  "5a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "y=pi x."
+  },
+  "5b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "e."
+  },
+  "6a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "max 1 at x=-1, min 0 at x=0, y(-2)=0.7622."
+  },
+  "6b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "2+1/12=2.0833, |R1|<=1/288=0.00347<0.01; true error 0.0032."
+  }
+ }
+}

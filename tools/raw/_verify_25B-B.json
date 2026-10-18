@@ -1,0 +1,94 @@
+{
+ "examCode": "25B-B",
+ "refuter": "claude-opus",
+ "answers": {
+  "1": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "f'=(x-1)(x-4)e^{1/(x-2)}/(x-2)^2; max (1,1/e), min (4,4sqrt e), f''=(5x-8)e/(x-2)^4, inflection (8/5, 8e^-5/2), vertical x=2 right only, slant y=x+1 both ends; f(2-)=0. Rubric 3+9+5+5+3=25. Terminology note: text labels f''<0 as 'kaur (cap)'; corpus is mixed (17A-20B use kaur=cap, 23A-B official uses kaur=cup), symbols given so unambiguous."
+  },
+  "2a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "limit 5; increasing, bounded by 5; a2=4.947>4.9 so bound options hold. Rubric 13."
+  },
+  "2b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "(2x^2+6x+2)atan x -2x -3ln(1+x^2); definite integral 3.77454, step answer 3.7745 ok. Step-4 explain text says 5pi/2-2-3ln2 ~ 3.7752 but the value is 3.77454 (answer field 3.7745 is right; explain digits wrong)."
+  },
+  "3a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "1. Rubric 13."
+  },
+  "3b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "y=sqrt2 x+1-sqrt2 pi/4. Rubric 12."
+  },
+  "4a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "3. Rubric 13."
+  },
+  "4b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "2/3; distractor values 14/3, 8/3, 7/3 verified."
+  },
+  "5a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "MVT with e^{sin^2 x}; findbug index 1 is the only changed line; order correct."
+  },
+  "5b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "-1/2 atan((cos x+1)/2). Rubric 12."
+  },
+  "6a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "256pi/3 = 268.0826."
+  },
+  "6b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "a=0 only. Rubric 12."
+  }
+ }
+}

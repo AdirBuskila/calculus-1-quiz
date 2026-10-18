@@ -1,0 +1,94 @@
+{
+ "examCode": "22B-B",
+ "refuter": "claude-opus",
+ "answers": {
+  "1": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "odd; max (1/2,sqrt e/2)=0.8244, min (-1/2,..); f''=4x(4x^2-3)e^{1-2x^2}, inflections 0,+-sqrt3/2; y=0. Rubric 20."
+  },
+  "2a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "decreasing to 0; a60=1.4e-11."
+  },
+  "2b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "1/(2-tan(x/2))+C; derivative matches integrand numerically."
+  },
+  "3a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "findbug index 1 is the only changed line; order correct. Minor: pitfall 1 is self-contradictory ('reverse the direction ... inversion reverses the direction'): should read 'forgetting to reverse'."
+  },
+  "3b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "pi/4(e^2+1)."
+  },
+  "4a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "-1/6. Minor: pitfall 3 ('apply l'Hopital when denominator does not vanish ... here it does so legal') is not a pitfall."
+  },
+  "4b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "(13sqrt13-8)/27=1.4397."
+  },
+  "5a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "unique root; f(-1)=-2.9883, f(0)=2, f'>0. Points: raw has none for 5a/5b; printed solution pages 7-8 show no percentages. Instructions: 20% per question, other questions are 10+10 (all printed). 10+10 is a consistent inference but is NOT verifiable on the page."
+  },
+  "5b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "tangent y=x/2 at (2,1), area 1/3. Same: 10 is inferred, not printed."
+  },
+  "6a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "1/2 ln|x+1|-1/4 ln(x^2+4x+5)-1/2 atan(x+2)."
+  },
+  "6b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "CONFIRMED official slip: page 9 prints (0.01)^3 giving 4.57e-7; with |x|<=0.1 the bound is 4.57e-4. Wrong exponent in the final printed bound, so a final-answer error; author's correction is right."
+  }
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "examCode": "23A-B",
+ "refuter": "claude-opus",
+ "answers": {
+  "1": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "f=1-1/ln x; increasing, no extrema; f''=-(ln x+2)/(x^2 ln^3 x), zero at e^-2; f''>0 on (e^-2,1) (cup), <0 on (0,e^-2) and (1,inf); x=1 vertical, y=1 horizontal; f(0+)=1. Rubric 20. Terminology: official calls the cup region 'kaura' (opposite to 17A-A/18B-A etc.), consider adding cup/cap symbols."
+  },
+  "2a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "ln|x+1|+1/2 ln(x^2+4); A=1,B=1,C=0; distractor decompositions have no solution (verified)."
+  },
+  "2b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "limit sqrt7, decreasing bounded below by sqrt7. Official wording slip carried into solution text: 'המכנה שלילי' should say the numerator (7-a_n^2) is negative."
+  },
+  "3a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "e^2."
+  },
+  "3b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "1/2 atan((ln x+1)/2)."
+  },
+  "4a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "max 3sqrt3 at x=1."
+  },
+  "4b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "pi/4 (e^2+1)=6.589."
+  },
+  "5a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "sqrt e, both sides."
+  },
+  "5b": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "f'(0)=pi/2."
+  },
+  "6a": {
+   "agrees": true,
+   "verdict": "agree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "pi/3."
+  },
+  "6b": {
+   "agrees": false,
+   "verdict": "disagree",
+   "confident": true,
+   "steps": "agree",
+   "transcriptionIssues": "",
+   "note": "CONFIRMED official slip: bound 1/(3000*0.9^3)=0.000457247; page 7 prints 0.00045 (truncated, not rounded up). It is the final answer line (delta<0.00045), so a final-answer rounding error, not an intermediate slip: 0.00045 < 0.000457 is not a valid upper bound from that derivation (true error 0.00036 happens to be below it). Rubric/step use 0.000457/0.00046 correctly, but the 'solution' field still prints delta<0.00045 as the answer; typo ruling should replace it with 0.000457 (<=0.00046)."
+  }
+ }
+}
