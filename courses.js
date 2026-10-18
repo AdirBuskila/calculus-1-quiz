@@ -2428,6 +2428,370 @@ window.COURSES = {
       "recapHtml": "אותו מתכון: פותרים ובוחרים"
      }
     ]
+   },
+   {
+    "id": "C06",
+    "order": 6,
+    "icon": "➗",
+    "title": "רקורסיה עם שבר",
+    "goal": "להוכיח חסימה ומונוטוניות לסדרה מהצורה מונה קבוע חלקי (קבוע פחות איבר), בלי לטעות בכיוון אי-השוויון.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n    <p>סדרות כמו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span> מופיעות הרבה במבחנים. שלוש נקודות ייחודיות להן:</p>\n    <ul>\n      <li><b>המכנה חייב להישאר חיובי.</b> בחסם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> מתקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>2</mn><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">3-a_n\\ge2&gt;0</annotation></semantics></math></span>.</li>\n      <li><b>הפיכת שבר הופכת אי-שוויון</b> (למספרים חיוביים): <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>2</mn><mo>⇒</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">x\\ge2\\Rightarrow\\frac1x\\le\\frac12</annotation></semantics></math></span>.</li>\n      <li><b><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> עולה</b> כל עוד המכנה חיובי, כי כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_n</annotation></semantics></math></span> גדל המכנה קטן והשבר גדל.</li>\n    </ul>\n    <div class=\"lesson-ex\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span>. נקודות שבת: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo stretchy=\"false\">(</mo><mn>3</mn><mo>−</mo><mi>L</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">L(3-L)=2</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">(L-1)(L-2)=0</annotation></semantics></math></span>.<br>\n    חסם: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span>. בסיס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">0\\le1</annotation></semantics></math></span>. צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">3-a_n\\ge2</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{3-a_n}\\le\\frac12</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le1</annotation></semantics></math></span>.<br>\n    עולה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{3-a_n}\\ge a_n</annotation></semantics></math></span>. כופלים במכנה החיובי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy=\"false\">(</mo><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">2\\ge a_n(3-a_n)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>−</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">(a_n-1)(a_n-2)\\ge0</annotation></semantics></math></span>, וזה נכון כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> (שני הגורמים אי-חיוביים).<br>\n    לכן מתכנסת, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L=1</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L\\le1</annotation></semantics></math></span>.</div>\n    <div class=\"lesson-rule\">🔑 בוחרים את החסם בין שתי נקודות השבת לפי האיבר הראשון: מתחילים מתחת לשתיהן, לכן עולים עד הקרובה, והיא החסם.</div>\n    <div class=\"lesson-trap\">⚠️ כופלים אי-שוויון במכנה רק אחרי שמוכיחים שהוא חיובי. כפל במספר שלילי הופך את הכיוון.</div>"
+    },
+    "questions": [
+     {
+      "id": "C06-Q1",
+      "step": {
+       "type": "numeric",
+       "prompt": "נתונה $a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}$. מהו $a_3$ ? (עיגול לשלוש ספרות אחרי הנקודה)",
+       "answer": 0.857,
+       "tol": 0.001,
+       "explain": "$a_2=\\frac23$ ואז $a_3=\\frac{2}{3-\\frac23}=\\frac{2}{7/3}=\\frac67\\approx0.857$.",
+       "promptHtml": "נתונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_3</annotation></semantics></math></span> ? (עיגול לשלוש ספרות אחרי הנקודה)",
+       "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac23</annotation></semantics></math></span> ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow></mfrac><mo>=</mo><mfrac><mn>2</mn><mrow><mn>7</mn><mi mathvariant=\"normal\">/</mi><mn>3</mn></mrow></mfrac><mo>=</mo><mfrac><mn>6</mn><mn>7</mn></mfrac><mo>≈</mo><mn>0.857</mn></mrow><annotation encoding=\"application/x-tex\">a_3=\\frac{2}{3-\\frac23}=\\frac{2}{7/3}=\\frac67\\approx0.857</annotation></semantics></math></span>."
+      },
+      "recap": "מציבים צעד אחר צעד",
+      "recapHtml": "מציבים צעד אחר צעד"
+     },
+     {
+      "id": "C06-Q2",
+      "question": "נתונה $a_{n+1}=\\frac{2}{3-a_n}$ ומניחים $a_n\\le1$. מה מקבלים על $a_{n+1}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$a_{n+1}\\le1$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$a_{n+1}\\ge1$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$a_{n+1}\\le\\frac12$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le\\frac12</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$a_{n+1}\\ge2$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge2</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "$a_n\\le1\\Rightarrow3-a_n\\ge2>0\\Rightarrow\\frac{1}{3-a_n}\\le\\frac12\\Rightarrow a_{n+1}\\le1$. הכיוון $\\ge1$ נובע מטעות של אי-הפיכת הכיוון, והחסם $\\frac12$ חזק מדי ($a_3\\approx0.857$).",
+      "recap": "מכנה גדול יותר, שבר קטן יותר",
+      "questionHtml": "נתונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span> ומניחים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span>. מה מקבלים על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}</annotation></semantics></math></span> ?",
+      "explanationHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn><mo>⇒</mo><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>2</mn><mo>&gt;</mo><mn>0</mn><mo>⇒</mo><mfrac><mn>1</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⇒</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1\\Rightarrow3-a_n\\ge2&gt;0\\Rightarrow\\frac{1}{3-a_n}\\le\\frac12\\Rightarrow a_{n+1}\\le1</annotation></semantics></math></span>. הכיוון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\ge1</annotation></semantics></math></span> נובע מטעות של אי-הפיכת הכיוון, והחסם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12</annotation></semantics></math></span> חזק מדי (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub><mo>≈</mo><mn>0.857</mn></mrow><annotation encoding=\"application/x-tex\">a_3\\approx0.857</annotation></semantics></math></span>).",
+      "recapHtml": "מכנה גדול יותר, שבר קטן יותר"
+     },
+     {
+      "id": "C06-Q3",
+      "step": {
+       "type": "order",
+       "prompt": "סדרו את ההוכחה ש-$a_{n+1}\\ge a_n$ עבור $a_{n+1}=\\frac{2}{3-a_n}$, כשידוע $a_n\\le1$.",
+       "lines": [
+        "צריך להראות $\\frac{2}{3-a_n}\\ge a_n$",
+        "$3-a_n>0$, ולכן כופלים בלי להפוך כיוון: $2\\ge a_n(3-a_n)$",
+        "שקול ל-$a_n^2-3a_n+2\\ge0$",
+        "כלומר $(a_n-1)(a_n-2)\\ge0$",
+        "נכון, כי $a_n\\le1$ ולכן שני הגורמים אי-חיוביים"
+       ],
+       "explain": "הכפל במכנה חייב לבוא אחרי שמצהירים שהמכנה חיובי; רק אז פותחים סוגריים ומפרקים.",
+       "promptHtml": "סדרו את ההוכחה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge a_n</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span>, כשידוע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span>.",
+       "explainHtml": "הכפל במכנה חייב לבוא אחרי שמצהירים שהמכנה חיובי; רק אז פותחים סוגריים ומפרקים.",
+       "linesHtml": [
+        "צריך להראות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\frac{2}{3-a_n}\\ge a_n</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">3-a_n&gt;0</annotation></semantics></math></span>, ולכן כופלים בלי להפוך כיוון: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy=\"false\">(</mo><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">2\\ge a_n(3-a_n)</annotation></semantics></math></span>",
+        "שקול ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>−</mo><mn>3</mn><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mn>2</mn><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a_n^2-3a_n+2\\ge0</annotation></semantics></math></span>",
+        "כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>−</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">(a_n-1)(a_n-2)\\ge0</annotation></semantics></math></span>",
+        "נכון, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> ולכן שני הגורמים אי-חיוביים"
+       ]
+      },
+      "recap": "מכנה חיובי, כפל, פירוק, סימן",
+      "recapHtml": "מכנה חיובי, כפל, פירוק, סימן"
+     },
+     {
+      "id": "C06-Q4",
+      "question": "בסדרה $a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}$ (עולה וחסומה ב-$1$) נקודות השבת הן $1$ ו-$2$. מה הגבול ולמה?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$1$, כי $a_n\\le1$ ולכן $L\\le1$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L\\le1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$2$, כי הוא הגדול מבין השניים",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>, כי הוא הגדול מבין השניים"
+       },
+       {
+        "id": "c",
+        "value": "$1$, כי הוא קטן מ-$2$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, כי הוא קטן מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$2$, כי הסדרה עולה",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>, כי הסדרה עולה"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "הנימוק הוא החסם: $a_n\\le1$ נשמר בגבול, $L\\le1$, ולכן רק $1$ אפשרי. \"הגדול\", \"הקטן\" ו\"עולה\" אינם נימוקים: סדרה עולה יכולה להתכנס לערך קטן אם היא חסומה בו.",
+      "recap": "השורש נבחר לפי החסם",
+      "questionHtml": "בסדרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span> (עולה וחסומה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>) נקודות השבת הן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>. מה הגבול ולמה?",
+      "explanationHtml": "הנימוק הוא החסם: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> נשמר בגבול, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">L\\le1</annotation></semantics></math></span>, ולכן רק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> אפשרי. \"הגדול\", \"הקטן\" ו\"עולה\" אינם נימוקים: סדרה עולה יכולה להתכנס לערך קטן אם היא חסומה בו.",
+      "recapHtml": "השורש נבחר לפי החסם"
+     },
+     {
+      "id": "C06-Q5",
+      "step": {
+       "type": "numeric",
+       "prompt": "הסדרה $a_1=0,\\ a_{n+1}=\\frac{12}{7-a_n}$ עולה וחסומה מלמעלה ב-$3$. מהו הגבול?",
+       "answer": 3,
+       "tol": 0,
+       "explain": "$L(7-L)=12\\Rightarrow L^2-7L+12=0\\Rightarrow(L-3)(L-4)=0$. מ-$a_n\\le3$ נובע $L\\le3$, ולכן $L=3$.",
+       "promptHtml": "הסדרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>12</mn><mrow><mn>7</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_1=0,\\ a_{n+1}=\\frac{12}{7-a_n}</annotation></semantics></math></span> עולה וחסומה מלמעלה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>. מהו הגבול?",
+       "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo stretchy=\"false\">(</mo><mn>7</mn><mo>−</mo><mi>L</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>12</mn><mo>⇒</mo><msup><mi>L</mi><mn>2</mn></msup><mo>−</mo><mn>7</mn><mi>L</mi><mo>+</mo><mn>12</mn><mo>=</mo><mn>0</mn><mo>⇒</mo><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>L</mi><mo>−</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">L(7-L)=12\\Rightarrow L^2-7L+12=0\\Rightarrow(L-3)(L-4)=0</annotation></semantics></math></span>. מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le3</annotation></semantics></math></span> נובע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>≤</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">L\\le3</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">L=3</annotation></semantics></math></span>."
+      },
+      "recap": "שני שורשים: החסם מכריע",
+      "recapHtml": "שני שורשים: החסם מכריע"
+     },
+     {
+      "id": "C06-Q6",
+      "step": {
+       "type": "findbug",
+       "prompt": "בהוכחה ש-$a_n\\le1$ עבור $a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}$ יש שגיאה אחת. באיזו שורה?",
+       "lines": [
+        "בסיס: $a_1=0\\le1$",
+        "הנחה: $a_n\\le1$",
+        "לכן $3-a_n\\ge2$, ובפרט המכנה חיובי",
+        "בהפיכת שברים האי-שוויון נשמר: $\\frac{1}{3-a_n}\\ge\\frac12$",
+        "לכן $a_{n+1}=\\frac{2}{3-a_n}\\le1$"
+       ],
+       "bugIndex": 3,
+       "explain": "הפיכת מספרים חיוביים הופכת את הכיוון: $3-a_n\\ge2\\Rightarrow\\frac{1}{3-a_n}\\le\\frac12$. רק כך מגיעים ל-$a_{n+1}\\le1$.",
+       "promptHtml": "בהוכחה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_1=0,\\ a_{n+1}=\\frac{2}{3-a_n}</annotation></semantics></math></span> יש שגיאה אחת. באיזו שורה?",
+       "explainHtml": "הפיכת מספרים חיוביים הופכת את הכיוון: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>2</mn><mo>⇒</mo><mfrac><mn>1</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">3-a_n\\ge2\\Rightarrow\\frac{1}{3-a_n}\\le\\frac12</annotation></semantics></math></span>. רק כך מגיעים ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\le1</annotation></semantics></math></span>.",
+       "linesHtml": [
+        "בסיס: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>0</mn><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_1=0\\le1</annotation></semantics></math></span>",
+        "הנחה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_n\\le1</annotation></semantics></math></span>",
+        "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">3-a_n\\ge2</annotation></semantics></math></span>, ובפרט המכנה חיובי",
+        "בהפיכת שברים האי-שוויון נשמר: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≥</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{3-a_n}\\ge\\frac12</annotation></semantics></math></span>",
+        "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mn>3</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>≤</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac{2}{3-a_n}\\le1</annotation></semantics></math></span>"
+       ]
+      },
+      "recap": "הפיכה הופכת את כיוון האי-שוויון",
+      "recapHtml": "הפיכה הופכת את כיוון האי-שוויון"
+     }
+    ]
+   },
+   {
+    "id": "C07",
+    "order": 7,
+    "icon": "⚖️",
+    "title": "ממוצע חשבוני ושורש: אי-שוויון הממוצעים",
+    "goal": "להוכיח התכנסות לסדרה מהצורה חצי של (איבר ועוד קבוע חלקי איבר) בעזרת אי-שוויון הממוצעים, ולטפל נכון בחסם שמתחיל רק מ-$n=2$.",
+    "source": "ai-verified",
+    "boss": false,
+    "lesson": {
+     "html": "\n    <p>סדרה כמו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c&gt;0</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a_1&gt;0</annotation></semantics></math></span> היא שיטה קדומה לחישוב <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sqrt c</annotation></semantics></math></span>. החסם שלה לא מגיע מאינדוקציה אלא מ<b>אי-שוויון הממוצעים</b>: לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x,y&gt;0</annotation></semantics></math></span>,</p>\n    <div class=\"lesson-formula\"><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mn>2</mn></mfrac><mo>≥</mo><msqrt><mrow><mi>x</mi><mi>y</mi></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">\\frac{x+y}{2}\\ge\\sqrt{xy}</annotation></semantics></math></span></div>\n    <p>עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">x=a_n</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow><annotation encoding=\"application/x-tex\">y=\\frac{c}{a_n}</annotation></semantics></math></span> מקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msqrt><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>⋅</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></msqrt><mo>=</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge\\sqrt{a_n\\cdot\\frac{c}{a_n}}=\\sqrt c</annotation></semantics></math></span>.</p>\n    <div class=\"lesson-trap\">⚠️ החסם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">a_n\\ge\\sqrt c</annotation></semantics></math></span> מובטח מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n=2</annotation></semantics></math></span> ואילך, ולא בהכרח עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_1</annotation></semantics></math></span>. עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>=</mo><mn>10</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">c=10,\\ a_1=1</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>&lt;</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_1=1&lt;\\sqrt{10}</annotation></semantics></math></span>, אבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mn>5.5</mn><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_2=5.5\\ge\\sqrt{10}</annotation></semantics></math></span>. לכן כותבים \"לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge2</annotation></semantics></math></span>\" ומתחילים את המונוטוניות מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2</annotation></semantics></math></span> (או בודקים את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_1</annotation></semantics></math></span> בנפרד).</div>\n    <h3>מונוטוניות</h3>\n    <p><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo fence=\"true\">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">a_{n+1}-a_n=\\frac12\\left(\\frac{c}{a_n}-a_n\\right)=\\frac{c-a_n^2}{2a_n}</annotation></semantics></math></span>. כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">a_n\\ge\\sqrt c</annotation></semantics></math></span> מתקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>≤</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c-a_n^2\\le0</annotation></semantics></math></span>, ולכן ההפרש אי-חיובי והסדרה יורדת (מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2</annotation></semantics></math></span> ואילך).</p>\n    <div class=\"lesson-rule\">🔑 חסומה מלמטה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sqrt c</annotation></semantics></math></span> ויורדת, ולכן מתכנסת. הגבול: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mi>L</mi><mo>+</mo><mfrac><mi>c</mi><mi>L</mi></mfrac><mo fence=\"true\">)</mo></mrow><mo>⇒</mo><msup><mi>L</mi><mn>2</mn></msup><mo>=</mo><mi>c</mi><mo>⇒</mo><mi>L</mi><mo>=</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">L=\\frac12\\left(L+\\frac cL\\right)\\Rightarrow L^2=c\\Rightarrow L=\\sqrt c</annotation></semantics></math></span> (חיובי, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a_n&gt;0</annotation></semantics></math></span>).</div>\n    <div class=\"lesson-ex\"><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>=</mo><mn>10</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">c=10,\\ a_1=4</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mn>4</mn><mo>+</mo><mfrac><mn>10</mn><mn>4</mn></mfrac><mo fence=\"true\">)</mo></mrow><mo>=</mo><mn>3.25</mn></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac12\\left(4+\\frac{10}{4}\\right)=3.25</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>3</mn></msub><mo>≈</mo><mn>3.163</mn></mrow><annotation encoding=\"application/x-tex\">a_3\\approx3.163</annotation></semantics></math></span>. הם יורדים אל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>10</mn></msqrt><mo>≈</mo><mn>3.162</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{10}\\approx3.162</annotation></semantics></math></span>.</div>"
+    },
+    "questions": [
+     {
+      "id": "C07-Q1",
+      "step": {
+       "type": "numeric",
+       "prompt": "נתונה $a_1=4,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)$. מהו $a_2$ ?",
+       "answer": 3.25,
+       "tol": 0,
+       "explain": "$a_2=\\frac12\\left(4+\\frac{10}{4}\\right)=\\frac12(4+2.5)=3.25$.",
+       "promptHtml": "נתונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>4</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">a_1=4,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)</annotation></semantics></math></span>. מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2</annotation></semantics></math></span> ?",
+       "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mn>4</mn><mo>+</mo><mfrac><mn>10</mn><mn>4</mn></mfrac><mo fence=\"true\">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy=\"false\">(</mo><mn>4</mn><mo>+</mo><mn>2.5</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3.25</mn></mrow><annotation encoding=\"application/x-tex\">a_2=\\frac12\\left(4+\\frac{10}{4}\\right)=\\frac12(4+2.5)=3.25</annotation></semantics></math></span>."
+      },
+      "recap": "מציבים ומחלקים בשתיים",
+      "recapHtml": "מציבים ומחלקים בשתיים"
+     },
+     {
+      "id": "C07-Q2",
+      "question": "עבור $a_{n+1}=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)$, מהו ההפרש $a_{n+1}-a_n$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "$\\frac{c-a_n^2}{2a_n}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{c-a_n^2}{2a_n}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "$\\frac{a_n^2-c}{2a_n}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>−</mo><mi>c</mi></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{a_n^2-c}{2a_n}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "$\\frac{c+a_n^2}{2a_n}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>c</mi><mo>+</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{c+a_n^2}{2a_n}</annotation></semantics></math></span>"
+       },
+       {
+        "id": "d",
+        "value": "$\\frac{c}{2a_n}$",
+        "type": "text",
+        "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>c</mi><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{c}{2a_n}</annotation></semantics></math></span>"
+       }
+      ],
+      "correctId": "a",
+      "explanation": "$\\frac12a_n+\\frac{c}{2a_n}-a_n=\\frac{c}{2a_n}-\\frac{a_n}{2}=\\frac{c-a_n^2}{2a_n}$. האפשרות עם $a_n^2-c$ היא ההפרש בסימן הפוך.",
+      "recap": "ההפרש הוא (c − a²) חלקי 2a",
+      "questionHtml": "עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)</annotation></semantics></math></span>, מהו ההפרש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}-a_n</annotation></semantics></math></span> ?",
+      "explanationHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mi>c</mi><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mfrac><mi>c</mi><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac><mo>−</mo><mfrac><msub><mi>a</mi><mi>n</mi></msub><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12a_n+\\frac{c}{2a_n}-a_n=\\frac{c}{2a_n}-\\frac{a_n}{2}=\\frac{c-a_n^2}{2a_n}</annotation></semantics></math></span>. האפשרות עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>−</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">a_n^2-c</annotation></semantics></math></span> היא ההפרש בסימן הפוך.",
+      "recapHtml": "ההפרש הוא (c − a²) חלקי 2a"
+     },
+     {
+      "id": "C07-Q3",
+      "question": "נתונה $c=10,\\ a_1=1,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)$. מה נכון לגבי הטענה $a_n\\ge\\sqrt{10}$ ?",
+      "options": [
+       {
+        "id": "a",
+        "value": "נכונה לכל $n\\ge1$",
+        "type": "text",
+        "html": "נכונה לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "b",
+        "value": "נכונה לכל $n\\ge2$, אבל לא עבור $n=1$",
+        "type": "text",
+        "html": "נכונה לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge2</annotation></semantics></math></span>, אבל לא עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n=1</annotation></semantics></math></span>"
+       },
+       {
+        "id": "c",
+        "value": "אף פעם לא נכונה",
+        "type": "text",
+        "html": "אף פעם לא נכונה"
+       },
+       {
+        "id": "d",
+        "value": "נכונה רק עבור $n$ זוגי",
+        "type": "text",
+        "html": "נכונה רק עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> זוגי"
+       }
+      ],
+      "correctId": "b",
+      "explanation": "$a_1=1<\\sqrt{10}\\approx3.16$, ולכן הטענה כבר לא נכונה ב-$n=1$. מאי-שוויון הממוצעים $a_2=5.5\\ge\\sqrt{10}$, וכך לכל $n\\ge2$ (כי $a_{n+1}\\ge\\sqrt{10}$ לכל $n\\ge1$).",
+      "recap": "החסם מאי-שוויון הממוצעים מתחיל ב-n=2",
+      "questionHtml": "נתונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>=</mo><mn>10</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">c=10,\\ a_1=1,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)</annotation></semantics></math></span>. מה נכון לגבי הטענה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_n\\ge\\sqrt{10}</annotation></semantics></math></span> ?",
+      "explanationHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>&lt;</mo><msqrt><mn>10</mn></msqrt><mo>≈</mo><mn>3.16</mn></mrow><annotation encoding=\"application/x-tex\">a_1=1&lt;\\sqrt{10}\\approx3.16</annotation></semantics></math></span>, ולכן הטענה כבר לא נכונה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n=1</annotation></semantics></math></span>. מאי-שוויון הממוצעים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mn>5.5</mn><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_2=5.5\\ge\\sqrt{10}</annotation></semantics></math></span>, וכך לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge2</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge\\sqrt{10}</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge1</annotation></semantics></math></span>).",
+      "recapHtml": "החסם מאי-שוויון הממוצעים מתחיל ב-n=2"
+     },
+     {
+      "id": "C07-Q4",
+      "step": {
+       "type": "order",
+       "prompt": "סדרו את ההוכחה ש-$a_{n+1}\\ge\\sqrt{10}$ עבור $a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right),\\ a_1=4$.",
+       "lines": [
+        "כל האיברים חיוביים, ולכן אפשר להפעיל את אי-שוויון הממוצעים על $a_n$ ו-$\\frac{10}{a_n}$",
+        "$a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{10}{a_n}}$",
+        "$\\sqrt{a_n\\cdot\\frac{10}{a_n}}=\\sqrt{10}$",
+        "לכן $a_{n+1}\\ge\\sqrt{10}$ לכל $n$"
+       ],
+       "explain": "צריך להצדיק חיוביות לפני אי-שוויון הממוצעים (הוא מוגדר ל-$x,y>0$), אחר כך להפעיל אותו, לצמצם ולהסיק.",
+       "promptHtml": "סדרו את ההוכחה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge\\sqrt{10}</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right),\\ a_1=4</annotation></semantics></math></span>.",
+       "explainHtml": "צריך להצדיק חיוביות לפני אי-שוויון הממוצעים (הוא מוגדר ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x,y&gt;0</annotation></semantics></math></span>), אחר כך להפעיל אותו, לצמצם ולהסיק.",
+       "linesHtml": [
+        "כל האיברים חיוביים, ולכן אפשר להפעיל את אי-שוויון הממוצעים על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_n</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{10}{a_n}</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow><mo>≥</mo><msqrt><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>⋅</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)\\ge\\sqrt{a_n\\cdot\\frac{10}{a_n}}</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>⋅</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac></mrow></msqrt><mo>=</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sqrt{a_n\\cdot\\frac{10}{a_n}}=\\sqrt{10}</annotation></semantics></math></span>",
+        "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge\\sqrt{10}</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>"
+       ]
+      },
+      "recap": "חיוביות, ממוצעים, צמצום",
+      "recapHtml": "חיוביות, ממוצעים, צמצום"
+     },
+     {
+      "id": "C07-Q5",
+      "step": {
+       "type": "numeric",
+       "prompt": "הסדרה $a_1=4,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)$ מתכנסת, וכל איבריה חיוביים. מהו הגבול? (עיגול לשלוש ספרות אחרי הנקודה)",
+       "answer": 3.162,
+       "tol": 0.001,
+       "explain": "$L=\\frac12\\left(L+\\frac{10}{L}\\right)\\Rightarrow L^2=10\\Rightarrow L=\\sqrt{10}\\approx3.162$ (הגבול חיובי).",
+       "promptHtml": "הסדרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>4</mn><mo separator=\"true\">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mn>10</mn><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">a_1=4,\\ a_{n+1}=\\frac12\\left(a_n+\\frac{10}{a_n}\\right)</annotation></semantics></math></span> מתכנסת, וכל איבריה חיוביים. מהו הגבול? (עיגול לשלוש ספרות אחרי הנקודה)",
+       "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mi>L</mi><mo>+</mo><mfrac><mn>10</mn><mi>L</mi></mfrac><mo fence=\"true\">)</mo></mrow><mo>⇒</mo><msup><mi>L</mi><mn>2</mn></msup><mo>=</mo><mn>10</mn><mo>⇒</mo><mi>L</mi><mo>=</mo><msqrt><mn>10</mn></msqrt><mo>≈</mo><mn>3.162</mn></mrow><annotation encoding=\"application/x-tex\">L=\\frac12\\left(L+\\frac{10}{L}\\right)\\Rightarrow L^2=10\\Rightarrow L=\\sqrt{10}\\approx3.162</annotation></semantics></math></span> (הגבול חיובי)."
+      },
+      "recap": "הגבול הוא שורש c",
+      "recapHtml": "הגבול הוא שורש c"
+     },
+     {
+      "id": "C07-Q6",
+      "step": {
+       "type": "findbug",
+       "prompt": "בבדיקת המונוטוניות של $a_{n+1}=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)$ יש שגיאה אחת. באיזו שורה?",
+       "lines": [
+        "$a_{n+1}-a_n=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)-a_n$",
+        "$=\\frac12\\left(\\frac{c}{a_n}-a_n\\right)$",
+        "$=\\frac{c-a_n^2}{2a_n}$",
+        "כש-$a_n\\ge\\sqrt c$ נקבל $c-a_n^2\\ge0$, ולכן $a_{n+1}\\ge a_n$ והסדרה עולה"
+       ],
+       "bugIndex": 3,
+       "explain": "אם $a_n\\ge\\sqrt c$ אז $a_n^2\\ge c$ ו-$c-a_n^2\\le0$. ההפרש אי-חיובי והסדרה **יורדת**.",
+       "promptHtml": "בבדיקת המונוטוניות של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">a_{n+1}=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)</annotation></semantics></math></span> יש שגיאה אחת. באיזו שורה?",
+       "explainHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">a_n\\ge\\sqrt c</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>≥</mo><mi>c</mi></mrow><annotation encoding=\"application/x-tex\">a_n^2\\ge c</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>≤</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c-a_n^2\\le0</annotation></semantics></math></span>. ההפרש אי-חיובי והסדרה <strong>יורדת</strong>.",
+       "linesHtml": [
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><msub><mi>a</mi><mi>n</mi></msub><mo>+</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo fence=\"true\">)</mo></mrow><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}-a_n=\\frac12\\left(a_n+\\frac{c}{a_n}\\right)-a_n</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo fence=\"true\">(</mo><mfrac><mi>c</mi><msub><mi>a</mi><mi>n</mi></msub></mfrac><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">=\\frac12\\left(\\frac{c}{a_n}-a_n\\right)</annotation></semantics></math></span>",
+        "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mfrac><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><mn>2</mn><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">=\\frac{c-a_n^2}{2a_n}</annotation></semantics></math></span>",
+        "כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub><mo>≥</mo><msqrt><mi>c</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">a_n\\ge\\sqrt c</annotation></semantics></math></span> נקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>−</mo><msubsup><mi>a</mi><mi>n</mi><mn>2</mn></msubsup><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c-a_n^2\\ge0</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>≥</mo><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding=\"application/x-tex\">a_{n+1}\\ge a_n</annotation></semantics></math></span> והסדרה עולה"
+       ]
+      },
+      "recap": "מעל שורש c ההפרש שלילי: יורדת",
+      "recapHtml": "מעל שורש c ההפרש שלילי: יורדת"
+     }
+    ]
+   },
+   {
+    "id": "C08",
+    "order": 8,
+    "icon": "🏆",
+    "title": "בוס: שאלות מבחן אמיתיות",
+    "goal": "להוכיח התכנסות וחישוב גבול של סדרות רקורסיביות מהמבחנים, מההתחלה ועד הסוף.",
+    "source": "ai-verified",
+    "boss": true,
+    "lesson": {
+     "html": "\n    <p>לפניכם ארבע שאלות מבחן אמיתיות. רשימת בדיקה לפני שמגישים:</p>\n    <ul>\n      <li><b>ניחוש:</b> חשבו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub><mo separator=\"true\">,</mo><msub><mi>a</mi><mn>3</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_2,a_3</annotation></semantics></math></span> ופתרו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mi>L</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">L=f(L)</annotation></semantics></math></span> כדי לדעת איזה חסם ואיזה כיוון לצפות להם.</li>\n      <li><b>חסם:</b> אינדוקציה עם בסיס, הנחה וצעד. בדקו שהחסם נכון ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">a_1</annotation></semantics></math></span> עצמו.</li>\n      <li><b>מונוטוניות:</b> הפרש (עם החסם) או אינדוקציה כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> עולה. כתבו במפורש \"עולה\" או \"יורדת\".</li>\n      <li><b>משפט:</b> עולה וחסומה מלמעלה, או יורדת וחסומה מלמטה, ולכן מתכנסת.</li>\n      <li><b>גבול:</b> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><mi>L</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">L=f(L)</annotation></semantics></math></span> ופסילת השורש הלא מתאים בנימוק מהחסם או מהסימן.</li>\n    </ul>\n    <div class=\"lesson-rule\">🔑 כל אחד מהמרכיבים מקבל ניקוד בנפרד, ולכן גם תשובה חלקית שווה לכתוב.</div>\n    <div class=\"lesson-trap\">⚠️ בשבר (כמו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>6</mn><mrow><mn>5</mn><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{6}{5-a_n}</annotation></semantics></math></span>) הוכיחו שהמכנה חיובי לפני שהופכים או כופלים. בשורש הוכיחו שהביטוי שבתוכו אי-שלילי.</div>"
+    },
+    "questions": [
+     {
+      "bankId": "24A-B-Q2b",
+      "recap": "עולה וחסומה ב-5, ולכן L=5 ($-4$ נפסל)",
+      "recapHtml": "עולה וחסומה ב-5, ולכן L=5 (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">-4</annotation></semantics></math></span> נפסל)"
+     },
+     {
+      "bankId": "24B-B-Q2b",
+      "recap": "יורדת וחסומה מלמטה ב-1, ולכן L=1 ($0$ נפסל)",
+      "recapHtml": "יורדת וחסומה מלמטה ב-1, ולכן L=1 (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> נפסל)"
+     },
+     {
+      "bankId": "24A-A-Q2b",
+      "recap": "חסומה ב-2 ועולה (שבר), ולכן L=2",
+      "recapHtml": "חסומה ב-2 ועולה (שבר), ולכן L=2"
+     },
+     {
+      "bankId": "23B-B-Q2b",
+      "recap": "עולה וחסומה ב-5, ולכן L=5",
+      "recapHtml": "עולה וחסומה ב-5, ולכן L=5"
+     }
+    ]
    }
   ]
  }
