@@ -16,7 +16,140 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "points": 20
+   "points": 20,
+   "rubric": [
+    {
+     "text": "תחום הגדרה $\\mathbb{R}$ וזיהוי שהפונקציה אי-זוגית (סימטריה לראשית)",
+     "points": 3
+    },
+    {
+     "text": "נגזרת $f'(x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$, נקודות קריטיות $x=\\pm1$ ותחומי עליה וירידה",
+     "points": 4
+    },
+    {
+     "text": "סיווג הקיצון: מקסימום $\\left(1,\\frac{2}{\\sqrt{e}}\\right)$ ומינימום $\\left(-1,-\\frac{2}{\\sqrt{e}}\\right)$",
+     "points": 3
+    },
+    {
+     "text": "נגזרת שנייה $f''(x)=-2xe^{-\\frac{x^2}{2}}\\left(3-x^2\\right)$, קמירות ונקודות פיתול $x=0,\\pm\\sqrt{3}$",
+     "points": 4
+    },
+    {
+     "text": "אסימפטוטה אופקית $y=0$ ב-$\\pm\\infty$ וללא אסימפטוטה אנכית",
+     "points": 3
+    },
+    {
+     "text": "שרטוט הגרף בהתאם לכל הנתונים",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לגזור $e^{-\\frac{x^2}{2}}$ בלי כלל השרשרת, ולשכוח את הגורם $-x$.",
+    "לפספס את $x=0$ כנקודת פיתול: $f''$ מתאפסת שם ומשנה סימן.",
+    "לחפש אסימפטוטה משופעת כשהגבול $\\lim\\frac{f(x)}{x}=0$ נותן אסימפטוטה אופקית $y=0$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הזוגיות של $f(x)=2xe^{-\\frac{x^2}{2}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אי-זוגית: $f(-x)=-f(x)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "זוגית: $f(-x)=f(x)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא זוגית ולא אי-זוגית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מחזורית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$e^{-\\frac{x^2}{2}}$ זוגית ו-$2x$ אי-זוגית, ולכן המכפלה אי-זוגית (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $f$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2 \\left(x^{2} + 1\\right) e^{- \\frac{x^{2}}{2}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2 \\left(1 - x^{2}\\right) e^{- \\frac{x^{2}}{2}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2 \\left(1 - x\\right) e^{- \\frac{x^{2}}{2}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2 \\left(1 - 2 x^{2}\\right) e^{- \\frac{x^{2}}{2}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "גזירת מכפלה: $f'=2e^{-\\frac{x^2}{2}}+2x\\cdot e^{-\\frac{x^2}{2}}(-x)=2e^{-\\frac{x^2}{2}}\\left(1-x^2\\right)$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך המקסימום המקומי $f(1)$? (עשרוני)",
+     "answer": 1.2131,
+     "tol": 0.001,
+     "explain": "$f(1)=\\frac{2}{\\sqrt{e}}\\approx1.2131$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך החיובי של $x$ שבו $f''(x)=-2xe^{-\\frac{x^2}{2}}\\left(3-x^2\\right)$ מתאפסת? (עשרוני)",
+     "answer": 1.7321,
+     "tol": 0.001,
+     "explain": "$x\\left(3-x^2\\right)=0$ נותן $x=0,\\pm\\sqrt{3}$, והערך החיובי הוא $\\sqrt{3}\\approx1.7321$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי האסימפטוטה של $f$ ב-$\\pm\\infty$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "משופעת: $y=x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אנכית: $x=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אופקית: $y=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין אסימפטוטות"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\lim_{x\\to\\pm\\infty}2xe^{-\\frac{x^2}{2}}=0$ (אומת ב-sympy), ולכן $y=0$ אופקית; אין נקודת אי-רציפות ולכן אין אנכית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -28,7 +161,119 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "הוכחת חסימות $1\\le a_n<2$ באינדוקציה (בסיס וצעד)",
+     "points": 3
+    },
+    {
+     "text": "הוכחת מונוטוניות: $a_{n+1}-a_n=1-\\frac{a_n}{2}>0$",
+     "points": 3
+    },
+    {
+     "text": "הסקה שסדרה עולה וחסומה מתכנסת",
+     "points": 1
+    },
+    {
+     "text": "מעבר לגבול בנוסחת הנסיגה: $L=\\frac{L}{2}+1$",
+     "points": 2
+    },
+    {
+     "text": "פתרון $L=2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק מכמה איברים ראשונים ($1,1.5,1.75,\\ldots$) שהסדרה עולה, בלי הוכחה.",
+    "לפתור את $L=\\frac{L}{2}+1$ לפני שהוכח שהגבול קיים.",
+    "להוכיח את המונוטוניות בלי החסם $a_n<2$, שהוא מה שמבטיח $1-\\frac{a_n}{2}>0$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_4$ בסדרה $a_1=1$, $a_{n+1}=\\frac{a_n}{2}+1$? (עשרוני)",
+     "answer": 1.875,
+     "tol": 0.001,
+     "explain": "$a_2=1.5$, $a_3=1.75$, $a_4=1.875$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה חסם עליון, מבין האפשרויות, מתקיים לכל איברי הסדרה (והוא גם הגבול)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a_n<1.5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a_n<1.8$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a_n<1.9$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a_n<2$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "כבר $a_3=1.75>1.5$, $a_4=1.875>1.8$ ו-$a_5=1.9375>1.9$; רק $2$ נשמר לכל $n$ (נבדק ב-40 האיברים הראשונים)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $a_{n+1}-a_n$ כביטוי ב-$a_n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1 - \\frac{a_{n}}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{a_{n}}{2} - 1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{a_{n}}{2} + 1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1 - 2 a_{n}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$a_{n+1}-a_n=\\frac{a_n}{2}+1-a_n=1-\\frac{a_n}{2}$, וזה חיובי כאשר $a_n<2$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "חסימות באינדוקציה: $a_1=1<2$, ואם $1\\le a_k<2$ אז $a_{k+1}=\\frac12(a_k+2)<\\frac12(2+2)=2$; לכן הסדרה חסומה.",
+      "מונוטוניות: $a_{n+1}-a_n=1-\\frac{a_n}{2}>0$ כי $a_n<2$; לכן הסדרה עולה.",
+      "הסדרה עולה וחסומה, ולכן מתכנסת לגבול $L$.",
+      "בנוסחת הנסיגה $L=\\frac{L}{2}+1$, ולכן $L=2$."
+     ],
+     "explain": "החסימות קודם (המונוטוניות נשענת על $a_n<2$), אחר כך המונוטוניות, ההתכנסות, וחישוב הגבול."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו גבול הסדרה?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "$L=\\frac{L}{2}+1$ נותן $\\frac{L}{2}=1$, כלומר $L=2$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -40,7 +285,97 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "חילוק פולינומים: $\\frac{x^3-2x}{x^2+1}=x-\\frac{3x}{x^2+1}$",
+     "points": 4
+    },
+    {
+     "text": "אינטגרל $\\int x\\,dx=\\frac{x^2}{2}$",
+     "points": 2
+    },
+    {
+     "text": "אינטגרל $\\int\\frac{3x}{x^2+1}dx=\\frac{3}{2}\\ln\\left(x^2+1\\right)$",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית עם $+C$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות פירוק לשברים חלקיים כשהמונה מדרגה גבוהה מהמכנה: קודם חייבים לחלק.",
+    "לאנטגרל $\\frac{3x}{x^2+1}$ כ-$3\\ln\\left(x^2+1\\right)$ ולשכוח את הגורם $\\frac{1}{2}$ מהנגזרת הפנימית $2x$.",
+    "לשכוח את הערך המוחלט או את התנאי $x^2+1>0$: כאן הביטוי תמיד חיובי ולכן אין צורך בערך מוחלט."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי תוצאת חילוק הפולינומים $\\frac{x^3-2x}{x^2+1}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x - \\frac{2 x}{x^{2} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x - \\frac{3 x}{x^{2} + 1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x + \\frac{3 x}{x^{2} + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x - \\frac{3}{x^{2} + 1}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$x^3-2x=x\\left(x^2+1\\right)-3x$, ולכן המנה היא $x-\\frac{3x}{x^2+1}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התוצאה (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} - 3 \\log{\\left(x^{2} + 1 \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} - \\frac{3 \\operatorname{atan}{\\left(x \\right)}}{2}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} - \\frac{3 \\log{\\left(x^{2} + 1 \\right)}}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{x^{2}}{2} + \\frac{3 \\log{\\left(x^{2} + 1 \\right)}}{2}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\int\\frac{3x}{x^2+1}dx=\\frac{3}{2}\\ln\\left(x^2+1\\right)$ כי $\\left(x^2+1\\right)'=2x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של האינטגרל המסוים $\\int_0^1\\frac{x^3-2x}{x^2+1}dx$? (עשרוני)",
+     "answer": -0.5397,
+     "tol": 0.001,
+     "explain": "$F(1)-F(0)=\\frac{1}{2}-\\frac{3}{2}\\ln2\\approx-0.5397$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -52,7 +387,104 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "תנאי הרציפות ב-$x=1$: $a+1=2-b$, כלומר $a+b=1$",
+     "points": 3
+    },
+    {
+     "text": "נגזרות הענפים: $2ax+1$ עבור $x<1$ ו-$4x-b$ עבור $x>1$",
+     "points": 2
+    },
+    {
+     "text": "תנאי הגזירות $f'(1^-)=f'(1^+)$: $2a+b=3$",
+     "points": 2
+    },
+    {
+     "text": "פתרון המערכת: $a=2$, $b=-1$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לדרוש רק שוויון נגזרות ולשכוח את תנאי הרציפות (גזירות מחייבת רציפות).",
+    "להשוות נגזרות חד-צדדיות לפי הנוסחאות של הענפים בלי לוודא שהן מוגדרות לפי הענף הנכון ($x\\le1$ משמאל, $x>1$ מימין).",
+    "טעות בגזירת $2x^2-bx$: הנגזרת היא $4x-b$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה נותנת את תנאי הרציפות ב-$x=1$ ($f(1)=a+1$ והגבול מימין $2-b$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a+b=3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a-b=1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2a+b=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a+b=1$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$a+1=2-b$ שקול ל-$a+b=1$ (נבדק ב-sympy; שלוש האפשרויות האחרות נותנות פתרון אחר למערכת)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו משוואה נותנת את תנאי הגזירות, $f'(1^-)=2a+1$ ו-$f'(1^+)=4-b$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2a+b=3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2a+b=5$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2a-b=3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a+2b=3$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$2a+1=4-b$ שקול ל-$2a+b=3$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $a$ במערכת $a+b=1$, $2a+b=3$?",
+     "answer": 2,
+     "tol": 0.001,
+     "explain": "חיסור המשוואות נותן $a=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך של $b$ במערכת $a+b=1$, $2a+b=3$?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "$b=1-a=-1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -64,7 +496,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $f'(x)=6x^2-2x+1$",
+     "points": 2
+    },
+    {
+     "text": "הוכחה ש-$f'(x)>0$ לכל $x$ (דיסקרימיננטה שלילית), ולכן $f$ עולה ממש",
+     "points": 3
+    },
+    {
+     "text": "סימנים מנוגדים בקצוות: $f(-3)<0<f(0)=1$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: קיום (ערך הביניים) ויחידות (מונוטוניות ממש)",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק בסימנים מנוגדים בקצוות: זה מוכיח רק קיום של שורש אחד לפחות, לא יחידות.",
+    "לטעון ש-$f'(x)\\neq0$ בלי להראות שהיא חיובית (סימן קבוע) בכל התחום.",
+    "לטעות בחישוב $f(-3)$: הערך הוא $-65$ (בפתרון הרשמי מודפס $-59$), אך רק הסימן חשוב."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדיסקרימיננטה של $f'(x)=6x^2-2x+1$ (כלומר $b^2-4ac$)?",
+     "answer": -20,
+     "tol": 0.001,
+     "explain": "$(-2)^2-4\\cdot6\\cdot1=4-24=-20<0$, ולכן $f'$ אינה מתאפסת ומקדם $x^2$ חיובי: $f'>0$ תמיד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(-3)$ עבור $f(x)=2x^3-x^2+x+1$?",
+     "answer": -65,
+     "tol": 0.001,
+     "explain": "$2(-27)-9-3+1=-65$. בפתרון הרשמי מודפס $-59$, אך רק הסימן (שלילי) משמש בהוכחה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(0)$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$f(0)=1>0$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מבטיח את הקיום ומה את היחידות של השורש בקטע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קיום: משפט רול. יחידות: משפט ערך הביניים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "קיום: משפט ערך הביניים (סימנים מנוגדים בקצוות). יחידות: $f'>0$, ולכן $f$ עולה ממש"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קיום: $f'>0$. יחידות: סימנים מנוגדים בקצוות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "קיום: משפט ערך הביניים. יחידות: $f'$ מתאפסת בנקודה אחת בקטע"
+      }
+     ],
+     "correctId": "b",
+     "explain": "רול דורש $f(-3)=f(0)$, אבל $-65\\neq1$. מונוטוניות אינה מבטיחה קיום (למשל $e^x$), וסימנים מנוגדים אינם מבטיחים יחידות. כאן $f'$ אינה מתאפסת כלל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -76,7 +584,129 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $1^\\infty$",
+     "points": 1
+    },
+    {
+     "text": "כתיבת הבסיס כ-$1+\\frac{8x-3}{x^2-3x+7}$",
+     "points": 3
+    },
+    {
+     "text": "שימוש בגבול $(1+u)^{1/u}\\to e$ ושכתוב המעריך",
+     "points": 2
+    },
+    {
+     "text": "חישוב גבול המכפלה $2x\\cdot\\frac{8x-3}{x^2-3x+7}\\to16$",
+     "points": 3
+    },
+    {
+     "text": "תשובה סופית $e^{16}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח ש-$1^\\infty=1$: זו צורה לא מוגדרת, והמעריך הגדל משפיע.",
+    "לטעות בחיסור $\\left(x^2+5x+4\\right)-\\left(x^2-3x+7\\right)=8x-3$ (ולא $2x-3$).",
+    "לשכוח לכפול את $\\frac{8x-3}{x^2-3x+7}$ במעריך המקורי $2x$ ולהשאיר $e^8$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה הלא מוגדרת של הגבול?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\infty}{\\infty}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הבסיס $\\frac{x^2+5x+4}{x^2-3x+7}\\to1$ והמעריך $2x\\to\\infty$."
+    },
+    {
+     "type": "choice",
+     "prompt": "הבסיס הוא $1+g(x)$. מהו $g(x)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{8 x + 3}{x^{2} - 3 x + 7}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{8 x - 3}{x^{2} + 5 x + 4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{2 x - 3}{x^{2} - 3 x + 7}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{8 x - 3}{x^{2} - 3 x + 7}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\left(x^2+5x+4\\right)-\\left(x^2-3x+7\\right)=8x-3$, ומחלקים במכנה $x^2-3x+7$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to\\infty}2x\\cdot\\frac{8x-3}{x^2-3x+7}$?",
+     "answer": 16,
+     "tol": 0.001,
+     "explain": "הדרגות שוות, ולכן הגבול הוא מנת המקדמים המובילים: $\\frac{16}{1}=16$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הגבול המבוקש?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$e^{16}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$e^{8}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$e^{-16}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$e^{2}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(1+g)^{2x}=\\left((1+g)^{1/g}\\right)^{2xg}\\to e^{16}$ (אומת ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -88,7 +718,104 @@
    "official": false,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נוסחת הנפח $V=\\pi\\int_1^e\\ln^2x\\,dx$ (כולל הגורם $\\pi$)",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה בחלקים ראשונה: $x\\ln^2x-2\\int\\ln x\\,dx$",
+     "points": 3
+    },
+    {
+     "text": "אינטגרציה בחלקים שנייה וקדומה $x\\ln^2x-2x\\ln x+2x$",
+     "points": 2
+    },
+    {
+     "text": "הצבת הגבולות: $\\int_1^e\\ln^2x\\,dx=e-2$ והנפח $V=\\pi(e-2)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשמיט את הגורם $\\pi$ מהתשובה הסופית (טעות שמופיעה גם בפתרון הרשמי המודפס).",
+    "לשכוח שיש להפעיל אינטגרציה בחלקים פעמיים, כי $\\int\\ln x\\,dx$ עדיין דורש חלקים.",
+    "לחשב את $e-2$ כ-$0.714$: הערך הנכון הוא $0.718$, ו-$V\\approx2.256$ אחרי הכפלה ב-$\\pi$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את נפח הסיבוב סביב ציר ה-$X$ של התחום מתחת ל-$y=\\ln x$ עבור $1\\le x\\le e$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$V=\\pi\\int_1^e\\ln x\\,dx$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$V=\\pi\\int_1^e\\ln^2x\\,dx$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$V=2\\pi\\int_1^e\\ln^2x\\,dx$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$V=\\pi\\int_0^1\\ln^2x\\,dx$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "שיטת הדיסקות: $V=\\pi\\int y^2dx$. ערכי האפשרויות: $\\pi(e-2)\\approx2.26$, $\\pi\\approx3.14$, $2\\pi(e-2)\\approx4.51$, $2\\pi\\approx6.28$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקדומה של $\\ln^2x$ (בלי הקבוע)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} + 2 x \\log{\\left(x \\right)} + 2 x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x \\log{\\left(x \\right)}^{2} - 2 x \\log{\\left(x \\right)} + 2 x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\log{\\left(x \\right)}^{3}}{3}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "שתי אינטגרציות בחלקים נותנות $x\\ln^2x-2x\\ln x+2x$; הנגזרת מחזירה $\\ln^2x$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\int_1^e\\ln^2x\\,dx$? (עשרוני)",
+     "answer": 0.7183,
+     "tol": 0.001,
+     "explain": "$AF(e)-AF(1)=e-2\\approx0.7183$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הנפח $V=\\pi(e-2)$? (עשרוני)",
+     "answer": 2.2565,
+     "tol": 0.001,
+     "explain": "$V=\\pi(e-2)\\approx2.2565$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -100,7 +827,97 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "גזירה סתומה של שני האגפים: כלל מכפלה לגזירת $\\pi x\\sin\\frac{y}{2}$",
+     "points": 4
+    },
+    {
+     "text": "בידוד $y'=\\frac{\\pi\\sin\\frac{y}{2}}{1-\\frac{\\pi x}{2}\\cos\\frac{y}{2}}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב השיפוע בנקודה: $y'(1)=\\pi$",
+     "points": 2
+    },
+    {
+     "text": "משוואת המשיק $y=\\pi x$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שגם $y$ תלוי ב-$x$: הנגזרת של $\\sin\\frac{y}{2}$ היא $\\cos\\frac{y}{2}\\cdot\\frac{y'}{2}$.",
+    "לבודד את $y'$ בלי להעביר את האיבר המכיל $y'$ מאגף ימין לאגף שמאל.",
+    "להציב $x=1,\\ y=\\pi$ לפני הגזירה במקום אחריה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו $y'$ מגזירה סתומה של $y=\\pi x\\sin\\frac{y}{2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{\\pi \\sin{\\left(\\frac{y}{2} \\right)}}{\\frac{\\pi x \\cos{\\left(\\frac{y}{2} \\right)}}{2} + 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\pi \\sin{\\left(\\frac{y}{2} \\right)}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\pi \\sin{\\left(\\frac{y}{2} \\right)}}{- \\pi x \\cos{\\left(\\frac{y}{2} \\right)} + 1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{\\pi \\sin{\\left(\\frac{y}{2} \\right)}}{- \\frac{\\pi x \\cos{\\left(\\frac{y}{2} \\right)}}{2} + 1}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$y'=\\pi\\sin\\frac{y}{2}+\\frac{\\pi x}{2}\\cos\\frac{y}{2}\\cdot y'$, ומבודדים את $y'$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו השיפוע $y'(1)$ בנקודה $(1,\\pi)$? (עשרוני)",
+     "answer": 3.1416,
+     "tol": 0.001,
+     "explain": "$\\sin\\frac{\\pi}{2}=1$ ו-$\\cos\\frac{\\pi}{2}=0$, ולכן $y'(1)=\\pi\\approx3.1416$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי משוואת המשיק בנקודה $(1,\\pi)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\pi x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\pi x - \\pi$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\pi x + 1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המשיק עובר דרך $(1,\\pi)$ בשיפוע $\\pi$: $y-\\pi=\\pi(x-1)$, כלומר $y=\\pi x$ (נבדק ב-sympy)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -112,7 +929,108 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "זיהוי הצורה $0^0$ וסימון הגבול ב-$A$",
+     "points": 2
+    },
+    {
+     "text": "לקיחת לוגריתם והפיכה למנה $\\ln A=\\lim\\frac{\\ln x}{\\ln\\left(e^x-1\\right)}$ מהצורה $\\frac{\\infty}{\\infty}$",
+     "points": 2
+    },
+    {
+     "text": "הפעלת לופיטל וקבלת $\\frac{e^x-1}{xe^x}$",
+     "points": 2
+    },
+    {
+     "text": "לופיטל שנייה על $\\frac{0}{0}$ או גבול יסודי, וקבלת הערך $1$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה $\\ln A=1$, כלומר $A=e$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשאיר את התשובה כ-$\\ln A=1$ בלי לחזור ל-$A=e$.",
+    "לגזור את $\\ln\\left(e^x-1\\right)$ בלי כלל השרשרת: הנגזרת היא $\\frac{e^x}{e^x-1}$.",
+    "להניח ש-$0^0=1$ אוטומטית: זו צורה לא מוגדרת וכאן הגבול הוא $e$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הצורה הלא מוגדרת של $\\lim_{x\\to0^+}x^{\\frac{1}{\\ln(e^x-1)}}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\infty^0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$0^0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1^\\infty$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$0\\cdot\\infty$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הבסיס $x\\to0^+$, ו-$\\ln\\left(e^x-1\\right)\\to-\\infty$ ולכן המעריך $\\frac{1}{\\ln(e^x-1)}\\to0$ (אומת ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "אחרי לוגריתם מקבלים $\\frac{\\ln x}{\\ln(e^x-1)}$. מהי המנה $\\frac{(\\ln x)'}{\\left(\\ln(e^x-1)\\right)'}$ אחרי פישוט?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{x e^{x}}{e^{x} - 1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\left(e^{x} - 1\\right) e^{- x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{\\left(e^{x} - 1\\right) e^{- x}}{x}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac{e^{x} - 1}{x}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$(\\ln x)'=\\frac{1}{x}$ ו-$\\left(\\ln(e^x-1)\\right)'=\\frac{e^x}{e^x-1}$, ולכן המנה היא $\\frac{e^x-1}{xe^x}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\lim_{x\\to0^+}\\frac{e^x-1}{xe^x}$?",
+     "answer": 1,
+     "tol": 0.001,
+     "explain": "$\\frac{e^x-1}{x}\\to1$ ו-$e^x\\to1$ (או לופיטל נוספת: $\\frac{e^x}{e^x+xe^x}\\to1$) (אומת ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הגבול המקורי $A$? (עשרוני)",
+     "answer": 2.7183,
+     "tol": 0.001,
+     "explain": "$\\ln A=1$ ולכן $A=e\\approx2.7183$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -124,7 +1042,104 @@
    "official": true,
    "confidence": "high",
    "part": "א",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "נגזרת $y'=2+\\frac{2}{\\sqrt[3]{x}}$",
+     "points": 2
+    },
+    {
+     "text": "נקודות חשודות: $x=-1$ (הנגזרת מתאפסת) ו-$x=0$ (הנגזרת לא מוגדרת)",
+     "points": 3
+    },
+    {
+     "text": "חישוב ערכי הפונקציה: $y(-2)\\approx0.76$, $y(-1)=1$, $y(0)=0$",
+     "points": 3
+    },
+    {
+     "text": "קביעה: מקסימום $1$ ומינימום $0$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$x=0$ היא נקודה חשודה כי $y'$ לא מוגדרת שם (וגם קצה הקטע).",
+    "לשכוח לחשב את $y(-2)$ בקצה השמאלי של הקטע.",
+    "לטעות בגזירת $x^{\\frac{2}{3}}$: הנגזרת היא $\\frac{2}{3}x^{-\\frac{1}{3}}$, ולכן $3x^{\\frac{2}{3}}$ נותן $2x^{-\\frac{1}{3}}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת של $y=2x+3\\sqrt[3]{x^2}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y'=2+\\frac{3}{\\sqrt[3]{x}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y'=2+2\\sqrt[3]{x}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y'=2+\\frac{2}{3\\sqrt[3]{x}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y'=2+\\frac{2}{\\sqrt[3]{x}}$"
+      }
+     ],
+     "correctId": "d",
+     "explain": "$\\left(3x^{\\frac{2}{3}}\\right)'=3\\cdot\\frac{2}{3}x^{-\\frac{1}{3}}=\\frac{2}{\\sqrt[3]{x}}$ (נבדק מספרית בכמה נקודות)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "באיזה $x$ בקטע $[-2,0)$ מתאפסת הנגזרת?",
+     "answer": -1,
+     "tol": 0.001,
+     "explain": "$2+\\frac{2}{\\sqrt[3]{x}}=0$ נותן $\\sqrt[3]{x}=-1$, כלומר $x=-1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y(-2)=-4+3\\sqrt[3]{4}$? (עשרוני)",
+     "answer": 0.7622,
+     "tol": 0.001,
+     "explain": "$\\sqrt[3]{4}\\approx1.5874$, ולכן $y(-2)\\approx0.7622$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהם המקסימום והמינימום המוחלטים בקטע $[-2,0]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מקסימום $1$ (ב-$x=-1$), מינימום $0$ (ב-$x=0$)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מקסימום $1$, מינימום $-4+3\\sqrt[3]{4}\\approx0.76$ (ב-$x=-2$)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מקסימום $-4+3\\sqrt[3]{4}\\approx0.76$, מינימום $0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מקסימום $1$, מינימום $-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הערכים בנקודות החשודות: $y(-2)\\approx0.76$, $y(-1)=1$, $y(0)=0$; הגדול הוא $1$ והקטן הוא $0$ (נבדק על רשת צפופה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -136,7 +1151,83 @@
    "official": true,
    "confidence": "high",
    "part": "ב",
-   "points": 10
+   "points": 10,
+   "rubric": [
+    {
+     "text": "בחירת נקודת פיתוח $x_0=8$ שבה $\\sqrt[3]{8}=2$ ו-$x-x_0=1$",
+     "points": 2
+    },
+    {
+     "text": "נגזרות $y'(8)=\\frac{1}{12}$ ו-$y''(x)=-\\frac{2}{9\\sqrt[3]{x^5}}$",
+     "points": 3
+    },
+    {
+     "text": "הקירוב $\\sqrt[3]{9}\\approx2+\\frac{1}{12}\\approx2.0833$",
+     "points": 2
+    },
+    {
+     "text": "שארית לגרנז' $|R_1|=\\frac{1}{9\\sqrt[3]{c^5}}\\le\\frac{1}{288}<0.01$ כי $c>8$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפתח סביב $x_0=0$ או $x_0=9$: שם הנגזרות לא מוגדרות או שהערכים לא ידועים.",
+    "להעריך את השארית עם $c=9$ במקום $c>8$: החסם הגדול ביותר מתקבל כש-$c$ קרוב ל-$8$.",
+    "לשכוח את החלוקה ב-$2!$ בשארית מסדר ראשון, $\\frac{y''(c)}{2!}(x-x_0)^2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי הנגזרת השנייה של $y=\\sqrt[3]{x}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$- \\frac{2}{9 x^{\\frac{2}{3}}}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$- \\frac{2}{9 x^{\\frac{5}{3}}}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{2}{9 x^{\\frac{5}{3}}}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$- \\frac{1}{9 x^{\\frac{5}{3}}}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$y'=\\frac{1}{3}x^{-\\frac{2}{3}}$ ולכן $y''=-\\frac{2}{9}x^{-\\frac{5}{3}}$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $y'(8)$ עבור $y=\\sqrt[3]{x}$? (עשרוני)",
+     "answer": 0.0833,
+     "tol": 0.0005,
+     "explain": "$y'(8)=\\frac{1}{3\\cdot8^{2/3}}=\\frac{1}{12}\\approx0.0833$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הקירוב $\\sqrt[3]{9}\\approx2+y'(8)\\cdot1$? (עשרוני)",
+     "answer": 2.0833,
+     "tol": 0.001,
+     "explain": "$2+\\frac{1}{12}\\approx2.0833$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו החסם $\\frac{|y''(8)|}{2!}\\cdot1^2$ על השארית? (עשרוני)",
+     "answer": 0.003472,
+     "tol": 0.0001,
+     "explain": "כש-$c>8$ הערך $\\frac{1}{9\\sqrt[3]{c^5}}$ קטן מ-$\\frac{1}{9\\cdot32}=\\frac{1}{288}\\approx0.00347<0.01$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
